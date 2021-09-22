@@ -31,6 +31,6 @@ run /usr/bin/gnome-keyring-daemon --start --components=pkcs11
 run /usr/lib/gsd-power
 run /usr/bin/gnome-keyring-daemon --start --components=secrets
 run /usr/bin/gnome-keyring-daemon --start --components=ssh
-run /home/kylert/.config/awesome/keymapper.sh
-run /home/kylert/.config/awesome/xinput.sh
 run xfce4-power-manager
+run /home/kylert/.config/awesome/keymapper.sh
+run /home/kylert/.config/awesome/xinput-daemon.sh

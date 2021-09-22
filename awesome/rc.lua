@@ -291,7 +291,7 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey,          }, "s", function () awful.spawn("fsearch") end,
               {description = "search the filesystem", group = "launcher"}),
-    awful.key({ modkey,          }, "e", function () awful.spawn("pcmanfm") end,
+    awful.key({ modkey,          }, "Return", function () awful.spawn("pcmanfm") end,
               {description = "open a file manager", group = "launcher"}),
     awful.key({          }, "Print", function () awful.spawn("xfce4-screenshooter -f --mouse") end,
               {description = "take a screenshot of the fullscreen", group = "launcher"}),

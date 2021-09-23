@@ -263,9 +263,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey,   "Control"}, "Down", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
 
-    -- Notifications Settings
-    awful.key({ modkey,          }, "n", function () naughty.toggle() naughty.destroy_all_notifications()  end,
-              {description = "Toggle Do Not Disturb for Notifications", group = "client"}),
+    -- Notifications manipulation
+    awful.key({ modkey,          }, "n", function () naughty.toggle () naughty.destroy_all_notifications () end,
+              {description = "Toggle Do Not Disturb for notifications", group = "awesome"}),
 
       -- Unmodified Keys - Kyle
 

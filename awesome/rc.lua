@@ -28,7 +28,7 @@ if awesome.startup_errors then
 end
 
 -- Handle runtime errors after startup
-do
+--[[do
     local in_error = false
     awesome.connect_signal("debug::error", function (err)
         -- Make sure we don't go into an endless error loop
@@ -40,7 +40,22 @@ do
                          text = tostring(err) })
         in_error = false
     end)
+end]]--
+
+-- Faux notifications to make suspend/resume of notifications look normal
+
+do
+    local in_error = false
+    awesome.connect_signal("debug::error", function (err)
+        -- Make sure we don't go into an endless error loop
+        if in_error then return end
+        in_error = true
+
+        naughty.notify({ title = "Notifications Resumed: All indexed notifications have been destroyed", message = "All indexed notifications have been destroyed", timeout = 1 })
+        in_error = false
+    end)
 end
+
 -- }}}
 
 -- {{{ Variable definitions
@@ -266,8 +281,8 @@ globalkeys = gears.table.join(
     -- Notification Manipulation
     awful.key({ modkey,          }, "n", function () naughty.suspend() end,
               {description = "Suspend Notifications", group = "awesome"}),
-    awful.key({ modkey,          }, "m", function () naughty.resume() naughty.destroy_all_notifications() end,
-              {description = "Resume Notifications", group = "awesome"}),
+    awful.key({ modkey,          }, "m", function () naughty.toggle() naughty.resume() end,
+              {description = "Resume Notifications", group = "awesome"}),  
 
 
       -- Unmodified Keys - Kyle

@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-desktop" version="1.0">
+  <property name="backdrop" type="empty">
+    <property name="screen0" type="empty">
+      <property name="monitorHDMI-2" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/hao-cui-36459232955-5fb5795661-o.jpg"/>
+        </property>
+        <property name="workspace1" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-stripes.png"/>
+        </property>
+        <property name="workspace2" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-stripes.png"/>
+        </property>
+        <property name="workspace3" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-stripes.png"/>
+        </property>
+      </property>
+      <property name="monitor0" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-stripes.png"/>
+        </property>
+        <property name="workspace1" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-stripes.png"/>
+        </property>
+        <property name="workspace2" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
+        </property>
+        <property name="workspace3" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
+        </property>
+        <property name="workspace4" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
+        </property>
+        <property name="workspace5" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
+        </property>
+        <property name="image-path" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        <property name="image-show" type="bool" value="true"/>
+        <property name="image-style" type="int" value="0"/>
+      </property>
+      <property name="monitorHDMI-1" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/42345.jpg"/>
+        </property>
+        <property name="workspace1" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-stripes.png"/>
+        </property>
+        <property name="workspace2" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
+        </property>
+        <property name="workspace3" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
+        </property>
+        <property name="workspace4" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
+        </property>
+        <property name="workspace5" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
+        </property>
+      </property>
+      <property name="monitorHDMI-0" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/Wallpapers/gnome-backgrounds_3.jpg"/>
+        </property>
+        <property name="workspace1" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-stripes.png"/>
+        </property>
+        <property name="workspace2" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
+        </property>
+        <property name="workspace3" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
+        </property>
+        <property name="workspace4" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
+        </property>
+        <property name="workspace5" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
+        </property>
+        <property name="workspace6" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace7" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace8" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace9" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace10" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace11" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace12" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace13" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace14" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace15" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace16" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace17" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace18" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace19" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace20" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace21" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace22" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace23" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace24" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace25" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace26" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace27" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace28" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace29" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace30" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace31" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace32" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace33" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace34" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace35" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace36" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace37" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace38" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace39" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace40" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace41" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace42" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace43" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace44" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace45" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace46" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace47" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace48" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace49" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+        <property name="workspace50" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/kylert/Pictures/retro-abstract-computers-wallpaper-64259-66427-hd-wallpapers.jpg"/>
+        </property>
+      </property>
+    </property>
+  </property>
+  <property name="last" type="empty">
+    <property name="window-width" type="int" value="556"/>
+    <property name="window-height" type="int" value="554"/>
+  </property>
+  <property name="desktop-icons" type="empty">
+    <property name="icon-size" type="uint" value="32"/>
+    <property name="gravity" type="int" value="2"/>
+    <property name="file-icons" type="empty">
+      <property name="show-trash" type="bool" value="false"/>
+      <property name="show-filesystem" type="bool" value="false"/>
+      <property name="show-home" type="bool" value="false"/>
+    </property>
+    <property name="tooltip-size" type="double" value="64.000000"/>
+    <property name="style" type="int" value="2"/>
+  </property>
+</channel>

@@ -1,0 +1,10 @@
+.xfce4-panel {
+   font-family: "JetBrains Mono";
+   font-size: 10px;
+}
+
+#XfceNotifyWindow label,
+#XfceNotifyWindow image {
+    font-family: "JetBrains Mono";
+    font-size: 10px;
+}

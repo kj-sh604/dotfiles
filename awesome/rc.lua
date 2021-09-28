@@ -11,7 +11,7 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local naughty = require("naughty")
+--local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
@@ -21,11 +21,11 @@ require("awful.hotkeys_popup.keys")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
-if awesome.startup_errors then
+--[[if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",
                      text = awesome.startup_errors })
-end
+end]]--
 
 -- Handle runtime errors after startup
 --[[do
@@ -44,7 +44,7 @@ end]]--
 
 -- Faux notifications to make suspend/resume of notifications look normal
 
-do
+--[[do
     local in_error = false
     awesome.connect_signal("debug::error", function (err)
         -- Make sure we don't go into an endless error loop
@@ -54,7 +54,7 @@ do
         naughty.notify({ title = "Notifications Resumed: All indexed notifications have been destroyed", message = "All indexed notifications have been destroyed", timeout = 1 })
         in_error = false
     end)
-end
+end]]--
 
 -- }}}
 
@@ -279,10 +279,10 @@ globalkeys = gears.table.join(
               {description = "swap with previous client by index", group = "client"}),
 
     -- Notification Manipulation
-    awful.key({ modkey,          }, "n", function () naughty.suspend() end,
+    --[[awful.key({ modkey,          }, "n", function () naughty.suspend() end,
               {description = "Suspend Notifications", group = "awesome"}),
     awful.key({ modkey,          }, "m", function () naughty.toggle() naughty.resume() end,
-              {description = "Resume Notifications", group = "awesome"}),  
+              {description = "Resume Notifications", group = "awesome"}),  ]]--
 
 
       -- Unmodified Keys - Kyle

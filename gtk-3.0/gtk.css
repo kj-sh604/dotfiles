@@ -1,10 +1,27 @@
 .xfce4-panel {
-   font-family: "JetBrains Mono";
-   font-size: 10px;
+  font-family: "JetBrains Mono";
+  font-size: 10px;
 }
 
 #XfceNotifyWindow label,
 #XfceNotifyWindow image {
-    font-family: "JetBrains Mono";
-    font-size: 10px;
+  font-family: "JetBrains Mono";
+  font-size: 10px;
+}
+
+.xfce4-panel #pager-4 button {
+  background-color: transparent;
+  border-radius: 3px;
+}
+
+.xfce4-panel #pager-4 button:checked {
+  background-image: none;
+  background-color: #15539E;
+  border-color: #15539E;
+  border-radius: 3px;
+}
+
+.xfce4-panel #pager-4 button:hover {
+  background-color: #15539E;
+  border-radius: 3px;
 }

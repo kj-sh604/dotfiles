@@ -359,9 +359,9 @@ globalkeys = gears.table.join(
               {description = "decrease master height factor", group = "layout"}),
 
 
-    awful.key({ "Control",   }, "Left",     function () awful.tag.incnmaster( 1, nil, true) end,
+    awful.key({ "Control",   }, "Right",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ "Control",   }, "Right",     function () awful.tag.incnmaster(-1, nil, true) end,
+    awful.key({ "Control",   }, "Left",     function () awful.tag.incnmaster(-1, nil, true) end,
               {description = "decrease the number of master clients", group = "layout"}),
     awful.key({ "Control", }, "Up",     function () awful.tag.incncol( 1, nil, true)    end,
               {description = "increase the number of columns", group = "layout"}),

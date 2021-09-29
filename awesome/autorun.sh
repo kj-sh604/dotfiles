@@ -7,8 +7,6 @@ function run {
   fi
 }
 
-setxkbmap -config compose:ralt
-
 run picom --experimental-backends
 run nitrogen --restore
 run volumeicon

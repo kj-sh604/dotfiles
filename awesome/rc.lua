@@ -104,9 +104,9 @@ myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
 --   { "manual", terminal .. " -e man awesome" },
    { "edit config", editor .. " " .. awesome.conffile },
---   { "restart", awesome.restart },
+   { "restart", awesome.restart },
 --   { "quit", function() awesome.quit() end },
---   { "quit", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end },
+   { "quit", function () awful.spawn("bash -c 'pkill -9 -u $USER'") end },
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
@@ -257,13 +257,13 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
-    awful.key({ "Mod1",           }, "Tab",
+    awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.byidx( 1)
         end,
         {description = "focus next by index", group = "client"}
     ),
-    awful.key({ "Mod1", "Shift"           }, "Tab",
+    awful.key({ modkey, "Shift"           }, "Tab",
         function ()
             awful.client.focus.byidx(-1)
         end,
@@ -292,15 +292,15 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
-              {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey,           }, "Tab",
+              {description = "jump to urgent client", group = "client"}), ]]--
+    awful.key({ "Mod1",           }, "Tab",
         function ()
             awful.client.focus.history.previous()
             if client.focus then
                 client.focus:raise()
             end
         end,
-        {description = "go back", group = "client"}), ]]--
+        {description = "go back", group = "client"}),
 
      -- End Unmodified Keys - Kyle
 
@@ -333,9 +333,9 @@ globalkeys = gears.table.join(
 
 
     -- awesome window manager Controls
-    --[[awful.key({ "Control", "Mod1" }, "BackSpace", awesome.restart,
+    awful.key({ "Control", "Mod1" }, "BackSpace", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ "Control", "Shift"   }, "Delete", awesome.quit,
+    --[[awful.key({ "Control", "Shift"   }, "Delete", awesome.quit
               {description = "quit awesome", group = "awesome"}),]]--
 
 --[[    awful.key({ "Control", "Mod1"          }, "BackSpace", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end,

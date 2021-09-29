@@ -273,9 +273,9 @@ globalkeys = gears.table.join(
               {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
-    awful.key({ modkey,  "Control" }, "Up", function () awful.client.swap.byidx(  1)    end,
+    awful.key({ modkey,  "Control" }, "Down", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
-    awful.key({ modkey,   "Control"}, "Down", function () awful.client.swap.byidx( -1)    end,
+    awful.key({ modkey,   "Control"}, "Up", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
 
     -- Notification Manipulation

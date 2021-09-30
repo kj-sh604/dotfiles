@@ -17,6 +17,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+menubar.cache_entries = true
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -399,7 +400,7 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ "Shift" }, "space", function() menubar.show() end,
+    awful.key({ "Shift" }, "space", function() menubar.refresh() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
 )
 

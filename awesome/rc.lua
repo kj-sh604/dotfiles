@@ -701,5 +701,6 @@ awful.spawn.with_shell("/usr/lib/at-spi-bus-launcher --launch-immediately")
 awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=pkcs11")
 awful.spawn.with_shell("/usr/lib/gsd-power")
 awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=secrets")
-awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=ssh") ]]--
-awful.spawn.with_shell("/home/kylert/.config/awesome/autorun.sh")
+awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=ssh")]]--
+awful.spawn.easy_async_with_shell("/home/kylert/.config/awesome/autorun.sh")
+

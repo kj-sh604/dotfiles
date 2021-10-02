@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-function run {
+run () {
   if ! pgrep -f $1 ;
   then
     $@&

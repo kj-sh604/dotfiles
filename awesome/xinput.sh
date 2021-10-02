@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 sleep 2
 xinput set-prop pointer:"Logitech USB Trackball" "libinput Natural Scrolling Enabled" 1

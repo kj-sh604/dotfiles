@@ -1,3 +1,4 @@
+acpi
 aegisub
 alsa-firmware
 alsa-oss
@@ -31,7 +32,7 @@ automake
 avidemux-cli
 avidemux-qt
 avisynthplus
-awesome
+awesome-git
 b43-fwcutter
 base
 bash
@@ -49,6 +50,7 @@ brasero
 brave-bin
 breeze
 breeze-icons
+broot
 caps
 cava
 cdrtools
@@ -70,6 +72,7 @@ cups
 cups-filters
 cups-pdf
 darktable
+dash
 dblatex
 dbus-docs
 dconf-editor
@@ -270,7 +273,6 @@ lxdm-gtk3
 lxqt-admin
 lxrandr-gtk3
 lxsession-gtk3
-lxterminal
 lynx
 lzip
 lzop
@@ -296,6 +298,7 @@ mplayer
 mtools
 mujs
 mupdf
+mysql-workbench
 nano
 neofetch
 netstat-nat
@@ -305,7 +308,6 @@ new-session-manager
 nilfs-utils
 nitrogen
 nm-connection-editor
-notepadqq
 noto-fonts-emoji
 ntfs-3g
 nuspell
@@ -317,15 +319,16 @@ okular
 opencl-nvidia
 opencolorio1
 opencv
+opentimelineio
 os-prober
 p7zip
 pacman
 pamixer
+pantheon-code
 papirus-icon-theme
 patch
 pavucontrol
 pciutils
-pcmanfm-gtk3
 pcsclite
 perl-image-exiftool
 picom

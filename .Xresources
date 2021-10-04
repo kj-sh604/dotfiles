@@ -226,3 +226,6 @@ URxvt.visualBell: false
 !*color15:                 S_base3
 
 !Xcursor.size: 32
+
+XTerm.vt100.faceName: JetBrains Mono:size=10:antialias=true
+XTerm.vt100.font: 7x13

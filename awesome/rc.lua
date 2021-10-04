@@ -411,16 +411,30 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ "Mod1",  }, "F4",      function (c) c:kill()                         end,
+    awful.key({ "Mod1",  }, "F4",      function (c) c:kill() end,
               {description = "close", group = "client"}),
-    awful.key({ "Shift", "Control" }, "space",  awful.client.floating.toggle                     ,
+    awful.key({ "Shift", "Control" }, "space",  awful.client.floating.toggle,
               {description = "toggle floating", group = "client"}),
+    
+    -- Sticky Window and Always on top toggle
+    awful.key({"Control", }, "space", function(c) c.ontop = not c.ontop end,
+              {description = "toggle always on top", group = "client"}),
+    awful.key({ modkey, "Shift" }, "slash",   function (c) c.sticky = not c.sticky  end,
+              {description = "toggle sticky", group = "client"}),
+    
+    -- Original Keep On Top Function
+    
+    --[[awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
+              {description = "toggle keep on top", group = "client"}),]]--
+    
+    -- End Original Function
+    
+    -- _____________________________________________________________
+    
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-              {description = "toggle keep on top", group = "client"}),
     awful.key({ "Mod1",           }, "Left",
         function (c)
             -- The client currently has the input focus, so it cannot be

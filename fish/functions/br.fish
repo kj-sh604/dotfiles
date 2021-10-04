@@ -1,0 +1,1 @@
+/home/kylert/.local/share/broot/launcher/fish/br.fish

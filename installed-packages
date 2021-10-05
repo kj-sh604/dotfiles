@@ -24,7 +24,6 @@ arduino-docs
 aria2-fast
 aribb25
 arj
-atom
 atomicparsley
 audacity
 autoconf
@@ -214,6 +213,7 @@ kdeconnect
 kdenlive
 kdialog
 kolourpaint
+konsole
 krita
 krita-plugin-gmic
 ksh
@@ -288,11 +288,11 @@ mdadm
 meld
 mesa
 mesa-vdpau
+mlt
 mono
 mono-msbuild
 mono-msbuild-sdkresolver
 mono-tools
-mousepad
 movit
 mplayer
 mtools
@@ -324,7 +324,6 @@ os-prober
 p7zip
 pacman
 pamixer
-pantheon-code
 papirus-icon-theme
 patch
 pavucontrol
@@ -373,17 +372,21 @@ recordmydesktop
 reflector
 reiserfsprogs
 rev-plugins
+rtaudio
 rubberband
 rust
+rxvt-unicode
 samba
 sane
 scour
 seahorse
+shellcheck-static
 simple-scan
 simplenote-electron-bin
 simplescreenrecorder
 slack-desktop
 smbclient
+sox
 speedtest-cli
 spotify
 steam
@@ -435,7 +438,6 @@ wine-mono
 xbindkeys
 xcompmgr
 xdg-user-dirs
-xed
 xf86-input-evdev
 xf86-input-libinput
 xf86-input-synaptics

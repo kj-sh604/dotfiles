@@ -11,53 +11,13 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
---local naughty = require("naughty")
+-- local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 menubar.cache_entries = true
-
--- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
---[[if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors })
-end]]--
-
--- Handle runtime errors after startup
---[[do
-    local in_error = false
-    awesome.connect_signal("debug::error", function (err)
-        -- Make sure we don't go into an endless error loop
-        if in_error then return end
-        in_error = true
-
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-                         text = tostring(err) })
-        in_error = false
-    end)
-end]]--
-
--- Faux notifications to make suspend/resume of notifications look normal
-
---[[do
-    local in_error = false
-    awesome.connect_signal("debug::error", function (err)
-        -- Make sure we don't go into an endless error loop
-        if in_error then return end
-        in_error = true
-
-        naughty.notify({ title = "Notifications Resumed: All indexed notifications have been destroyed", message = "All indexed notifications have been destroyed", timeout = 1 })
-        in_error = false
-    end)
-end]]--
-
--- }}}
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
@@ -81,7 +41,7 @@ modkey = "Mod4"
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.floating,
-
+    awful.layout.suit.max,
     -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
@@ -89,7 +49,6 @@ awful.layout.layouts = {
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.nw,
@@ -104,14 +63,18 @@ awful.layout.layouts = {
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
 --   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
+   { "config", editor .. " " .. awesome.conffile },
+   { "refresh", awesome.restart },
+   { "reboot" , function() awful.spawn("sh -c 'gksudo reboot now'") end },
 --   { "quit", function() awesome.quit() end },
-   { "quit", function () awful.spawn("bash -c 'pkill -9 -u $USER'") end },
+   { "shutdown", function() awful.spawn("sh -c 'gksudo shutdown now'") end},
+   { "quit", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end },
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
+mymainmenu = awful.menu({ items = { { "apps", function() menubar.refresh() menubar.show() end, beautiful.awesome_icon },
+                                    { "system", myawesomemenu },
+                                    { "terminal", terminal },
+                                    { "run", function () awful.screen.focused().mypromptbox:run() end}
                                   }
                         })
 
@@ -240,11 +203,11 @@ end)
 -- }}}
 
 -- {{{ Mouse bindings
---[[root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
-)) ]]--
+    root.buttons(gears.table.join(
+    awful.button({ }, 3, function () mymainmenu:toggle() end) --,
+    --awful.button({ }, 4, awful.tag.viewnext),
+    --awful.button({ }, 5, awful.tag.viewprev)
+))
 -- }}}
 
 -- {{{ Key bindings
@@ -279,21 +242,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,   "Control"}, "Up", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
 
-    -- Notification Manipulation
-    --[[awful.key({ modkey,          }, "n", function () naughty.suspend() end,
-              {description = "Suspend Notifications", group = "awesome"}),
-    awful.key({ modkey,          }, "m", function () naughty.toggle() naughty.resume() end,
-              {description = "Resume Notifications", group = "awesome"}),  ]]--
-
-
-      -- Unmodified Keys - Kyle
-
-  --[[  awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
-              {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
-              {description = "focus the previous screen", group = "screen"}),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
-              {description = "jump to urgent client", group = "client"}), ]]--
+    -- Alt-Tab functionality
     awful.key({ "Mod1",           }, "Tab",
         function ()
             awful.client.focus.history.previous()
@@ -302,8 +251,6 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "go back", group = "client"}),
-
-     -- End Unmodified Keys - Kyle
 
     -- Application Hotkeys
       --[[ Template
@@ -632,46 +579,6 @@ client.connect_signal("manage", function (c)
     end
 end)
 
--- Add a titlebar if titlebars_enabled is set to true in the rules.
---[[ client.connect_signal("request::titlebars", function(c)
-    -- buttons for the titlebar
-    local buttons = gears.table.join(
-        awful.button({ }, 1, function()
-            c:emit_signal("request::activate", "titlebar", {raise = true})
-            awful.mouse.client.move(c)
-        end),
-        awful.button({ }, 3, function()
-            c:emit_signal("request::activate", "titlebar", {raise = true})
-            awful.mouse.client.resize(c)
-        end)
-    )
-
-    awful.titlebar(c) : setup {
-        { -- Left
-            awful.titlebar.widget.iconwidget(c),
-            buttons = buttons,
-            layout  = wibox.layout.fixed.horizontal
-        },
-        { -- Middle
-            { -- Title
-                align  = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
-            buttons = buttons,
-            layout  = wibox.layout.flex.horizontal
-        },
-        { -- Right
-            awful.titlebar.widget.floatingbutton (c),
-            awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.stickybutton   (c),
-            awful.titlebar.widget.ontopbutton    (c),
-            awful.titlebar.widget.closebutton    (c),
-            layout = wibox.layout.fixed.horizontal()
-        },
-        layout = wibox.layout.align.horizontal
-    }
-end) ]]--
-
 -- Enable sloppy focus, so that focus follows mouse.
 --[[client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
@@ -688,33 +595,5 @@ beautiful.useless_gap = 5
 -- Autostart
 
 -- awful.spawn.with_shell("")
-
---[[ awful.spawn.with_shell("bash -c 'key-mapper-control --command stop-all && key-mapper-control --command autoload'")
-awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("picom")
-awful.spawn.with_shell("lxsession")
-awful.spawn.with_shell("/usr/lib/gsd-xsettings")
-awful.spawn.with_shell("/usr/lib/gsd-datetime")
---awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-awful.spawn.with_shell("/usr/lib/baloo_file")
-awful.spawn.with_shell("blueman-applet")
-awful.spawn.with_shell("xfce4-clipman")
-awful.spawn.with_shell("emojione-picker")
-awful.spawn.with_shell("/usr/lib/geoclue-2.0/demos/agent")
-awful.spawn.with_shell("/usr/lib/kdeconnectd")
-awful.spawn.with_shell("kdeconnect-indicator")
-awful.spawn.with_shell("nm-applet")
-awful.spawn.with_shell("system-config-printer-applet")
-awful.spawn.with_shell("start-pulseaudio-x11")
-awful.spawn.with_shell("/bin/snap userd --autostart")
-awful.spawn.with_shell("/usr/lib/tracker-miner-fs-3")
-awful.spawn.with_shell("/usr/lib/tracker-miner-rss-3")
-awful.spawn.with_shell("/usr/lib/xapps/sn-watcher/xapp-sn-watcher")
-awful.spawn.with_shell("xfce4-volumed-pulse")
-awful.spawn.with_shell("/usr/lib/at-spi-bus-launcher --launch-immediately")
-awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=pkcs11")
-awful.spawn.with_shell("/usr/lib/gsd-power")
-awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=secrets")
-awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=ssh")]]--
+-- awful.spawn.easy_async_with_shell("")
 awful.spawn.easy_async_with_shell("/home/kylert/.config/awesome/autorun.sh")
-

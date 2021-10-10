@@ -179,6 +179,7 @@ gvfs-gphoto2
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
+gvim
 handbrake
 hardinfo
 harvid
@@ -187,6 +188,7 @@ hplip
 hplip-plugin
 hspell
 htop
+hub
 hunspell-en_au
 hunspell-en_ca
 hunspell-en_gb
@@ -423,7 +425,6 @@ vcdimager
 vco-plugins
 vdpauinfo
 vi
-vim
 vmware-horizon-client
 vmware-horizon-integrated-printing
 vmware-horizon-mmr

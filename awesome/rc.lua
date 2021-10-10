@@ -64,6 +64,7 @@ myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
 --   { "manual", terminal .. " -e man awesome" },
    { "config", editor .. " " .. awesome.conffile },
+   { "picom", function() awful.spawn("sh -c 'kate $HOME/.config/picom.conf'") end },
    { "refresh", awesome.restart },
    { "reboot" , function() awful.spawn("sh -c 'gksudo reboot now'") end },
 --   { "quit", function() awesome.quit() end },

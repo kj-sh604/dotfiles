@@ -238,11 +238,21 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Menu", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
-    -- Layout manipulation
-    awful.key({ modkey,  "Control" }, "Down", function () awful.client.swap.byidx(  1)    end,
+    -- Old Layout manipulation
+    --[[awful.key({ modkey,  "Control" }, "Down", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey,   "Control"}, "Up", function () awful.client.swap.byidx( -1)    end,
-              {description = "swap with previous client by index", group = "client"}),
+              {description = "swap with previous client by index", group = "client"}),]]--
+    
+    -- Layout manipulation
+    awful.key({ modkey, "Control" }, "Down", function (c) awful.client.swap.global_bydirection("down") c:raise() end,
+               {description = "swap with next window up", group = "client"}),
+    awful.key({ modkey, "Control" }, "Up", function (c) awful.client.swap.global_bydirection("up") c:raise() end,
+               {description = "swap with next window down", group = "client"}),
+    awful.key({ modkey, "Control" }, "Right", function (c) awful.client.swap.global_bydirection("right") c:raise() end,
+               {description = "swap next window right", group = "client"}),
+    awful.key({ modkey, "Control" }, "Left", function (c) awful.client.swap.global_bydirection("left") c:raise() end,
+               {description = "swap next window left", group = "client"}),
 
     -- Alt-Tab functionality
     awful.key({ "Mod1",           }, "Tab",

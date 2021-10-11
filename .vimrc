@@ -4,7 +4,10 @@
 :set number
 :set relativenumber
 :filetype indent on
-:set ttymouse=sgr
+
+if $TERM == 'alacritty'
+  set ttymouse=sgr
+endif
 
 vmap <C-c> "+yi
 vmap <C-x> "+c

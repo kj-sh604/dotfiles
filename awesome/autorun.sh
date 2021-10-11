@@ -7,7 +7,8 @@ run () {
   fi
 }
 
-run picom --experimental-backends
+#run picom --experimental-backends
+run picom -b
 run nitrogen --restore
 run volumeicon
 run lxsession

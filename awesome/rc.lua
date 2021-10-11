@@ -26,7 +26,7 @@ local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.ge
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xfce4-terminal"
+terminal = "alacritty"
 editor = os.getenv("EDITOR") or "kate"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -65,6 +65,7 @@ myawesomemenu = {
 --   { "manual", terminal .. " -e man awesome" },
    { "config", editor .. " " .. awesome.conffile },
    { "picom", function() awful.spawn("sh -c 'kate $HOME/.config/picom.conf'") end },
+   { "wall", function() awful.spawn("sh -c 'nitrogen'") end },
    { "refresh", awesome.restart },
    { "reboot" , function() awful.spawn("sh -c 'gksudo reboot now'") end },
 --   { "quit", function() awesome.quit() end },
@@ -272,8 +273,8 @@ globalkeys = gears.table.join(
               {description = "take a screenshot of an area of the screen", group = "launcher"}),
     awful.key({ "Shift", "Control"          }, "x", function () awful.spawn("xkill") end,
             {description = "kill a window by brute force", group = "launcher"}),
-    awful.key({ "Control", "Mod1"          }, "Delete", function () awful.spawn("xfce4-terminal -e 'htop' -T 'Task Manager'") end,
-              {description = "kill a window by brute force", group = "launcher"}),
+    awful.key({ "Control", "Mod1"          }, "Delete", function () awful.spawn("alacritty -t 'Task Manager' -e 'htop'") end,
+              {description = "Launch HTOP", group = "launcher"}),
 
     -- Brightness Hotkeys
     awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 15") end),

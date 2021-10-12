@@ -389,7 +389,7 @@ clientkeys = gears.table.join(
               {description = "toggle floating", group = "client"}),
     
     -- Sticky Window and Always on top toggle
-    awful.key({"Control", }, "space", function(c) c.ontop = not c.ontop end,
+    awful.key({modkey, "Mod1" }, ".", function(c) c.ontop = not c.ontop end,
               {description = "toggle always on top", group = "client"}),
     awful.key({ modkey, "Mod1" }, "slash",   function (c) c.sticky = not c.sticky  end,
               {description = "toggle sticky", group = "client"}),

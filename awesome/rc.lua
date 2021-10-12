@@ -249,13 +249,13 @@ globalkeys = gears.table.join(
               {description = "swap with previous client by index", group = "client"}),]]--
 
     -- Move window by direction in tiling layout
-    awful.key({ modkey, "Control" }, "Down", function (c) awful.client.swap.global_bydirection("down") c:raise() end,
+    awful.key({ modkey, "Mod1" }, "Down", function (c) awful.client.swap.global_bydirection("down") c:raise() end,
                {description = "swap with next window up", group = "client"}),
-    awful.key({ modkey, "Control" }, "Up", function (c) awful.client.swap.global_bydirection("up") c:raise() end,
+    awful.key({ modkey, "Mod1" }, "Up", function (c) awful.client.swap.global_bydirection("up") c:raise() end,
                {description = "swap with next window down", group = "client"}),
-    awful.key({ modkey, "Control" }, "Right", function (c) awful.client.swap.global_bydirection("right") c:raise() end,
+    awful.key({ modkey, "Mod1" }, "Right", function (c) awful.client.swap.global_bydirection("right") c:raise() end,
                {description = "swap with next window right", group = "client"}),
-    awful.key({ modkey, "Control" }, "Left", function (c) awful.client.swap.global_bydirection("left") c:raise() end,
+    awful.key({ modkey, "Mod1" }, "Left", function (c) awful.client.swap.global_bydirection("left") c:raise() end,
                {description = "swap with next window left", group = "client"}),
 
     -- Move window FOCUS by direction in tiling layout
@@ -319,16 +319,16 @@ globalkeys = gears.table.join(
 
 
 
-    -- Tiled Window Manipulation
+    -- Tiled Window Sizing and Client count/columns
 
-    awful.key({ modkey, "Mod1" }, "Right",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey, "Control" }, "Right",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey, "Mod1" }, "Left",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ modkey, "Control" }, "Left",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
 
-    awful.key({ modkey, "Mod1" }, "Up",     function () awful.client.incwfact( 0.05)          end,
+    awful.key({ modkey, "Control" }, "Up",     function () awful.client.incwfact( 0.05)          end,
               {description = "increase master height factor", group = "layout"}),
-    awful.key({ modkey, "Mod1" }, "Down",     function () awful.client.incwfact(-0.05)          end,
+    awful.key({ modkey, "Control" }, "Down",     function () awful.client.incwfact(-0.05)          end,
               {description = "decrease master height factor", group = "layout"}),
 
 

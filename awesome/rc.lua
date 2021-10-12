@@ -223,6 +223,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
+    -- Change window focus in maximized layout
     awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.byidx( 1)
@@ -235,6 +236,9 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
+
+    -- --------------------------------------------------------------
+
     awful.key({ modkey,           }, "Menu", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
@@ -243,8 +247,8 @@ globalkeys = gears.table.join(
               {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey,   "Control"}, "Up", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),]]--
-    
-    -- Layout manipulation
+
+    -- Move window by direction in tiling layout
     awful.key({ modkey, "Control" }, "Down", function (c) awful.client.swap.global_bydirection("down") c:raise() end,
                {description = "swap with next window up", group = "client"}),
     awful.key({ modkey, "Control" }, "Up", function (c) awful.client.swap.global_bydirection("up") c:raise() end,
@@ -254,7 +258,17 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "Left", function (c) awful.client.swap.global_bydirection("left") c:raise() end,
                {description = "swap next window left", group = "client"}),
 
-    -- Alt-Tab functionality
+    -- Move window FOCUS by direction in tiling layout
+    awful.key({ modkey, "Shift" }, "Down", function (c) awful.client.focus.global_bydirection("down") c:lower() end,
+               {description = "focus next window up", group = "client"}),
+    awful.key({ modkey, "Shift" }, "Up", function (c) awful.client.focus.global_bydirection("up") c:lower() end,
+               {description = "focus next window down", group = "client"}),
+    awful.key({ modkey, "Shift" }, "Right", function (c) awful.client.focus.global_bydirection("right") c:lower() end,
+               {description = "focus next window right", group = "client"}),
+    awful.key({ modkey, "Shift" }, "Left", function (c) awful.client.focus.global_bydirection("left") c:lower() end,
+               {description = "focus next window left", group = "client"}),
+
+    -- Alt-Tab functionality in maximized layout
     awful.key({ "Mod1",           }, "Tab",
         function ()
             awful.client.focus.history.previous()
@@ -263,7 +277,6 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "go back", group = "client"}),
-
     -- Application Hotkeys
       --[[ Template
       awful.key({ [KEY], [KEY]          }, [KEY], function () awful.spawn("[APPLICATION_NAME]") end,
@@ -332,7 +345,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
-    awful.key({ modkey, "Mod1" }, "Left",
+    awful.key({ modkey, "Mod1" }, "n",
               function ()
                   local c = awful.client.restore()
                   -- Focus restored client
@@ -378,7 +391,7 @@ clientkeys = gears.table.join(
     -- Sticky Window and Always on top toggle
     awful.key({"Control", }, "space", function(c) c.ontop = not c.ontop end,
               {description = "toggle always on top", group = "client"}),
-    awful.key({ modkey, "Shift" }, "slash",   function (c) c.sticky = not c.sticky  end,
+    awful.key({ modkey, "Mod1" }, "slash",   function (c) c.sticky = not c.sticky  end,
               {description = "toggle sticky", group = "client"}),
     
     -- Original Keep On Top Function
@@ -394,7 +407,7 @@ clientkeys = gears.table.join(
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
-    awful.key({ "Mod1",           }, "Left",
+    awful.key({ modkey, "Mod1"           }, "m",
         function (c)
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
@@ -447,7 +460,7 @@ for i = 1, 9 do
                   end,
                   {description = "toggle tag #" .. i, group = "tag"}), ]]--
         -- Move client to tag.
-        awful.key({ modkey, "Shift" }, "#" .. i + 9,
+        awful.key({ modkey, "Mod1" }, "#" .. i + 9,
                   function ()
                       if client.focus then
                           local tag = client.focus.screen.tags[i]
@@ -458,7 +471,7 @@ for i = 1, 9 do
                   end,
                   {description = "move focused client to tag #"..i, group = "tag"}),
         -- Move client to prev/next tag and switch to it
-        awful.key({ modkey, "Shift" }, "Left",
+        awful.key({ modkey, "Mod1" }, "Left",
               function ()
                   -- get current tag
                   local t = client.focus and client.focus.first_tag or nil
@@ -471,7 +484,7 @@ for i = 1, 9 do
                   awful.tag.viewprev()
               end,
                   {description = "move client to previous tag and switch to it", group = "tag"}),
-          awful.key({ modkey, "Shift" }, "Right",
+          awful.key({ modkey, "Mod1" }, "Right",
               function ()
                   -- get current tag
                   local t = client.focus and client.focus.first_tag or nil

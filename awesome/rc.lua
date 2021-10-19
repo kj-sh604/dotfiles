@@ -345,7 +345,7 @@ globalkeys = gears.table.join(
   awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
     {description = "select previous", group = "layout"}),
 
-  awful.key({ modkey, "Shift" }, ",",
+  awful.key({ modkey }, ",",
     function ()
       local c = awful.client.restore()
       -- Focus restored client
@@ -389,9 +389,9 @@ clientkeys = gears.table.join(
     {description = "toggle floating", group = "client"}),
 
   -- Sticky Window and Always on top toggle
-  awful.key({modkey, "Shift" }, ".", function(c) c.ontop = not c.ontop end,
+  awful.key({ modkey }, ".", function(c) c.ontop = not c.ontop end,
     {description = "toggle always on top", group = "client"}),
-  awful.key({ modkey, "Shift" }, "slash",   function (c) c.sticky = not c.sticky  end,
+  awful.key({ modkey }, "slash",   function (c) c.sticky = not c.sticky  end,
     {description = "toggle sticky", group = "client"}),
 
   -- Original Keep On Top Function
@@ -407,7 +407,7 @@ clientkeys = gears.table.join(
     {description = "move to master", group = "client"}),
   awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
     {description = "move to screen", group = "client"}),
-  awful.key({ modkey, "Shift"           }, "m",
+  awful.key({ modkey }, "m",
     function (c)
       -- The client currently has the input focus, so it cannot be
       -- minimized, since minimized clients can't have the focus.

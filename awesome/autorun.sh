@@ -16,7 +16,7 @@ run xfce4-volumed-pulse
 run /usr/lib/gsd-datetime
 # run /usr/lib/baloo_file
 run xfce4-clipman
-# run emojione-picker
+run emojione-picker
 # run emote
 run /usr/lib/geoclue-2.0/demos/agent
 run /usr/lib/kdeconnectd

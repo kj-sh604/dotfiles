@@ -303,10 +303,6 @@ globalkeys = gears.table.join(
   awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 15") end),
   awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 15") end),
 
-  -- Emoji Picker
-  awful.key({ modkey }, "q", function () awful.spawn("sh -c 'emoji-picker'") end,
-    {description = "launch emoji picker", group = "launcher"}),
-
   -- awesome window manager Controls
   awful.key({ "Control", "Mod1" }, "BackSpace", awesome.restart,
     {description = "reload awesome", group = "awesome"}),

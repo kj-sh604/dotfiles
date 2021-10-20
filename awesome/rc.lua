@@ -70,6 +70,7 @@ myawesomemenu = {
   { "reboot" , function() awful.spawn("sh -c 'gksudo reboot now'") end },
   --   { "quit", function() awesome.quit() end },
   { "shutdown", function() awful.spawn("sh -c 'gksudo shutdown now'") end},
+  { "lock", function() awful.spawn("sh -c 'xflock4'") end},
   { "quit", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end },
 }
 

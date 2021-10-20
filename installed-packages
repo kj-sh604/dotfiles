@@ -8,6 +8,7 @@ amb-plugins
 android-apktool
 android-emulator
 android-file-transfer
+android-sdk-platform-tools
 android-studio
 android-tools
 android-udev
@@ -24,6 +25,7 @@ arduino-docs
 aria2-fast
 aribb25
 arj
+atom
 atomicparsley
 audacity
 autoconf
@@ -31,7 +33,7 @@ automake
 avidemux-cli
 avidemux-qt
 avisynthplus
-awesome
+awesome-git
 b43-fwcutter
 base
 bash
@@ -60,9 +62,11 @@ chromedriver
 clamav
 clamtk
 clipgrab
+cmatrix
 cmt
 coin-or-mp
 cool-retro-term
+cowsay
 cpu-x
 crda
 cryptsetup
@@ -77,6 +81,7 @@ dbus-docs
 dconf-editor
 dcraw
 dex
+discord
 djvulibre
 doge
 dosfstools
@@ -108,6 +113,7 @@ fakeroot
 ffmpegthumbnailer
 ffmpegthumbs
 fig2dev
+figlet
 fil-plugins
 file-roller
 filezilla
@@ -119,7 +125,6 @@ flex
 foomatic-db
 foomatic-db-ppds
 fop
-fsearch-git
 fuse-overlayfs
 g2reverb
 gawk
@@ -212,7 +217,6 @@ jre7-openjdk
 jre8-openjdk
 kate
 kdeconnect
-kdenlive
 kdialog
 kolourpaint
 konsole
@@ -313,7 +317,6 @@ nm-connection-editor
 noto-fonts-emoji
 ntfs-3g
 nuspell
-nvidia-dkms
 nvidia-prime
 nvidia-settings
 obs-studio
@@ -331,13 +334,13 @@ patch
 pavucontrol
 pciutils
 pcsclite
+pdftricks
 perl-image-exiftool
-picom
+picom-git
 piper
 pipewire-alsa
 pkgconf
 pkgfile
-plasma-desktop
 polkit-gnome
 postgresql-libs
 procps-ng
@@ -408,6 +411,7 @@ thunar
 thunar-archive-plugin
 thunar-volman
 tor-browser
+torrential
 transmageddon
 transmission-gtk
 trash-cli
@@ -431,7 +435,6 @@ vmware-horizon-mmr
 vmware-horizon-rtav
 vmware-horizon-smartcard
 volumeicon
-vscodium-bin
 wah-plugins
 which
 wine-gecko
@@ -459,6 +462,8 @@ xfce4-clipman-plugin
 xfce4-power-manager
 xfce4-screensaver
 xfce4-screenshooter
+xfce4-session
+xfce4-settings
 xfce4-terminal
 xfsprogs
 xine-ui

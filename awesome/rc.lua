@@ -301,11 +301,11 @@ globalkeys = gears.table.join(
     {description = "Launch HTOP", group = "launcher"}),
 
   -- Brightness Hotkeys
-  awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 15") end),
-  awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 15") end),
+  awful.key({ }, "XF86MonBrightnessDown", function () awful.spawn.easy_async_with_shell("xbacklight -dec 15") end),
+  awful.key({ }, "XF86MonBrightnessUp", function () awful.spawn.easy_async_with_shell("xbacklight -inc 15") end),
 
   -- Emoji Picker
-  awful.key({ modkey }, "q", function () awful.spawn("sh -c '/home/kylert/.local/share/Blista-Kanjo-Emoji/blista-emoji-picker'") end,
+  awful.key({ modkey }, "q", function () awful.spawn.easy_async_with_shell("sh -c '/home/kylert/.local/share/Blista-Kanjo-Emoji/blista-emoji-picker'") end,
             {description = "Launch Emoji Chooser", group = "launcher"}),
 
   -- awesome window manager Controls

@@ -40,7 +40,6 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
   awful.layout.suit.tile,
-  awful.layout.suit.floating,
   awful.layout.suit.max,
   awful.layout.suit.fair,
 -- awful.layout.suit.tile.left,
@@ -55,6 +54,7 @@ awful.layout.layouts = {
 -- awful.layout.suit.corner.ne,
 -- awful.layout.suit.corner.sw,
 -- awful.layout.suit.corner.se,
+-- awful.layout.suit.floating,
 }
 -- }}}
 
@@ -306,7 +306,7 @@ globalkeys = gears.table.join(
 
   -- Emoji Picker
   awful.key({ modkey }, "q", function () awful.spawn.easy_async_with_shell("sh -c '/home/kylert/.local/share/Blista-Kanjo-Emoji/blista-emoji-picker'") end,
-            {description = "Launch Emoji Chooser", group = "launcher"}),
+    {description = "Launch Emoji Chooser", group = "launcher"}),
 
   -- awesome window manager Controls
   awful.key({ "Control", "Mod1" }, "BackSpace", awesome.restart,

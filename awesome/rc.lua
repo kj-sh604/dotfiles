@@ -26,7 +26,7 @@ local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.ge
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xfce4-terminal"
+terminal = "qterminal"
 editor = os.getenv("EDITOR") or "kate"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -297,7 +297,7 @@ globalkeys = gears.table.join(
     {description = "take a screenshot of an area of the screen", group = "launcher"}),
   awful.key({ "Shift", "Control"          }, "x", function () awful.spawn.easy_async_with_shell("xkill") end,
     {description = "kill a window by brute force", group = "launcher"}),
-  awful.key({ "Control", "Mod1"          }, "Delete", function () awful.spawn("xfce4-terminal -e 'htop' -T 'Task Manager'") end,
+  awful.key({ "Control", "Mod1"          }, "Delete", function () awful.spawn("qterminal -e 'htop' --title 'Task Manager'") end,
     {description = "Launch HTOP", group = "launcher"}),
 
   -- Brightness Hotkeys

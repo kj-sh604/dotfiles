@@ -17,6 +17,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+xdg_menu = require("xdgmenu")
 menubar.cache_entries = true
 
 -- {{{ Variable definitions
@@ -64,8 +65,9 @@ myawesomemenu = {
   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
   --   { "manual", terminal .. " -e man awesome" },
   { "config", editor .. " " .. awesome.conffile },
-  { "picom", function() awful.spawn("sh -c 'kate $HOME/.config/picom.conf'") end },
-  { "wall", function() awful.spawn("sh -c 'nitrogen'") end },
+  { "picom", function() awful.spawn.easy_async_with_shell("sh -c 'kate $HOME/.config/picom.conf'") end },
+  { "wall", function() awful.spawn.easy_async_with_shell("sh -c 'nitrogen'") end },
+  { "xdg", function() awful.spawn.easy_async_with_shell("sh -c 'xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/xdgmenu.lua'") end, },
   { "refresh", awesome.restart },
   { "reboot" , function() awful.spawn("sh -c 'gksudo reboot now'") end },
   --   { "quit", function() awesome.quit() end },
@@ -74,7 +76,7 @@ myawesomemenu = {
   { "quit", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end },
 }
 
-mymainmenu = awful.menu({ items = { { "apps", function() menubar.refresh() menubar.show() end, beautiful.awesome_icon },
+mymainmenu = awful.menu({ items = { { "apps", xdgmenu, beautiful.awesome_icon },
   { "system", myawesomemenu },
   { "terminal", terminal },
   { "run", function () awful.screen.focused().mypromptbox:run() end}

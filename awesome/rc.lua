@@ -28,7 +28,7 @@ beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
 terminal = "qterminal"
-editor = os.getenv("EDITOR") or "kate"
+editor = os.getenv("EDITOR") or "xed"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -65,7 +65,7 @@ myawesomemenu = {
   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
   --   { "manual", terminal .. " -e man awesome" },
   { "config", editor .. " " .. awesome.conffile },
-  { "picom", function() awful.spawn.easy_async_with_shell("sh -c 'kate $HOME/.config/picom.conf'") end },
+  { "picom", function() awful.spawn.easy_async_with_shell("sh -c 'xed $HOME/.config/picom.conf'") end },
   { "wall", function() awful.spawn.easy_async_with_shell("sh -c 'nitrogen'") end },
   { "xdg", function() awful.spawn.easy_async_with_shell("sh -c 'xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/xdgmenu.lua'") end, },
   { "refresh", awesome.restart },

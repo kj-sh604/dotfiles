@@ -562,6 +562,7 @@ awful.rules.rules = {
       "Arandr",
       "Blueman-manager",
       "Gpick",
+      "Gnome-calculator",
       "Kruler",
       "MessageWin",  -- kalarm.
       "Sxiv",

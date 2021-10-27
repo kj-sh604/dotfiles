@@ -72,7 +72,8 @@ myawesomemenu = {
   { "reboot" , function() awful.spawn("sh -c 'gksudo reboot now'") end },
   --   { "quit", function() awesome.quit() end },
   { "shutdown", function() awful.spawn("sh -c 'gksudo shutdown now'") end},
-  { "lock", function() awful.spawn("sh -c 'xflock4'") end},
+  { "suspend", function() awful.spawn.easy_async_with_shell("sh -c 'systemctl suspend'") end},
+  { "lock", function() awful.spawn.easy_async_with_shell("sh -c 'xflock4'") end},
   { "quit", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end },
 }
 

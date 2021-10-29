@@ -312,7 +312,7 @@ globalkeys = gears.table.join(
     {description = "Launch Emoji Chooser", group = "launcher"}),
 
   -- Clipboard Manager
-  awful.key({ modkey }, "c", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
+  awful.key({ modkey }, "space", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
                 {description = "open clipboard history", group = "launcher"}),
 
   -- awesome window manager Controls
@@ -459,8 +459,8 @@ for i = 1, 9 do
         end
       end,
       {description = "view tag #"..i, group = "tag"}),
-    --[[        -- Toggle tag display.
-        awful.key({ modkey, "Control" }, "#" .. i + 9,
+    -- Toggle tag display.
+        awful.key({ modkey }, "#" .. i + 9,
                   function ()
                       local screen = awful.screen.focused()
                       local tag = screen.tags[i]
@@ -468,7 +468,7 @@ for i = 1, 9 do
                          awful.tag.viewtoggle(tag)
                       end
                   end,
-                  {description = "toggle tag #" .. i, group = "tag"}), ]]--
+                  {description = "toggle tag #" .. i, group = "tag"}),
     -- Move client to tag.
     awful.key({ modkey, "Shift" }, "#" .. i + 9,
       function ()

@@ -2,7 +2,7 @@
 ! Resolution for Xft in dots per inch (e.g. 96)
 Xft.dpi:       80
 ! Type of subpixel antialiasing (none, rgb, bgr, vrgb or vbgr)
-Xft.rgba:      rgba
+Xft.rgba:      rgb
 Xft.antialias: 1
 Xft.hinting:   1
 Xft.autohint:  0

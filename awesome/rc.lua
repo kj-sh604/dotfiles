@@ -23,7 +23,7 @@ menubar.cache_entries = true
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/default/theme.lua")
-local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "adwaita")
+local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "vide")
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
@@ -62,25 +62,25 @@ awful.layout.layouts = {
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
-  { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+  { "show hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
   --   { "manual", terminal .. " -e man awesome" },
-  { "config", editor .. " " .. awesome.conffile },
-  { "picom", function() awful.spawn.easy_async_with_shell("sh -c 'xed $HOME/.config/picom.conf'") end },
-  { "wall", function() awful.spawn.easy_async_with_shell("sh -c 'nitrogen'") end },
-  { "xdg", function() awful.spawn.easy_async_with_shell("sh -c 'xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/xdgmenu.lua'") end, },
+  { "config file", editor .. " " .. awesome.conffile },
+  { "picom config", function() awful.spawn.easy_async_with_shell("sh -c 'xed $HOME/.config/picom.conf'") end },
+  { "change wallpaper", function() awful.spawn.easy_async_with_shell("sh -c 'nitrogen'") end },
+  { "xdg_menu refresh", function() awful.spawn.easy_async_with_shell("sh -c 'xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/xdgmenu.lua'") end, },
   { "refresh", awesome.restart },
   { "reboot" , function() awful.spawn("sh -c 'gksudo reboot now'") end },
   --   { "quit", function() awesome.quit() end },
   { "shutdown", function() awful.spawn("sh -c 'gksudo shutdown now'") end},
   { "suspend", function() awful.spawn.easy_async_with_shell("sh -c 'systemctl suspend'") end},
+  { "logout", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end },
   { "lock", function() awful.spawn.easy_async_with_shell("sh -c 'xflock4'") end},
-  { "quit", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end },
 }
 
-mymainmenu = awful.menu({ items = { { "apps", xdgmenu, beautiful.awesome_icon },
-  { "system", myawesomemenu },
-  { "terminal", terminal },
-  { "run", function () awful.screen.focused().mypromptbox:run() end}
+mymainmenu = awful.menu({ items = { { "applications", xdgmenu, beautiful.awesome_icon },
+  { "system stuff", myawesomemenu },
+  { "open terminal", terminal },
+  { "run prompt", function () awful.screen.focused().mypromptbox:run() end}
 }
 })
 
@@ -310,6 +310,10 @@ globalkeys = gears.table.join(
   -- Emoji Picker
   awful.key({ modkey }, "q", function () awful.spawn.easy_async_with_shell("sh -c '/home/kylert/.local/share/Blista-Kanjo-Emoji/blista-emoji-picker'") end,
     {description = "Launch Emoji Chooser", group = "launcher"}),
+
+  -- Clipboard Manager
+  awful.key({ modkey }, "c", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
+                {description = "open clipboard history", group = "launcher"}),
 
   -- awesome window manager Controls
   awful.key({ "Control", "Mod1" }, "BackSpace", awesome.restart,

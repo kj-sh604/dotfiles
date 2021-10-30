@@ -312,7 +312,7 @@ globalkeys = gears.table.join(
     {description = "Launch Emoji Chooser", group = "launcher"}),
 
   -- Clipboard Manager
-  awful.key({ modkey }, "space", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
+  awful.key({ modkey }, "Return", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
                 {description = "open clipboard history", group = "launcher"}),
 
   -- awesome window manager Controls

@@ -312,7 +312,7 @@ globalkeys = gears.table.join(
     {description = "Launch Emoji Chooser", group = "launcher"}),
 
   -- Clipboard Manager
-  awful.key({ modkey }, "Return", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
+  awful.key({ modkey }, "grave", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
                 {description = "open clipboard history", group = "launcher"}),
 
   -- awesome window manager Controls
@@ -387,7 +387,7 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-  awful.key({ "Mod1",           }, "Down",
+  awful.key({ modkey,           }, "f",
     function (c)
       c.fullscreen = not c.fullscreen
       c:raise()
@@ -424,7 +424,7 @@ clientkeys = gears.table.join(
       c.minimized = true
     end ,
     {description = "minimize", group = "client"}),
-  awful.key({ "Mod1",           }, "Right",
+  awful.key({ modkey }, "Return",
     function (c)
       c.maximized = not c.maximized
       c:raise()

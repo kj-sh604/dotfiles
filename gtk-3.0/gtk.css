@@ -3,11 +3,11 @@
   font-size: 10px;
 }
 
-#XfceNotifyWindow label,
+/* #XfceNotifyWindow label,
 #XfceNotifyWindow image {
-  font-family: "JetBrains Mono";
+  font-family: "JetBrains Mono", monospace;
   font-size: 10px;
-}
+} */
 
 .xfce4-panel #pager-4 button {
   background-color: transparent;

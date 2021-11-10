@@ -25,8 +25,8 @@ run nm-applet
 run system-config-printer-applet
 run start-pulseaudio-x11
 run /bin/snap userd --autostart
-run /usr/lib/tracker-miner-fs-3
-run /usr/lib/tracker-miner-rss-3
+# run /usr/lib/tracker-miner-fs-3
+# run /usr/lib/tracker-miner-rss-3
 # run /usr/lib/xapps/sn-watcher/xapp-sn-watcher
 run /usr/lib/at-spi-bus-launcher --launch-immediately
 run /usr/bin/gnome-keyring-daemon --start --components=pkcs11

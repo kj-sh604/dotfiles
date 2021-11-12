@@ -308,11 +308,11 @@ globalkeys = gears.table.join(
   awful.key({ }, "XF86MonBrightnessUp", function () awful.spawn.easy_async_with_shell("xbacklight -inc 15") end),
 
   -- Emoji Picker
-  awful.key({ modkey }, "q", function () awful.spawn.easy_async_with_shell("sh -c '/home/kylert/.local/share/Blista-Kanjo-Emoji/blista-emoji-picker'") end,
+  awful.key({ modkey }, "grave", function () awful.spawn.easy_async_with_shell("sh -c '/home/kylert/.local/share/Blista-Kanjo-Emoji/blista-emoji-picker'") end,
     {description = "Launch Emoji Chooser", group = "launcher"}),
 
   -- Clipboard Manager
-  awful.key({ modkey }, "grave", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
+  awful.key({ modkey }, "c", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
                 {description = "open clipboard history", group = "launcher"}),
 
   -- awesome window manager Controls
@@ -342,13 +342,13 @@ globalkeys = gears.table.join(
     {description = "decrease master height factor", group = "layout"}),
 
 
-  awful.key({ "Control",   }, "Left",     function () awful.tag.incnmaster( 1, nil, true) end,
+  awful.key({ modkey }, "minus",     function () awful.tag.incnmaster( 1, nil, true) end,
     {description = "increase the number of master clients", group = "layout"}),
-  awful.key({ "Control",   }, "Right",     function () awful.tag.incnmaster(-1, nil, true) end,
+  awful.key({ modkey }, "equal",     function () awful.tag.incnmaster(-1, nil, true) end,
     {description = "decrease the number of master clients", group = "layout"}),
-  awful.key({ "Control", }, "Up",     function () awful.tag.incncol( 1, nil, true)    end,
+  awful.key({ modkey }, "[",     function () awful.tag.incncol( 1, nil, true)    end,
     {description = "increase the number of columns", group = "layout"}),
-  awful.key({"Control", }, "Down",     function () awful.tag.incncol(-1, nil, true)    end,
+  awful.key({ modkey }, "]",     function () awful.tag.incncol(-1, nil, true)    end,
     {description = "decrease the number of columns", group = "layout"}),
   awful.key({ modkey }, "j", function () awful.layout.inc( 1)                end,
     {description = "select next", group = "layout"}),
@@ -393,7 +393,7 @@ clientkeys = gears.table.join(
       c:raise()
     end,
     {description = "toggle fullscreen", group = "client"}),
-  awful.key({ "Mod1",  }, "F4",      function (c) c:kill() end,
+  awful.key({ modkey }, "q",      function (c) c:kill() end,
     {description = "close", group = "client"}),
   awful.key({ "Shift", "Control" }, "space",  awful.client.floating.toggle,
     {description = "toggle floating", group = "client"}),

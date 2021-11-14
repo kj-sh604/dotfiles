@@ -641,4 +641,4 @@ gears.timer {
 
 -- awful.spawn.with_shell("")
 -- awful.spawn.easy_async_with_shell("")
-awful.spawn.easy_async_with_shell("/home/kylert/.config/awesome/autorun.sh")
+awful.spawn("/home/kylert/.config/awesome/autorun.sh")

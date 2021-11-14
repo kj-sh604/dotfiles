@@ -4,6 +4,7 @@
 :set number
 :set relativenumber
 :filetype indent on
+:set mouse=a
 
 if $TERM == 'alacritty'
   set ttymouse=sgr

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-key-mapper-control --command stop-all && key-mapper-control --command autoload && sleep 1 && setxkbmap -option compose:ralt && xmodmap ~/.Xmodmap && xset r rate 300 50 # && setxkbmap -option caps:escape_shifted_capslock
+key-mapper-control --command stop-all && key-mapper-control --command autoload && sleep 2 && setxkbmap -option compose:ralt && sleep 1 && xmodmap ~/.Xmodmap && sleep 1 && xset r rate 300 50

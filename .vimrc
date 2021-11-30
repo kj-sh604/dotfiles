@@ -6,6 +6,11 @@
 :filetype indent on
 :set mouse=a
 
+if has('gui_running')
+  set guifont=JetBrains\ Mono\ 11
+  colorscheme evening
+endif
+
 if $TERM == 'alacritty'
   set ttymouse=sgr
 endif

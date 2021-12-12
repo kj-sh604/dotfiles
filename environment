@@ -1,0 +1,13 @@
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+
+LIBVA_DRIVER_NAME=vdpau
+QT_AUTO_SCREEN_SCALE_FACTOR=0
+VDPAU_DRIVER=nvidia
+QT_QPA_PLATFORMTHEME=qt5ct
+GTK_IM_MODULE=ibus
+QT_IM_MODULE=ibus
+XMODIFIERS=@im=ibus

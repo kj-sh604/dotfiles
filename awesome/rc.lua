@@ -230,7 +230,7 @@ globalkeys = gears.table.join(
   -- Change window focus in maximized layout
   awful.key({ modkey,           }, "Tab",
     function ()
-      awful.client.focus.byidx( 1)
+      awful.client.focus.byidx(1)
     end,
     {description = "focus next by index", group = "client"}
   ),

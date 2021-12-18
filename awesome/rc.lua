@@ -241,16 +241,30 @@ globalkeys = gears.table.join(
     {description = "focus previous by index", group = "client"}
   ),
 
+  -- Change window focus in maximized layout (alternate keybinds)
+  awful.key({ modkey, "Mod1" }, "j",
+    function ()
+      awful.client.focus.byidx(1)
+    end,
+    {description = "focus next by index", group = "client"}
+  ),
+  awful.key({ modkey, "Mod1" }, "k",
+    function ()
+      awful.client.focus.byidx(-1)
+    end,
+    {description = "focus previous by index", group = "client"}
+  ),
+
   -- --------------------------------------------------------------
 
   awful.key({ modkey,           }, "Menu", function () mymainmenu:show() end,
     {description = "show main menu", group = "awesome"}),
 
-  -- Old Layout manipulation
-  --[[awful.key({ modkey,  "Control" }, "Down", function () awful.client.swap.byidx(  1)    end,
+  -- Move Window by Index
+  awful.key({ modkey,  "Control" }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
-    awful.key({ modkey,   "Control"}, "Up", function () awful.client.swap.byidx( -1)    end,
-              {description = "swap with previous client by index", group = "client"}),]]--
+  awful.key({ modkey,   "Control"}, "k", function () awful.client.swap.byidx( -1)    end,
+              {description = "swap with previous client by index", group = "client"}),
 
   -- Move window by direction in tiling layout
   awful.key({ modkey, "Control" }, "Down", function (c) awful.client.swap.global_bydirection("down") c:raise() end,

@@ -312,7 +312,7 @@ globalkeys = gears.table.join(
     {description = "take a screenshot of the active window", group = "launcher"}),
   awful.key({ "Shift"          }, "Print", function () awful.spawn.easy_async_with_shell("xfce4-screenshooter -r --mouse") end,
     {description = "take a screenshot of an area of the screen", group = "launcher"}),
-  awful.key({ "Shift", "Control"          }, "x", function () awful.spawn.easy_async_with_shell("xkill") end,
+  awful.key({ modkey, "Mod1" }, "Delete", function () awful.spawn.easy_async_with_shell("xkill") end,
     {description = "kill a window by brute force", group = "launcher"}),
   awful.key({ "Control", "Mod1"          }, "Delete", function () awful.spawn("qterminal -e 'htop' --title 'Task Manager'") end,
     {description = "Launch HTOP", group = "launcher"}),
@@ -338,7 +338,7 @@ globalkeys = gears.table.join(
   --[[    awful.key({ "Control", "Mod1"          }, "BackSpace", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end,
               {description = "quit awesome", group = "launcher"}), ]]--
 
-  awful.key({ "Control", "Shift"          }, "Delete", function () awful.spawn("gnome-system-monitor") end,
+  awful.key({ modkey, "Control" }, "Delete", function () awful.spawn("gnome-system-monitor") end,
     {description = "gnome-system-monitor", group = "launcher"}),
 
 

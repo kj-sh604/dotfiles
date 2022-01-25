@@ -35,9 +35,8 @@ run /usr/bin/gnome-keyring-daemon --start --components=secrets
 run /usr/bin/gnome-keyring-daemon --start --components=ssh
 run xfce4-power-manager
 run /usr/lib/xfce4/notifyd/xfce4-notifyd
-run /home/kylert/.config/awesome/keymapper.sh
-run /home/kylert/.config/awesome/xinput-daemon.sh
+run ~/.config/awesome/keymapper.sh
+run ~/.config/awesome/xinput-daemon.sh
 run ibus-daemon -drxR
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run wineserver
-run wine-preloader '/home/kylert/.wine/drive_c/Program Files (x86)/ClipGrab/clipgrab.exe'

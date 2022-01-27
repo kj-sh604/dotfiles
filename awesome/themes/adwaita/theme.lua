@@ -1,5 +1,5 @@
 ---------------------------
--- Default awesome theme --
+-- Adwaita awesome theme --
 ---------------------------
 
 local theme_assets = require("beautiful.theme_assets")
@@ -7,7 +7,8 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
-local themes_path = gfs.get_themes_dir()
+local themes_path_system = gfs.get_themes_dir()
+local themes_path = "~/.config/awesome/themes/"
 
 local theme = {}
 
@@ -26,7 +27,7 @@ theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(4)
-theme.border_normal = "#303030"
+theme.border_normal = "#222222"
 theme.border_focus  = "#11427E"
 theme.border_marked = "#7d4c10"
 
@@ -61,9 +62,9 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = themes_path.."default/submenu.png"
-theme.menu_height = dpi(15)
-theme.menu_width  = dpi(100)
+theme.menu_submenu_icon = themes_path_system.."default/submenu.png"
+theme.menu_height = dpi(20)
+theme.menu_width  = dpi(170)
 
 -- You can add as many variables as
 -- you wish and access them by using
@@ -123,7 +124,7 @@ theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
     theme.menu_height, theme.bg_focus, theme.fg_focus
 ) ]]--
 
-theme.awesome_icon = "/home/kylert/.config/awesome/themes/adwaita/arch-submenu.png"
+theme.awesome_icon = themes_path.."vide/arch-submenu.png"
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.

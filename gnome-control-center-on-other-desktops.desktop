@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=GNOME Control Center
+Comment=Open the GNOME Control Center on any Desktop
+Icon=gnome-settings
+Exec=sh -c 'env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
+Actions=
+Categories=System;X-XFCE;X-Xfce-Toplevel;
+Path=
+Terminal=false
+StartupNotify=false

@@ -580,6 +580,7 @@ awful.rules.rules = {
     class = {
       "Arandr",
       "Blueman-manager",
+      "clipgrab.exe",
       "Gpick",
       "Gnome-calculator",
       "Gnome-system-monitor",

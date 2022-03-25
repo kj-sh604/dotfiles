@@ -306,11 +306,11 @@ globalkeys = gears.table.join(
     {description = "search the filesystem", group = "launcher"}),
   awful.key({ modkey,          }, "e", function () awful.spawn("thunar") end,
     {description = "open a file manager", group = "launcher"}),
-  awful.key({          }, "Print", function () awful.spawn.easy_async_with_shell("xfce4-screenshooter -f --mouse") end,
+  awful.key({          }, "Print", function () awful.spawn.easy_async_with_shell("screengrab -f") end,
     {description = "take a screenshot of the fullscreen", group = "launcher"}),
-  awful.key({ modkey         }, "Print", function () awful.spawn.easy_async_with_shell("xfce4-screenshooter -w --mouse") end,
+  awful.key({ modkey         }, "Print", function () awful.spawn.easy_async_with_shell("screengrab -a") end,
     {description = "take a screenshot of the active window", group = "launcher"}),
-  awful.key({ "Shift"          }, "Print", function () awful.spawn.easy_async_with_shell("xfce4-screenshooter -r --mouse") end,
+  awful.key({ "Shift"          }, "Print", function () awful.spawn.easy_async_with_shell("screengrab -r") end,
     {description = "take a screenshot of an area of the screen", group = "launcher"}),
   awful.key({ modkey, "Mod1" }, "Delete", function () awful.spawn.easy_async_with_shell("xkill") end,
     {description = "kill a window by brute force", group = "launcher"}),
@@ -586,6 +586,7 @@ awful.rules.rules = {
       "Gnome-system-monitor",
       "Kruler",
       "MessageWin",  -- kalarm.
+      "screengrab",
       "Sxiv",
       "Steam",
       "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.

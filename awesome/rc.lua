@@ -599,7 +599,10 @@ awful.rules.rules = {
     -- and the name shown there might not match defined rules here.
     name = {
       "Event Tester",  -- xev.
-      "Task Manager"
+      "Task Manager",
+      "Zoom - Licensed Account",
+      "Zoom Meeting",
+      "zoom",      
     },
     role = {
       "AlarmWindow",  -- Thunderbird's calendar.

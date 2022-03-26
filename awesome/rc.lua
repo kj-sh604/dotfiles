@@ -600,6 +600,7 @@ awful.rules.rules = {
     name = {
       "Event Tester",  -- xev.
       "Task Manager",
+      "Zoom - Free Account",
       "Zoom - Licensed Account",
       "Zoom Meeting",
       "zoom",      

@@ -8,7 +8,8 @@
 
 if has('gui_running')
   set guifont=JetBrains\ Mono\ 11
-  colorscheme torte
+  :set guioptions-=T
+  colorscheme slate
 endif
 
 if $TERM == 'alacritty'

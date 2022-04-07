@@ -578,10 +578,11 @@ awful.rules.rules = {
       "pinentry",
     },
     class = {
+      "Agave",    
       "Arandr",
       "Blueman-manager",
       "Gpick",
-      "Gnome-calculator",
+      "gnome-calculator",
       "Gnome-system-monitor",
       "Kruler",
       "MessageWin",  -- kalarm.
@@ -593,8 +594,8 @@ awful.rules.rules = {
       "veromix",
       "xtightvncviewer",
       "zoom",
-      "[join?]*",
-      "[start?]*",
+      "[join?]*", -- Zoom Meeting client joined from browser
+      "[start?]*", -- Zoom Meeting client started from browser
     },
 
     -- Note that the name property shown in xprop might be set slightly after creation of the client

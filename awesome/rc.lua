@@ -661,3 +661,89 @@ gears.timer {
 -- awful.spawn.with_shell("")
 -- awful.spawn.easy_async_with_shell("")
 awful.spawn.easy_async_with_shell("/home/kylert/.config/awesome/autorun.sh")
+
+-- Client Swallowing Function
+
+table_is_swallowed = { "Alacritty" }
+table_cannot_swallow = { "xev" }
+
+function is_in_Table(table, element)
+    for _, value in pairs(table) do
+        if element:match(value) then
+            return true
+        end
+    end
+    return false
+end
+
+function is_to_be_swallowed(c)
+    return (c.class and is_in_Table(table_is_swallowed, c.class)) and true or false
+end
+
+function can_swallow(class)
+    return not is_in_Table(table_cannot_swallow, class)
+end
+
+function copy_size(c, parent_client)
+    if (not c or not parent_client) then
+        return
+    end
+    if (not c.valid or not parent_client.valid) then
+        return
+    end
+    c.x=parent_client.x;
+    c.y=parent_client.y;
+    c.width=parent_client.width;
+    c.height=parent_client.height;
+end
+function check_resize_client(c)
+    if(c.child_resize) then
+        copy_size(c.child_resize, c)
+    end
+end
+
+function get_parent_pid(child_ppid, callback)
+    local ppid_cmd = string.format("ps -o ppid= -p %s", child_ppid)
+    awful.spawn.easy_async(ppid_cmd, function(stdout, stderr, reason, exit_code)
+        -- primitive error checking
+        if stderr and stderr ~= "" then
+            callback(stderr)
+            return
+        end
+        local ppid = stdout:gsub(" ", ""):gsub("\n", "")
+        callback(nil, ppid)
+    end)
+end
+
+client.connect_signal("property::size", check_resize_client)
+client.connect_signal("property::position", check_resize_client)
+client.connect_signal("manage", function(c)
+    if is_to_be_swallowed(c) then
+        return
+    end
+    local parent_client=awful.client.focus.history.get(c.screen, 1)
+    get_parent_pid(c.pid, function(err, ppid)
+        if err then
+            error(err)
+            return
+        end
+        parent_pid = ppid
+        get_parent_pid(parent_pid, function(err, gppid)
+            if err then
+                error(err)
+                return
+            end
+            grand_parent_pid = gppid
+            if parent_client and (parent_pid:find('^' .. parent_client.pid) or grand_parent_pid:find('^' .. parent_client.pid)) and is_to_be_swallowed(parent_client) and can_swallow(c.class) then
+                -- c.floating=true
+                parent_client.minimized = true
+                c:connect_signal("unmanage", function() parent_client.minimized = false end)
+                parent_client.child_resize=c
+                copy_size(c, parent_client)
+            end
+        end)
+    end)
+end)
+
+-- End Client Swallowing Function
+

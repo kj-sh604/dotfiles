@@ -665,6 +665,7 @@ awful.spawn.easy_async_with_shell("/home/kylert/.config/awesome/autorun.sh")
 -- Client Swallowing Function
 
 table_is_swallowed = { "Alacritty" }
+table_minimize_parent = { "mpv" }
 table_cannot_swallow = { "xev" }
 
 function is_in_Table(table, element)
@@ -682,6 +683,10 @@ end
 
 function can_swallow(class)
     return not is_in_Table(table_cannot_swallow, class)
+end
+
+function is_parent_minimized(class)
+    return is_in_Table(table_minimize_parent, class)
 end
 
 function copy_size(c, parent_client)
@@ -703,14 +708,14 @@ function check_resize_client(c)
 end
 
 function get_parent_pid(child_ppid, callback)
-    local ppid_cmd = string.format("ps -o ppid= -p %s", child_ppid)
+    local ppid_cmd = string.format("pstree -ps %s", child_ppid)
     awful.spawn.easy_async(ppid_cmd, function(stdout, stderr, reason, exit_code)
         -- primitive error checking
         if stderr and stderr ~= "" then
             callback(stderr)
             return
         end
-        local ppid = stdout:gsub(" ", ""):gsub("\n", "")
+        local ppid = stdout
         callback(nil, ppid)
     end)
 end
@@ -728,20 +733,18 @@ client.connect_signal("manage", function(c)
             return
         end
         parent_pid = ppid
-        get_parent_pid(parent_pid, function(err, gppid)
-            if err then
-                error(err)
-                return
-            end
-            grand_parent_pid = gppid
-            if parent_client and (parent_pid:find('^' .. parent_client.pid) or grand_parent_pid:find('^' .. parent_client.pid)) and is_to_be_swallowed(parent_client) and can_swallow(c.class) then
-                -- c.floating=true
+        if parent_client and (parent_pid:find("("..parent_client.pid..")")) and is_to_be_swallowed(parent_client) and can_swallow(c.class) then
+            if is_parent_minimized(c.class) then
+                parent_client.child_resize=c
                 parent_client.minimized = true
                 c:connect_signal("unmanage", function() parent_client.minimized = false end)
+                copy_size(c, parent_client)
+            else
                 parent_client.child_resize=c
+                c.floating=true
                 copy_size(c, parent_client)
             end
-        end)
+        end
     end)
 end)
 

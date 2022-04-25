@@ -656,7 +656,6 @@ gears.timer {
   callback = function() collectgarbage() end
 }
 
-
 -- Autostart
 
 -- awful.spawn.with_shell("")

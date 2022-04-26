@@ -664,9 +664,13 @@ awful.spawn.easy_async_with_shell("/home/kylert/.config/awesome/autorun.sh")
 
 -- Client Swallowing Function
 
-table_is_swallowed = { "Alacritty" }
-table_minimize_parent = { "mpv" }
-table_cannot_swallow = { "xev" }
+table_is_swallowed = { 
+    "Alacritty" }
+table_minimize_parent = { 
+    "mpv",
+    "vlc" }
+table_cannot_swallow = { 
+    "xev" }
 
 function is_in_Table(table, element)
     for _, value in pairs(table) do

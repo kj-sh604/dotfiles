@@ -4,6 +4,7 @@ if status is-interactive
     alias ls="lsd --group-dirs first -h --icon-theme unicode -L"
     alias s="cd ~/.local/share/scripts && lsd --group-dirs first -h --icon-theme unicode -L"
     alias d="disown"
+    alias c="cal"
     export PF_INFO="ascii title os kernel uptime pkgs memory"
 
     

@@ -578,7 +578,7 @@ awful.rules.rules = {
       "pinentry",
     },
     class = {
-      "Agave",    
+      "Agave",
       "Arandr",
       "Blueman-manager",
       "Gpick",
@@ -602,7 +602,7 @@ awful.rules.rules = {
     -- and the name shown there might not match defined rules here.
     name = {
       "Event Tester",  -- xev.
-      "Task Manager",      
+      "Task Manager",
     },
     role = {
       "AlarmWindow",  -- Thunderbird's calendar.
@@ -664,12 +664,13 @@ awful.spawn.easy_async_with_shell("/home/kylert/.config/awesome/autorun.sh")
 
 -- Client Swallowing Function
 
-table_is_swallowed = { 
+table_is_swallowed = {
     "Alacritty" }
-table_minimize_parent = { 
+table_minimize_parent = {
     "mpv",
-    "vlc" }
-table_cannot_swallow = { 
+    "vlc",
+    "MPlayer" }
+table_cannot_swallow = {
     "xev" }
 
 function is_in_Table(table, element)
@@ -753,4 +754,3 @@ client.connect_signal("manage", function(c)
 end)
 
 -- End Client Swallowing Function
-

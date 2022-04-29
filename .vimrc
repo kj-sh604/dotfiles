@@ -8,7 +8,10 @@
 
 if has('gui_running')
   set guifont=JetBrains\ Mono\ 11
+  :set guioptions-=m
   :set guioptions-=T
+  :set guioptions-=r
+  :set guioptions-=L
   colorscheme slate
 endif
 

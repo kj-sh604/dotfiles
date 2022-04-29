@@ -851,11 +851,11 @@ key_bindings:
   #print_events: false
 
 
-###############################################
-# Custom Colors and Configs from the internet #
-###############################################
+##########################################
+# Custom Colors and Configs from Myself  #
+##########################################
 
-# Colors (Hyper)
+# Colors (DarkPastels from qterminal)
 colors:
   # Default colors
   primary:
@@ -897,3 +897,8 @@ colors:
   cursor:
   #  text: CellBackground
     cursor: "#69baa7"
+
+
+###############################################
+# Custom Colors and Configs from the internet #
+###############################################

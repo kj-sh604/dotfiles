@@ -669,7 +669,9 @@ table_is_swallowed = {
 table_minimize_parent = {
     "mpv",
     "vlc",
-    "MPlayer" }
+    "MPlayer",
+    "XTerm",
+    "URxvt"  }
 table_cannot_swallow = {
     "xev" }
 

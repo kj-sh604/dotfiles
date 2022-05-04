@@ -1,4 +1,4 @@
-:set clipboard=unnamedplus
+":set clipboard=unnamedplus
 :filetype plugin on
 :syntax on
 :set number
@@ -19,5 +19,6 @@ if $TERM == 'alacritty'
   set ttymouse=sgr
 endif
 
-vmap <C-c> "+yi
+vnoremap <C-c> "+y
 vmap <C-x> "+c
+map <C-p> "+p

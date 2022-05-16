@@ -332,14 +332,14 @@ globalkeys = gears.table.join(
   -- On-the-fly Window Gaps configuration
   
   awful.key({modkey}, "'", function () awful.tag.incgap(2)   end,
-                {description = "increase window gaps", group = "window gaps"}),
+                {description = "increase window gaps", group = "client"}),
                 
   awful.key({modkey}, ";", function () awful.tag.incgap(-2)   end,
-                {description = "decrease window gaps", group = "window gaps"}),
+                {description = "decrease window gaps", group = "client"}),
                 
-  awful.key({modkey}, "backslash", function () awful.tag.setgap(5)   end,
-                {description = "reset window gaps", group = "window gaps"}),    -- Warning: awful.tag.setgap() is deprecated
-
+  awful.key({modkey}, "backslash", function () awful.screen.focused().selected_tag.gap = 5   end,
+                {description = "reset window gaps", group = "client"}), 
+                
   -- awesome window manager Controls
   awful.key({ "Control", "Mod1" }, "BackSpace", awesome.restart,
     {description = "reload awesome", group = "awesome"}),

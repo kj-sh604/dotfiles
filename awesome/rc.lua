@@ -325,7 +325,7 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, "q", function () awful.spawn.easy_async_with_shell("sh -c '~/.local/share/Blista-Kanjo-Emoji/blista-emoji-picker'") end,
     {description = "launch emoji chooser", group = "launcher"}),
     
-  -- Spell Checker (Single Word
+  -- Spell Checker (Single Word)
   awful.key({ modkey }, "w", function () awful.spawn.easy_async_with_shell("sh -c '~/.local/share/scripts/dym.sh'") end,
     {description = "launch single word spell checker", group = "launcher"}),
 

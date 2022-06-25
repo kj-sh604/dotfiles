@@ -597,7 +597,7 @@ awful.rules.rules = {
       "Arandr",
       "Blueman-manager",
       "Gpick",
-      "gnome-calculator",
+      "Gnome-calculator",
       "Gnome-system-monitor",
       "Kruler",
       "MessageWin",  -- kalarm.

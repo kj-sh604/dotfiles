@@ -81,5 +81,7 @@ map <C-p> "+p
 
 call plug#begin()
 Plug 'ycm-core/YouCompleteMe'
+Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'LunarWatcher/auto-pairs'
 call plug#end()
 

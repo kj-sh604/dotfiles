@@ -80,8 +80,10 @@ map <C-p> "+p
 " ╩  ┴─┘└─┘└─┘┴┘└┘  ╩ ╩┴ ┴┘└┘┴ ┴└─┘└─┘┴└─
 
 call plug#begin()
-Plug 'ycm-core/YouCompleteMe'
 Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'LunarWatcher/auto-pairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf'
 call plug#end()
 

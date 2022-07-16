@@ -75,6 +75,12 @@ vnoremap <C-c> "+y
 vmap <C-x> "+c
 map <C-p> "+p
 
+" NERDTree Keybinds
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
 " ╔═╗┬  ┬ ┬┌─┐┬┌┐┌  ╔╦╗┌─┐┌┐┌┌─┐┌─┐┌─┐┬─┐
 " ╠═╝│  │ ││ ┬││││  ║║║├─┤│││├─┤│ ┬├┤ ├┬┘
 " ╩  ┴─┘└─┘└─┘┴┘└┘  ╩ ╩┴ ┴┘└┘┴ ┴└─┘└─┘┴└─

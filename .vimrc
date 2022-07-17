@@ -87,7 +87,9 @@ nnoremap <C-f> :NERDTreeFind<CR>
 
 call plug#begin()
 Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'LunarWatcher/auto-pairs'
+" Plug 'LunarWatcher/auto-pairs'
+Plug 'tmsvg/pear-tree'
+Plug 'https://github.com/adelarsq/vim-matchit'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf'

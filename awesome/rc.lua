@@ -322,11 +322,11 @@ globalkeys = gears.table.join(
   awful.key({ }, "XF86MonBrightnessUp", function () awful.spawn.easy_async_with_shell("xbacklight -inc 15") end),
 
   -- Emoji Picker
-  awful.key({ modkey }, "q", function () awful.spawn.easy_async_with_shell("sh -c '~/.local/share/Blista-Kanjo-Emoji/blista-emoji-picker'") end,
+  awful.key({ modkey }, ".", function () awful.spawn.easy_async_with_shell("sh -c '~/.local/share/Blista-Kanjo-Emoji/blista-emoji-picker'") end,
     {description = "launch emoji chooser", group = "launcher"}),
     
   -- Spell Checker (Single Word)
-  awful.key({ modkey }, "w", function () awful.spawn.easy_async_with_shell("sh -c '~/.local/share/scripts/dym.sh'") end,
+  awful.key({ modkey }, "slash", function () awful.spawn.easy_async_with_shell("sh -c '~/.local/share/scripts/dym.sh'") end,
     {description = "launch single word spell checker", group = "launcher"}),
 
   -- Clipboard Manager
@@ -384,7 +384,7 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, "k", function () awful.layout.inc(-1)                end,
     {description = "select previous", group = "layout"}),
 
-  awful.key({ modkey }, ",",
+  awful.key({ modkey, "Shift" }, "m",
     function ()
       local c = awful.client.restore()
       -- Focus restored client
@@ -424,13 +424,15 @@ clientkeys = gears.table.join(
     {description = "toggle fullscreen", group = "client"}),
   awful.key({ "Mod1" }, "F4",      function (c) c:kill() end,
     {description = "close", group = "client"}),
+  awful.key({ modkey }, "q",      function (c) c:kill() end,
+    {description = "close", group = "client"}),
   awful.key({ "Shift", "Control" }, "space",  awful.client.floating.toggle,
     {description = "toggle floating", group = "client"}),
 
   -- Sticky Window and Always on top toggle
-  awful.key({ modkey }, ".", function(c) c.ontop = not c.ontop end,
+  awful.key({ modkey }, "t", function(c) c.ontop = not c.ontop end,
     {description = "toggle always on top", group = "client"}),
-  awful.key({ modkey }, "slash",   function (c) c.sticky = not c.sticky  end,
+  awful.key({ modkey }, "y",   function (c) c.sticky = not c.sticky  end,
     {description = "toggle sticky", group = "client"}),
 
   -- Original Keep On Top Function

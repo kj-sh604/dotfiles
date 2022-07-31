@@ -33,7 +33,7 @@ window:
   dimensions:
     columns: 95
     lines: 28
-  opacity: 0.9
+  opacity: 1.0
 
   # Window position (changes require restart)
   #

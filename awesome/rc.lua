@@ -28,7 +28,7 @@ beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "kate"
+editor = os.getenv("EDITOR") or "gvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -65,13 +65,14 @@ myawesomemenu = {
   { "show hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
   --   { "manual", terminal .. " -e man awesome" },
   { "config file", editor .. " " .. awesome.conffile },
-  { "picom config", function() awful.spawn.easy_async_with_shell("sh -c 'kate $HOME/.config/picom.conf'") end },
+  { "picom config", function() awful.spawn.easy_async_with_shell("sh -c 'gvim $HOME/.config/picom.conf'") end },
   { "change wallpaper", function() awful.spawn.easy_async_with_shell("sh -c 'nitrogen'") end },
   { "xdg_menu refresh", function() awful.spawn.easy_async_with_shell("sh -c 'xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/xdgmenu.lua'") end, },
   { "refresh", awesome.restart },
   { "reboot" , function() awful.spawn("sh -c 'gksudo reboot now'") end },
   --   { "quit", function() awesome.quit() end },
   { "shutdown", function() awful.spawn("sh -c 'gksudo shutdown now'") end},
+  { "stagnate", function() awful.spawn.easy_async_with_shell("sh -c 'systemctl hibernate'") end},
   { "suspend", function() awful.spawn.easy_async_with_shell("sh -c 'systemctl suspend'") end},
   { "logout", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end },
   { "lock", function() awful.spawn.easy_async_with_shell("sh -c 'xflock4'") end},

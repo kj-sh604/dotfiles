@@ -219,8 +219,8 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-  awful.key({ modkey,           }, "h",      hotkeys_popup.show_help,
-    {description="show help", group="awesome"}),
+  awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
+    {description="show shortcuts", group="awesome"}),
   awful.key({ "Control", "Mod1"           }, "Left",   awful.tag.viewprev,
     {description = "view previous", group = "tag"}),
   awful.key({ "Control", "Mod1"           }, "Right",  awful.tag.viewnext,
@@ -303,7 +303,7 @@ globalkeys = gears.table.join(
       ]]--
   awful.key({ "Control", "Mod1"          }, "t", function () awful.spawn(terminal) end,
     {description = "open a terminal", group = "launcher"}),
-  awful.key({ modkey,          }, "s", function () awful.spawn("fsearch") end,
+  awful.key({ modkey,          }, "slash", function () awful.spawn("fsearch") end,
     {description = "search the filesystem", group = "launcher"}),
   awful.key({ modkey,          }, "e", function () awful.spawn("thunar") end,
     {description = "open a file manager", group = "launcher"}),
@@ -327,7 +327,7 @@ globalkeys = gears.table.join(
     {description = "launch emoji chooser", group = "launcher"}),
     
   -- Spell Checker (Single Word)
-  awful.key({ modkey }, "slash", function () awful.spawn.easy_async_with_shell("sh -c '~/.local/share/scripts/dym.sh'") end,
+  awful.key({ modkey }, "comma", function () awful.spawn.easy_async_with_shell("sh -c '~/.local/share/scripts/dym.sh'") end,
     {description = "launch single word spell checker", group = "launcher"}),
 
   -- Clipboard Manager

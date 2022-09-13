@@ -1,6 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    
+        fish_vi_key_bindings   
 
     # Personal Aliases
         alias s="cd ~/.local/share/scripts && lsd --group-dirs first -h --icon-theme unicode -L"

@@ -72,7 +72,7 @@ endif
 " ╩ ╩└─┘ ┴ └─┘┴┘└┘─┴┘└─┘  └  └─┘┴└─  ╩ ╚═  ╚═╝┴─┘┴┴  └─┘└─┘┴ ┴┴└──┴┘
 
 vnoremap <C-c> "+y
-vmap <C-x> "+c
+vmap <C-x> "+x
 map <C-p> "+p
 
 " NERDTree Keybinds

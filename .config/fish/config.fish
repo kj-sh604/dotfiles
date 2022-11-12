@@ -6,6 +6,7 @@ if status is-interactive
         alias s="cd ~/.local/share/scripts && lsd --group-dirs first -h --icon-theme unicode -L"
         alias d="disown"
         alias c="cal"
+        alias w="curl wttr.in"
 
     # Pomodoro Timer Aliases | Thanks to @bashbunni and @caarlos0
         alias work="timer 30m && notify-send \

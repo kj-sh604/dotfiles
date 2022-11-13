@@ -127,3 +127,7 @@ inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
+
+" COC.NVIM colors
+highlight CocFloating ctermbg=0
+highlight CocErrorFloat ctermfg=15

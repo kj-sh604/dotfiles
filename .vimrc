@@ -128,3 +128,6 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
+" COC.NVIM colors
+highlight CocFloating ctermbg=0
+highlight CocErrorFloat ctermfg=15

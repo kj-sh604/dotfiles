@@ -74,6 +74,7 @@ endif
 vnoremap <C-c> "+y
 vmap <C-x> "+x
 map <C-p> "+p
+map <Leader>p "+P
 
 " NERDTree Keybinds
 nnoremap <leader>n :NERDTreeFocus<CR>

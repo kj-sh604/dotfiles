@@ -4,7 +4,6 @@
 apply_settings () {
 
 	sleep 2
-    input-remapper-control --command stop-all && input-remapper-control --command autoload
 	xinput set-prop pointer:"Logitech USB Trackball" "libinput Natural Scrolling Enabled" 1
 	xinput set-prop pointer:"Logitech USB Trackball" "libinput Accel Speed" 1.000000
 	xinput set-prop pointer:"SteelSeries SteelSeries Rival 310 eSports Mouse" "libinput Accel Speed" 0.300000

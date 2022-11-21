@@ -93,6 +93,8 @@ Plug 'tmsvg/pear-tree'
 Plug 'https://github.com/adelarsq/vim-matchit'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
+Plug 'sbdchd/neoformat'
+Plug 'ThePrimeagen/vim-be-good'
 Plug 'junegunn/fzf'
 call plug#end()
 

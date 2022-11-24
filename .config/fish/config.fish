@@ -7,6 +7,7 @@ if status is-interactive
         alias d="disown"
         alias c="cal"
         alias w="curl wttr.in"
+        alias x="startx"
 
     # Pomodoro Timer Aliases | Thanks to @bashbunni and @caarlos0
         alias work="timer 30m && notify-send \

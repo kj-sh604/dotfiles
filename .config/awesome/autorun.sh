@@ -36,7 +36,7 @@ run /usr/bin/gnome-keyring-daemon --start --components=ssh
 run xfce4-power-manager
 run dunst
 run ~/.config/awesome/xinput-daemon.sh
+run ~/.config/awesome/keymapper.sh
 run ibus-daemon -drxR
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run wineserver
-run ~/.config/awesome/keymapper.sh

@@ -14,7 +14,7 @@
 	<icon>folder-visiting</icon>
 	<name>Open as ROOT</name>
 	<unique-id>1601859832500541-1</unique-id>
-	<command>gksudo dbus-launch thunar %f </command>
+	<command>lxsudo dbus-launch thunar %f </command>
 	<description></description>
 	<patterns>*</patterns>
 	<directories/>
@@ -23,7 +23,7 @@
 	<icon>text-x-makefile</icon>
 	<name>Edit as ROOT</name>
 	<unique-id>1601859882692361-2</unique-id>
-	<command>gksudo dbus-launch xed %f</command>
+	<command>lxsudo dbus-launch gvim %f</command>
 	<description></description>
 	<patterns>*</patterns>
 	<other-files/>

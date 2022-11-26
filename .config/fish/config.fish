@@ -22,7 +22,7 @@ if status is-interactive
 
     # Command Substitutions | I'm trying out the Rust Coreutils Re-write via the coreutils-hybrid package
         alias echo="uu-echo"
-        alias ls="lsd --group-dirs first -h --icon-theme unicode -L"
+        alias ls="uu-ls --group-directories-first -h -p --color -F"
         alias pwd="uu-pwd"
         alias groups=uu-groups
         alias kill=uu-kill

@@ -3,7 +3,7 @@ if status is-interactive
         fish_vi_key_bindings   
 
     # Personal Aliases
-        alias s="cd ~/.local/share/scripts && lsd --group-dirs first -h --icon-theme unicode -L"
+        alias s="cd ~/.local/share/scripts && uu-ls --group-directories-first -h -p --color -F"
         alias d="disown"
         alias c="cal"
         alias w="curl wttr.in"

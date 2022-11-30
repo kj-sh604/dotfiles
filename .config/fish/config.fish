@@ -9,15 +9,15 @@ if status is-interactive
         alias w="curl wttr.in"
         alias x="startx"
 
-    # Pomodoro Timer Aliases | Thanks to @bashbunni and @caarlos0
+    # Pomodoro Timer Aliases | Inspired by @bashbunni Timer by @caarlos0
         alias work="timer 30m && notify-send \
         'Pomodoro' 'Work Timer is up! Take a Break 😊' -i \
-        '/home/kylert/.cache/pomo/pomo-tomato.png' -t 30000 -w -A 'Dismiss'\
+        ~/.cache/pomo/pomo-tomato.png -t 30000 -w -A 'Dismiss'\
         & disown; mpv '/home/kylert/.cache/pomo/pomo-sound.mp3'"
         
         alias rest="timer 10m && notify-send \
         'Pomodoro' 'Break is over! Get back to work 😬' -i \
-        '/home/kylert/.cache/pomo/pomo-tomato.png' -t 30000 -w -A 'Dismiss'\
+        ~/.cache/pomo/pomo-tomato.png -t 30000 -w -A 'Dismiss'\
         & disown; mpv '/home/kylert/.cache/pomo/pomo-sound.mp3'"
 
     # Command Substitutions | I'm trying out the Rust Coreutils Re-write via the coreutils-hybrid package

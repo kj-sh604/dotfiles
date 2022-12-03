@@ -76,6 +76,12 @@ vmap <C-x> "+x
 map <C-p> "+p
 map <Leader>p "+P
 
+" Vertical Motions Mappings
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 " NERDTree Keybinds
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>

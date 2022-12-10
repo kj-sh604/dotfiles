@@ -26,6 +26,7 @@ if status is-interactive
         alias pwd="uu-pwd"
         alias groups=uu-groups
         alias kill=uu-kill
+        alias ln=uu-ln
 
         # Plan9 Utils Command Substitutions
         alias sort="9 sort"

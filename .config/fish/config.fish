@@ -30,6 +30,7 @@ if status is-interactive
 
         ## Experimental/Risky rust-uutits Substitutions for Testing
         alias basenc=uu-basenc
+        alias date=uu-date
         alias false=uu-false
         alias hostname=uu-hostname
         alias join=uu-join

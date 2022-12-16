@@ -28,6 +28,18 @@ if status is-interactive
         alias kill=uu-kill
         alias ln=uu-ln
 
+        ## Experimental/Risky rust-uutits Substitutions for Testing
+        alias basenc=uu-basenc
+        alias false=uu-false
+        alias hostname=uu-hostname
+        alias join=uu-join
+        alias pathchk=uu-pathchk
+        alias realpath=uu-realpath
+        alias tail=uu-tail
+        alias touch=uu-touch
+        alias true=uu-true
+        alias uptime=uu-uptime
+
         # Plan9 Utils Command Substitutions
         alias sort="9 sort"
         alias grep="9 grep"

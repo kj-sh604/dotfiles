@@ -638,8 +638,9 @@ awful.rules.rules = {
     -- Note that the name property shown in xprop might be set slightly after creation of the client
     -- and the name shown there might not match defined rules here.
     name = {
-      "Event Tester",  -- xev.
-      "Task Manager",
+      "^Event Tester$",  -- xev.
+      "^File Operation Progress$", -- fix for latest version of thunar
+      "^Task Manager$",      
     },
     role = {
       "AlarmWindow",  -- Thunderbird's calendar.

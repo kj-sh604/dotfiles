@@ -12,7 +12,7 @@
 " ┌┐ ┌─┐┌─┐┬┌─┐  ┬─┐┬ ┬┌┐┌  ┌─┐┌─┐┌┬┐┌┬┐┌─┐┌┐┌┌┬┐┌─┐
 " ├┴┐├─┤└─┐││    ├┬┘│ ││││  │  │ │││││││├─┤│││ ││└─┐
 " └─┘┴ ┴└─┘┴└─┘  ┴└─└─┘┘└┘  └─┘└─┘┴ ┴┴ ┴┴ ┴┘└┘─┴┘└─┘
-
+colorscheme one
 filetype plugin on
 syntax on
 set number
@@ -57,11 +57,11 @@ if has('gui_running')
   set guioptions-=T
   set guioptions-=r
   set guioptions-=L
-  colorscheme slate
+  colorscheme evening
 endif
 
 " enable true colors support "
-"set termguicolors
+set termguicolors
 
 if $TERM == 'alacritty'
   set ttymouse=sgr

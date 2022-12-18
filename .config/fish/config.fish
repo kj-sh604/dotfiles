@@ -9,6 +9,11 @@ if status is-interactive
         alias w="curl wttr.in"
         alias x="startx"
 
+    # youtube-dl aliases
+        alias yt-mp4="youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
+        alias yt-webm="youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"
+        alias yt-m4a="youtube-dl -cif 'bestaudio[ext=m4a]'"
+
     # Pomodoro Timer Aliases | Inspired by @bashbunni Timer by @caarlos0
         alias work="timer 30m && notify-send \
         'Pomodoro' 'Work Timer is up! Take a Break 😊' -i \

@@ -12,7 +12,7 @@
 " ┌┐ ┌─┐┌─┐┬┌─┐  ┬─┐┬ ┬┌┐┌  ┌─┐┌─┐┌┬┐┌┬┐┌─┐┌┐┌┌┬┐┌─┐
 " ├┴┐├─┤└─┐││    ├┬┘│ ││││  │  │ │││││││├─┤│││ ││└─┐
 " └─┘┴ ┴└─┘┴└─┘  ┴└─└─┘┘└┘  └─┘└─┘┴ ┴┴ ┴┴ ┴┘└┘─┴┘└─┘
-colorscheme one
+colorscheme tender
 filetype plugin on
 syntax on
 set number

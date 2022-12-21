@@ -4,10 +4,10 @@
 # Syntax: simple "KEY=VAL" pairs on separate lines
 #
 
-# LIBVA_DRIVER_NAME=vdpau
-LIBVA_DRIVER_NAME=nvidia # Use with libva-nvidia-driver from AUR
+LIBVA_DRIVER_NAME=vdpau
+# LIBVA_DRIVER_NAME=nvidia # Use with libva-nvidia-driver from AUR
 QT_AUTO_SCREEN_SCALE_FACTOR=0
-# VDPAU_DRIVER=nvidia
+VDPAU_DRIVER=nvidia
 QT_QPA_PLATFORMTHEME=qt5ct
 GTK_IM_MODULE=ibus
 QT_IM_MODULE=ibus

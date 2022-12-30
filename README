@@ -2,6 +2,6 @@
 
 personal collection of config files for my GNU/Linux set-up. I mostly use a cringe-looking Awesome Window Manager "rice", but on occasion, I also use the Xfce4 desktop environment.
 
-I am currently using the `𝚌𝚘𝚛𝚎𝚞𝚝𝚒𝚕𝚜-𝚑𝚢𝚋𝚛𝚒𝚍` package on Arch Linux which integrates the Rust uutils alongside the GNU coreutils. You may want to remove the fish aliases involving the uutils, plan 9 utils, and alternate commands involving the coreutils to make my fish config work on your system.
+I am currently using the `𝘤𝘰𝘳𝘦𝘶𝘵𝘪𝘭𝘴-𝘩𝘺𝘣𝘳𝘪𝘥` package on Arch Linux which integrates the Rust uutils alongside the GNU coreutils. You may want to remove the fish aliases involving the uutils, plan 9 utils, and alternate commands involving the coreutils to make my fish config work on your system.
 
 Thank you very much for checking out my GNU/Linux dotfiles 🤗

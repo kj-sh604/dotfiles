@@ -3,7 +3,7 @@
 
 include "/home/kylert/.gtkrc-2.0.mine"
 gtk-theme-name="Adwaita-dark"
-gtk-icon-theme-name="elementary-xfce-darker"
+gtk-icon-theme-name="elementary-xfce-dark"
 gtk-font-name="Helvetica World 10"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=0

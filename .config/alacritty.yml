@@ -770,8 +770,8 @@ key_bindings:
   - { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
   - { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
   - { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
-  - { key: Up,        mods: Shift,   mode: ~Alt,        action: ScrollPageUp,  }
-  - { key: Down,      mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
+  - { key: Up,        mods: Shift,   mode: ~Alt,        action: ScrollHalfPageUp,  }
+  - { key: Down,      mods: Shift,   mode: ~Alt,        action: ScrollHalfPageDown }
   - { key: Left,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
   - { key: Right,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
   # Vi Mode

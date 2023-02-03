@@ -78,7 +78,7 @@ myawesomemenu = {
   { "stagnate", function() awful.spawn.easy_async_with_shell("sh -c 'systemctl hibernate'") end},
   { "suspend", function() awful.spawn.easy_async_with_shell("sh -c 'systemctl suspend'") end},
   { "logout", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end },
-  { "lock", function() awful.spawn.easy_async_with_shell("sh -c 'xflock4'") end},
+  { "lock", function() awful.spawn.easy_async_with_shell("sh -c 'xdg-screensaver lock'") end},
 }
 
 mymainmenu = awful.menu({ items = { { "applications", xdgmenu, beautiful.awesome_icon },

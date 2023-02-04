@@ -87,14 +87,6 @@ dpms_menu = {
   { "180 # 3m", function() awful.spawn.easy_async_with_shell("xset dpms 180") end },
   { "300 # 5m", function() awful.spawn.easy_async_with_shell("xset dpms 300") end },
   { "600 # 10m", function() awful.spawn.easy_async_with_shell("xset dpms 600") end },
-  { "900 # 15m", function() awful.spawn.easy_async_with_shell("xset dpms 900") end },
-  { "1800 # 30m", function() awful.spawn.easy_async_with_shell("xset dpms 1800") end },
-  { "2700 # 45m", function() awful.spawn.easy_async_with_shell("xset dpms 2700") end },
-  { "3600 # 1h", function() awful.spawn.easy_async_with_shell("xset dpms 3600") end },
-  { "7200 # 2h", function() awful.spawn.easy_async_with_shell("xset dpms 7200") end },
-  { "10800 # 3h", function() awful.spawn.easy_async_with_shell("xset dpms 10800") end },
-  { "14400 # 4h", function() awful.spawn.easy_async_with_shell("xset dpms 14400") end },
-  { "21600 # 6h", function() awful.spawn.easy_async_with_shell("xset dpms 21600") end },
 }
 
 myawesomemenu = {

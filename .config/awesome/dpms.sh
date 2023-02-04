@@ -5,7 +5,7 @@ if command -v xset > /dev/null; then
   # Place all DPMS settings that you want 
   # to run on awesome-wm startup below:
   xset +dpms
-  xset s 10
+  xset s off
 else
   notify-send "Error: DPMS command not found."
 fi

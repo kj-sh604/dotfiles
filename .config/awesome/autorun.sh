@@ -34,11 +34,11 @@ run /usr/bin/gnome-keyring-daemon --start --components=pkcs11
 run /usr/bin/gnome-keyring-daemon --start --components=secrets
 run /usr/bin/gnome-keyring-daemon --start --components=ssh
 # run xfce4-power-manager
-run light-locker
-run lxqt-powermanagement
+run xss-lock slock
 run dunst
 run ~/.config/awesome/xinput-daemon.sh
 run ~/.config/awesome/keymapper.sh
+run ~/.config/awesome/dpms.sh
 run ibus-daemon -drxR
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run wineserver

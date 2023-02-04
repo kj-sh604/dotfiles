@@ -61,9 +61,28 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
+mydpmsmenu = {
+  { "s off", function() awful.spawn.easy_async_with_shell("xset s off") end },
+  { "s 10 # seconds", function() awful.spawn.easy_async_with_shell("xset s 10") end },
+  { "s 30 # seconds", function() awful.spawn.easy_async_with_shell("xset s 30") end },
+  { "s 60 # seconds", function() awful.spawn.easy_async_with_shell("xset s 60") end },
+  { "s 3 # minutes", function() awful.spawn.easy_async_with_shell("xset s 180") end },
+  { "s 5 # minutes", function() awful.spawn.easy_async_with_shell("xset s 300") end },
+  { "s 10 # minutes", function() awful.spawn.easy_async_with_shell("xset s 600") end },
+  { "s 15 # minutes", function() awful.spawn.easy_async_with_shell("xset s 900") end },
+  { "s 30 # minutes", function() awful.spawn.easy_async_with_shell("xset s 1800") end },
+  { "s 45 # minutes", function() awful.spawn.easy_async_with_shell("xset s 2700") end },
+  { "s 60 # minutes", function() awful.spawn.easy_async_with_shell("xset s 3600") end },
+  { "s 2 # hours", function() awful.spawn.easy_async_with_shell("xset s 7200") end },
+  { "s 3 # hours", function() awful.spawn.easy_async_with_shell("xset s 10800") end },
+  { "s 4 # hours", function() awful.spawn.easy_async_with_shell("xset s 14400") end },
+  { "s 6 # hours", function() awful.spawn.easy_async_with_shell("xset s 21600") end },
+}
+
 myawesomemenu = {
   { "show hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
   --   { "manual", terminal .. " -e man awesome" },
+  { "dpms$ xset", mydpmsmenu },
   { "config file", editor .. " " .. awesome.conffile },
   { "picom config", function() awful.spawn.easy_async_with_shell("sh -c 'gvim $HOME/.config/picom.conf'") end },
   { "change wallpaper", function() awful.spawn.easy_async_with_shell("sh -c 'nitrogen'") end },
@@ -78,7 +97,7 @@ myawesomemenu = {
   { "stagnate", function() awful.spawn.easy_async_with_shell("sh -c 'systemctl hibernate'") end},
   { "suspend", function() awful.spawn.easy_async_with_shell("sh -c 'systemctl suspend'") end},
   { "logout", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end },
-  { "lock", function() awful.spawn.easy_async_with_shell("sh -c 'xdg-screensaver lock'") end},
+  { "lock", function() awful.spawn.easy_async_with_shell("sh -c 'slock'") end},
 }
 
 mymainmenu = awful.menu({ items = { { "applications", xdgmenu, beautiful.awesome_icon },

@@ -34,7 +34,7 @@ run /usr/bin/gnome-keyring-daemon --start --components=pkcs11
 run /usr/bin/gnome-keyring-daemon --start --components=secrets
 run /usr/bin/gnome-keyring-daemon --start --components=ssh
 # run xfce4-power-manager
-run xss-lock i3lock-fancy
+run xss-lock slock
 run dunst
 run ~/.config/awesome/xinput-daemon.sh
 run ~/.config/awesome/keymapper.sh

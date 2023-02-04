@@ -116,7 +116,7 @@ myawesomemenu = {
   { "stagnate", function() awful.spawn.easy_async_with_shell("sh -c 'systemctl hibernate'") end},
   { "suspend", function() awful.spawn.easy_async_with_shell("sh -c 'systemctl suspend'") end},
   { "logout", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end },
-  { "lock", function() awful.spawn.easy_async_with_shell("sh -c 'i3lock-fancy'") end},
+  { "lock", function() awful.spawn.easy_async_with_shell("sh -c 'slock'") end},
 
 }
 

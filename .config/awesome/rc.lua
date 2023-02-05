@@ -59,8 +59,8 @@ awful.layout.layouts = {
 }
 -- }}}
 
--- {{{ Menu
--- Create a launcher widget and a main menu
+-- {{{ Sub-Menus
+-- Create sub-menus for different system functions
 s_menu = {
   { "off", function() awful.spawn.easy_async_with_shell("xset s off off") end },
   { "10 # 10s", function() awful.spawn.easy_async_with_shell("xset s 10 0") end },
@@ -102,7 +102,10 @@ dunst_menu = {
   { "set-paused true", function() awful.spawn.easy_async_with_shell("dunstctl set-paused true") end },
   { "set-paused false", function() awful.spawn.easy_async_with_shell("dunstctl set-paused false") end },
 }
+-- }}}
 
+-- {{{ Menu
+-- Create a launcher widget and a main menu
 myawesomemenu = {
   { "show hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
   --   { "manual", terminal .. " -e man awesome" },

@@ -1,6 +1,6 @@
 favorites=xfce4-web-browser.desktop,xfce4-mail-reader.desktop,xfce4-file-manager.desktop,xfce4-terminal-emulator.desktop
-recent=thunar.desktop,google-chrome.desktop,xfce-ui-settings.desktop,xfce-session-settings.desktop,xfce4-mime-settings.desktop,xfce4-notifyd-config.desktop,monodevelop.desktop,chrome-faolnafnngnfdaknnbpnkhgohbobgegn-Default.desktop,org.gnome.Evolution.desktop,insync.desktop
-button-icon=/home/kylert/Downloads/58922-kernel-logo-arch-linux-png-download-free_64x64.ico
+recent=google-chrome.desktop,thunar.desktop,atom.desktop,org.gnome.Evolution.desktop,insync.desktop,monodevelop.desktop,nvidia-settings.desktop,libreoffice-writer.desktop,xfce-settings-manager.desktop,firefox.desktop
+button-icon=/home/kylert/Pictures/1200px-Archlinux-icon-crystal-64.svg.png
 button-single-row=false
 show-button-title=true
 show-button-icon=true

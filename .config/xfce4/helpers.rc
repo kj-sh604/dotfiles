@@ -1,3 +1,4 @@
 MailReader=evolution
-WebBrowser=google-chrome
+WebBrowser=firefox
+TerminalEmulator=custom-TerminalEmulator
 

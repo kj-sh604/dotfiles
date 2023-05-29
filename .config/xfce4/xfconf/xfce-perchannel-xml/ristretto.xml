@@ -5,7 +5,11 @@
     <property name="navigationbar" type="empty">
       <property name="position" type="string" value="left"/>
     </property>
-    <property name="height" type="uint" value="627"/>
-    <property name="width" type="uint" value="921"/>
+    <property name="height" type="uint" value="1034"/>
+    <property name="width" type="uint" value="939"/>
+    <property name="maximize-on-startup" type="bool" value="false"/>
+  </property>
+  <property name="desktop" type="empty">
+    <property name="type" type="string" value="none"/>
   </property>
 </channel>

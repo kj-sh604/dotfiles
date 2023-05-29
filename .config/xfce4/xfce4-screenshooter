@@ -1,7 +1,13 @@
-app=eog
+app=kolourpaint
 last_user=
-screenshot_dir=file:/home/kylert/Desktop
+screenshot_dir=file:/home/kylert/Pictures
 action=1
 last_extension=png
 enable_imgur_upload=true
+delay=3
+region=1
+show_mouse=1
+show_border=0
+show_in_folder=false
+custom_action_command=none
 

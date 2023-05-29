@@ -1,5 +1,5 @@
 [user]
-pinned=/usr/share/applications/thunar.desktop;/usr/share/applications/google-chrome.desktop;/usr/share/applications/firefox.desktop;/usr/share/applications/brave-browser.desktop;/usr/share/applications/libreoffice-startcenter.desktop;/usr/share/applications/xfce4-terminal.desktop;/usr/share/applications/evolution-calendar.desktop;
+pinned=/usr/share/applications/thunar.desktop;/usr/share/applications/google-chrome.desktop;/usr/share/applications/firefox.desktop;/usr/share/applications/brave-browser.desktop;/usr/share/applications/xfce4-terminal.desktop;/usr/share/applications/evolution-calendar.desktop;/usr/share/applications/libreoffice-startcenter.desktop;
 onlyDisplayVisible=true
 indicatorStyle=0
 indicatorColor=rgb(76,166,230)

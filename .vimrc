@@ -23,6 +23,7 @@ set cursorline
 filetype indent on
 set mouse=a
 set hlsearch
+set autochdir
 
 " enable smartcase search sensitivity "
 set ignorecase
@@ -58,7 +59,7 @@ if has('gui_running')
   set guioptions-=T
   set guioptions-=r
   set guioptions-=L
-  colorscheme evening
+  colorscheme tender
 endif
 
 " enable true colors support "

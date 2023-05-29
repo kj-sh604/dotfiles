@@ -22,6 +22,7 @@ set cursorline
 filetype indent on
 set mouse=a
 set hlsearch
+set autochdir
 
 " enable smartcase search sensitivity "
 set ignorecase

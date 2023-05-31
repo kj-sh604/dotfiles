@@ -1,0 +1,3 @@
+#!/bin/sh
+
+python ~/.local/share/python-dateTimeSetter/dateTime.py

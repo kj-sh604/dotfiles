@@ -668,8 +668,10 @@ awful.rules.rules = {
       "Agave",
       "Arandr",
       "Blueman-manager",
+      "DateTime.py",
       "Gpick",
       "Gnome-calculator",
+      "gnome-calculator",
       "Gnome-system-monitor",
       "Kruler",
       "MessageWin",  -- kalarm.

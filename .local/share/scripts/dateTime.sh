@@ -6,11 +6,11 @@ read -r automatic_time_input
 
 if [ "$automatic_time_input" = "y" ] || [ "$automatic_time_input" = "Y" ]; then
 	# Synchronize the system time automatically using NTP
-	timedatectl set-ntp true
+	sudo timedatectl set-ntp true
 	echo "Automatic time synchronization using NTP initiated."
 	automatic_timezone=$(curl --fail https://ipapi.co/timezone 2>/dev/null)
 	if [ -n "$automatic_timezone" ]; then
-		timedatectl set-timezone "$automatic_timezone"
+		sudo timedatectl set-timezone "$automatic_timezone"
 		echo "Automatic timezone setting complete."
 	else
 		echo "Automatic timezone setting failed. Please set the timezone manually."
@@ -26,11 +26,11 @@ else
 	read -r timezone_input
 
 	# Override NTP setting
-	timedatectl set-ntp false
+	sudo timedatectl set-ntp false
 
 	# Set the system date and time
-	timedatectl set-time "$date_input $time_input"
+	sudo timedatectl set-time "$date_input $time_input"
 	# Set the system timezone
-	timedatectl set-timezone "$timezone_input"
+	sudo timedatectl set-timezone "$timezone_input"
 	echo "Manual date and time setting complete."
 fi

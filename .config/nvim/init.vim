@@ -142,3 +142,15 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " COC.NVIM colors
 highlight CocFloating ctermbg=0
 highlight CocErrorFloat ctermfg=15
+
+" Customize split dividers
+set fillchars+=vert:\█
+set fillchars+=fold:\█
+set fillchars+=diff:\█
+set fillchars+=msgsep:\█
+set fillchars+=stl:\=
+set fillchars+=stlnc:\=
+set fillchars+=stl:\=
+highlight VertSplit ctermfg=235 guifg=#3c3836
+highlight StatusLine ctermfg=black ctermbg=lightgray
+highlight StatusLineNC ctermfg=darkgray ctermbg=lightgray

@@ -8,6 +8,7 @@ if status is-interactive
         alias c="cal"
         alias w="curl wttr.in"
         alias x="startx"
+        alias t="timedatectl"
         alias justfetch="sh -c ~/.local/bin/justfetch"
 
     # youtube-dl aliases

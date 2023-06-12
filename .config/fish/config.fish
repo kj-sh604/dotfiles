@@ -16,7 +16,7 @@ if status is-interactive
         alias yt-webm="youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"
         alias yt-m4a="youtube-dl -cif 'bestaudio[ext=m4a]'"
 
-    # Pomodoro Timer Aliases | Inspired by @bashbunni Timer by @caarlos0
+    # Pomodoro Timer Aliases
         alias work="timer 30m && notify-send \
         'Pomodoro' 'Work Timer is up! Take a Break 😊' -i \
         ~/.cache/pomo/pomo-tomato.png -t 30000 -w -A 'Dismiss'\
@@ -27,7 +27,7 @@ if status is-interactive
         ~/.cache/pomo/pomo-tomato.png -t 30000 -w -A 'Dismiss'\
         & disown; mpv '/home/kylert/.cache/pomo/pomo-sound.mp3'"
 
-    # Command Substitutions | I'm trying out the Rust Coreutils Re-write via the coreutils-hybrid package
+    # Command Substitutions
         alias echo="uu-echo"
         alias ls="uu-ls --group-directories-first -h -p --color -F"
         alias pwd="uu-pwd"

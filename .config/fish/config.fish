@@ -48,10 +48,6 @@ if status is-interactive
         alias true=uu-true
         alias uptime=uu-uptime
 
-        # Plan9 Utils Command Substitutions
-        alias sort="9 sort"
-        alias grep="9 grep"
-
     # Environment Variable Declarations
         export PF_INFO="ascii title os kernel uptime pkgs memory"
 

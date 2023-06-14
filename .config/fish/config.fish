@@ -43,6 +43,7 @@ if status is-interactive
         alias join=uu-join
         alias pathchk=uu-pathchk
         alias realpath=uu-realpath
+        alias sort=uu-sort
         alias tail=uu-tail
         alias touch=uu-touch
         alias true=uu-true

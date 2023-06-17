@@ -9,7 +9,7 @@ if status is-interactive
         alias w="curl wttr.in"
         alias x="startx"
         alias t="timedatectl"
-        alias justfetch="sh -c ~/.local/bin/justfetch"
+        alias neofetch="alsi"
 
     # youtube-dl aliases
         alias yt-mp4="youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"

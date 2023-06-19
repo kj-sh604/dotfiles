@@ -395,20 +395,23 @@ globalkeys = gears.table.join(
                 
   awful.key({modkey}, "backslash", function () awful.screen.focused().selected_tag.gap = 5   end,
                 {description = "reset window gaps", group = "client"}), 
-                
+
+  -- GUI Task Manager / System Monitor
+  awful.key({ modkey, "Control" }, "Delete", function () awful.spawn("gnome-system-monitor") end,
+    {description = "gnome-system-monitor", group = "launcher"}),
+
+  awful.key({ "Control", "Shift" }, "Escape", function () awful.spawn("gnome-system-monitor") end,
+    {description = "gnome-system-monitor", group = "launcher"}),
+
+  -- Kill All User Processes including X11 (logs user out)
+  --[[    awful.key({ "Control", "Mod1"          }, "BackSpace", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end,
+              {description = "quit awesome", group = "launcher"}), ]]--
+
   -- awesome window manager Controls
   awful.key({ "Control", "Mod1" }, "BackSpace", awesome.restart,
     {description = "reload awesome", group = "awesome"}),
   --[[awful.key({ "Control", "Shift"   }, "Delete", awesome.quit
               {description = "quit awesome", group = "awesome"}),]]--
-
-  --[[    awful.key({ "Control", "Mod1"          }, "BackSpace", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end,
-              {description = "quit awesome", group = "launcher"}), ]]--
-
-  awful.key({ modkey, "Control" }, "Delete", function () awful.spawn("gnome-system-monitor") end,
-    {description = "gnome-system-monitor", group = "launcher"}),
-
-
 
   -- Tiled Window Sizing and Client count/columns
 

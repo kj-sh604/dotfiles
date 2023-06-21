@@ -2,7 +2,7 @@
 
 personal collection of config files for my Linux set-up. I mostly use a cringe-looking awesome-WM "rice", neovim, and the `fish` shell.
 
-![Image of my Linux Rice](https://aedrielkylejavier.me/assets/rice.jpg)
+![Image of my Linux Rice](https://aedrielkylejavier.me/assets/rice.png)
 
 **dotfiles are updated nightly**
 

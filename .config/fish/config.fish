@@ -10,7 +10,7 @@ if status is-interactive
         alias x="startx"
         alias t="timedatectl"
         alias p="yay"
-        alias u="yay -Syyu --devel"
+        alias u="yay -Syyu --devel --noconfirm"
         alias neofetch="alsi"
 
     # youtube-dl aliases

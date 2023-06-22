@@ -112,13 +112,18 @@ vim.opt.listchars = { tab = ">-", trail = "~", extends = ">", precedes = "<", sp
 vim.opt.ttyfast = true
 
 -- Tab Autocompletion for COC.NVIM
-local function check_back_space()
-  local col = vim.fn.col(".") - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
-end
+vim.cmd [[
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-vim.api.nvim_set_keymap("i", "<Tab>", "pumvisible() ? '<C-n>' : v:lua.check_back_space() ? '<Tab>' : '<Cmd>refresh()<CR>'", { expr = true, noremap = true })
-vim.api.nvim_set_keymap("i", "<S-Tab>", "pumvisible() ? '<C-p>' : '<C-h>'", { expr = true, noremap = true })
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+]]
 
 -- COC.NVIM colors
 vim.cmd("highlight CocFloating ctermbg=0")

@@ -1,7 +1,7 @@
 -- init.lua
 
 -- Use System Clipboard
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 
 -- Basic run commands
 vim.cmd("colorscheme tender")
@@ -63,10 +63,12 @@ if vim.env.TERM == "alacritty" then
 end
 
 -- Keybinds for x clipboard
-vim.api.nvim_set_keymap("v", "<C-c>", '"+y', {})
-vim.api.nvim_set_keymap("v", "<C-x>", '"+x', {})
-vim.api.nvim_set_keymap("n", "<C-p>", '"+p', {})
-vim.api.nvim_set_keymap("n", "<Leader>p", '"+P', {})
+vim.cmd [[
+  vnoremap <C-c> "+y
+  vmap <C-x> "+x
+  map <C-p> "+p
+  map <Leader>p "+P
+]]
 
 -- Vertical Motions Mappings
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })

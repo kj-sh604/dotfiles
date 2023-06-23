@@ -84,13 +84,15 @@ vim.api.nvim_set_keymap("n", "<C-f>", ":NERDTreeFind<CR>", { noremap = true })
 
 -- Plugin manager (vim-plug)
 vim.cmd [[
-  call plug#begin('~/.vim/plugged')
-  Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+  call plug#begin()
+  Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' }
   " Plug 'LunarWatcher/auto-pairs'
   Plug 'tmsvg/pear-tree'
-  Plug 'adelarsq/vim-matchit'
-  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  Plug 'https://github.com/adelarsq/vim-matchit'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'tpope/vim-surround'
+  Plug 'sbdchd/neoformat'
+  Plug 'ThePrimeagen/vim-be-good'
   Plug 'junegunn/fzf'
   call plug#end()
 ]]

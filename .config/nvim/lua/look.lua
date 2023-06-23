@@ -5,7 +5,7 @@ vim.cmd("colorscheme tender")
 vim.cmd("highlight CocFloating ctermbg=0")
 vim.cmd("highlight CocErrorFloat ctermfg=15")
 
--- appearanec of splits and vsplits
+-- appearance of splits and vsplits
 vim.cmd("highlight VertSplit ctermfg=235 guifg=#3c3836")
 vim.cmd("highlight StatusLine ctermfg=black ctermbg=lightgray")
 vim.cmd("highlight StatusLineNC ctermfg=darkgray ctermbg=lightgray")

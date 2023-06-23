@@ -16,11 +16,15 @@ configs.setup {
   ignore_install = { "" },
   highlight = {
     enable = true,
-    disable = { "" },
+    disable = { 
+            "php", 
+        },
     additional_vim_regex_highlighting = false,
   },
   indent = {
    enable = true,
-   disable = { "yaml" },
+   disable = { 
+            "yaml",
+        },
   }, 
 }

@@ -9,6 +9,8 @@ vim.cmd [[
   Plug 'sbdchd/neoformat'
   Plug 'ThePrimeagen/vim-be-good'
   Plug 'junegunn/fzf'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 
   " Plug 'LunarWatcher/auto-pairs'
   call plug#end()

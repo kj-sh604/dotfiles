@@ -152,3 +152,5 @@ set fillchars+=stl:\=
 highlight VertSplit ctermfg=235 guifg=#3c3836
 highlight StatusLine ctermfg=black ctermbg=lightgray
 highlight StatusLineNC ctermfg=darkgray ctermbg=lightgray
+highlight LineNr guifg=darkgray ctermfg=darkgray
+highlight CursorLineNr guifg=cyan ctermfg=cyan

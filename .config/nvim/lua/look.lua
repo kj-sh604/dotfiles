@@ -34,4 +34,7 @@ vim.cmd("filetype plugin on")
 vim.cmd("syntax on")
 vim.cmd("highlight Cursorline cterm=bold ctermbg=black")
 vim.cmd("filetype indent on")
-
+-- set the text color of the line numbers
+vim.cmd('highlight LineNr guifg=darkgray ctermfg=darkgray')
+-- set the text color for the current line number
+vim.cmd('highlight CursorLineNr guifg=cyan ctermfg=cyan')

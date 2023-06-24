@@ -28,7 +28,7 @@ beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "gvim"
+editor = os.getenv("EDITOR") or "alacritty -e nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -113,7 +113,7 @@ myawesomemenu = {
   { "xset dpms", dpms_menu },
   { "dunstctl", dunst_menu },
   { "config file", editor .. " " .. awesome.conffile },
-  { "picom config", function() awful.spawn.easy_async_with_shell("sh -c 'gvim  $HOME/.config/picom.conf'") end },
+  { "picom config", function() awful.spawn.easy_async_with_shell("alacritty -e nvim $HOME/.config/picom.conf") end },
   { "change wallpaper", function() awful.spawn.easy_async_with_shell("sh -c 'nitrogen'") end },
   { "xdg_menu refresh", function() awful.spawn.easy_async_with_shell("sh -c 'xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/xdgmenu.lua'") end },
   { "refresh", awesome.restart },

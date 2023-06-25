@@ -8,6 +8,7 @@ local opts = {
     hlsearch = true,
     ignorecase = true,
     listchars = { tab = ">-", trail = "~", extends = ">", precedes = "<", space = "." },
+    linebreak = true,
     mouse = "a",
     number = true,
     relativenumber = true,

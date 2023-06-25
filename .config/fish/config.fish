@@ -9,8 +9,8 @@ if status is-interactive
         alias w="curl wttr.in"
         alias x="startx"
         alias t="timedatectl"
-        alias p="yay"
-        alias pu="yay -Syyu --devel --noconfirm"
+        alias p="command yay"
+        alias pu="command yay -Syyu --devel --noconfirm"
         alias yay="uu-echo"
         alias neofetch="alsi"
 

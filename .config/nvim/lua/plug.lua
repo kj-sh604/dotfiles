@@ -12,6 +12,7 @@ vim.cmd [[
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'Pocco81/true-zen.nvim'
 
   " Plug 'LunarWatcher/auto-pairs'
   call plug#end()

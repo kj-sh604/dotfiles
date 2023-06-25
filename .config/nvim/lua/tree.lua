@@ -18,6 +18,7 @@ configs.setup {
     enable = true,
     disable = { 
             "php", 
+            "markdown",
         },
     additional_vim_regex_highlighting = false,
   },

@@ -18,7 +18,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 xdg_menu = require("xdgmenu")
-menubar.cache_entries = true
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
@@ -139,6 +138,8 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+menubar.cache_entries = true
+menubar.utils.lookup_icon = function() end
 -- }}}
 
 -- Keyboard map indicator and switcher

@@ -1,1 +1,4 @@
+! Enable Scroll_Lock Support
+clear mod3
 add mod3 = Scroll_Lock
+add mod3 = ISO_Level5_Shift

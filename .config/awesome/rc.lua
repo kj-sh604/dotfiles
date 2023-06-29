@@ -695,6 +695,7 @@ awful.rules.rules = {
     name = {
       "^Event Tester$",  -- xev.
       "^File Operation Progress$", -- fix for latest version of thunar
+      "^password manager$",
       "^Task Manager$",      
     },
     role = {

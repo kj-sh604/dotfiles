@@ -23,16 +23,6 @@ local opts = {
     ttyfast = true,
 }
 
--- customize split dividers
-vim.opt.fillchars = vim.opt.fillchars + {
-  vert = "█",
-  fold = "█",
-  diff = "█",
-  stl = "=",
-  stlnc = "=",
-  stl = "="
-}
-
 -- use a line cursor within insert mode and a block cursor everywhere else.
 -- reference chart of values:
 --   ps = 0  -> blinking block.
@@ -49,6 +39,6 @@ if vim.env.TERM == "alacritty" then
   vim.opt.ttymouse = "sgr"
 end
 
-for x, y in pairs(opts) do
-  vim.opt[x] = y
+for k, v in pairs(opts) do
+  vim.opt[k] = v
 end

@@ -164,11 +164,6 @@ vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {na
 -- add `:or` command for organize imports of the current buffer
 vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
 
--- add (neo)vim's native statusline support
--- note: please see `:h coc-status` for integrations with external plugins that
--- provide custom statusline: lightline.vim, vim-airline
-vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
-
 -- mappings for coclist
 -- code actions and coc stuff
 ---@diagnostic disable-next-line: redefined-local
@@ -189,3 +184,8 @@ keyset("n", "<space>j", ":<C-u>CocNext<cr>", opts)
 keyset("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
 -- resume latest coc list
 keyset("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
+
+-- add (neo)vim's native statusline support
+-- note: please see `:h coc-status` for integrations with external plugins that
+-- provide custom statusline: lightline.vim, vim-airline
+-- vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")

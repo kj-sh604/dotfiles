@@ -3,7 +3,8 @@ if status is-interactive
         fish_vi_key_bindings
 
     # Personal Aliases
-        alias s="cd ~/.local/share/scripts && uu-ls --group-directories-first -h -p --color -F"
+        alias s="cd ~/.local/share/scripts && ls --group-directories-first -h -p --color -F"
+        alias ls="ls --group-directories-first -h -p --color -F"
         alias d="disown"
         alias c="cal"
         alias w="curl wttr.in"
@@ -11,7 +12,7 @@ if status is-interactive
         alias t="timedatectl"
         alias p="command yay"
         alias pu="command yay -Syyu --devel --noconfirm"
-        alias yay="uu-echo"
+        alias yay="echo"
         alias neofetch="alsi"
 
     # youtube-dl aliases
@@ -30,28 +31,6 @@ if status is-interactive
         ~/.cache/pomo/pomo-tomato.png -t 30000 -w -A 'Dismiss'\
         & disown; mpv '/home/kylert/.cache/pomo/pomo-sound.mp3'"
 
-    # Command Substitutions
-        alias echo="uu-echo"
-        alias ls="uu-ls --group-directories-first -h -p --color -F"
-        alias pwd="uu-pwd"
-        alias groups=uu-groups
-        alias kill=uu-kill
-        alias ln=uu-ln
-
-        ## Experimental/Risky rust-uutits Substitutions for Testing
-        alias basenc=uu-basenc
-        alias date=uu-date
-        alias false=uu-false
-        alias hostname=uu-hostname
-        alias join=uu-join
-        alias pathchk=uu-pathchk
-        alias realpath=uu-realpath
-        alias sort=uu-sort
-        alias tail=uu-tail
-        alias touch=uu-touch
-        alias true=uu-true
-        alias uptime=uu-uptime
-
     # Environment Variable Declarations
         export PF_INFO="ascii title os kernel uptime pkgs memory"
 
@@ -63,5 +42,4 @@ if status is-interactive
         set -gx LESS_TERMCAP_so \e'[01;31m'
         set -gx LESS_TERMCAP_ue \e'[0m'
         set -gx LESS_TERMCAP_us \e'[1;4;33m'
-    
 end

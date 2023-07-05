@@ -11,7 +11,7 @@ if status is-interactive
         alias x="startx"
         alias t="timedatectl"
         alias p="command yay"
-        alias pu="command yay -Syyu --devel --noconfirm"
+        alias pu="command yay -Syyu --answerclean yes --rebuildall --noconfirm"
         alias yay="echo"
         alias neofetch="alsi"
 

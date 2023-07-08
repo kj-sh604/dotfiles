@@ -15,7 +15,7 @@ vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true })
 -- nerdtree keybinds
 vim.api.nvim_set_keymap("n", "<leader>n", ":NERDTreeFocus<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-n>", ":NERDTree<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-t>", ":NERDTreeToggle<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<A-n>", ":NERDTreeToggle<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>/", ":NERDTreeFind<CR>", { noremap = true })
 
 -- spell check keybinds
@@ -34,10 +34,18 @@ vim.api.nvim_set_keymap('n', '<A-j>', '<C-W>j', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-k>', '<C-W>k', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-l>', '<C-W>l', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-h>', '<C-W>h', { noremap = true })
-vim.api.nvim_set_keymap('n', '<A-w>', '<C-W>w', { noremap = true })
+vim.api.nvim_set_keymap('n', '<A-`>', '<C-W>w', { noremap = true })
 
 -- splits and vsplits resize rebinds
 vim.api.nvim_set_keymap('n', '<A-,>', '<C-W>5<', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-.>', '<C-W>5>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-->', '<C-W>5-', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-=>', '<C-W>5+', { noremap = true })
+
+-- tab rebinds
+vim.api.nvim_set_keymap('n', '<A-t>', ':tabnew<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<A-w>', ':tabclose<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<A-[>', ':tabprev<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<A-]>', ':tabnext<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<A-;>', ':tabmove -<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<A-\'>', ':tabmove +<CR>', { noremap = true })

@@ -237,3 +237,8 @@ XTerm.vt100.translations: #override \n\
     Ctrl <Key> plus: larger-vt-font()
 
 URxvt.font: xft: JetBrains Mono:size=10:antialias=true
+! below requires the resize-font perl extension
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-equal:     resize-font:bigger
+URxvt.keysym.C-0:         resize-font:reset
+URxvt.keysym.C-question:  resize-font:show

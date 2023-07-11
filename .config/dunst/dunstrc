@@ -229,7 +229,7 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = ~/.config/dunst/dmenu-dunst/dmenu -i -l 30 -p 'Select Notification Action:'
+    dmenu = ~/.local/bin/dmenu-dunst -i -l 30 -p 'Select Notification Action:'
     #dmenu = /usr/bin/gdmenu -t 'Select Notification Action'
 
     # Browser for opening urls in context menu.

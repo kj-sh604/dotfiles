@@ -38,24 +38,23 @@ editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
-awful.layout.layouts = {
-  awful.layout.suit.tile,
-  awful.layout.suit.max,
--- awful.layout.suit.fair,
--- awful.layout.suit.tile.left,
--- awful.layout.suit.tile.bottom,
--- awful.layout.suit.tile.top,
--- awful.layout.suit.fair.horizontal,
--- awful.layout.suit.spiral,
--- awful.layout.suit.spiral.dwindle,
--- awful.layout.suit.max.fullscreen,
--- awful.layout.suit.magnifier,
--- awful.layout.suit.corner.nw,
--- awful.layout.suit.corner.ne,
--- awful.layout.suit.corner.sw,
--- awful.layout.suit.corner.se,
--- awful.layout.suit.floating,
-}
+tag.connect_signal("request::default_layouts", function()
+    awful.layout.append_default_layouts({
+        -- awful.layout.suit.floating,
+        awful.layout.suit.tile,
+        -- awful.layout.suit.tile.left,
+        -- awful.layout.suit.tile.bottom,
+        -- awful.layout.suit.tile.top,
+        -- awful.layout.suit.fair,
+        -- awful.layout.suit.fair.horizontal,
+        -- awful.layout.suit.spiral,
+        -- awful.layout.suit.spiral.dwindle,
+        awful.layout.suit.max,
+        -- awful.layout.suit.max.fullscreen,
+        -- awful.layout.suit.magnifier,
+        -- awful.layout.suit.corner.nw,
+    })
+end)
 -- }}}
 
 -- {{{ Sub-Menus
@@ -595,7 +594,7 @@ for i = 1, 9 do
         end
         -- get previous tag (modulo 9 excluding 0 to wrap from 1 to 9)
         local tag = client.focus.screen.tags[(t.name - 2) % 9 + 1]
-        awful.client.movetotag(tag)
+        client.focus:move_to_tag(tag)
         awful.tag.viewprev()
       end,
       {description = "move client to previous tag and switch to it", group = "tag"}),
@@ -608,7 +607,7 @@ for i = 1, 9 do
         end
         -- get next tag (modulo 9 excluding 0 to wrap from 9 to 1)
         local tag = client.focus.screen.tags[(t.name % 9) + 1]
-        awful.client.movetotag(tag)
+        client.focus:move_to_tag(tag)
         awful.tag.viewnext()
       end,
       {description = "move client to next tag and switch to it", group = "tag"})

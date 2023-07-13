@@ -325,23 +325,23 @@ globalkeys = gears.table.join(
               {description = "swap with previous client by index", group = "client"}),
 
   -- Move window by direction in tiling layout
-  awful.key({ modkey, "Control" }, "Down", function (c) awful.client.swap.global_bydirection("down") c:raise() end,
+  awful.key({ modkey, "Control" }, "Down", function () awful.client.swap.global_bydirection("down") client.focus:raise() end,
     {description = "swap with next window up", group = "client"}),
-  awful.key({ modkey, "Control" }, "Up", function (c) awful.client.swap.global_bydirection("up") c:raise() end,
+  awful.key({ modkey, "Control" }, "Up", function () awful.client.swap.global_bydirection("up") client.focus:raise() end,
     {description = "swap with next window down", group = "client"}),
-  awful.key({ modkey, "Control" }, "Right", function (c) awful.client.swap.global_bydirection("right") c:raise() end,
+  awful.key({ modkey, "Control" }, "Right", function () awful.client.swap.global_bydirection("right") client.focus:raise() end,
     {description = "swap with next window right", group = "client"}),
-  awful.key({ modkey, "Control" }, "Left", function (c) awful.client.swap.global_bydirection("left") c:raise() end,
+  awful.key({ modkey, "Control" }, "Left", function () awful.client.swap.global_bydirection("left") client.focus:raise() end,
     {description = "swap with next window left", group = "client"}),
 
   -- Move window FOCUS by direction in tiling layout
-  awful.key({ modkey, "Mod1" }, "Down", function (c) awful.client.focus.global_bydirection("down") c:lower() end,
+  awful.key({ modkey, "Mod1" }, "Down", function () awful.client.focus.global_bydirection("down") client.focus:raise() end,
     {description = "focus to next window up", group = "client"}),
-  awful.key({ modkey, "Mod1" }, "Up", function (c) awful.client.focus.global_bydirection("up") c:lower() end,
+  awful.key({ modkey, "Mod1" }, "Up", function () awful.client.focus.global_bydirection("up") client.focus:raise() end,
     {description = "focus to next window down", group = "client"}),
-  awful.key({ modkey, "Mod1" }, "Right", function (c) awful.client.focus.global_bydirection("right") c:lower() end,
+  awful.key({ modkey, "Mod1" }, "Right", function () awful.client.focus.global_bydirection("right") client.focus:raise() end,
     {description = "focus to next window right", group = "client"}),
-  awful.key({ modkey, "Mod1" }, "Left", function (c) awful.client.focus.global_bydirection("left") c:lower() end,
+  awful.key({ modkey, "Mod1" }, "Left", function () awful.client.focus.global_bydirection("left") client.focus:raise() end,
     {description = "focus to next window left", group = "client"}),
 
   -- Alt-Tab functionality in maximized layout

@@ -228,15 +228,15 @@ awful.screen.connect_for_each_screen(function(s)
     awful.button({ }, 5, function () awful.layout.inc(-1) end)))
   -- Create a taglist widget
   s.mytaglist = awful.widget.taglist {
-    screen  = s,
-    filter  = awful.widget.taglist.filter.all,
+    screen = s,
+    filter = awful.widget.taglist.filter.all,
     buttons = taglist_buttons
   }
 
   -- Create a tasklist widget
   s.mytasklist = awful.widget.tasklist {
-    screen  = s,
-    filter  = awful.widget.tasklist.filter.currenttags,
+    screen = s,
+    filter = awful.widget.tasklist.filter.currenttags,
     buttons = tasklist_buttons
   }
 
@@ -276,30 +276,30 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-  awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
-    {description="show shortcuts", group="awesome"}),
-  awful.key({ "Control", "Mod1"           }, "Left",   awful.tag.viewprev,
+  awful.key({ modkey, }, "s", hotkeys_popup.show_help,
+    {description = "show shortcuts", group = "awesome"}),
+  awful.key({ "Control", "Mod1" }, "Left", awful.tag.viewprev,
     {description = "view previous", group = "tag"}),
-  awful.key({ "Control", "Mod1"           }, "Right",  awful.tag.viewnext,
+  awful.key({ "Control", "Mod1" }, "Right", awful.tag.viewnext,
     {description = "view next", group = "tag"}),
-  awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
+  awful.key({ modkey, }, "Escape", awful.tag.history.restore,
     {description = "go back", group = "tag"}),
 
   -- Change window focus in maximized layout
-  awful.key({ modkey,           }, "Tab",
+  awful.key({ modkey, }, "Tab",
     function ()
       awful.client.focus.byidx(1)
     end,
     {description = "focus next by index", group = "client"}
   ),
-  awful.key({ modkey, "Shift"           }, "Tab",
+  awful.key({ modkey, "Shift" }, "Tab",
     function ()
       awful.client.focus.byidx(-1)
     end,
     {description = "focus previous by index", group = "client"}
   ),
 
-  -- Change window focus in maximized layout (alternate keybinds)
+  -- Change window focus in maximized layout (Alternate Keybinds)
   awful.key({ modkey, "Mod1" }, "j",
     function ()
       awful.client.focus.byidx(1)
@@ -315,13 +315,13 @@ globalkeys = gears.table.join(
 
   -- --------------------------------------------------------------
 
-  awful.key({ modkey,           }, "Menu", function () mymainmenu:show() end,
+  awful.key({ modkey, }, "Menu", function () mymainmenu:show() end,
     {description = "show main menu", group = "awesome"}),
 
-  -- Move Window by Index
+  -- Move Window by index in tiling layout
   awful.key({ modkey,  "Control" }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
-  awful.key({ modkey,   "Control"}, "k", function () awful.client.swap.byidx( -1)    end,
+    awful.key({ modkey,   "Control"}, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
 
   -- Move window by direction in tiling layout
@@ -345,7 +345,7 @@ globalkeys = gears.table.join(
     {description = "focus to next window left", group = "client"}),
 
   -- Alt-Tab functionality in maximized layout
-  awful.key({ "Mod1",           }, "Tab",
+  awful.key({ "Mod1", }, "Tab",
     function ()
       awful.client.focus.history.previous()
       if client.focus then
@@ -358,21 +358,21 @@ globalkeys = gears.table.join(
       awful.key({ [KEY], [KEY]          }, [KEY], function () awful.spawn("[APPLICATION_NAME]") end,
                 {description = "open a terminal", group = "launcher"}),
       ]]--
-  awful.key({ "Control", "Mod1"          }, "t", function () awful.spawn(terminal) end,
+  awful.key({ "Control", "Mod1" }, "t", function () awful.spawn(terminal) end,
     {description = "open a terminal", group = "launcher"}),
-  awful.key({ modkey,          }, "slash", function () awful.spawn("fsearch") end,
+  awful.key({ modkey, }, "slash", function () awful.spawn("fsearch") end,
     {description = "search the filesystem", group = "launcher"}),
-  awful.key({ modkey,          }, "e", function () awful.spawn("thunar") end,
+  awful.key({ modkey, }, "e", function () awful.spawn("thunar") end,
     {description = "open a file manager", group = "launcher"}),
-  awful.key({          }, "Print", function () awful.spawn.easy_async_with_shell("xfce4-screenshooter -f --mouse") end,
+  awful.key({ }, "Print", function () awful.spawn.easy_async_with_shell("xfce4-screenshooter -f --mouse") end,
     {description = "take a screenshot of the fullscreen", group = "launcher"}),
-  awful.key({ modkey         }, "Print", function () awful.spawn.easy_async_with_shell("xfce4-screenshooter -w --no-border --mouse") end,
+  awful.key({ modkey }, "Print", function () awful.spawn.easy_async_with_shell("xfce4-screenshooter -w --mouse --no-border") end,
     {description = "take a screenshot of the active window", group = "launcher"}),
-  awful.key({ "Shift"          }, "Print", function () awful.spawn.easy_async_with_shell("xfce4-screenshooter -r --mouse") end,
+  awful.key({ "Shift" }, "Print", function () awful.spawn.easy_async_with_shell("xfce4-screenshooter -r --mouse") end,
     {description = "take a screenshot of an area of the screen", group = "launcher"}),
   awful.key({ modkey }, "x", function () awful.spawn.easy_async_with_shell("xkill") end,
     {description = "kill a window by brute force", group = "launcher"}),
-  awful.key({ "Control", "Mod1"          }, "Delete", function () awful.spawn("alacritty -t 'Task Manager' -e 'htop'") end,
+  awful.key({ "Control", "Mod1" }, "Delete", function () awful.spawn("alacritty -t 'Task Manager' -e 'htop'") end,
     {description = "launch HTOP", group = "launcher"}),
 
   -- Brightness Hotkeys
@@ -380,27 +380,26 @@ globalkeys = gears.table.join(
   awful.key({ }, "XF86MonBrightnessUp", function () awful.spawn.easy_async_with_shell("xbacklight -inc 15") end),
 
   -- Emoji Picker
-  awful.key({ modkey }, ".", function () awful.spawn.easy_async_with_shell("sh -c '~/.local/share/Blista-Kanjo-Emoji/blista-emoji-picker'") end,
+  awful.key({ modkey }, ".", function () awful.spawn.easy_async_with_shell("~/.local/share/Blista-Kanjo-Emoji/blista-emoji-picker") end,
     {description = "launch emoji chooser", group = "launcher"}),
-    
+
   -- Spell Checker (Single Word)
-  awful.key({ modkey }, "comma", function () awful.spawn.easy_async_with_shell("sh -c '~/.local/bin/dmenu-dym'") end,
+  awful.key({ modkey }, "comma", function () awful.spawn.easy_async_with_shell("~/.local/bin/dmenu-dym") end,
     {description = "launch single word spell checker", group = "launcher"}),
 
-  -- Clipboard Manager
-  awful.key({ modkey }, "grave", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
-                {description = "open clipboard history", group = "launcher"}),
-  
-  -- On-the-fly Window Gaps configuration
-  
-  awful.key({modkey}, "'", function () awful.tag.incgap(2)   end,
-                {description = "increase window gaps", group = "client"}),
-                
-  awful.key({modkey}, ";", function () awful.tag.incgap(-2)   end,
-                {description = "decrease window gaps", group = "client"}),
-                
-  awful.key({modkey}, "backslash", function () awful.screen.focused().selected_tag.gap = 5   end,
-                {description = "reset window gaps", group = "client"}), 
+  -- Set Default Display Configuration on a laptop
+  awful.key({ modkey,"Shift" }, "o", function () awful.spawn.easy_async_with_shell("~/.local/bin/awesome-xrandr") end,
+                {description = "reset to default monitor configuration", group = "launcher"}),
+
+  -- awesome window manager Controls
+  awful.key({ "Control", "Mod1" }, "BackSpace", awesome.restart,
+    {description = "reload awesome", group = "awesome"}),
+  --[[awful.key({ "Control", "Shift"   }, "Delete", awesome.quit
+              {description = "quit awesome", group = "awesome"}),]]--
+
+  -- Kill All User Processes including X11 (logs user out)
+  --[[    awful.key({ "Control", "Mod1"          }, "BackSpace", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end,
+              {description = "quit awesome", group = "launcher"}), ]]--
 
   -- GUI Task Manager / System Monitor
   awful.key({ modkey, "Control" }, "Delete", function () awful.spawn("gnome-system-monitor") end,
@@ -409,40 +408,46 @@ globalkeys = gears.table.join(
   awful.key({ "Control", "Shift" }, "Escape", function () awful.spawn("gnome-system-monitor") end,
     {description = "gnome-system-monitor", group = "launcher"}),
 
-  -- Kill All User Processes including X11 (logs user out)
-  --[[    awful.key({ "Control", "Mod1"          }, "BackSpace", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end,
-              {description = "quit awesome", group = "launcher"}), ]]--
+  -- Clipboard Manager
+  awful.key({ modkey }, "grave", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
+                {description = "open clipboard history", group = "launcher"}),
 
-  -- awesome window manager Controls
-  awful.key({ "Control", "Mod1" }, "BackSpace", awesome.restart,
-    {description = "reload awesome", group = "awesome"}),
-  --[[awful.key({ "Control", "Shift"   }, "Delete", awesome.quit
-              {description = "quit awesome", group = "awesome"}),]]--
+  -- On-the-fly Window Gaps configuration
+
+  awful.key({modkey}, "'", function () awful.tag.incgap(2)   end,
+                {description = "increase window gaps", group = "client"}),
+
+  awful.key({modkey}, ";", function () awful.tag.incgap(-2)   end,
+                {description = "decrease window gaps", group = "client"}),
+
+  awful.key({modkey}, "backslash", function () awful.screen.focused().selected_tag.gap = 5   end,
+                {description = "reset window gaps", group = "client"}),
+
 
   -- Tiled Window Sizing and Client count/columns
 
-  awful.key({ modkey }, "Right",     function () awful.tag.incmwfact( 0.05)          end,
+  awful.key({ modkey }, "Right", function () awful.tag.incmwfact( 0.05) end,
     {description = "increase master width factor", group = "layout"}),
-  awful.key({ modkey }, "Left",     function () awful.tag.incmwfact(-0.05)          end,
+  awful.key({ modkey }, "Left", function () awful.tag.incmwfact(-0.05) end,
     {description = "decrease master width factor", group = "layout"}),
 
-  awful.key({ modkey }, "Up",     function () awful.client.incwfact( 0.05)          end,
+  awful.key({ modkey }, "Up", function () awful.client.incwfact( 0.05) end,
     {description = "increase master height factor", group = "layout"}),
-  awful.key({ modkey }, "Down",     function () awful.client.incwfact(-0.05)          end,
+  awful.key({ modkey }, "Down", function () awful.client.incwfact(-0.05) end,
     {description = "decrease master height factor", group = "layout"}),
 
 
-  awful.key({ modkey }, "minus",     function () awful.tag.incnmaster( 1, nil, true) end,
+  awful.key({ modkey }, "minus", function () awful.tag.incnmaster( 1, nil, true) end,
     {description = "increase the number of master clients", group = "layout"}),
-  awful.key({ modkey }, "equal",     function () awful.tag.incnmaster(-1, nil, true) end,
+  awful.key({ modkey }, "equal", function () awful.tag.incnmaster(-1, nil, true) end,
     {description = "decrease the number of master clients", group = "layout"}),
-  awful.key({ modkey }, "[",     function () awful.tag.incncol( 1, nil, true)    end,
+  awful.key({ modkey }, "[", function () awful.tag.incncol( 1, nil, true) end,
     {description = "increase the number of columns", group = "layout"}),
-  awful.key({ modkey }, "]",     function () awful.tag.incncol(-1, nil, true)    end,
+  awful.key({ modkey }, "]", function () awful.tag.incncol(-1, nil, true) end,
     {description = "decrease the number of columns", group = "layout"}),
-  awful.key({ modkey }, "j", function () awful.layout.inc( 1)                end,
+  awful.key({ modkey }, "j", function () awful.layout.inc( 1) end,
     {description = "select next", group = "layout"}),
-  awful.key({ modkey }, "k", function () awful.layout.inc(-1)                end,
+  awful.key({ modkey }, "k", function () awful.layout.inc(-1) end,
     {description = "select previous", group = "layout"}),
 
   awful.key({ modkey, "Shift" }, "m",
@@ -507,17 +512,17 @@ clientkeys = gears.table.join(
       c:raise()
     end,
     {description = "toggle fullscreen", group = "client"}),
-  awful.key({ "Mod1" }, "F4",      function (c) c:kill() end,
+  awful.key({ "Mod1" }, "F4", function (c) c:kill() end,
     {description = "close", group = "client"}),
-  awful.key({ modkey }, "q",      function (c) c:kill() end,
+  awful.key({ modkey }, "q", function (c) c:kill() end,
     {description = "close", group = "client"}),
-  awful.key({ "Shift", "Control" }, "space",  awful.client.floating.toggle,
+  awful.key({ "Shift", "Control" }, "space", awful.client.floating.toggle,
     {description = "toggle floating", group = "client"}),
 
   -- Sticky Window and Always on top toggle
   awful.key({ modkey }, "t", function(c) c.ontop = not c.ontop end,
     {description = "toggle always on top", group = "client"}),
-  awful.key({ modkey }, "y",   function (c) c.sticky = not c.sticky  end,
+  awful.key({ modkey }, "y", function (c) c.sticky = not c.sticky end,
     {description = "toggle sticky", group = "client"}),
 
   -- Original Keep On Top Function
@@ -531,32 +536,32 @@ clientkeys = gears.table.join(
 
   awful.key({ modkey }, "Home", function (c) c:swap(awful.client.getmaster()) end,
     {description = "move to master", group = "client"}),
-  awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
+  awful.key({ modkey, }, "o", function (c) c:move_to_screen() end,
     {description = "move to screen", group = "client"}),
   awful.key({ modkey }, "m",
     function (c)
       -- The client currently has the input focus, so it cannot be
       -- minimized, since minimized clients can't have the focus.
       c.minimized = true
-    end ,
+    end,
     {description = "minimize", group = "client"}),
   awful.key({ modkey, "Shift" }, "Return",
     function (c)
       c.maximized = not c.maximized
       c:raise()
-    end ,
+    end,
     {description = "(un)maximize", group = "client"}),
   awful.key({ modkey, "Control" }, "Return",
     function (c)
       c.maximized_vertical = not c.maximized_vertical
       c:raise()
-    end ,
+    end,
     {description = "(un)maximize vertically", group = "client"}),
-  awful.key({ modkey, "Mod1"   }, "Return",
+  awful.key({ modkey, "Mod1" }, "Return",
     function (c)
       c.maximized_horizontal = not c.maximized_horizontal
       c:raise()
-    end ,
+    end,
     {description = "(un)maximize horizontally", group = "client"})
 )
 
@@ -668,11 +673,11 @@ awful.rules.rules = {
       keys = clientkeys,
       buttons = clientbuttons,
       screen = awful.screen.preferred,
-      placement = awful.placement.no_overlap+awful.placement.no_offscreen
+      placement = awful.placement.no_overlap + awful.placement.no_offscreen
     }
   },
 
-  -- Floating clients.
+-- Floating clients.
   { rule_any = {
     instance = {
       "DTA",  -- Firefox addon DownThemAll.
@@ -761,6 +766,7 @@ gears.timer {
   callback = function() collectgarbage() end
 }
 
+
 -- Autostart
 
 -- awful.spawn.with_shell("")
@@ -775,8 +781,8 @@ table_minimize_parent = {
     "mpv",
     "vlc",
     "MPlayer",
-    "XTerm",
-    "URxvt"  }
+    "URxvt",
+    "XTerm" }
 table_cannot_swallow = {
     "xev" }
 

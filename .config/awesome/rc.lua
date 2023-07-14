@@ -384,7 +384,7 @@ globalkeys = gears.table.join(
     {description = "launch emoji chooser", group = "launcher"}),
     
   -- Spell Checker (Single Word)
-  awful.key({ modkey }, "comma", function () awful.spawn.easy_async_with_shell("sh -c '~/.local/share/scripts/dym.sh'") end,
+  awful.key({ modkey }, "comma", function () awful.spawn.easy_async_with_shell("sh -c '~/.local/bin/dmenu-dym'") end,
     {description = "launch single word spell checker", group = "launcher"}),
 
   -- Clipboard Manager

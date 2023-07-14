@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# get the hostname
+hostname=$(hostname)
+
+# check the hostname and restore default screen config based on machine being used
+case $hostname in
+    localhost-431)
+        DEFAULT_SCREEN="eDP1"
+        for SCREEN in $(xrandr | grep "connected" | awk '{ print$1 }' | grep -v "$DEFAULT_SCREEN"); do
+            xrandr --output "$SCREEN" --off
+        done
+        xrandr --output "$DEFAULT_SCREEN" --primary --auto --pos 0x0 --rotate normal
+        xrandr --output "$DEFAULT_SCREEN" --panning 0x0
+        ;;
+    librehost431)
+        DEFAULT_SCREEN="LVDS1"
+        for SCREEN in $(xrandr | grep "connected" | awk '{ print$1 }' | grep -v "$DEFAULT_SCREEN"); do
+            xrandr --output "$SCREEN" --off
+        done
+        xrandr --output "$DEFAULT_SCREEN" --primary --auto --pos 0x0 --rotate normal
+        xrandr --output "$DEFAULT_SCREEN" --panning 0x0
+        ;;
+    micomp-linux)
+        DEFAULT_SCREEN="HDMI1"
+        for SCREEN in $(xrandr | grep "connected" | awk '{ print$1 }' | grep -v "$DEFAULT_SCREEN"); do
+            xrandr --output "$SCREEN" --off
+        done
+        xrandr --output "$DEFAULT_SCREEN" --primary --auto --pos 0x0 --rotate normal
+        xrandr --output "$DEFAULT_SCREEN" --panning 0x0
+        ;;
+    *)
+        echo "unknown machine, attempting autorandr..."
+        notify-send "awesome-xrandr" "unknown machine, attempting autorandr..." -t 10000
+        autorandr || notify-send "awesome-xrandr" "autorandr command not found" -t 10000
+        ;;
+esac

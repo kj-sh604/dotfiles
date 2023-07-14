@@ -765,7 +765,7 @@ gears.timer {
 
 -- awful.spawn.with_shell("")
 -- awful.spawn.easy_async_with_shell("")
-awful.spawn.easy_async_with_shell("~/.config/awesome/autorun.sh")
+awful.spawn.easy_async_with_shell("~/.local/bin/awesome-autorun")
 
 -- Client Swallowing Function
 

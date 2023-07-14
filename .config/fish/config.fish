@@ -3,7 +3,7 @@ if status is-interactive
         fish_vi_key_bindings
 
     # Personal Aliases
-        alias s="cd ~/.local/share/scripts && ls --group-directories-first -h -p --color -F"
+        alias s="cd ~/.local/bin && ls --group-directories-first -h -p --color -F"
         alias ls="ls --group-directories-first -h -p --color -F"
         alias d="disown"
         alias c="cal"

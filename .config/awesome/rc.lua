@@ -27,7 +27,7 @@ beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "alacritty -e nvim"
+editor = "alacritty -e nvim" or os.getenv("EDITOR")
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.

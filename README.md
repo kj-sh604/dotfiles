@@ -8,10 +8,11 @@ personal collection of config files for my Linux set-up. I mostly use a cringe-l
 
 ### note:
 
-~~i am currently using the coreutils-hybrid package on Arch Linux which integrates the Rust uutils alongside the GNU coreutils. You may want to remove the fish aliases involving the uutils, plan 9 utils, and alternate commands involving the coreutils to make my fish config work on your system.~~
+i am currently utilizing my personal `coreutils-hybrid` package, available [here](https://github.com/kj-sh604/coreutils-hybrid-pkgbuild). This package combines the most of the rust uutils with some GNU coreutils that are deemed to be more reliable/stable.
 
 
-i have reverted back to using the default GNU `coreutils` package from the ***core*** Arch Linux repository. this decision was prompted by the discovery of a bug in the rust-uutils version of the `tr` command, which inadvertently caused some of my scripts to malfunction when attempting to retrieve values from `/dev/urandom`. as a result, my fish shell config should now function correctly on most standard Linux distributions without requiring any modification or the removal of the rust-uutils/plan9 aliases previously present in my `config.fish` file. 
+if you prefer to use my dotfiles while sticking with the standard GNU coreutils, i recommend removing the fish aliases associated with the rust uutils.
+
 
 
 please note that for the pre-aliased `yt-*` commands to work, you will need to have `yt-dlp` or `youtube-dl` installed.

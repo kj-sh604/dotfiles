@@ -1,0 +1,13 @@
+#!/bin/sh
+
+location=${1:-/}
+
+[ -d "$location" ] || exit
+
+case "$location" in
+	"/home"* ) icon="🏠" ;;
+	"/mnt"* ) icon="💾" ;;
+	*) icon="🖥";;
+esac
+
+printf "%s%s" " $icon " "$(df -h "$location" | awk ' /[0-9]/ {print $3 "/" $2 " "} ')"

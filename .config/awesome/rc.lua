@@ -260,7 +260,6 @@ awful.screen.connect_for_each_screen(function(s)
       awful.widget.watch('sh -c "~/.local/bin/awesome-widgets/widget-RAM"', 30),
       awful.widget.watch('sh -c "~/.local/bin/awesome-widgets/widget-disks /home"', 300),
       awful.widget.watch('sh -c "~/.local/bin/awesome-widgets/widget-newsboat"', 600),
-      awful.widget.watch('sh -c "~/.local/bin/awesome-widgets/widget-pacman_updates"', 60),
       wibox.widget.textbox("  "),
       awful.widget.watch('sh -c ~/.local/bin/awesome-widgets/widget-weather', 3600),
       wibox.widget.textbox("  🌐"),

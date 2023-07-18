@@ -31,10 +31,7 @@ if status is-interactive
         ~/.cache/pomo/pomo-tomato.png -t 30000 -w -A 'Dismiss'\
         & disown; mpv '/home/kylert/.cache/pomo/pomo-sound.mp3'"
 
-    # rust-uutils command substitutions
-        alias ln=uu-ln
-
-        ## experimental/risky rust-uutits substitutions for testing
+    # experimental rust-uutits substitutions for testing
         alias basenc=uu-basenc
         alias groups=uu-groups
         alias hostname=uu-hostname

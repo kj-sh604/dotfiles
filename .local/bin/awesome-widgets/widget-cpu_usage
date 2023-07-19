@@ -3,7 +3,7 @@
 # Cache in tmpfs to improve speed and reduce SSD load
 cache=/tmp/cpubarscache
 
-stats=$(awk '/cpu[0-9]+/ {printf "%d %d %d\n", substr($1,4), ($2 + $3 + $4 + $5), $5 }' /proc/stat)
+stats=$(awk '/cpu[0-7]+/ {printf "%d %d %d\n", substr($1,4), ($2 + $3 + $4 + $5), $5 }' /proc/stat)
 [ ! -f $cache ] && echo "$stats" > "$cache"
 old=$(cat "$cache")
 printf " 🫀 "

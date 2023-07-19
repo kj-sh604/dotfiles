@@ -255,14 +255,6 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist, -- Middle widget
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      -- awful.widget.watch('sh -c "~/.local/bin/awesome-widgets/widget-cpu_usage"', 5),
-      -- awful.widget.watch('sh -c "~/.local/bin/awesome-widgets/widget-sensors"', 60),
-      -- awful.widget.watch('sh -c "~/.local/bin/awesome-widgets/widget-RAM"', 30),
-      -- awful.widget.watch('sh -c "~/.local/bin/awesome-widgets/widget-disks /home"', 300),
-      -- awful.widget.watch('sh -c "~/.local/bin/awesome-widgets/widget-newsboat"', 600),
-      -- wibox.widget.textbox(" "),
-      -- awful.widget.watch('sh -c ~/.local/bin/awesome-widgets/widget-weather', 3600),
-      -- wibox.widget.textbox(" 🌐"),
       mykeyboardlayout,
       wibox.widget.systray(),
       mytextclock,

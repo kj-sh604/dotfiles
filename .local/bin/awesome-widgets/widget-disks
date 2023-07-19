@@ -6,7 +6,7 @@ location=${1:-/}
 
 case "$location" in
 	"/home"* ) icon="🏠" ;;
-	"/mnt"* ) icon="💾" ;;
+	"/run/media"* ) icon="💾" ;;
 	*) icon="🖥";;
 esac
 

@@ -35,14 +35,14 @@
 
     {HARDCODED => "\e[1;37m\e[41mHardware Information:\e[0m"},
     {CPU        => '%sCPU:%s %s'},                # CPU name
-    {RAM        => '%sRAM:%s %s'},                # RAM usage
     {HARDCODED => "\e[1;34mGPU:\e[0m GNUvisor LiberonX Pro (GLP-FTX 256)"},
-    # {SWAP       => '%sSWAP:%s %s'},               # SWAP usage
+    {RAM        => '%sRAM:%s %s'},                # RAM usage
+    {SWAP       => '%sSWAP:%s %s'},               # SWAP usage
     {HARDCODED => "\n"},
     # {PARTITIONS => undef},                        # Partitions goes here
 
-    {HARDCODED => "\e[1;37m\e[41mTheme Information:\e[0m"},
-    {GTK2_THEME      => '%sGTK2 theme:%s %s'},         # Gtk2 theme
+    {HARDCODED => "\e[1;37m\e[41mOther Information:\e[0m"},
     {GTK3_THEME      => '%sGTK3 theme:%s %s'},
+    # {GTK2_THEME      => '%sGTK2 theme:%s %s'},         # Gtk2 theme
 
 ]

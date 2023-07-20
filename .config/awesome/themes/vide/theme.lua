@@ -62,7 +62,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = themes_path_system.."default/submenu.png"
+theme.menu_submenu_icon = themes_path_system.."vide/submenu.png"
 theme.menu_height = dpi(20)
 theme.menu_width  = dpi(170)
 
@@ -98,8 +98,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."vide/titlebar/ma
 theme.titlebar_maximized_button_normal_active = themes_path.."vide/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."vide/titlebar/maximized_focus_active.png"
 
--- theme.wallpaper = themes_path.."vide/background.png"
-theme.wallpaper = themes_path.."vide/vide.jpg"
+theme.wallpaper = themes_path.."vide/background.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."vide/layouts/fairhw.png"

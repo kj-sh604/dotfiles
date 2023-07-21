@@ -38,4 +38,7 @@ BackgroundDarkness=1.000000
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ColorCursorUseDefault=FALSE
 ColorCursorForeground=#303030303030
+ScrollingOnKeystroke=FALSE
+TitleInitial=xterm-256color
+TitleMode=TERMINAL_TITLE_PREPEND
 

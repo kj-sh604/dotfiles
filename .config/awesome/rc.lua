@@ -26,9 +26,9 @@ local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.ge
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
-editor = "alacritty -e nvim" or os.getenv("EDITOR")
-editor_cmd = terminal .. " -e " .. editor
+terminal = "xfce4-terminal"
+editor = "xfce4-terminal -x nvim" or os.getenv("EDITOR")
+editor_cmd = terminal .. " -x " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -117,7 +117,7 @@ myawesomemenu = {
   { "xset dpms", dpms_menu },
   { "dunstctl", dunst_menu },
   { "config file", editor .. " " .. awesome.conffile },
-  { "picom config", function() awful.spawn.easy_async_with_shell("alacritty -e nvim $HOME/.config/picom.conf") end },
+  { "picom config", function() awful.spawn.easy_async_with_shell("xfce4-terminal -x nvim $HOME/.config/picom.conf") end },
   { "change wallpaper", function() awful.spawn.easy_async_with_shell("sh -c 'nitrogen'") end },
   { "xdg_menu refresh", function() awful.spawn.easy_async_with_shell("sh -c 'xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/xdgmenu.lua'") end },
   { "refresh", awesome.restart },
@@ -370,7 +370,7 @@ globalkeys = gears.table.join(
     {description = "take a screenshot of an area of the screen", group = "launcher"}),
   awful.key({ modkey }, "x", function () awful.spawn.easy_async_with_shell("xkill") end,
     {description = "kill a window by brute force", group = "launcher"}),
-  awful.key({ "Control", "Mod1" }, "Delete", function () awful.spawn("alacritty -t 'Task Manager' -e 'htop'") end,
+  awful.key({ "Control", "Mod1" }, "Delete", function () awful.spawn("xfce4-terminal -T 'Task Manager' -x 'htop'") end,
     {description = "launch HTOP", group = "launcher"}),
 
   -- Brightness Hotkeys

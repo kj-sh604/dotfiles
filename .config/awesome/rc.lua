@@ -331,6 +331,13 @@ globalkeys = gears.table.join(
     {description = "swap with next window right", group = "client"}),
   awful.key({ modkey, "Control" }, "Left", function () awful.client.swap.global_bydirection("left") client.focus:raise() end,
     {description = "swap with next window left", group = "client"}),
+    -- additional h,l binds
+    -- (in practice, this will work just like the arrow keybinds when pairing
+    -- the h,l directional keybinds with j,k "by index" keybinds)
+  awful.key({ modkey, "Control" }, "l", function () awful.client.swap.global_bydirection("right") client.focus:raise() end,
+    {description = "swap with next window right", group = "client"}),
+  awful.key({ modkey, "Control" }, "h", function () awful.client.swap.global_bydirection("left") client.focus:raise() end,
+    {description = "swap with next window left", group = "client"}),
 
   -- move window focus by direction in tiling layout
   awful.key({ modkey, "Mod1" }, "Down", function () awful.client.focus.global_bydirection("down") client.focus:raise() end,
@@ -340,6 +347,13 @@ globalkeys = gears.table.join(
   awful.key({ modkey, "Mod1" }, "Right", function () awful.client.focus.global_bydirection("right") client.focus:raise() end,
     {description = "focus to next window right", group = "client"}),
   awful.key({ modkey, "Mod1" }, "Left", function () awful.client.focus.global_bydirection("left") client.focus:raise() end,
+    {description = "focus to next window left", group = "client"}),
+    -- additional h,l binds
+    -- (in practice, this will work just like the arrow keybinds when pairing
+    -- the h,l directional keybinds with j,k "by index" keybinds)
+  awful.key({ modkey, "Mod1" }, "l", function () awful.client.focus.global_bydirection("right") client.focus:raise() end,
+    {description = "focus to next window right", group = "client"}),
+  awful.key({ modkey, "Mod1" }, "h", function () awful.client.focus.global_bydirection("left") client.focus:raise() end,
     {description = "focus to next window left", group = "client"}),
 
   -- alt-tab functionality in maximized layout
@@ -402,7 +416,6 @@ globalkeys = gears.table.join(
   -- gui task manager / system monitor
   awful.key({ modkey, "Control" }, "Delete", function () awful.spawn("gnome-system-monitor") end,
     {description = "gnome-system-monitor", group = "launcher"}),
-
   awful.key({ "Control", "Shift" }, "Escape", function () awful.spawn("gnome-system-monitor") end,
     {description = "gnome-system-monitor", group = "launcher"}),
 
@@ -411,35 +424,35 @@ globalkeys = gears.table.join(
                 {description = "open clipboard history", group = "launcher"}),
 
   -- on-the-fly window gaps configuration
-
   awful.key({modkey}, "'", function () awful.tag.incgap(2)   end,
                 {description = "increase window gaps", group = "client"}),
-
   awful.key({modkey}, ";", function () awful.tag.incgap(-2)   end,
                 {description = "decrease window gaps", group = "client"}),
-
   awful.key({modkey}, "backslash", function () awful.screen.focused().selected_tag.gap = 5   end,
                 {description = "reset window gaps", group = "client"}),
 
 
-  -- tiled window sizing and client count/columns
-
+  -- tiled client resizing
+    -- h,j,k,l binds
   awful.key({ modkey }, "l", function () awful.tag.incmwfact( 0.05) end,
     {description = "increase master width factor", group = "layout"}),
   awful.key({ modkey }, "h", function () awful.tag.incmwfact(-0.05) end,
     {description = "decrease master width factor", group = "layout"}),
-
+  awful.key({ modkey }, "j", function () awful.client.incwfact( 0.05) end,
+    {description = "increase master height factor", group = "layout"}),
+  awful.key({ modkey }, "k", function () awful.client.incwfact(-0.05) end,
+    {description = "decrease master height factor", group = "layout"}),
+    -- arrow key binds
   awful.key({ modkey }, "Right", function () awful.tag.incmwfact( 0.05) end,
     {description = "increase master width factor", group = "layout"}),
   awful.key({ modkey }, "Left", function () awful.tag.incmwfact(-0.05) end,
     {description = "decrease master width factor", group = "layout"}),
-
   awful.key({ modkey }, "Up", function () awful.client.incwfact( 0.05) end,
     {description = "increase master height factor", group = "layout"}),
   awful.key({ modkey }, "Down", function () awful.client.incwfact(-0.05) end,
     {description = "decrease master height factor", group = "layout"}),
 
-
+  -- client count/columns manipulation
   awful.key({ modkey }, "minus", function () awful.tag.incnmaster( 1, nil, true) end,
     {description = "increase the number of master clients", group = "layout"}),
   awful.key({ modkey }, "equal", function () awful.tag.incnmaster(-1, nil, true) end,
@@ -448,9 +461,9 @@ globalkeys = gears.table.join(
     {description = "increase the number of columns", group = "layout"}),
   awful.key({ modkey }, "]", function () awful.tag.incncol(-1, nil, true) end,
     {description = "decrease the number of columns", group = "layout"}),
-  awful.key({ modkey }, "j", function () awful.layout.inc( 1) end,
+  awful.key({ modkey }, "u", function () awful.layout.inc(1) end,
     {description = "select next", group = "layout"}),
-  awful.key({ modkey }, "k", function () awful.layout.inc(-1) end,
+  awful.key({ modkey }, "i", function () awful.layout.inc(-1) end,
     {description = "select previous", group = "layout"}),
 
   awful.key({ modkey, "Shift" }, "m",

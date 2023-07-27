@@ -26,6 +26,9 @@ case "$choice" in
             notify-send "choose-randr-gui" "awesome-xrandr script is not found"
         fi
         ;;
+    "")
+        echo "no xrandr gui selected"
+        ;;
     *)
         echo "invalid choice: $choice"
         notify-send "choose-randr-gui" "invalid choice: $choice"

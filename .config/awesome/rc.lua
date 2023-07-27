@@ -356,7 +356,7 @@ globalkeys = gears.table.join(
   awful.key({ modkey, "Mod1" }, "h", function () awful.client.focus.global_bydirection("left") client.focus:raise() end,
     {description = "focus to next window left", group = "client"}),
 
-  -- alt-tab functionality in maximized layout
+  -- go back to previous focused client
   awful.key({ "Mod1", }, "Tab",
     function ()
       awful.client.focus.history.previous()
@@ -364,7 +364,15 @@ globalkeys = gears.table.join(
         client.focus:raise()
       end
     end,
-    {description = "go back", group = "client"}),
+    {description = "go back to previous client", group = "client"}),
+  awful.key({ modkey }, "grave",
+    function ()
+      awful.client.focus.history.previous()
+      if client.focus then
+        client.focus:raise()
+      end
+    end,
+    {description = "go back to previous client", group = "client"}),
   -- application hotkeys
   --[[ Template
       awful.key({ [KEY], [KEY]          }, [KEY], function () awful.spawn("[APPLICATION_NAME]") end,
@@ -420,7 +428,7 @@ globalkeys = gears.table.join(
     {description = "gnome-system-monitor", group = "launcher"}),
 
   -- clipboard manager
-  awful.key({ modkey }, "grave", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
+  awful.key({ modkey }, "v", function () awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
                 {description = "open clipboard history", group = "launcher"}),
 
   -- on-the-fly window gaps configuration
@@ -431,6 +439,9 @@ globalkeys = gears.table.join(
   awful.key({modkey}, "backslash", function () awful.screen.focused().selected_tag.gap = 5   end,
                 {description = "reset window gaps", group = "client"}),
 
+  -- launch choose-xrandr-gui
+  awful.key({ modkey }, "p", function () awful.spawn.easy_async_with_shell("~/.local/bin/choose-xrandr-gui") end,
+            {description = "choose an xrandr gui for display configuration", group = "launcher"}),
 
   -- tiled client resizing
     -- h,j,k,l binds

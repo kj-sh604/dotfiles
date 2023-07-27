@@ -102,9 +102,8 @@ dpms_menu = {
 }
 
 dunst_menu = {
+  { "set-paused", function() awful.spawn.easy_async_with_shell("sh -c '~/.local/bin/toggle-dunst-notifications'") end },
   { "history-pop", function() awful.spawn.easy_async_with_shell("dunstctl history-pop") end },
-  { "set-paused true", function() awful.spawn.easy_async_with_shell("dunstctl set-paused true") end },
-  { "set-paused false", function() awful.spawn.easy_async_with_shell("dunstctl set-paused false") end },
 }
 -- }}}
 
@@ -275,13 +274,20 @@ root.buttons(gears.table.join(
 -- {{{ key bindings
 globalkeys = gears.table.join(
   awful.key({ modkey, }, "s", hotkeys_popup.show_help,
-    {description = "show shortcuts", group = "awesome"}),
+      { description = "show shortcuts", group = "awesome" }),
   awful.key({ "Control", "Mod1" }, "Left", awful.tag.viewprev,
-    {description = "view previous", group = "tag"}),
+      { description = "view previous", group = "tag" }),
   awful.key({ "Control", "Mod1" }, "Right", awful.tag.viewnext,
-    {description = "view next", group = "tag"}),
+      { description = "view next", group = "tag" }),
   awful.key({ modkey, }, "Escape", awful.tag.history.restore,
-    {description = "go back", group = "tag"}),
+      { description = "go back", group = "tag" }),
+  awful.key({ modkey }, "b",
+      function()
+          myscreen = awful.screen.focused()
+          myscreen.mywibox.visible = not myscreen.mywibox.visible
+      end,
+      { description = "toggle wibar" }
+  ),
 
   -- change window focus in maximized layout
   awful.key({ modkey, }, "Tab",
@@ -442,6 +448,10 @@ globalkeys = gears.table.join(
   -- launch choose-xrandr-gui
   awful.key({ modkey }, "p", function () awful.spawn.easy_async_with_shell("~/.local/bin/choose-xrandr-gui") end,
             {description = "choose an xrandr gui for display configuration", group = "launcher"}),
+
+  -- toggle dunst notifications
+  awful.key({ modkey }, "n", function () awful.spawn.easy_async_with_shell("~/.local/bin/toggle-dunst-notifications") end,
+            {description = "toggle dunst notifications", group = "launcher"}),
 
   -- tiled client resizing
     -- h,j,k,l binds

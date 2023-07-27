@@ -286,7 +286,7 @@ globalkeys = gears.table.join(
           myscreen = awful.screen.focused()
           myscreen.mywibox.visible = not myscreen.mywibox.visible
       end,
-      { description = "toggle wibar" }
+      { description = "toggle wibar", group = "awesome" }
   ),
 
   -- change window focus in maximized layout

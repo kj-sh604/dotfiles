@@ -30,7 +30,7 @@ case "$choice" in
         echo "no xrandr gui selected"
         ;;
     *)
-        echo "invalid choice: $choice"
-        notify-send "choose-randr-gui" "invalid choice: $choice"
+        echo "invalid option: $choice"
+        notify-send "choose-randr-gui" "invalid option: $choice"
         ;;
 esac

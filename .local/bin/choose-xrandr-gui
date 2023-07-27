@@ -1,0 +1,33 @@
+#!/bin/sh
+
+choice=$(printf "arandr (ARandR)\nlxrandr (LXDE Monitor \
+Settings)\nawesome-xrandr (reset screen layout)" | ~/.local/bin/dmenu-dunst -p \
+"choose xrandr gui:" -l 3 -i)
+
+case "$choice" in
+    "lxrandr (LXDE Monitor Settings)")
+        if command -v lxrandr > /dev/null; then
+            lxrandr
+        else
+            notify-send "choose-randr-gui" "lxrandr is not installed"
+        fi
+        ;;
+    "arandr (ARandR)")
+        if command -v arandr > /dev/null; then
+            arandr
+        else
+            notify-send "choose-randr-gui" "arandr is not installed"
+        fi
+        ;;
+    "awesome-xrandr (reset screen layout)")
+        if command -v ~/.local/bin/awesome-xrandr > /dev/null; then
+            ~/.local/bin/awesome-xrandr
+        else
+            notify-send "choose-randr-gui" "awesome-xrandr script is not found"
+        fi
+        ;;
+    *)
+        echo "invalid choice: $choice"
+        notify-send "choose-randr-gui" "invalid choice: $choice"
+        ;;
+esac

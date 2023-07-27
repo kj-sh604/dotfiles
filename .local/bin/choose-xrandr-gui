@@ -9,21 +9,21 @@ case "$choice" in
         if command -v lxrandr > /dev/null; then
             lxrandr
         else
-            notify-send "choose-randr-gui" "lxrandr is not installed"
+            notify-send "choose-xrandr-gui" "lxrandr is not installed"
         fi
         ;;
     "arandr (ARandR)")
         if command -v arandr > /dev/null; then
             arandr
         else
-            notify-send "choose-randr-gui" "arandr is not installed"
+            notify-send "choose-xrandr-gui" "arandr is not installed"
         fi
         ;;
     "awesome-xrandr (reset screen layout)")
         if command -v ~/.local/bin/awesome-xrandr > /dev/null; then
             ~/.local/bin/awesome-xrandr
         else
-            notify-send "choose-randr-gui" "awesome-xrandr script is not found"
+            notify-send "choose-xrandr-gui" "awesome-xrandr script is not found"
         fi
         ;;
     "")
@@ -31,6 +31,6 @@ case "$choice" in
         ;;
     *)
         echo "invalid option: $choice"
-        notify-send "choose-randr-gui" "invalid option: $choice"
+        notify-send "choose-xrandr-gui" "invalid option: $choice"
         ;;
 esac

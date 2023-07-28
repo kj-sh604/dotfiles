@@ -2,3 +2,5 @@
 clear mod3
 add mod3 = Scroll_Lock
 add mod3 = ISO_Level5_Shift
+! Map RShift to Escape
+keycode 62 = Escape

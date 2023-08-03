@@ -123,4 +123,5 @@ export LESS_TERMCAP_so=$'\e[01;31m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;33m'
 
-bindkey "^ " forward-word
+bindkey "^f" forward-word
+bindkey "^b" backward-word

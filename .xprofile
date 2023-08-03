@@ -7,7 +7,7 @@ export TMPDIR="/tmp"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export PATH="$PATH:$HOME/.local/bin"
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANPAGER="less --use-color"
 export MANROFFOPT="-P -c"
 
 export XDG_CACHE_HOME="$HOME/.cache"

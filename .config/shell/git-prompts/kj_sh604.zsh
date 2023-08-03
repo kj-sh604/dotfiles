@@ -18,4 +18,4 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[blue]%}U"
 ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}☐"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✓"
 
-PROMPT=$'%F{cyan}%~%f %F{242}$(gitprompt)%f%(12V.%F{242}%12v%f .)%(?.%F{white}.%F{red})%%%f '
+PROMPT=$'%F{cyan}%~%f %F{242}$(gitprompt)%f%(12V.%F{242}%12v%f .)%(?.%F{white}.%F{white})%%%f '

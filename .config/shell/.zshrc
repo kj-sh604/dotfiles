@@ -8,8 +8,8 @@ source ~/.config/shell/git-prompts/kj_sh604.zsh
 
 # configure history settings
 HISTFILE=~/.local/state/shell/zsh_history
-HISTSIZE=9223372036854775804
-SAVEHIST=9223372036854775804
+HISTSIZE=9999999
+SAVEHIST=9999999
 
 # aliases
     # personal aliases

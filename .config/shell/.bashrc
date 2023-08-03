@@ -70,3 +70,5 @@ for sh in /etc/bash/bashrc.d/* ; do
 done
 
 unset use_color sh
+
+export HISTFILE="$XDG_STATE_HOME"/shell/history

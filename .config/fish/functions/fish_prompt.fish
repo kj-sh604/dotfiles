@@ -21,6 +21,6 @@ set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
 set -g __fish_git_prompt_color_cleanstate green --bold
 
 function fish_prompt
-	printf '%s%s%s%s $ ' \
+	printf '%s%s%s%s> ' \
         (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) (fish_git_prompt) 
 end

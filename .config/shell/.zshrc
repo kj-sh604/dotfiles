@@ -24,6 +24,9 @@ SAVEHIST=9223372036854775804
         alias pu="command yay -Syyu --answerclean yes --rebuildall --noconfirm"
         alias yay="echo"
         alias neofetch="alsi"
+        alias grep='grep --colour=auto'
+        alias egrep='grep -E'
+        alias fgrep='grep -F'
 
     # youtube-dl aliases
         alias yt-mp4="youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"

@@ -1,8 +1,9 @@
 # source zsh extensions (order is important)
 source ~/.config/shell/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/shell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/shell/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.config/shell/git-prompt.zsh
 source ~/.config/shell/git-prompts/kj_sh604.zsh
+# source ~/.config/shell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # configure history settings

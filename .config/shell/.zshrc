@@ -1,8 +1,8 @@
 # source zsh extensions (order is important)
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/shell/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/shell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/shell/git-prompt.zsh
-source ~/.config/shell/git-prompt_examples/kj_sh604.zsh
+source ~/.config/shell/git-prompts/kj_sh604.zsh
 
 
 # configure history settings
@@ -77,10 +77,10 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 # edit line in vim with ctrl-e
-autoload -Uz edit-command-line; zle -N edit-command-line
-bindkey '\ee' edit-command-line
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
 bindkey -M vicmd '^[[P' vi-delete-char
-bindkey -M vicmd '\ee' edit-command-line
+bindkey -M vicmd '^e' edit-command-line
 bindkey -M visual '^[[P' vi-delete
 
 # cursor shape settings for vi modes

@@ -1,5 +1,5 @@
 set -g __fish_git_prompt_show_informative_status 1
-set -g __fish_git_prompt_hide_untrackedfiles 1
+set -g __fish_git_prompt_showuntrackedfiles 1
 set -g __fish_git_prompt_showcolorhints 1
 
 set -g __fish_git_prompt_color_branch magenta --bold
@@ -10,7 +10,7 @@ set -g __fish_git_prompt_char_upstream_prefix ""
 
 set -g __fish_git_prompt_char_stagedstate "•"
 set -g __fish_git_prompt_char_dirtystate "+"
-set -g __fish_git_prompt_char_untrackedfiles "…"
+set -g __fish_git_prompt_char_untrackedfiles "U"
 set -g __fish_git_prompt_char_conflictedstate "x"
 set -g __fish_git_prompt_char_cleanstate "✓"
 

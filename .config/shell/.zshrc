@@ -1,8 +1,9 @@
 # source zsh extensions (order is important)
-source ~/.config/shell/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/shell/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.config/shell/git-prompt.zsh
 source ~/.config/shell/git-prompts/kj_sh604.zsh
+source ~/.config/shell/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/shell/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.config/shell/zsh-history-substring-search/zsh-history-substring-search.zsh
 # source ~/.config/shell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
@@ -125,3 +126,7 @@ export LESS_TERMCAP_us=$'\e[1;4;33m'
 
 bindkey "^f" forward-word
 bindkey "^b" backward-word
+bindkey "^[[A" history-substring-search-up 
+bindkey "^[[B" history-substring-search-down
+bindkey -M vicmd "k" history-substring-search-up 
+bindkey -M vicmd "j" history-substring-search-down

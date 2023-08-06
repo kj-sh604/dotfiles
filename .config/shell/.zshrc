@@ -126,7 +126,7 @@ export LESS_TERMCAP_us=$'\e[1;4;33m'
 
 bindkey "^f" forward-word
 bindkey "^b" backward-word
-bindkey "^[[A" history-substring-search-up 
+bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
-bindkey -M vicmd "k" history-substring-search-up 
+bindkey -M vicmd "k" history-substring-search-up
 bindkey -M vicmd "j" history-substring-search-down

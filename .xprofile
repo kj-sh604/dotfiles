@@ -1,5 +1,12 @@
-setxkbmap -option compose:ralt
-xset r rate 300 50
+#!/bin/sh
+
+if [ -n "$DISPLAY" ] && xhost >/dev/null; then
+    setxkbmap -option compose:ralt
+    xset r rate 300 50
+    export XPROFILE_X11_SPECIFICS=loaded
+else
+    echo "x11 is not running... x11-related settings have been skipped"
+fi
 
 export EDITOR=nvim
 export TERM=xterm-256color

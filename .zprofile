@@ -1,1 +1,1 @@
-/home/kylert/.xprofile
+~/.xprofile

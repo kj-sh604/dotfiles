@@ -6,6 +6,7 @@ if [ -n "$DISPLAY" ] && xhost >/dev/null; then
     export XPROFILE_X11_SPECIFICS=loaded
 else
     echo "x11 is not running... x11-related settings have been skipped"
+    export XPROFILE_X11_SPECIFICS=unloaded
 fi
 
 export EDITOR=nvim

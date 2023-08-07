@@ -1,1 +1,1 @@
-~/.xprofile
+.xprofile

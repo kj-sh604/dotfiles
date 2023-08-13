@@ -1,0 +1,25 @@
+#!/bin/sh
+
+if [ -z "$1" ] || [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+    echo "usage: showFace </dev/video device number>"
+    exit 1
+fi
+
+if ! [ "$1" -eq "$1" ] 2>/dev/null; then
+    echo "error: argument must be a number"
+    exit 0
+fi
+
+video_device="/dev/video$1"
+
+if [ ! -e "$video_device" ]; then
+    echo "error: webcam not available at $video_device"
+    exit 0
+fi
+
+mpv --demuxer-lavf-format=video4linux2 \
+    --demuxer-lavf-o-set=input_format=mjpeg \
+    "av://v4l2:$video_device" \
+    --profile=low-latency \
+    --untimed \
+    --vf=hflip &

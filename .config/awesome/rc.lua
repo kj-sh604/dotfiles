@@ -728,6 +728,7 @@ awful.rules.rules = {
       "Gnome-system-monitor",
       "Kruler",
       "MessageWin",  -- kalarm.
+      "mullvadbrowser", -- needs a fixed window size to avoid fingerprinting by screen size.
       "screengrab",
       "Sxiv",
       "Steam",

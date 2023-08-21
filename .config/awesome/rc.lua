@@ -104,9 +104,7 @@ myawesomemenu = {
     { "config file",      editor .. " " .. awesome.conffile },
     { "picom config",     function() awful.spawn.easy_async_with_shell("xfce4-terminal -x nvim $HOME/.config/picom.conf") end },
     { "change wallpaper", function() awful.spawn.easy_async_with_shell("sh -c 'nitrogen'") end },
-    { "xdg_menu refresh",
-                              function() awful.spawn.easy_async_with_shell(
-            "sh -c 'xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/xdgmenu.lua'") end },
+    { "xdg_menu refresh", function() awful.spawn.easy_async_with_shell("sh -c 'xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/xdgmenu.lua'") end },
     { "soft-reboot",      function() awful.spawn("sh -c 'systemctl soft-reboot'") end },
     { "reboot",           function() awful.spawn("sh -c 'systemctl reboot'") end },
     { "refresh",          awesome.restart },
@@ -120,7 +118,7 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({
-    items = { { "applications", xdgmenu,                                        beautiful.awesome_icon },
+    items = { { "applications", xdgmenu, beautiful.awesome_icon },
         { "system stuff",  myawesomemenu },
         { "open terminal", terminal },
         { "run prompt",    function() awful.screen.focused().mypromptbox:run() end }

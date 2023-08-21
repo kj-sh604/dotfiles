@@ -1,40 +1,26 @@
--- if luarocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). if luarocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
-
--- standard awesome library
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
--- widget and layout library
 local wibox = require("wibox")
--- theme handling library
 local beautiful = require("beautiful")
--- notification library
--- local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
--- enable hotkeys help widget for vim and other apps
--- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 xdg_menu = require("xdgmenu")
 
--- {{{ Variable definitions
+-- {{{ variable definitions
 -- themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/default/theme.lua")
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "adwaita")
 beautiful.init(theme_path)
 
--- This is used later as the default terminal and editor to run.
+-- this is used later as the default terminal and editor to run.
 terminal = "xfce4-terminal"
 editor = "xfce4-terminal -x nvim" or os.getenv("EDITOR")
 editor_cmd = terminal .. " -x " .. editor
 
 -- default modkey.
--- usually, mod4 is the key with a logo between control and alt.
--- if you do not like this or do not have such a key,
--- i suggest you to remap mod4 to another key using xmodmap or other tools.
--- however, you can use another modifier like mod1, but it may interact with others.
 modkey = "Mod4"
 
 -- table of layouts to cover with awful.layout.inc, order matters. (-git compatible)
@@ -381,10 +367,10 @@ globalkeys = gears.table.join(
     end,
     {description = "go back to previous client", group = "client"}),
   -- application hotkeys
-  --[[ Template
-      awful.key({ [KEY], [KEY]          }, [KEY], function () awful.spawn("[APPLICATION_NAME]") end,
-                {description = "open a terminal", group = "launcher"}),
-      ]]--
+  -- example:
+  -- awful.key({ [KEY], [KEY]}, [KEY], function () awful.spawn("[APPLICATION_NAME]") end,
+  --   {description = "open a terminal", group = "launcher"}),
+    
   awful.key({ "Control", "Mod1" }, "t", function () awful.spawn(terminal) end,
     {description = "open a terminal", group = "launcher"}),
   awful.key({ modkey, }, "slash", function () awful.spawn("fsearch") end,
@@ -421,12 +407,6 @@ globalkeys = gears.table.join(
   -- awesome window manager controls
   awful.key({ "Control", "Mod1" }, "BackSpace", awesome.restart,
     {description = "reload awesome", group = "awesome"}),
-  --[[awful.key({ "Control", "Shift"   }, "Delete", awesome.quit
-              {description = "quit awesome", group = "awesome"}),]]--
-
-  -- kill all user processes including x11 (logs user out)
-  --[[    awful.key({ "Control", "Mod1"          }, "BackSpace", function () awful.spawn("sh -c 'pkill -9 -u $USER'") end,
-              {description = "quit awesome", group = "launcher"}), ]]--
 
   -- gui task manager / system monitor
   awful.key({ modkey, "Control" }, "Delete", function () awful.spawn("gnome-system-monitor") end,
@@ -660,18 +640,6 @@ for i = 1, 9 do
         awful.tag.viewnext()
       end,
       {description = "move client to next tag and switch to it", group = "tag"})
-
-  --[[        -- toggle tag on focused client.
-        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[i]
-                          if tag then
-                              client.focus:toggle_tag(tag)
-                          end
-                      end
-                  end,
-                  {description = "toggle focused client on tag #" .. i, group = "tag"}) ]]--
   )
 end
 
@@ -693,7 +661,7 @@ clientbuttons = gears.table.join(
 root.keys(globalkeys)
 -- }}}
 
--- {{{ Rules
+-- {{{ rules
 -- rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
   -- all clients will match this rule.
@@ -732,20 +700,17 @@ awful.rules.rules = {
       "screengrab",
       "Sxiv",
       "Steam",
-      "Tor Browser", -- needs a fixed window size to avoid fingerprinting by screen size.
+      "Tor Browser", -- same as mullvadbrowser.
       "Wpa_gui",
       "veromix",
       "xtightvncviewer",
       "zoom",
     },
-
-    -- note that the name property shown in xprop might be set slightly after creation of the client
-    -- and the name shown there might not match defined rules here.
     name = {
       "^Event Tester$",  -- xev.
-      "^File Operation Progress$", -- fix for latest version of thunar
+      "^File Operation Progress$", -- fix for latest version of thunar.
       "^password manager$",
-      "^Task Manager$",      
+      "^Task Manager$",
     },
     role = {
       "AlarmWindow",  -- thunderbird's calendar.
@@ -754,14 +719,43 @@ awful.rules.rules = {
     }
   }, properties = { floating = true }},
 
---[[ add titlebars to normal clients and dialogs
-{ rule_any = {type = { "normal", "dialog" }
-}, properties = { titlebars_enabled = true }
-}, ]]--
+-- fullscreen clients.
+  { rule_any = {
+    instance = {
+    },
+    class = {
+      "Blender",
+    },
+    name = {
+    },
+    role = {
+    }
+  }, properties = { fullscreen = true }},
 
--- set firefox to always map on the tag named "2" on screen 1.
--- { rule = { class = "Firefox" },
---   properties = { screen = 1, tag = "2" } },
+-- unmaximized clients.
+  { rule_any = {
+    instance = {
+    },
+    class = {
+    },
+    name = {
+    },
+    role = {
+    }
+  }, properties = { maximized = false }},
+
+-- maximized clients.
+  { rule_any = {
+    instance = {
+    },
+    class = {
+    },
+    name = {
+    },
+    role = {
+    }
+  }, properties = { maximized = true }},
+
 }
 -- }}}
 
@@ -771,11 +765,10 @@ client.connect_signal("manage", function (c)
   -- set the windows at the slave,
   -- i.e. put it at the end of others instead of setting it master.
   -- if not awesome.startup then awful.client.setslave(c) end
-
   if awesome.startup
     and not c.size_hints.user_position
     and not c.size_hints.program_position then
-    -- Prevent clients from being unreachable after screen count changes.
+    -- prevent clients from being unreachable after screen count changes.
     awful.placement.no_offscreen(c)
   end
 end)
@@ -784,17 +777,9 @@ end)
 client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
-
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-
--- don't start Blender in a maximized state
-client.connect_signal("property::maximized", function(c)
-    if c.maximized and c.class == "Blender" then
-        c.maximized = false
-    end
-end)
 
 -- gaps
 beautiful.useless_gap = 5
@@ -806,11 +791,5 @@ gears.timer {
   callback = function() collectgarbage() end
 }
 
-
 -- autostart
-
 awful.spawn.easy_async_with_shell("~/.local/bin/awesome-autorun")
-
--- if you want to autostart more stuff:
--- awful.spawn.with_shell("")
--- awful.spawn.easy_async_with_shell("")

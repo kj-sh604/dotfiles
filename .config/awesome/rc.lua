@@ -789,6 +789,13 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+-- don't start Blender in a maximized state
+client.connect_signal("property::maximized", function(c)
+    if c.maximized and c.class == "Blender" then
+        c.maximized = false
+    end
+end)
+
 -- gaps
 beautiful.useless_gap = 5
 

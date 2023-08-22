@@ -175,40 +175,65 @@ screen.connect_signal("request::desktop_decoration", function(s)
         awful.button({}, 3, function() awful.layout.inc(-1) end),
         awful.button({}, 4, function() awful.layout.inc(1) end),
         awful.button({}, 5, function() awful.layout.inc(-1) end)))
+
     -- create a taglist widget
     s.mytaglist = awful.widget.taglist {
-        screen = s,
-        filter = awful.widget.taglist.filter.all,
-        buttons = taglist_buttons
+        screen  = s,
+        filter  = awful.widget.taglist.filter.all,
+        buttons = {
+            awful.button({}, 1, function(t) t:view_only() end),
+            awful.button({ modkey }, 1, function(t)
+                if client.focus then
+                    client.focus:move_to_tag(t)
+                end
+            end),
+            awful.button({}, 3, awful.tag.viewtoggle),
+            awful.button({ modkey }, 3, function(t)
+                if client.focus then
+                    client.focus:toggle_tag(t)
+                end
+            end),
+            awful.button({}, 4, function(t) awful.tag.viewprev(t.screen) end),
+            awful.button({}, 5, function(t) awful.tag.viewnext(t.screen) end),
+        }
     }
 
     -- create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
-        screen = s,
-        filter = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
+        screen  = s,
+        filter  = awful.widget.tasklist.filter.currenttags,
+        buttons = {
+            awful.button({}, 1, function(c)
+                c:activate { context = "tasklist", action = "toggle_minimization" }
+            end),
+            awful.button({}, 3, function() awful.menu.client_list { theme = { width = 250 } } end),
+            awful.button({}, 4, function() awful.client.focus.byidx(-1) end),
+            awful.button({}, 5, function() awful.client.focus.byidx(1) end),
+        }
     }
 
     -- create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 18 })
-
-    -- add widgets to the wibox
-    s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- left widgets
-            layout = wibox.layout.fixed.horizontal,
-            -- mylauncher,
-            s.mytaglist,
-            s.mypromptbox,
-        },
-        s.mytasklist, -- middle widget
-        {             -- right widgets
-            layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
-            wibox.widget.systray(),
-            mytextclock,
-            s.mylayoutbox,
-        },
+    s.mywibox = awful.wibar {
+        position = "top",
+        screen   = s,
+        height   = 18,
+        widget   = {
+            layout = wibox.layout.align.horizontal,
+            { -- left widgets
+                layout = wibox.layout.fixed.horizontal,
+                -- mylauncher,
+                s.mytaglist,
+                s.mypromptbox,
+            },
+            s.mytasklist, -- middle widget
+            {             -- right widgets
+                layout = wibox.layout.fixed.horizontal,
+                mykeyboardlayout,
+                wibox.widget.systray(),
+                mytextclock,
+                s.mylayoutbox,
+            },
+        }
     }
 end)
 -- }}}

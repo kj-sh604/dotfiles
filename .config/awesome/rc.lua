@@ -104,7 +104,11 @@ myawesomemenu = {
     { "config file",      editor .. " " .. awesome.conffile },
     { "picom config",     function() awful.spawn.easy_async_with_shell("xfce4-terminal -x nvim $HOME/.config/picom.conf") end },
     { "change wallpaper", function() awful.spawn.easy_async_with_shell("sh -c 'nitrogen'") end },
-    { "xdg_menu refresh", function() awful.spawn.easy_async_with_shell("sh -c 'xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/xdgmenu.lua'") end },
+    { "xdg_menu refresh",
+        function()
+            awful.spawn.easy_async_with_shell(
+                "sh -c 'xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/xdgmenu.lua'")
+        end },
     { "soft-reboot",      function() awful.spawn("sh -c 'systemctl soft-reboot'") end },
     { "reboot",           function() awful.spawn("sh -c 'systemctl reboot'") end },
     { "refresh",          awesome.restart },
@@ -242,7 +246,7 @@ awful.screen.connect_for_each_screen(function(s)
             s.mypromptbox,
         },
         s.mytasklist, -- middle widget
-        {         -- right widgets
+        {             -- right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
@@ -415,6 +419,7 @@ globalkeys = gears.table.join(
             end
         end,
         { description = "go back to previous client", group = "client" }),
+
     -- application hotkeys
     -- example:
     -- awful.key({ [KEY], [KEY]}, [KEY], function () awful.spawn("[APPLICATION_NAME]") end,
@@ -737,7 +742,7 @@ awful.rules.rules = {
     {
         rule_any = {
             instance = {
-                "DTA", -- firefox addon downthemall.
+                "DTA",   -- firefox addon downthemall.
                 "copyq", -- includes session name in class.
                 "pinentry",
             },
@@ -752,7 +757,7 @@ awful.rules.rules = {
                 "gnome-calculator",
                 "Gnome-system-monitor",
                 "Kruler",
-                "MessageWin", -- kalarm.
+                "MessageWin",     -- kalarm.
                 "mullvadbrowser", -- needs a fixed window size to avoid fingerprinting by screen size.
                 "screengrab",
                 "Sxiv",
@@ -764,66 +769,19 @@ awful.rules.rules = {
                 "zoom",
             },
             name = {
-                "^Event Tester$",  -- xev.
+                "^Event Tester$",            -- xev.
                 "^File Operation Progress$", -- fix for latest version of thunar.
                 "^password manager$",
                 "^Task Manager$",
             },
             role = {
-                "AlarmWindow", -- thunderbird's calendar.
+                "AlarmWindow",   -- thunderbird's calendar.
                 "ConfigManager", -- thunderbird's about:config.
-                "pop-up", -- e.g. google chrome's (detached) developer tools.
+                "pop-up",        -- e.g. google chrome's (detached) developer tools.
             }
         },
         properties = { floating = true }
     },
-
-    -- fullscreen clients.
-    {
-        rule_any = {
-            instance = {
-            },
-            class = {
-                "Blender",
-            },
-            name = {
-            },
-            role = {
-            }
-        },
-        properties = { fullscreen = true }
-    },
-
-    -- unmaximized clients.
-    {
-        rule_any = {
-            instance = {
-            },
-            class = {
-            },
-            name = {
-            },
-            role = {
-            }
-        },
-        properties = { maximized = false }
-    },
-
-    -- maximized clients.
-    {
-        rule_any = {
-            instance = {
-            },
-            class = {
-            },
-            name = {
-            },
-            role = {
-            }
-        },
-        properties = { maximized = true }
-    },
-
 }
 -- }}}
 

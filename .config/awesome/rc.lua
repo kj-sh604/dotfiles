@@ -544,6 +544,7 @@ awful.keyboard.append_global_keybindings({
             awful.tag.viewprev()
         end,
         { description = "move client to previous tag and switch to it", group = "tag" }),
+
     awful.key({ modkey, "Shift" }, "Right",
         function()
             -- get current tag

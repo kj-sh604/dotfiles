@@ -712,7 +712,6 @@ ruled.client.connect_signal("request::rules", function()
 
     -- floating clients.
     ruled.client.append_rule {
-        -- all clients will match this rule.
         {
             rule = {},
             properties = {
@@ -727,7 +726,6 @@ ruled.client.connect_signal("request::rules", function()
             }
         },
 
-        -- clients:
         {
             rule_any = {
                 instance = {
@@ -779,6 +777,7 @@ end)
 client.connect_signal("mouse::enter", function(c)
     c:activate { context = "mouse_enter", raise = false }
 end)
+
 -- gaps
 beautiful.useless_gap = 5
 

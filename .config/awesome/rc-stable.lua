@@ -24,28 +24,20 @@ editor_cmd = terminal .. " -x " .. editor
 modkey = "Mod4"
 
 -- table of layouts to cover with awful.layout.inc, order matters. (-git compatible)
-tag.connect_signal("request::default_layouts", function()
-    awful.layout.append_default_layouts({
-        awful.layout.suit.tile,
-        awful.layout.suit.max,
-        -- awful.layout.suit.corner.nw,
-        -- awful.layout.suit.fair,
-        -- awful.layout.suit.fair.horizontal,
-        -- awful.layout.suit.floating,
-        -- awful.layout.suit.magnifier,
-        -- awful.layout.suit.max.fullscreen,
-        -- awful.layout.suit.spiral,
-        -- awful.layout.suit.spiral.dwindle,
-        -- awful.layout.suit.tile.bottom,
-        -- awful.layout.suit.tile.left,
-        -- awful.layout.suit.tile.top,
-    })
-end)
-
--- active layout table (4.3.3 compatible)
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.max,
+    -- awful.layout.suit.corner.nw,
+    -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.floating,
+    -- awful.layout.suit.magnifier,
+    -- awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.top,
 }
 -- }}}
 

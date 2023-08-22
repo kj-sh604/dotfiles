@@ -10,9 +10,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 xdg_menu = require("xdgmenu")
 
-
 -- {{{ variable definitions
 -- themes define colours, icons, font and wallpapers.
+-- beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/default/theme.lua")
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "adwaita")
 beautiful.init(theme_path)
 
@@ -133,12 +133,6 @@ tag.connect_signal("request::default_layouts", function()
         -- awful.layout.suit.tile.top,
     })
 end)
-
--- active layout table (4.3.3 compatible)
-awful.layout.layouts = {
-    awful.layout.suit.tile,
-    awful.layout.suit.max,
-}
 -- }}}
 
 -- {{{ wallpaper
@@ -710,8 +704,8 @@ ruled.client.connect_signal("request::rules", function()
         id         = "floating",
         rule_any   = {
             instance = {
-                "DTA",       -- firefox addon downthemall.
-                "copyq",     -- includes session name in class.
+                "DTA",   -- firefox addon downthemall.
+                "copyq", -- includes session name in class.
                 "pinentry",
             },
             class = {
@@ -725,27 +719,27 @@ ruled.client.connect_signal("request::rules", function()
                 "gnome-calculator",
                 "Gnome-system-monitor",
                 "Kruler",
-                "MessageWin",         -- kalarm.
-                "mullvadbrowser",     -- needs a fixed window size to avoid fingerprinting by screen size.
+                "MessageWin",     -- kalarm.
+                "mullvadbrowser", -- needs a fixed window size to avoid fingerprinting by screen size.
                 "screengrab",
                 "Sxiv",
                 "Steam",
-                "Tor Browser",     -- same as mullvadbrowser.
+                "Tor Browser", -- same as mullvadbrowser.
                 "Wpa_gui",
                 "veromix",
                 "xtightvncviewer",
                 "zoom",
             },
             name = {
-                "^Event Tester$",                -- xev.
-                "^File Operation Progress$",     -- fix for latest version of thunar.
+                "^Event Tester$",            -- xev.
+                "^File Operation Progress$", -- fix for latest version of thunar.
                 "^password manager$",
                 "^Task Manager$",
             },
             role = {
-                "AlarmWindow",       -- thunderbird's calendar.
-                "ConfigManager",     -- thunderbird's about:config.
-                "pop-up",            -- e.g. google chrome's (detached) developer tools.
+                "AlarmWindow",   -- thunderbird's calendar.
+                "ConfigManager", -- thunderbird's about:config.
+                "pop-up",        -- e.g. google chrome's (detached) developer tools.
             }
         },
         properties = { floating = true }

@@ -162,16 +162,12 @@ end)
 -- }}}
 
 -- {{{ wibar
-
 -- keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
-
--- {{{ wibar
 -- create a textclock widget
 mytextclock = wibox.widget.textclock(" %m/%d (%a) %H%M ")
 
 screen.connect_signal("request::desktop_decoration", function(s)
-    -- Each screen has its own tag table.
     -- each screen has its own tag table.
     awful.tag({ " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 " }, s, awful.layout.layouts[1])
 
@@ -230,9 +226,8 @@ awful.mouse.append_global_mousebindings({
 -- }}}
 
 -- {{{ key bindings
-
--- general awesome keys
 awful.keyboard.append_global_keybindings({
+    -- general awesome keys
     awful.key({ modkey, }, "s", hotkeys_popup.show_help,
         { description = "show shortcuts", group = "awesome" }),
     awful.key({ "Control", "Mod1" }, "Left", awful.tag.viewprev,
@@ -248,34 +243,6 @@ awful.keyboard.append_global_keybindings({
         end,
         { description = "toggle wibar", group = "awesome" }
     ),
-
-    -- move client to prev/next tag and switch to it
-    awful.key({ modkey, "Shift" }, "Left",
-        function()
-            -- get current tag
-            local t = client.focus and client.focus.first_tag or nil
-            if t == nil then
-                return
-            end
-            -- get previous tag (modulo 9 excluding 0 to wrap from 1 to 9)
-            local tag = client.focus.screen.tags[(t.name - 2) % 9 + 1]
-            client.focus:move_to_tag(tag)
-            awful.tag.viewprev()
-        end,
-        { description = "move client to previous tag and switch to it", group = "tag" }),
-    awful.key({ modkey, "Shift" }, "Right",
-        function()
-            -- get current tag
-            local t = client.focus and client.focus.first_tag or nil
-            if t == nil then
-                return
-            end
-            -- get next tag (modulo 9 excluding 0 to wrap from 9 to 1)
-            local tag = client.focus.screen.tags[(t.name % 9) + 1]
-            client.focus:move_to_tag(tag)
-            awful.tag.viewnext()
-        end,
-        { description = "move client to next tag and switch to it", group = "tag" }),
 
     -- change window focus in maximized layout
     awful.key({ modkey, }, "Tab",
@@ -568,6 +535,34 @@ awful.keyboard.append_global_keybindings({
             menubar.show()
         end,
         { description = "show the menubar", group = "launcher" }),
+
+    -- move client to prev/next tag and switch to it
+    awful.key({ modkey, "Shift" }, "Left",
+        function()
+            -- get current tag
+            local t = client.focus and client.focus.first_tag or nil
+            if t == nil then
+                return
+            end
+            -- get previous tag (modulo 9 excluding 0 to wrap from 1 to 9)
+            local tag = client.focus.screen.tags[(t.name - 2) % 9 + 1]
+            client.focus:move_to_tag(tag)
+            awful.tag.viewprev()
+        end,
+        { description = "move client to previous tag and switch to it", group = "tag" }),
+    awful.key({ modkey, "Shift" }, "Right",
+        function()
+            -- get current tag
+            local t = client.focus and client.focus.first_tag or nil
+            if t == nil then
+                return
+            end
+            -- get next tag (modulo 9 excluding 0 to wrap from 9 to 1)
+            local tag = client.focus.screen.tags[(t.name % 9) + 1]
+            client.focus:move_to_tag(tag)
+            awful.tag.viewnext()
+        end,
+        { description = "move client to next tag and switch to it", group = "tag" }),
 
     -- tags manipulation via keyboard number row
     awful.keyboard.append_global_keybindings({

@@ -530,35 +530,6 @@ awful.keyboard.append_global_keybindings({
         end,
         { description = "show the menubar", group = "launcher" }),
 
-    -- move client to prev/next tag and switch to it
-    awful.key({ modkey, "Shift" }, "Left",
-        function()
-            -- get current tag
-            local t = client.focus and client.focus.first_tag or nil
-            if t == nil then
-                return
-            end
-            -- get previous tag (modulo 9 excluding 0 to wrap from 1 to 9)
-            local tag = client.focus.screen.tags[(t.name - 2) % 9 + 1]
-            client.focus:move_to_tag(tag)
-            awful.tag.viewprev()
-        end,
-        { description = "move client to previous tag and switch to it", group = "tag" }),
-
-    awful.key({ modkey, "Shift" }, "Right",
-        function()
-            -- get current tag
-            local t = client.focus and client.focus.first_tag or nil
-            if t == nil then
-                return
-            end
-            -- get next tag (modulo 9 excluding 0 to wrap from 9 to 1)
-            local tag = client.focus.screen.tags[(t.name % 9) + 1]
-            client.focus:move_to_tag(tag)
-            awful.tag.viewnext()
-        end,
-        { description = "move client to next tag and switch to it", group = "tag" }),
-
     -- tags manipulation via keyboard number row
     awful.keyboard.append_global_keybindings({
         awful.key {
@@ -679,7 +650,33 @@ client.connect_signal("request::default_keybindings", function()
                 c.maximized_horizontal = not c.maximized_horizontal
                 c:raise()
             end,
-            { description = "(un)maximize horizontally", group = "client" })
+            { description = "(un)maximize horizontally", group = "client" }),
+
+        -- move client to prev/next tag and switch to it
+        awful.key({ modkey, "Shift" }, "Left",
+            function()
+                local t = client.focus and client.focus.first_tag or nil
+                if t == nil then
+                    return
+                end
+
+                local tag = client.focus.screen.tags[(t.name - 2) % 9 + 1]
+                client.focus:move_to_tag(tag)
+                awful.tag.viewprev()
+            end,
+            { description = "move client to previous tag and switch to it", group = "tag" }),
+        awful.key({ modkey, "Shift" }, "Right",
+            function()
+                local t = client.focus and client.focus.first_tag or nil
+                if t == nil then
+                    return
+                end
+
+                local tag = client.focus.screen.tags[(t.name % 9) + 1]
+                client.focus:move_to_tag(tag)
+                awful.tag.viewnext()
+            end,
+            { description = "move client to next tag and switch to it", group = "tag" }),
     })
 end)
 

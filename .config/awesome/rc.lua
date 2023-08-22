@@ -712,63 +712,48 @@ ruled.client.connect_signal("request::rules", function()
 
     -- floating clients.
     ruled.client.append_rule {
-        {
-            rule = {},
-            properties = {
-                border_width = beautiful.border_width,
-                border_color = beautiful.border_normal,
-                focus = awful.client.focus.filter,
-                raise = true,
-                keys = clientkeys,
-                buttons = clientbuttons,
-                screen = awful.screen.preferred,
-                placement = awful.placement.no_overlap + awful.placement.no_offscreen
+        id         = "floating",
+        rule_any   = {
+            instance = {
+                "DTA",       -- firefox addon downthemall.
+                "copyq",     -- includes session name in class.
+                "pinentry",
+            },
+            class = {
+                "Agave",
+                "Arandr",
+                "Blueman-manager",
+                "DateTime.py",
+                "Evolution-alarm-notify",
+                "Gpick",
+                "Gnome-calculator",
+                "gnome-calculator",
+                "Gnome-system-monitor",
+                "Kruler",
+                "MessageWin",         -- kalarm.
+                "mullvadbrowser",     -- needs a fixed window size to avoid fingerprinting by screen size.
+                "screengrab",
+                "Sxiv",
+                "Steam",
+                "Tor Browser",     -- same as mullvadbrowser.
+                "Wpa_gui",
+                "veromix",
+                "xtightvncviewer",
+                "zoom",
+            },
+            name = {
+                "^Event Tester$",                -- xev.
+                "^File Operation Progress$",     -- fix for latest version of thunar.
+                "^password manager$",
+                "^Task Manager$",
+            },
+            role = {
+                "AlarmWindow",       -- thunderbird's calendar.
+                "ConfigManager",     -- thunderbird's about:config.
+                "pop-up",            -- e.g. google chrome's (detached) developer tools.
             }
         },
-
-        {
-            rule_any = {
-                instance = {
-                    "DTA",   -- firefox addon downthemall.
-                    "copyq", -- includes session name in class.
-                    "pinentry",
-                },
-                class = {
-                    "Agave",
-                    "Arandr",
-                    "Blueman-manager",
-                    "DateTime.py",
-                    "Evolution-alarm-notify",
-                    "Gpick",
-                    "Gnome-calculator",
-                    "gnome-calculator",
-                    "Gnome-system-monitor",
-                    "Kruler",
-                    "MessageWin",     -- kalarm.
-                    "mullvadbrowser", -- needs a fixed window size to avoid fingerprinting by screen size.
-                    "screengrab",
-                    "Sxiv",
-                    "Steam",
-                    "Tor Browser", -- same as mullvadbrowser.
-                    "Wpa_gui",
-                    "veromix",
-                    "xtightvncviewer",
-                    "zoom",
-                },
-                name = {
-                    "^Event Tester$",            -- xev.
-                    "^File Operation Progress$", -- fix for latest version of thunar.
-                    "^password manager$",
-                    "^Task Manager$",
-                },
-                role = {
-                    "AlarmWindow",   -- thunderbird's calendar.
-                    "ConfigManager", -- thunderbird's about:config.
-                    "pop-up",        -- e.g. google chrome's (detached) developer tools.
-                }
-            },
-            properties = { floating = true }
-        },
+        properties = { floating = true }
     }
 end)
 -- }}}

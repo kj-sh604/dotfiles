@@ -163,7 +163,7 @@ mytextclock = wibox.widget.textclock(" %m/%d (%a) %H%M ")
 
 screen.connect_signal("request::desktop_decoration", function(s)
     -- each screen has its own tag table.
-    awful.tag({ " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 " }, s, awful.layout.layouts[1])
+    awful.tag({ " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", " 0 " }, s, awful.layout.layouts[1])
 
     -- create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -685,7 +685,7 @@ client.connect_signal("request::default_keybindings", function()
                     return
                 end
 
-                local tag = client.focus.screen.tags[(t.name - 2) % 9 + 1]
+                local tag = client.focus.screen.tags[(t.name - 2) % 10 + 1]
                 client.focus:move_to_tag(tag)
                 awful.tag.viewprev()
             end,
@@ -697,7 +697,7 @@ client.connect_signal("request::default_keybindings", function()
                     return
                 end
 
-                local tag = client.focus.screen.tags[(t.name % 9) + 1]
+                local tag = client.focus.screen.tags[(t.name % 10) + 1]
                 client.focus:move_to_tag(tag)
                 awful.tag.viewnext()
             end,

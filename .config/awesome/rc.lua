@@ -296,6 +296,9 @@ awful.keyboard.append_global_keybindings({
     awful.key({ modkey, }, "Menu", function() mymainmenu:show() end,
         { description = "show main menu", group = "awesome" }),
 
+    awful.key({ modkey, "Shift" }, "F10", function() mymainmenu:show() end,
+        { description = "show main menu", group = "awesome" }),
+
     -- move window by index in tiling layout
     awful.key({ modkey, "Control" }, "j", function() awful.client.swap.byidx(1) end,
         { description = "swap with next client by index", group = "client" }),

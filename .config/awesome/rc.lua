@@ -667,18 +667,6 @@ client.connect_signal("request::default_keybindings", function()
                 c:raise()
             end,
             { description = "(un)maximize", group = "client" }),
-        awful.key({ modkey, "Control" }, "Return",
-            function(c)
-                c.maximized_vertical = not c.maximized_vertical
-                c:raise()
-            end,
-            { description = "(un)maximize vertically", group = "client" }),
-        awful.key({ modkey, "Mod1" }, "Return",
-            function(c)
-                c.maximized_horizontal = not c.maximized_horizontal
-                c:raise()
-            end,
-            { description = "(un)maximize horizontally", group = "client" }),
 
         -- move client to prev/next tag and switch to it
         awful.key({ modkey, "Shift" }, "Left",

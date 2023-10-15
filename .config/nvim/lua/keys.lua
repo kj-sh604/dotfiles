@@ -34,7 +34,8 @@ vim.api.nvim_set_keymap('n', '<A-j>', '<C-W>j', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-k>', '<C-W>k', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-l>', '<C-W>l', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-h>', '<C-W>h', { noremap = true })
-vim.api.nvim_set_keymap('n', '<A-`>', '<C-W>w', { noremap = true })
+vim.api.nvim_set_keymap('n', '<A-w>', '<C-W>w', { noremap = true })
+vim.api.nvim_set_keymap('n', '<A-e>', '<C-W>W', { noremap = true })
 
 -- splits and vsplits resize rebinds
 vim.api.nvim_set_keymap('n', '<A-,>', '<C-W>5<', { noremap = true })
@@ -44,7 +45,6 @@ vim.api.nvim_set_keymap('n', '<A-=>', '<C-W>5+', { noremap = true })
 
 -- tab rebinds
 vim.api.nvim_set_keymap('n', '<A-t>', ':tabnew<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<A-w>', ':tabclose<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-[>', ':tabprev<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-]>', ':tabnext<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-;>', ':tabmove -<CR>', { noremap = true })

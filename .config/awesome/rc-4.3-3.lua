@@ -752,6 +752,7 @@ awful.rules.rules = {
                 "Kruler",
                 "MessageWin",     -- kalarm.
                 "mullvadbrowser", -- needs a fixed window size to avoid fingerprinting by screen size.
+                "Mullvad Browser", -- needs a fixed window size to avoid fingerprinting by screen size.
                 "screengrab",
                 "Sxiv",
                 "Steam",

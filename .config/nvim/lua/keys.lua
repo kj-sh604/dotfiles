@@ -49,3 +49,6 @@ vim.api.nvim_set_keymap('n', '<A-[>', ':tabprev<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-]>', ':tabnext<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-;>', ':tabmove -<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<A-\'>', ':tabmove +<CR>', { noremap = true })
+
+-- set file type keybind
+vim.api.nvim_set_keymap('n', '<leader>sft', ':set filetype=', { noremap = true })

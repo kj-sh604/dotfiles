@@ -1,0 +1,31 @@
+#!/bin/sh
+
+send_notification() {
+    if command -v notify-send >/dev/null 2>&1; then
+        notify-send -t 10000 "$1" "$2"
+    fi
+}
+
+if ! command -v fc-cache >/dev/null 2>&1; then
+    send_notification "Font Cache Error" "fc-cache command not found."
+    exit 1
+fi
+
+if ! command -v pkexec >/dev/null 2>&1; then
+    send_notification "Font Cache Error" "pkexec command not found."
+    exit 1
+fi
+
+if pkexec fc-cache -rfv; then
+    send_notification "Font Cache Refresh" "Successfully refreshed font cache for root user"
+else
+    send_notification "Font Cache Error" "Failed to refresh font cache for root user"
+    exit 1
+fi
+
+if fc-cache -rfv; then
+    send_notification "Font Cache Refresh" "Successfully refreshed font cache for current user"
+else
+    send_notification "Font Cache Error" "Failed to refresh font cache for current user"
+    exit 1
+fi

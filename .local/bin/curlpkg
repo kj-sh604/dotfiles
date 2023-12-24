@@ -1,0 +1,60 @@
+#!/bin/sh
+
+check_curl_installed() {
+    if ! command -v curl >/dev/null 2>&1; then
+        echo "error: curl is not installed :( please install curl to use curlpkg."
+        exit 1
+    fi
+}
+
+_base_url='https://aur.archlinux.org/cgit/aur.git/snapshot'
+
+get_url_function() {
+    _pkg="$1"
+    _url="${_base_url}/${_pkg}.tar.gz"
+
+    echo "$_url"
+}
+
+run_curlpkg_function() {
+    _pkg="$(echo "$1" | tr -d '[:space:]')"
+    _url="$(get_url_function "$_pkg")"
+
+    curl -sSL "$_url" -o "${_pkg}.tar.gz"
+}
+
+curlpkg_function() {
+    for _pkg in "$@"; do
+        run_curlpkg_function "$_pkg" &
+    done
+    wait
+}
+
+usage_function() {
+    cat <<EOF
+Usage:
+    curlpkg [-h|--help]
+    curlpkg <pkg> <pkg>...
+
+Options:
+    -h, --help
+        print this help message
+EOF
+}
+
+check_curl_installed
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -*)
+            usage_function
+            exit 0
+            ;;
+        *)
+            curlpkg_function "$@"
+            exit 0
+            ;;
+    esac
+done
+
+# vim: set filetype=sh foldmethod=marker foldlevel=0:

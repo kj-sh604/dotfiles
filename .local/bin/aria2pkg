@@ -20,7 +20,7 @@ run_aria2pkg_function() {
     _pkg="$(echo "$1" | tr -d '[:space:]')"
     _url="$(get_url_function "$_pkg")"
 
-    aria2c "$_url"
+    aria2c --quiet --console-log-level=error "$_url"
 }
 
 aria2pkg_function() {

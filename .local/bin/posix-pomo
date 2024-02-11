@@ -1,0 +1,90 @@
+#!/bin/sh
+
+# good thing I remembered that keyboard interrupts should always be a thing
+keyboard_cancel() {
+    printf "\npomo canceled. exiting..."
+    exit 130
+}
+
+trap keyboard_cancel INT
+
+# mandatory check for mpv
+if ! command -v mpv >/dev/null 2>&1; then
+    echo "error: mpv is a required dependency of posix-pomo — please install mpv to continue."
+    exit 1
+fi
+
+# optional checks for fluff files
+sound_file=$HOME/.cache/pomo/pomo-sound.mp3
+icon_file=$HOME/.cache/pomo/pomo-tomato.png
+
+if [ ! -f "$sound_file" ]; then
+    echo "warning: please provide a sound file at $sound_file"
+fi
+
+if [ ! -f "$icon_file" ]; then
+    echo "warning: please provide an icon file at $icon_file"
+fi
+
+if [ ! -f "$sound_file" ] || [ ! -f "$icon_file" ]; then
+    echo 
+fi
+
+# show user, usage
+if [ "$#" -ne 2 ]; then
+    echo "usage: $0 {work|break} <duration(h/m/s)>"
+    exit 1
+fi
+
+mode=$1
+input_duration=$2
+
+timer() {
+    duration=$1
+    unit=$(echo "$duration" | sed -e 's/[0-9]//g' | tr '[:upper:]' '[:lower:]')
+    numeric_duration=$(echo "$duration" | sed -e 's/[a-zA-Z]//g')
+
+    case $unit in
+        h) total_seconds=$(($numeric_duration * 3600)) ;;
+        m) total_seconds=$(($numeric_duration * 60)) ;;
+        s) total_seconds=$numeric_duration ;;
+        *) echo "invalid duration format: $duration"; exit 3 ;;
+    esac
+
+    start_time=$(date +%s)
+    end_time=$(($start_time + $total_seconds))
+
+    while [ $(date +%s) -lt $end_time ]; do
+        current_time=$(date +%s)
+        remaining_seconds=$(($end_time - $current_time))
+        hours=$(($remaining_seconds / 3600))
+        minutes=$(($remaining_seconds % 3600 / 60))
+        seconds=$(($remaining_seconds % 60))
+        bar=$(printf "%-$((40 * (current_time - start_time) / total_seconds))s" "=" | tr ' ' '=')
+        printf "\rpomo timer: [%-36s] %02d:%02d:%02d remaining" "$bar" "$hours" "$minutes" "$seconds"
+        sleep 1
+    done
+    echo # print newline after the loop completes
+}
+
+notify_and_play_sound() {
+    notify-send 'posix-pomo(cli)' "$1" -i ~/.cache/pomo/pomo-tomato.png -t 120000 -w -A 'dismiss' &
+    echo
+    echo "$2"
+    mpv "$HOME/.cache/pomo/pomo-sound.mp3" >/dev/null 2>&1 &
+}
+
+
+case $mode in
+    work)
+        timer "$input_duration" && notify_and_play_sound 'work timer is up! take a break 😊' 'posix-pomo: work timer is up! take a break :)'
+        ;;
+    break)
+        timer "$input_duration" && notify_and_play_sound 'break is over! get back to work 😬' 'posix-pomo: break timer is up! get back to work :|'
+        ;;
+    *)
+        echo "invalid mode: $mode"
+        echo "usage: $0 {work|break} <duration(m or s)>"
+        exit 2
+        ;;
+esac

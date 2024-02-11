@@ -68,7 +68,7 @@ timer() {
 }
 
 notify_and_play_sound() {
-    notify-send 'posix-pomo(cli)' "$1" -i ~/.cache/pomo/pomo-tomato.png -t 120000 -w -A 'dismiss' &
+    notify-send 'posix-pomo(cli)' "$1" -i ~/.cache/pomo/pomo-tomato.png -t 120000 &
     echo
     echo "$2"
     mpv "$HOME/.cache/pomo/pomo-sound.mp3" >/dev/null 2>&1 &

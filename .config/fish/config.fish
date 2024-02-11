@@ -29,17 +29,6 @@ if status is-interactive
         alias yt-webm="youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"
         alias yt-m4a="youtube-dl -cif 'bestaudio[ext=m4a]'"
 
-    # pomodoro timer aliases
-        alias work="timer 30m && notify-send \
-        'Pomodoro' 'Work Timer is up! Take a Break 😊' -i \
-        ~/.cache/pomo/pomo-tomato.png -t 30000 -w -A 'Dismiss'\
-        & disown; mpv '/home/kylert/.cache/pomo/pomo-sound.mp3'"
-        
-        alias rest="timer 10m && notify-send \
-        'Pomodoro' 'Break is over! Get back to work 😬' -i \
-        ~/.cache/pomo/pomo-tomato.png -t 30000 -w -A 'Dismiss'\
-        & disown; mpv '/home/kylert/.cache/pomo/pomo-sound.mp3'"
-
     # experimental rust-uutits substitutions for testing
         alias basenc=uu-basenc
         alias groups=uu-groups

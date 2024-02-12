@@ -61,7 +61,7 @@ timer() {
         minutes=$(($remaining_seconds % 3600 / 60))
         seconds=$(($remaining_seconds % 60))
         bar=$(printf "%-$((40 * (current_time - start_time) / total_seconds))s" "=" | tr ' ' '=')
-        printf "\rpomo timer: [%-36s] %02d:%02d:%02d remaining" "$bar" "$hours" "$minutes" "$seconds"
+        printf "\rpomo timer: [%-40s] %02d:%02d:%02d remaining" "$bar" "$hours" "$minutes" "$seconds"
         sleep 1
     done
     echo # print newline after the loop completes

@@ -9,32 +9,18 @@ keyboard_cancel() {
 trap keyboard_cancel INT
 
 # mandatory check for mpv
-if ! command -v mpv >/dev/null 2>&1; then
-    echo "error: mpv is a required dependency of posix-pomo — please install mpv to continue."
-    exit 1
-fi
+command -v mpv >/dev/null 2>&1 || { echo "error: mpv is a required dependency of posix-pomo — please install mpv to continue."; exit 1; }
 
 # optional checks for fluff files
 sound_file=$HOME/.cache/pomo/pomo-sound.mp3
 icon_file=$HOME/.cache/pomo/pomo-tomato.png
 
-if [ ! -f "$sound_file" ]; then
-    echo "warning: please provide a sound file at $sound_file"
-fi
-
-if [ ! -f "$icon_file" ]; then
-    echo "warning: please provide an icon file at $icon_file"
-fi
-
-if [ ! -f "$sound_file" ] || [ ! -f "$icon_file" ]; then
-    echo 
-fi
+[ -f "$sound_file" ] || echo "warning: please provide a sound file at $sound_file"
+[ -f "$icon_file" ] || echo "warning: please provide an icon file at $icon_file"
+([ ! -f "$sound_file" ] || [ ! -f "$icon_file" ]) && echo
 
 # show user, usage
-if [ "$#" -ne 2 ]; then
-    echo "usage: $0 {work|break} <duration(h/m/s)>"
-    exit 1
-fi
+[ "$#" -eq 2 ] || { echo "usage: $0 {work|break} <duration(h/m/s)>"; exit 1; }
 
 mode=$1
 input_duration=$2

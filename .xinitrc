@@ -9,10 +9,10 @@ sysprofile=/etc/xprofile
 
 [ -f $sysresources ] && xrdb -merge $sysresources
 [ -f $sysmodmap ] && xmodmap $sysmodmap
-[ -f $sysprofile ] && . $sysprofile 
+[ -f $sysprofile ] && . $sysprofile
 [ -f "$userresources" ] && xrdb -merge "$userresources"
 [ -f "$usermodmap" ] && xmodmap "$usermodmap"
-[ -f "$userprofile" ] && . "$userprofile" 
+[ -f "$userprofile" ] && . "$userprofile"
 
 [ -d /etc/X11/xinit/xinitrc.d ] && for f in /etc/X11/xinit/xinitrc.d/?*.sh; do [ -x "$f" ] && . "$f"; done
 

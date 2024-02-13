@@ -12,8 +12,5 @@ apply_settings
 while true; do
     state=$(lsusb)
     sleep 2
-    
-    if [ "$state" != "$(lsusb)" ]; then
-    	apply_settings
-    fi
+    [ "$state" != "$(lsusb)" ] && apply_settings
 done

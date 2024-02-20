@@ -37,6 +37,7 @@ if status is-interactive
         alias join=uu-join
         alias kill=uu-kill
         alias pathchk=uu-pathchk
+        alias printf=uu-printf
         alias realpath=uu-realpath
         alias touch=uu-touch
 

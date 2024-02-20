@@ -9,20 +9,20 @@ if status is-interactive
         fish_vi_key_bindings
 
     # personal aliases
-        alias ls="ls --group-directories-first -h -p --color -F"
-        alias s="cd ~/.local/bin && ls"
-        alias d="disown"
         alias c="cal"
-        alias w="curl wttr.in"
-        alias x="startx"
-        alias t="timedatectl"
-        alias p="command yay"
-        alias pu="command yay -Syu --answerclean yes --rebuildall --noconfirm"
-        alias yay="echo"
-        alias neofetch="alsi"
-        alias grep='grep --colour=auto'
+        alias d="disown"
         alias egrep='grep -E'
         alias fgrep='grep -F'
+        alias grep='grep --colour=auto'
+        alias ls="ls --group-directories-first -h -p --color -F"
+        alias neofetch="alsi"
+        alias p="command yay"
+        alias pu="command yay -Syu --answerclean yes --rebuildall --noconfirm"
+        alias s="cd ~/.local/bin && ls"
+        alias t="timedatectl"
+        alias w="curl wttr.in"
+        alias x="startx"
+        alias yay="echo"
 
     # youtube-dl aliases
         alias yt-mp4="youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"

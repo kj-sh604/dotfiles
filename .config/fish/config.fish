@@ -31,6 +31,7 @@ if status is-interactive
 
     # experimental rust-uutits substitutions for testing
         alias basenc=uu-basenc
+        alias echo=uu-echo
         alias groups=uu-groups
         alias hostname=uu-hostname
         alias join=uu-join

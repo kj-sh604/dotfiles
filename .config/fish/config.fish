@@ -11,12 +11,14 @@ if status is-interactive
     # personal aliases
         alias c="cal"
         alias d="disown"
+        alias echo="command echo"
         alias egrep='grep -E'
         alias fgrep='grep -F'
         alias grep='grep --colour=auto'
         alias ls="ls --group-directories-first -h -p --color -F"
         alias neofetch="alsi"
         alias p="command yay"
+        alias printf="command printf"
         alias pu="command yay -Syu --answerclean yes --rebuildall --noconfirm"
         alias s="cd ~/.local/bin && ls"
         alias t="timedatectl"

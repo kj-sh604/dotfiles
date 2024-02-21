@@ -29,18 +29,6 @@ if status is-interactive
         alias yt-webm="youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"
         alias yt-m4a="youtube-dl -cif 'bestaudio[ext=m4a]'"
 
-    # experimental rust-uutits substitutions for testing
-        alias basenc=uu-basenc
-        alias echo=uu-echo
-        alias groups=uu-groups
-        alias hostname=uu-hostname
-        alias join=uu-join
-        alias kill=uu-kill
-        alias pathchk=uu-pathchk
-        alias printf=uu-printf
-        alias realpath=uu-realpath
-        alias touch=uu-touch
-
     # environment variable declarations
         export PF_INFO="ascii title os kernel uptime pkgs memory"
 

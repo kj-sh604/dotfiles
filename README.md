@@ -7,7 +7,3 @@ personal collection of config files for my Linux set-up. I mostly use a cringe-l
 ![Image of shortcuts for awesome-WM](https://aedrielkylejavier.me/assets/shortcuts1.png)
 
 **dotfiles are updated nightly**
-
-### note:
-
-for the pre-aliased `yt-*` commands to work, you will need to have `yt-dlp` or `youtube-dl` installed.

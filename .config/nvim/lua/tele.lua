@@ -1,5 +1,29 @@
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+vim.keymap.set('n', '<leader>fg', function()
+  builtin.live_grep({
+    find_command = {'rg', '--ignore', '--hidden', '--files'},
+    prompt_prefix = ' search:  '
+  })
+end, {})
+
+vim.keymap.set('n', '<leader>ff', function()
+  builtin.find_files({
+    find_command = {'rg', '--ignore', '--hidden', '--files'},
+    prompt_prefix = ' search:  '
+  })
+end, {})
+
+vim.keymap.set('n', '<leader>fb', function()
+  builtin.buffers({
+    find_command = {'rg', '--ignore', '--hidden', '--files'},
+    prompt_prefix = ' search:  '
+  })
+end, {})
+
+vim.keymap.set('n', '<leader>fh', function()
+  builtin.help_tags({
+    find_command = {'rg', '--ignore', '--hidden', '--files'},
+    prompt_prefix = ' search:  '
+  })
+end, {})

@@ -485,6 +485,10 @@ globalkeys = gears.table.join(
         function() awful.spawn.easy_async_with_shell("~/.local/bin/toggle-dunst-notifications") end,
         { description = "toggle dunst notifications", group = "launcher" }),
 
+    -- run boomer (requires boomer-git from AUR)
+    awful.key({ modkey }, "z", function () awful.spawn.easy_async_with_shell("boomer") end,
+      {description = "run boomer (zoomer application for Linux)", group = "launcher"}),
+
     -- tiled client resizing
     -- h,j,k,l binds
     awful.key({ modkey }, "l", function() awful.tag.incmwfact(0.05) end,

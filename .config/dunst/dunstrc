@@ -63,6 +63,11 @@
     # Set the maximum width for the progress bar
     progress_bar_max_width = 300
 
+    # Corner radius for the progress bar. 0 disables rounded corners.
+    progress_bar_corner_radius = 0
+
+    # Corner radius for the icon image.
+    icon_corner_radius = 0
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
@@ -109,7 +114,12 @@
     #  * anything else will be interpreted as a X color.
     separator_color = frame
 
-    # Sort messages by urgency.
+    # Sort type.
+    # possible values are:
+    #  * id: sort by id
+    #  * urgency_ascending: sort by urgency (low then normal then critical)
+    #  * urgency_descending: sort by urgency (critical then normal then low)
+    #  * update: sort by update (most recent always at the top)
     sort = yes
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
@@ -229,8 +239,7 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = ~/.local/bin/dmenu-dunst -i -l 30 -p 'Select Notification Action:'
-    #dmenu = /usr/bin/gdmenu -t 'Select Notification Action'
+    dmenu = ~/.local/bin/dmenu-dunst -i -l 30 -p dunst:
 
     # Browser for opening urls in context menu.
     browser = /usr/bin/xdg-open
@@ -367,6 +376,7 @@
 #    ellipsize
 #    alignment
 #    hide_text
+#    override_pause_level
 #
 # Shell-like globbing will get expanded.
 #
@@ -374,6 +384,10 @@
 # GLib based applications export their desktop-entry name. In comparison to the appname,
 # the desktop-entry won't get localized.
 #
+# You can also allow a notification to appear even when paused. Notification will appear whenever notification's override_pause_level >= dunst's paused level.
+# This can be used to set partial pause modes, where more urgent notifications get through, but less urgent stay paused. To do that, you can override the following in the rules:
+# override_pause_level = X
+
 # SCRIPTING
 # You can specify a script that gets run when the rule matches by
 # setting the "script" option.

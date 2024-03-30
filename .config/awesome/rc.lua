@@ -736,6 +736,7 @@ ruled.client.connect_signal("request::rules", function()
                 "Gnome-calculator",
                 "gnome-calculator",
                 "Gnome-system-monitor",
+                "gnome-system-monitor",
                 "Kruler",
                 "MessageWin",     -- kalarm.
                 "mullvadbrowser", -- needs a fixed window size to avoid fingerprinting by screen size.

@@ -447,10 +447,10 @@ awful.keyboard.append_global_keybindings({
         { description = "reload awesome", group = "awesome" }),
 
     -- gui task manager / system monitor
-    awful.key({ modkey, "Control" }, "Delete", function() awful.spawn("gnome-system-monitor") end,
-        { description = "gnome-system-monitor", group = "launcher" }),
-    awful.key({ "Control", "Shift" }, "Escape", function() awful.spawn("gnome-system-monitor") end,
-        { description = "gnome-system-monitor", group = "launcher" }),
+    awful.key({ modkey, "Control" }, "Delete", function() awful.spawn("mate-system-monitor") end,
+        { description = "GTK system monitor", group = "launcher" }),
+    awful.key({ "Control", "Shift" }, "Escape", function() awful.spawn("mate-system-monitor") end,
+        { description = "GTK system monitor", group = "launcher" }),
 
     -- clipboard manager
     awful.key({ modkey }, "v", function() awful.spawn.easy_async_with_shell("xfce4-clipman-history") end,
@@ -738,6 +738,8 @@ ruled.client.connect_signal("request::rules", function()
                 "Gnome-system-monitor",
                 "gnome-system-monitor",
                 "Kruler",
+                "Mate-system-monitor",
+                "mate-system-monitor",
                 "MessageWin",     -- kalarm.
                 "mullvadbrowser", -- needs a fixed window size to avoid fingerprinting by screen size.
                 "Mullvad Browser", -- needs a fixed window size to avoid fingerprinting by screen size.

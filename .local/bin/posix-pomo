@@ -70,7 +70,7 @@ case $mode in
         ;;
     *)
         echo "invalid mode: $mode"
-        echo "usage: $0 {work|break} <duration(m or s)>"
+        echo "usage: $0 {work|break} <duration(h/m/s)>"
         exit 2
         ;;
 esac

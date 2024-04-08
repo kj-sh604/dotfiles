@@ -459,9 +459,9 @@ globalkeys = gears.table.join(
         { description = "reload awesome", group = "awesome" }),
 
     -- gui task manager / system monitor
-    awful.key({ modkey, "Control" }, "Delete", function() awful.spawn("mate-system-monitor") end,
+    awful.key({ modkey, "Control" }, "Delete", function() awful.spawn("gnome-system-monitor") end,
         { description = "GTK system monitor", group = "launcher" }),
-    awful.key({ "Control", "Shift" }, "Escape", function() awful.spawn("mate-system-monitor") end,
+    awful.key({ "Control", "Shift" }, "Escape", function() awful.spawn("gnome-system-monitor") end,
         { description = "GTK system monitor", group = "launcher" }),
 
     -- clipboard manager

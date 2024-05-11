@@ -88,7 +88,7 @@ myawesomemenu = {
     { "reboot",      function() awful.spawn("sh -c 'systemctl reboot'") end },
     { "refresh",     awesome.restart },
     --   { "quit", function() awesome.quit() end },
-    { "shutdown",    function() awful.spawn("sh -c 'systemctl poweroff'") end },
+    { "poweroff",    function() awful.spawn("sh -c 'systemctl poweroff'") end },
     { "stagnate",    function() awful.spawn.easy_async_with_shell("sh -c 'systemctl hibernate'") end },
     { "suspend",     function() awful.spawn.easy_async_with_shell("sh -c 'systemctl suspend'") end },
     { "logout",      function() awful.spawn("sh -c 'pkill -9 -u $USER'") end },

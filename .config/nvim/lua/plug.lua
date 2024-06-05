@@ -10,7 +10,7 @@ vim.cmd [[
   Plug 'ThePrimeagen/vim-be-good'
   Plug 'junegunn/fzf'
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'Pocco81/true-zen.nvim'
 

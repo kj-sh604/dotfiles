@@ -1,3 +1,14 @@
 #!/bin/sh
 
-python ~/.local/share/python-dateTimeSetter/dateTime.py
+SCRIPT_PATH=~/.local/share/python-dateTimeSetter/dateTime.py
+
+if command -v lxsudo > /dev/null 2>&1; then
+    lxsudo python3 $SCRIPT_PATH
+elif command -v gksudo > /dev/null 2>&1; then
+    gksudo python3 $SCRIPT_PATH
+elif command -v pkexec > /dev/null 2>&1; then
+    pkexec env DISPLAY="$DISPLAY" XAUTHORITY="$XAUTHORITY" python3 $SCRIPT_PATH
+else
+    echo "No suitable privilege escalation tool found. Running without root privileges."
+    python3 $SCRIPT_PATH
+fi

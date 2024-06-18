@@ -1,14 +1,31 @@
 #!/bin/sh
 
+BIN_PATH=~/.local/share/python-dateTimeSetter/dateTime
 SCRIPT_PATH=~/.local/share/python-dateTimeSetter/dateTime.py
 
-if command -v lxsudo > /dev/null 2>&1; then
-    lxsudo python3 $SCRIPT_PATH
-elif command -v gksudo > /dev/null 2>&1; then
-    gksudo python3 $SCRIPT_PATH
-elif command -v pkexec > /dev/null 2>&1; then
-    pkexec env DISPLAY="$DISPLAY" XAUTHORITY="$XAUTHORITY" python3 $SCRIPT_PATH
+if [ -f "$BIN_PATH" ]; then
+    if command -v lxsudo > /dev/null 2>&1; then
+        lxsudo $BIN_PATH
+    elif command -v gksudo > /dev/null 2>&1; then
+        gksudo $BIN_PATH
+    elif command -v pkexec > /dev/null 2>&1; then
+        pkexec env DISPLAY="$DISPLAY" XAUTHORITY="$XAUTHORITY" $BIN_PATH
+    else
+        echo "No suitable privilege escalation tool found. Running without root privileges."
+        $BIN_PATH
+    fi
+elif [ -f "$SCRIPT_PATH" ]; then
+    if command -v lxsudo > /dev/null 2>&1; then
+        lxsudo python3 $SCRIPT_PATH
+    elif command -v gksudo > /dev/null 2>&1; then
+        gksudo python3 $SCRIPT_PATH
+    elif command -v pkexec > /dev/null 2>&1; then
+        pkexec env DISPLAY="$DISPLAY" XAUTHORITY="$XAUTHORITY" python3 $SCRIPT_PATH
+    else
+        echo "No suitable privilege escalation tool found. Running without root privileges."
+        python3 $SCRIPT_PATH
+    fi
 else
-    echo "No suitable privilege escalation tool found. Running without root privileges."
-    python3 $SCRIPT_PATH
+    echo "dateTime/dateTime.py not found"
+    notify-send "Error!" "dateTime/dateTime.py not found" --urgency critical
 fi

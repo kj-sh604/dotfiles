@@ -12,6 +12,7 @@ if [ -f "$BIN_PATH" ]; then
         pkexec env DISPLAY="$DISPLAY" XAUTHORITY="$XAUTHORITY" $BIN_PATH
     else
         echo "No suitable privilege escalation tool found. Running without root privileges."
+        notify-send "No suitable privilege escalation tool found. Running without root privileges."
         $BIN_PATH
     fi
 elif [ -f "$SCRIPT_PATH" ]; then
@@ -23,6 +24,7 @@ elif [ -f "$SCRIPT_PATH" ]; then
         pkexec env DISPLAY="$DISPLAY" XAUTHORITY="$XAUTHORITY" python3 $SCRIPT_PATH
     else
         echo "No suitable privilege escalation tool found. Running without root privileges."
+        notify-send "No suitable privilege escalation tool found. Running without root privileges."
         python3 $SCRIPT_PATH
     fi
 else

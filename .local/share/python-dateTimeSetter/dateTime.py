@@ -12,7 +12,7 @@ class DateTimeSetter(tk.Tk):
         super().__init__()
 
         self.title("dateTimeSetter")
-        self.geometry("800x600")
+        self.geometry("640x480")
         self.resizable(True, True)
         self.attributes("-type", "dialog")  # make the window floating
 

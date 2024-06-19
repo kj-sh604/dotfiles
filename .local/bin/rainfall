@@ -1,0 +1,12 @@
+#!/bin/sh
+
+BIN_PATH=~/.local/share/python-rainfall/rainfall
+SCRIPT_PATH=~/.local/share/python-rainfall/rainfall.py
+
+if [ -f "$BIN_PATH" ]; then
+    $BIN_PATH
+elif [ -f "$SCRIPT_PATH" ]; then
+    python3 $SCRIPT_PATH
+else
+    echo "rainfall/rainfall.py not found"
+fi

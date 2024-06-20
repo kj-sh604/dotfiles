@@ -95,22 +95,22 @@ myawesomemenu = {
     { "dunstctl",         dunst_menu },
     { "config file",      editor .. " " .. awesome.conffile },
     { "picom config",     function() awful.spawn.easy_async_with_shell("xfce4-terminal -x nvim $HOME/.config/picom.conf") end },
+    { "set date & time", function() awful.spawn.easy_async_with_shell("~/.local/bin/GUI-dateTime") end },
     { "change wallpaper", function() awful.spawn.easy_async_with_shell("sh -c 'nitrogen'") end },
     { "xdg_menu refresh",
         function()
             awful.spawn.easy_async_with_shell(
                 "sh -c 'xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/xdgmenu.lua'")
         end },
-    { "soft-reboot",      function() awful.spawn("sh -c 'systemctl soft-reboot'") end },
-    { "reboot",           function() awful.spawn("sh -c 'systemctl reboot'") end },
-    { "refresh",          awesome.restart },
+    { "soft-reboot", function() awful.spawn("sh -c 'systemctl soft-reboot'") end },
+    { "reboot",      function() awful.spawn("sh -c 'systemctl reboot'") end },
+    { "refresh",     awesome.restart },
     --   { "quit", function() awesome.quit() end },
-    { "poweroff",         function() awful.spawn("sh -c 'systemctl poweroff'") end },
-    { "stagnate",         function() awful.spawn.easy_async_with_shell("sh -c 'systemctl hibernate'") end },
-    { "suspend",          function() awful.spawn.easy_async_with_shell("sh -c 'systemctl suspend'") end },
-    { "logout",           function() awful.spawn("sh -c 'pkill -9 -u $USER'") end },
-    { "lock",             function() awful.spawn.easy_async_with_shell("sh -c 'slock'") end },
-
+    { "poweroff",    function() awful.spawn("sh -c 'systemctl poweroff'") end },
+    { "stagnate",    function() awful.spawn.easy_async_with_shell("sh -c 'systemctl hibernate'") end },
+    { "suspend",     function() awful.spawn.easy_async_with_shell("sh -c 'systemctl suspend'") end },
+    { "logout",      function() awful.spawn("sh -c 'pkill -9 -u $USER'") end },
+    { "lock",        function() awful.spawn.easy_async_with_shell("sh -c 'slock'") end },
 }
 
 mymainmenu = awful.menu({

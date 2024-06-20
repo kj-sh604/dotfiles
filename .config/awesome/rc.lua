@@ -78,7 +78,7 @@ myawesomemenu = {
     { "dunstctl",         dunst_menu },
     { "config file",      editor .. " " .. awesome.conffile },
     { "picom config",     function() awful.spawn.easy_async_with_shell("xfce4-terminal -x nvim $HOME/.config/picom.conf") end },
-    { "set date & time", function() awful.spawn.easy_async_with_shell("~/.local/bin/GUI-dateTime") end },
+    { "set date & time",  function() awful.spawn.easy_async_with_shell("~/.local/bin/GUI-dateTime") end },
     { "change wallpaper", function() awful.spawn.easy_async_with_shell("sh -c 'nitrogen'") end },
     { "xdg_menu refresh",
         function()

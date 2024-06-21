@@ -443,7 +443,7 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86MonBrightnessUp", function() awful.spawn.easy_async_with_shell("xbacklight -inc 15") end),
 
     -- emoji picker
-    awful.key({ modkey }, ".", function() awful.spawn.easy_async_with_shell("~/.local/bin/blista-emoji-picker") end,
+    awful.key({ modkey }, ".", function() awful.spawn.easy_async_with_shell("~/.local/bin/dmenu-emoji-picker") end,
         { description = "launch emoji chooser", group = "launcher" }),
 
     -- spell checker (single word)

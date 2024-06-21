@@ -13,8 +13,10 @@
 .local/bin/pss
 .local/bin/pss-old
 .local/bin/pss-old-bash
+.local/share/python-dateTimeSetter/__pycache__
 .local/share/python-dateTimeSetter/dateTime
 .local/share/python-dateTimeSetter/dateTime.c
+.local/share/python-rainfall/__pycache__
 .local/share/python-rainfall/rainfall
 .local/share/python-rainfall/rainfall.c
 .local/src/dmenu-adwaita/config.h

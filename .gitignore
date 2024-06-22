@@ -8,6 +8,7 @@
 .config/xfce4/terminal/accels.scm
 .config/xfce4/xfce4-screenshooter
 .config/xfce4/xfconf
+.config/zed/.tmp*
 .local/bin/avp
 .local/bin/kj-gitbot
 .local/bin/pss

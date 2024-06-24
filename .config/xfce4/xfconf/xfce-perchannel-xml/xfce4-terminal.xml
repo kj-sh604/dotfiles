@@ -44,4 +44,5 @@
   <property name="title-mode" type="string" value="TERMINAL_TITLE_PREPEND"/>
   <property name="shortcuts-no-menukey" type="bool" value="true"/>
   <property name="shortcuts-no-mnemonics" type="bool" value="true"/>
+  <property name="kinetic-scrolling" type="bool" value="false"/>
 </channel>

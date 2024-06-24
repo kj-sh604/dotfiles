@@ -10,8 +10,7 @@
 .config/xfce4/terminal/accels.scm
 .config/xfce4/xfce4*
 .config/xfce4/xfconf/xfce-perchannel-xml/displays.xml
-.config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml
-.config/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml
+.config/xfce4/xfconf/xfce-perchannel-xml/key*
 .config/xfce4/xfconf/xfce-perchannel-xml/ristretto.xml
 .config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
 .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-*

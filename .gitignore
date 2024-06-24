@@ -10,10 +10,8 @@
 .config/xfce4/xfce4-screenshooter
 .config/xfce4/xfconf/xfce-perchannel-xml/ristretto.xml
 .config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
-.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-screenshooter.xml
-.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-settings-manager.xml
-.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-volumed-pulse.xml
+.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-*
+!.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
 .config/zed/.tmp*
 .local/bin/avp
 .local/bin/kj-gitbot

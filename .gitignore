@@ -1,5 +1,3 @@
-!.config/xfce4/terminal/terminalrc
-!.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
 .config/alsi/alsi.logo
 .config/awesome/xdgmenu.lua
 .config/gtk-2.0/gtkfilechooser.ini
@@ -7,10 +5,15 @@
 .config/shell/.zcompdump
 .config/xfce4/help.rc
 .config/xfce4/helpers.rc
-.config/xfce4/panel
+.config/xfce4/panel/
 .config/xfce4/terminal/accels.scm
 .config/xfce4/xfce4-screenshooter
-.config/xfce4/xfconf/xfce4-perchannel-xml
+.config/xfce4/xfconf/xfce-perchannel-xml/ristretto.xml
+.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
+.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-screenshooter.xml
+.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-settings-manager.xml
+.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-volumed-pulse.xml
 .config/zed/.tmp*
 .local/bin/avp
 .local/bin/kj-gitbot

@@ -32,7 +32,7 @@
   <property name="misc-copy-on-select" type="bool" value="false"/>
   <property name="misc-show-relaunch-dialog" type="bool" value="true"/>
   <property name="misc-rewrap-on-resize" type="bool" value="true"/>
-  <property name="misc-slim-tabs" type="bool" value="false"/>
+  <property name="misc-slim-tabs" type="bool" value="true"/>
   <property name="misc-new-tab-adjacent" type="bool" value="false"/>
   <property name="misc-search-dialog-opacity" type="uint" value="100"/>
   <property name="misc-show-unsafe-paste-dialog" type="bool" value="false"/>

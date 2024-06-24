@@ -6,6 +6,8 @@ source ~/.config/shell/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plu
 source ~/.config/shell/zsh-history-substring-search/zsh-history-substring-search.zsh
 # source ~/.config/shell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+[ ! -d ~/.local/state/shell ] && mkdir -p ~/.local/state/shell
+[ ! -f ~/.local/state/shell/zsh_history ] && touch ~/.local/state/shell/zsh_history
 
 # configure history settings
 HISTFILE=~/.local/state/shell/zsh_history

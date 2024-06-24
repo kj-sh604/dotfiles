@@ -3,11 +3,10 @@
 .config/gtk-2.0/gtkfilechooser.ini
 .config/gtk-3.0/custom-papers
 .config/shell/.zcompdump
-.config/xfce4/help.rc
-.config/xfce4/helpers.rc
+.config/xfce4/help*
 .config/xfce4/panel/
 .config/xfce4/terminal/accels.scm
-.config/xfce4/xfce4-screenshooter
+.config/xfce4/xfce4*
 .config/xfce4/xfconf/xfce-perchannel-xml/ristretto.xml
 .config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
 .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-*
@@ -15,9 +14,7 @@
 .config/zed/.tmp*
 .local/bin/avp
 .local/bin/kj-gitbot
-.local/bin/pss
-.local/bin/pss-old
-.local/bin/pss-old-bash
+.local/bin/pss*
 .local/share/python-dateTimeSetter/__pycache__
 .local/share/python-dateTimeSetter/dateTime
 .local/share/python-dateTimeSetter/dateTime.c

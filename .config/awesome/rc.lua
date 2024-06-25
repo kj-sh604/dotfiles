@@ -617,7 +617,7 @@ client.connect_signal("request::default_mousebindings", function()
             c:emit_signal("request::activate", "mouse_click", { raise = true })
             awful.mouse.client.move(c)
         end),
-        awful.button({ "Mod1" }, 1, function(c)
+        awful.button({ modkey, "Mod1" }, 1, function(c)
             c:emit_signal("request::activate", "mouse_click", { raise = true })
             awful.mouse.client.resize(c)
         end)
@@ -642,7 +642,7 @@ client.connect_signal("request::default_keybindings", function()
             { description = "close", group = "client" }),
         awful.key({ modkey }, "q", function(c) c:kill() end,
             { description = "close", group = "client" }),
-        awful.key({ "Shift", "Control" }, "space", awful.client.floating.toggle,
+        awful.key({ modkey }, "space", awful.client.floating.toggle,
             { description = "toggle floating", group = "client" }),
 
         -- sticky window and always on top toggle

@@ -311,25 +311,25 @@ awful.keyboard.append_global_keybindings({
             awful.client.swap.global_bydirection("down")
             client.focus:raise()
         end,
-        { description = "swap with next window up", group = "client" }),
+        { description = "swap with next client up", group = "client" }),
     awful.key({ modkey, "Control" }, "Up",
         function()
             awful.client.swap.global_bydirection("up")
             client.focus:raise()
         end,
-        { description = "swap with next window down", group = "client" }),
+        { description = "swap with next client down", group = "client" }),
     awful.key({ modkey, "Control" }, "Right",
         function()
             awful.client.swap.global_bydirection("right")
             client.focus:raise()
         end,
-        { description = "swap with next window right", group = "client" }),
+        { description = "swap with next client right", group = "client" }),
     awful.key({ modkey, "Control" }, "Left",
         function()
             awful.client.swap.global_bydirection("left")
             client.focus:raise()
         end,
-        { description = "swap with next window left", group = "client" }),
+        { description = "swap with next client left", group = "client" }),
     -- additional h,l binds
     -- (in practice, this will work just like the arrow keybinds when pairing
     -- the h,l directional keybinds with j,k "by index" keybinds)
@@ -338,13 +338,13 @@ awful.keyboard.append_global_keybindings({
             awful.client.swap.global_bydirection("right")
             client.focus:raise()
         end,
-        { description = "swap with next window right", group = "client" }),
+        { description = "swap with next client right", group = "client" }),
     awful.key({ modkey, "Control" }, "h",
         function()
             awful.client.swap.global_bydirection("left")
             client.focus:raise()
         end,
-        { description = "swap with next window left", group = "client" }),
+        { description = "swap with next client left", group = "client" }),
 
     -- move window focus by direction in tiling layout
     awful.key({ modkey, "Mod1" }, "Down",
@@ -352,24 +352,24 @@ awful.keyboard.append_global_keybindings({
             awful.client.focus.global_bydirection("down")
             client.focus:raise()
         end,
-        { description = "focus to next window up", group = "client" }),
+        { description = "focus to next client up", group = "client" }),
     awful.key({ modkey, "Mod1" }, "Up", function()
             awful.client.focus.global_bydirection("up")
             client.focus:raise()
         end,
-        { description = "focus to next window down", group = "client" }),
+        { description = "focus to next client down", group = "client" }),
     awful.key({ modkey, "Mod1" }, "Right",
         function()
             awful.client.focus.global_bydirection("right")
             client.focus:raise()
         end,
-        { description = "focus to next window right", group = "client" }),
+        { description = "focus to next client right", group = "client" }),
     awful.key({ modkey, "Mod1" }, "Left",
         function()
             awful.client.focus.global_bydirection("left")
             client.focus:raise()
         end,
-        { description = "focus to next window left", group = "client" }),
+        { description = "focus to next client left", group = "client" }),
     -- additional h,l binds
     -- (in practice, this will work just like the arrow keybinds when pairing
     -- the h,l directional keybinds with j,k "by index" keybinds)
@@ -378,12 +378,12 @@ awful.keyboard.append_global_keybindings({
             awful.client.focus.global_bydirection("right")
             client.focus:raise()
         end,
-        { description = "focus to next window right", group = "client" }),
+        { description = "focus to next client right", group = "client" }),
     awful.key({ modkey, "Mod1" }, "h", function()
             awful.client.focus.global_bydirection("left")
             client.focus:raise()
         end,
-        { description = "focus to next window left", group = "client" }),
+        { description = "focus to next client left", group = "client" }),
 
     -- go back to previous focused client
     awful.key({ "Mod1", }, "Tab",
@@ -418,11 +418,11 @@ awful.keyboard.append_global_keybindings({
         { description = "take a screenshot of the fullscreen", group = "launcher" }),
     awful.key({ modkey }, "Print",
         function() awful.spawn.easy_async_with_shell("xfce4-screenshooter -w --mouse --no-border") end,
-        { description = "take a screenshot of the active window", group = "launcher" }),
+        { description = "take a screenshot of the active client", group = "launcher" }),
     awful.key({ "Shift" }, "Print", function() awful.spawn.easy_async_with_shell("xfce4-screenshooter -r --mouse") end,
         { description = "take a screenshot of an area of the screen", group = "launcher" }),
     awful.key({ modkey }, "x", function() awful.spawn.easy_async_with_shell("xkill") end,
-        { description = "kill a window by brute force", group = "launcher" }),
+        { description = "kill a client by brute force", group = "launcher" }),
     awful.key({ "Control", "Mod1" }, "Delete", function() awful.spawn("xfce4-terminal -T 'Task Manager' -x 'htop'") end,
         { description = "launch HTOP", group = "launcher" }),
 
@@ -458,11 +458,11 @@ awful.keyboard.append_global_keybindings({
 
     -- on-the-fly window gaps configuration
     awful.key({ modkey }, "'", function() awful.tag.incgap(2) end,
-        { description = "increase window gaps", group = "client" }),
+        { description = "increase client gaps", group = "client" }),
     awful.key({ modkey }, ";", function() awful.tag.incgap(-2) end,
-        { description = "decrease window gaps", group = "client" }),
+        { description = "decrease client gaps", group = "client" }),
     awful.key({ modkey }, "backslash", function() awful.screen.focused().selected_tag.gap = 5 end,
-        { description = "reset window gaps", group = "client" }),
+        { description = "reset client gaps", group = "client" }),
 
     -- launch choose-xrandr-gui
     awful.key({ modkey }, "p", function() awful.spawn.easy_async_with_shell("~/.local/bin/choose-xrandr-gui") end,
@@ -643,7 +643,7 @@ client.connect_signal("request::default_keybindings", function()
         awful.key({ modkey }, "q", function(c) c:kill() end,
             { description = "close", group = "client" }),
         awful.key({ modkey }, "w", awful.client.floating.toggle,
-            { description = "toggle floating", group = "client" }),
+            { description = "toggle client warp (floating/tiling)", group = "client" }),
 
         -- sticky window and always on top toggle
         awful.key({ modkey }, "t", function(c) c.ontop = not c.ontop end,

@@ -642,8 +642,8 @@ client.connect_signal("request::default_keybindings", function()
             { description = "close", group = "client" }),
         awful.key({ modkey }, "q", function(c) c:kill() end,
             { description = "close", group = "client" }),
-        awful.key({ modkey }, "w", awful.client.floating.toggle,
-            { description = "toggle client warp (floating/tiling)", group = "client" }),
+        awful.key({ modkey }, "a", awful.client.floating.toggle,
+            { description = "toggle client anchor (floating/tiling)", group = "client" }),
 
         -- sticky window and always on top toggle
         awful.key({ modkey }, "t", function(c) c.ontop = not c.ontop end,

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # author: Mohamed Alaa <m-alaa8@ubuntu.com>
-# added a quit button: kj_sh604
+# added a quit button, and re-arranged buttons: kj_sh604
 import gc
 import io
 import threading
@@ -39,13 +39,13 @@ class MediaControlIndicator(Gtk.Application):
         self.play_button = Gtk.ImageMenuItem(
             label='Play',
             image=Gtk.Image(stock=Gtk.STOCK_MEDIA_PLAY))
-        self.previous_button = Gtk.ImageMenuItem(
-            label='Previous',
-            image=Gtk.Image(stock=Gtk.STOCK_MEDIA_PREVIOUS),
-        )
         self.next_button = Gtk.ImageMenuItem(
             label='Next',
             image=Gtk.Image(stock=Gtk.STOCK_MEDIA_NEXT),
+        )
+        self.previous_button = Gtk.ImageMenuItem(
+            label='Previous',
+            image=Gtk.Image(stock=Gtk.STOCK_MEDIA_PREVIOUS),
         )
         self.quit_button = Gtk.ImageMenuItem(
             label='Quit',
@@ -53,8 +53,8 @@ class MediaControlIndicator(Gtk.Application):
         )
 
         self.play_button.connect('activate', self.media_play)
-        self.previous_button.connect('activate', self.media_previous)
         self.next_button.connect('activate', self.media_next)
+        self.previous_button.connect('activate', self.media_previous)
         self.quit_button.connect('activate', self.quit)  # connect quit button
 
         # toggle play / pause on middle click
@@ -68,8 +68,8 @@ class MediaControlIndicator(Gtk.Application):
         self.menu.append(self.albumart_item)
         self.menu.append(self.np_item)
         self.menu.append(self.play_button)
+        self.menu.append(self.next_button)  # next button before previous button
         self.menu.append(self.previous_button)
-        self.menu.append(self.next_button)
         self.menu.append(self.quit_button)  # add quit button to menu
 
         GLib.timeout_add_seconds(1, self.set_np)

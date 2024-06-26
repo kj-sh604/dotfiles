@@ -2,6 +2,8 @@
 
 BIN_PATH=~/.local/share/python-playerctl_systray/playerctl_systray
 SCRIPT_PATH=~/.local/share/python-playerctl_systray/playerctl_systray.py
+BIN_XAYMUP_PATH=~/.local/share/python-playerctl_systray/playerctl_systray_Xaymup
+SCRIPT_XAYMUP_PATH=~/.local/share/python-playerctl_systray/playerctl_systray_Xaymup.py
 
 if ! command -v playerctl >/dev/null 2>&1; then
     echo "playerctl is not installed but is required."
@@ -9,8 +11,12 @@ if ! command -v playerctl >/dev/null 2>&1; then
     exit 1
 fi
 
-if [ -f "$BIN_PATH" ]; then
+if [ -f "$BIN_XAYMUP_PATH" ]; then
+    $BIN_XAYMUP_PATH
+elif [ -f "$BIN_PATH" ]; then
     $BIN_PATH
+elif [ -f "$SCRIPT_XAYMUP_PATH" ]; then
+    python3 $SCRIPT_XAYMUP_PATH
 elif [ -f "$SCRIPT_PATH" ]; then
     python3 $SCRIPT_PATH
 else

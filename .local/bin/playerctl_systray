@@ -1,0 +1,19 @@
+#!/bin/sh
+
+BIN_PATH=~/.local/share/python-playerctl_systray/playerctl_systray
+SCRIPT_PATH=~/.local/share/python-playerctl_systray/playerctl_systray.py
+
+if ! command -v playerctl >/dev/null 2>&1; then
+    echo "playerctl is not installed but is required."
+    notify-send "dependency missing:" "playerctl is required to run playerctl_systray." --urgency critical
+    exit 1
+fi
+
+if [ -f "$BIN_PATH" ]; then
+    $BIN_PATH
+elif [ -f "$SCRIPT_PATH" ]; then
+    python3 $SCRIPT_PATH
+else
+    echo "playerctl_systray(.py) not found"
+    notify-send "error!" "playerctl_systray(.py) not found" --urgency critical
+fi

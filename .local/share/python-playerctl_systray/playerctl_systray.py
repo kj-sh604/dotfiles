@@ -19,21 +19,49 @@ class playerctl_systray:
     def create_menu(self):
         menu = Gtk.Menu()
 
-        play_item = Gtk.MenuItem(label="Play/Pause")
+        play_item = Gtk.MenuItem(label="play-pause")
         play_item.connect("activate", self.play_pause)
         menu.append(play_item)
 
-        next_item = Gtk.MenuItem(label="Next")
+        next_item = Gtk.MenuItem(label="next")
         next_item.connect("activate", self.next_track)
         menu.append(next_item)
 
-        prev_item = Gtk.MenuItem(label="Previous")
+        prev_item = Gtk.MenuItem(label="previous")
         prev_item.connect("activate", self.prev_track)
         menu.append(prev_item)
 
-        quit_item = Gtk.MenuItem(label="Quit")
+        stop_item = Gtk.MenuItem(label="stop")
+        stop_item.connect("activate", self.stop_track)
+        menu.append(stop_item)
+
+        quit_item = Gtk.MenuItem(label="quit")
         quit_item.connect("activate", self.quit)
         menu.append(quit_item)
+
+        menu.append(Gtk.SeparatorMenuItem())  # separator before -a submenu
+
+        a_submenu = Gtk.Menu()
+
+        a_play_item = Gtk.MenuItem(label="play-pause")
+        a_play_item.connect("activate", self.a_play_pause)
+        a_submenu.append(a_play_item)
+
+        a_next_item = Gtk.MenuItem(label="next")
+        a_next_item.connect("activate", self.a_next_track)
+        a_submenu.append(a_next_item)
+
+        a_prev_item = Gtk.MenuItem(label="previous")
+        a_prev_item.connect("activate", self.a_prev_track)
+        a_submenu.append(a_prev_item)
+
+        a_stop_item = Gtk.MenuItem(label="stop")
+        a_stop_item.connect("activate", self.a_stop)
+        a_submenu.append(a_stop_item)
+
+        a_menu_item = Gtk.MenuItem(label="-a")
+        a_menu_item.set_submenu(a_submenu)
+        menu.append(a_menu_item)
 
         menu.show_all()
         return menu
@@ -46,6 +74,21 @@ class playerctl_systray:
 
     def prev_track(self, source):
         self.run_command("playerctl previous")
+
+    def stop_track(self, source):
+        self.run_command("playerctl stop")
+
+    def a_play_pause(self, source):
+        self.run_command("playerctl -a play-pause")
+
+    def a_next_track(self, source):
+        self.run_command("playerctl -a next")
+
+    def a_prev_track(self, source):
+        self.run_command("playerctl -a previous")
+
+    def a_stop(self, source):
+        self.run_command("playerctl -a stop")
 
     def run_command(self, command):
         subprocess.run(command, shell=True)

@@ -45,5 +45,3 @@
 # future ignores
 .local/share/python-playerctl_systray/playerctl_systray
 .local/share/python-playerctl_systray/playerctl_systray.c
-.local/share/python-playerctl_systray/playerctl_systray_Xaymup
-.local/share/python-playerctl_systray/playerctl_systray_Xaymup.c

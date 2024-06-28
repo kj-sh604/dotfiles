@@ -576,7 +576,7 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-    awful.key({ modkey }, "f",
+    awful.key({ modkey, "Mod1" }, "f",
         function(c)
             c.fullscreen = not c.fullscreen
             c:raise()
@@ -592,8 +592,8 @@ clientkeys = gears.table.join(
         { description = "close", group = "client" }),
     awful.key({ modkey }, "q", function(c) c:kill() end,
         { description = "close", group = "client" }),
-    awful.key({ modkey }, "a", awful.client.floating.toggle,
-        { description = "toggle client anchor", group = "client" }),
+    awful.key({ modkey }, "f", awful.client.floating.toggle,
+        { description = "toggle floating (client anchor)", group = "client" }),
 
     -- sticky window and always on top toggle
     awful.key({ modkey }, "t", function(c) c.ontop = not c.ontop end,

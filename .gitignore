@@ -4,9 +4,9 @@
 .config/gtk-2.0/gtkfilechooser.ini
 .config/gtk-3.0/custom-papers
 .config/shell/.zcompdump
-.config/xfce4/desktop/
+.config/xfce4/desktop/*
 .config/xfce4/help*
-.config/xfce4/panel/
+.config/xfce4/panel/*
 .config/xfce4/terminal/accels.scm
 .config/xfce4/xfce4*
 .config/xfce4/xfconf/xfce-perchannel-xml/displays.xml
@@ -45,6 +45,6 @@
 # future ignores
 .local/share/python-playerctl_systray/playerctl_systray
 .local/share/python-playerctl_systray/playerctl_systray.c
-.local/share/icons/
+.local/share/icons/*
 !.local/share/icons/default/
 !.local/share/icons/default/index.theme

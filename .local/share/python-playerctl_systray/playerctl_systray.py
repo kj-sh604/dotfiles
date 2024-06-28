@@ -1,6 +1,5 @@
 import gi
 import subprocess
-import os
 
 gi.require_version('Gtk', '3.0')
 gi.require_version('AppIndicator3', '0.1')
@@ -9,6 +8,7 @@ from gi.repository import Gtk, AppIndicator3, GLib
 
 class playerctl_systray:
     def __init__(self):
+        self.last_instances = self.get_player_instances()
         self.indicator = AppIndicator3.Indicator.new(
             "media-control-app",
             "audio-x-generic",
@@ -64,7 +64,7 @@ class playerctl_systray:
             menu.append(a_menu_item)
         else:
             no_players_item = Gtk.MenuItem(label="no players found")
-            no_players_item.set_sensitive(False)  # Greyed out
+            no_players_item.set_sensitive(False)  # greyed out
             menu.append(no_players_item)
 
         menu.append(Gtk.SeparatorMenuItem())  # separator
@@ -101,15 +101,6 @@ class playerctl_systray:
     def a_prev_track(self, _):
         self.run_command("playerctl -a previous")
 
-    def default_play_pause(self, _):
-        self.run_command("playerctl play-pause")
-
-    def default_next_track(self, _):
-        self.run_command("playerctl next")
-
-    def default_prev_track(self, _):
-        self.run_command("playerctl previous")
-
     def run_command(self, command):
         subprocess.run(command, shell=True)
 
@@ -117,12 +108,15 @@ class playerctl_systray:
         Gtk.main_quit()
 
     def refresh_menu(self):
-        self.indicator.set_menu(self.create_menu())
+        current_instances = self.get_player_instances()
+        if current_instances != self.last_instances:
+            self.indicator.set_menu(self.create_menu())
+            self.last_instances = current_instances
         return True  # returns True so that timeout continues
 
 def main():
     app = playerctl_systray()
-    GLib.timeout_add(1024, app.refresh_menu)  # refresh menu every 1024 millis
+    GLib.timeout_add(1024, app.refresh_menu)  # probably should be event-based in the future
     Gtk.main()
 
 if __name__ == "__main__":

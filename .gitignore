@@ -46,4 +46,5 @@
 .local/share/python-playerctl_systray/playerctl_systray
 .local/share/python-playerctl_systray/playerctl_systray.c
 .local/share/icons/
+!.local/share/icons/default/
 !.local/share/icons/default/index.theme

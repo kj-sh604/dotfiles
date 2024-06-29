@@ -592,7 +592,7 @@ clientkeys = gears.table.join(
         { description = "close", group = "client" }),
     awful.key({ modkey }, "q", function(c) c:kill() end,
         { description = "close", group = "client" }),
-    awful.key({ modkey }, "space", awful.client.floating.toggle,
+    awful.key({ modkey }, "a", awful.client.floating.toggle,
         { description = "toggle client anchor (floating/tiling)", group = "client" }),
 
     -- sticky window and always on top toggle

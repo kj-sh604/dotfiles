@@ -1,0 +1,4 @@
+--ignore=.stowrc
+--adopt
+--dotfiles
+--target ~/

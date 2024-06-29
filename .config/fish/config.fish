@@ -11,6 +11,7 @@ if status is-interactive
     # personal aliases
         alias c="cal"
         alias d="disown"
+        alias dots="cd ~/.local/share/dotfiles/"
         alias echo="command echo"
         alias egrep='grep -E'
         alias fgrep='grep -F'

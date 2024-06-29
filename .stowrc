@@ -1,6 +1,6 @@
---ignore=^.stowrc$
---ignore=^.vim$
---ignore=^.vimrc$
+--ignore=^\.stowrc$
+--ignore=^\.vim$
+--ignore=^\.vimrc$
 --adopt
 --dotfiles
 --target ~/

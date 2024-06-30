@@ -24,14 +24,13 @@ SAVEHIST=9999999
         alias grep='grep --colour=auto'
         alias ls="ls --group-directories-first -h -p --color -F"
         alias neofetch="alsi"
-        alias p="command yay"
+        alias p="paru"
         alias printf="command printf"
-        alias pu="command yay -Syu --answerclean yes --rebuildall --noconfirm"
+        alias pu="paru -Syu --noconfirm"
         alias s="cd ~/.local/bin && ls"
         alias t="timedatectl"
         alias w="curl wttr.in"
         alias x="startx"
-        alias yay="echo"
 
     # youtube-dl aliases
         alias yt-mp4="youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"

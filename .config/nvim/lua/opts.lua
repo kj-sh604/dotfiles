@@ -7,8 +7,8 @@ local opts = {
     expandtab = true,
     hlsearch = true,
     ignorecase = true,
-    listchars = { tab = ">-", trail = "~", extends = ">", precedes = "<", space = "." },
     linebreak = true,
+    listchars = { tab = ">-", trail = "~", extends = ">", precedes = "<", space = "." },
     mouse = "a",
     number = true,
     relativenumber = true,
@@ -23,6 +23,7 @@ local opts = {
     ttimeout = true,
     ttimeoutlen = 1,
     ttyfast = true,
+    undofile = true,
 }
 
 -- use a line cursor within insert mode and a block cursor everywhere else.

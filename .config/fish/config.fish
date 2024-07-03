@@ -12,19 +12,24 @@ if status is-interactive
         alias c="cal"
         alias d="disown"
         alias dots="cd ~/.local/share/.dotfiles/"
-        alias echo="command echo"
+        alias echo=(command which echo)
         alias egrep='grep -E'
         alias fgrep='grep -F'
         alias grep='grep --colour=auto'
         alias ls="ls --group-directories-first -h -p --color -F"
         alias neofetch="alsi"
         alias p="paru"
-        alias printf="command printf"
+        alias printf=(command which printf)
         alias pu="paru -Syu --noconfirm"
         alias s="cd ~/.local/bin && ls"
         alias t="timedatectl"
         alias w="curl wttr.in"
         alias x="startx"
+
+        # conditionally alias cat to bat -p if bat is installed
+        if which bat >/dev/null 2>&1
+            alias cat="bat -p"
+        end
 
     # youtube-dl aliases
         alias yt-mp4="youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"

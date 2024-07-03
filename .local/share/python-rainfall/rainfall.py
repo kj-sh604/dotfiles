@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.10
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import time
@@ -142,7 +142,6 @@ try:
 except KeyboardInterrupt:
     Clear_Screen()
     print('\033[?25h', end="") # makes cursor visible again
-
 
 
 

@@ -3,10 +3,10 @@ set -g __fish_git_prompt_showuntrackedfiles 1
 set -g __fish_git_prompt_showcolorhints 1
 
 set -g __fish_git_prompt_color_branch magenta --bold
-set -g __fish_git_prompt_showupstream "git"
+set -g __fish_git_prompt_showupstream "informative"
 set -g __fish_git_prompt_char_upstream_ahead "↑"
 set -g __fish_git_prompt_char_upstream_behind "↓"
-set -g __fish_git_prompt_char_upstream_prefix " "
+set -g __fish_git_prompt_char_upstream_prefix ""
 
 set -g __fish_git_prompt_char_stagedstate "•"
 set -g __fish_git_prompt_char_dirtystate "+"

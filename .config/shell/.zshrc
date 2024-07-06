@@ -25,7 +25,7 @@ SAVEHIST=9999999
         alias grep='grep --colour=auto'
         alias ls="ls --group-directories-first -h -p --color -F"
         alias neofetch="alsi"
-        alias p="paru --skipreview"
+        alias p="paru"
         alias printf="$(command which printf)"
         alias pu="paru -Syu --noconfirm"
         alias s="cd ~/.local/bin && ls"

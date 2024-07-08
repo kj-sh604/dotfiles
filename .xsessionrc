@@ -1,1 +1,1 @@
-.xprofile
+.config/shell/profile

@@ -23,6 +23,7 @@ SAVEHIST=9999999
         alias egrep='grep -E'
         alias fgrep='grep -F'
         alias grep='grep --colour=auto'
+        alias ks="killall screen"
         alias ls="ls --group-directories-first -h -p --color -F"
         alias neofetch="alsi"
         alias p="paru"

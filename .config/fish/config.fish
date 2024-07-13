@@ -12,6 +12,7 @@ if status is-interactive
         abbr --add s "screen"
         abbr --add sl "screen -ls"
         abbr --add sr "screen -r"
+        abbr --add ks "killall screen"
         alias c="cal"
         alias d="disown"
         alias dots="cd ~/.local/share/.dotfiles/"

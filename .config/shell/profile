@@ -24,31 +24,17 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 # Some XDG ~/ clean-up
-# (I really don't care as much, at this point)
-export ANDROID_SDK_HOME="$XDG_CONFIG_HOME"/android
+# (I really don't care as much, anymore)
 export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME"/bash-completion/bash_completion
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
-export DVDCSS_CACHE="$XDG_DATA_HOME"/dvdcss
-export FFMPEG_DATADIR="$XDG_CONFIG_HOME"/ffmpeg
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-export GOMODCACHE="$XDG_CACHE_HOME"/go/mod
-export GOPATH="$XDG_DATA_HOME"/go
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/settings.ini
 export HISTFILE="$XDG_STATE_HOME"/shell/history
 export INPUTRC="$XDG_CONFIG_HOME"/shell/inputrc
-export KODI_DATA="$XDG_DATA_HOME"/kodi
-export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
-export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/.password-store
-export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/config
-export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
-export W3M_DIR="$XDG_STATE_HOME/w3m"
 export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 export ZDOTDIR="$XDG_CONFIG_HOME"/shell
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java

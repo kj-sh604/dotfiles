@@ -16,6 +16,7 @@ SAVEHIST=9999999
 
 # aliases
     # personal aliases
+        alias S="cd ~/.local/bin && ls"
         alias c="cal"
         alias d="disown"
         alias dots="cd ~/.local/share/.dotfiles/"
@@ -29,7 +30,6 @@ SAVEHIST=9999999
         alias p="paru"
         alias printf="$(command which printf)"
         alias pu="paru -Syu --noconfirm"
-        alias s="cd ~/.local/bin && ls"
         alias s="screen"
         alias sl="screen -ls"
         alias sr="screen -r"

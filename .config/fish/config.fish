@@ -9,10 +9,11 @@ if status is-interactive
         fish_vi_key_bindings
 
     # personal aliases and abbreviations
+        abbr --add ks "killall screen"
         abbr --add s "screen"
         abbr --add sl "screen -ls"
         abbr --add sr "screen -r"
-        abbr --add ks "killall screen"
+        alias S="cd ~/.local/bin && ls"
         alias c="cal"
         alias d="disown"
         alias dots="cd ~/.local/share/.dotfiles/"
@@ -25,7 +26,6 @@ if status is-interactive
         alias p="paru"
         alias printf=(command which printf)
         alias pu="paru -Syu --noconfirm"
-        alias scripts="cd ~/.local/bin && ls"
         alias t="timedatectl"
         alias w="curl wttr.in"
         alias x="startx"

@@ -8,7 +8,10 @@ if status is-interactive
     # commands to run in interactive sessions can go here
         fish_vi_key_bindings
 
-    # personal aliases
+    # personal aliases and abbreviations
+        abbr --add s "screen"
+        abbr --add sl "screen -ls"
+        abbr --add sr "screen -r"
         alias c="cal"
         alias d="disown"
         alias dots="cd ~/.local/share/.dotfiles/"
@@ -21,7 +24,7 @@ if status is-interactive
         alias p="paru"
         alias printf=(command which printf)
         alias pu="paru -Syu --noconfirm"
-        alias s="cd ~/.local/bin && ls"
+        alias scripts="cd ~/.local/bin && ls"
         alias t="timedatectl"
         alias w="curl wttr.in"
         alias x="startx"

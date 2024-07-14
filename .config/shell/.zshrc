@@ -16,11 +16,12 @@ SAVEHIST=9999999
 
 # aliases
     # personal aliases
+        # alias echo=(command which echo)
+        # alias printf=(command which printf)
         alias S="cd ~/.local/bin && ls"
         alias c="cal"
         alias d="disown"
         alias dots="cd ~/.local/share/.dotfiles/"
-        alias echo="$(command which echo)"
         alias egrep='grep -E'
         alias fgrep='grep -F'
         alias grep='grep --colour=auto'
@@ -28,7 +29,6 @@ SAVEHIST=9999999
         alias ls="ls --group-directories-first -h -p --color -F"
         alias neofetch="alsi"
         alias p="paru"
-        alias printf="$(command which printf)"
         alias pu="paru -Syu --noconfirm"
         alias s="screen"
         alias sl="screen -ls"

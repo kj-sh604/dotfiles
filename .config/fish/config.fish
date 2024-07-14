@@ -9,6 +9,8 @@ if status is-interactive
         fish_vi_key_bindings
 
     # personal aliases and abbreviations
+        # alias echo=(command which echo)
+        # alias printf=(command which printf)
         abbr --add ks "killall screen"
         abbr --add s "screen"
         abbr --add sl "screen -ls"
@@ -17,14 +19,12 @@ if status is-interactive
         alias c="cal"
         alias d="disown"
         alias dots="cd ~/.local/share/.dotfiles/"
-        alias echo=(command which echo)
         alias egrep='grep -E'
         alias fgrep='grep -F'
         alias grep='grep --colour=auto'
         alias ls="ls --group-directories-first -h -p --color -F"
         alias neofetch="alsi"
         alias p="paru"
-        alias printf=(command which printf)
         alias pu="paru -Syu --noconfirm"
         alias t="timedatectl"
         alias w="curl wttr.in"

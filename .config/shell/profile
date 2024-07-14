@@ -1,14 +1,5 @@
 #!/bin/sh
 
-if [ -n "$DISPLAY" ] && xhost >/dev/null; then
-    setxkbmap -option compose:ralt
-    xset r rate 300 50
-    export XPROFILE_X11_SPECIFICS=loaded
-else
-    echo "x11 is not running... x11-related settings have been skipped"
-    export XPROFILE_X11_SPECIFICS=unloaded
-fi
-
 export EDITOR=nvim
 export TERM=xterm-256color
 export TMPDIR="/tmp"
@@ -24,7 +15,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 # Some XDG ~/ clean-up
-# (I really don't care as much, anymore)
 export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME"/bash-completion/bash_completion
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/settings.ini
@@ -34,7 +24,18 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/.password-store
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/config
 export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
-export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 export ZDOTDIR="$XDG_CONFIG_HOME"/shell
+
+# X11-dependent env variables
+if [ -n "$DISPLAY" ] && xhost >/dev/null; then
+    setxkbmap -option compose:ralt
+    xset r rate 300 50
+    export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+    export XPROFILE_X11_SPECIFICS=loaded
+else
+    export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc-if-tty
+    export XPROFILE_X11_SPECIFICS=unloaded
+    echo "x11 is not running... x11-related settings have been skipped"
+fi

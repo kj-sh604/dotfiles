@@ -1,8 +1,7 @@
 # this config requires Screen v5 (-git master branch release)
 truecolor on
 hardstatus off
-hardstatus firstline
-hardstatus string '%{#999999}[ GNU screen ]%{#ffffff} %< %{7}%?%-Lw%?%{1;0}%{#009dff}(== %{#ffffff}%n %h%?(%u)%?%{1;0}%{#009dff} ==)%{7}%?%+Lw%?%?'
+hardstatus firstline '%{#999999}[ GNU screen ]%{#ffffff} %< %{7}%?%-Lw%?%{1;0}%{#009dff}(== %{#ffffff}%n %h%?(%u)%?%{1;0}%{#009dff} ==)%{7}%?%+Lw%?%?'
 altscreen on
 defscrollback 5000
 escape ^@a

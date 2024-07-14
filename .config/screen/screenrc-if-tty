@@ -1,0 +1,15 @@
+# this config requires Screen v5 (-git master branch release)
+truecolor on
+hardstatus off
+backtick 0 5 5 "/usr/bin/date" '+%m/%d (%a)'
+backtick 1 5 5 "/usr/bin/date" '+%H%M'
+hardstatus firstline
+hardstatus string '%{#999999}[ GNU screen ]%{#ffffff} %< %{7}%?%-Lw%?%{1;0}%{#009dff}(== %{#ffffff}%n %h%?(%u)%?%{1;0}%{#009dff} ==)%{7}%?%+Lw%?%? %= %{#999999}[ %{#999999}%0` %1` ]'
+altscreen on
+defscrollback 5000
+escape ^@a
+maptimeout 0
+mousetrack on
+shell /usr/bin/fish
+shelltitle "$ |fish"
+startup_message off

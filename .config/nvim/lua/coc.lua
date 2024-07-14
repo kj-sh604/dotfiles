@@ -46,8 +46,8 @@ keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r
 
 -- use <c-j> to trigger snippets
 keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
--- use <c-space> to trigger completion
-keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
+-- use <c-c> to trigger completion
+keyset("i", "<c-c>", "coc#refresh()", {silent = true, expr = true})
 
 -- use `[g` and `]g` to navigate diagnostics
 -- use `:cocdiagnostics` to get all diagnostics of current buffer in location list

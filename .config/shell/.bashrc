@@ -1,6 +1,21 @@
 # note: this file needs to be sourced in /etc/bash.bashrc
 
-. ~/.config/shell/git-prompt.sh
+# personal QOL functions
+source_if_exists() {
+    [ -f "$1" ] && source "$1"
+}
+
+ensure_directory_and_file() {
+    [ ! -d "$1" ] && mkdir -p "$1"
+    [ ! -f "$2" ] && touch "$2"
+}
+
+# Source personal POSIX functions
+source_if_exists ~/.config/shell/posix-functions/create_POSIX_dotenv.sh
+source_if_exists ~/.config/shell/posix-functions/POSIX_open.sh
+
+# git prompt
+source_if_exists ~/.config/shell/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 
 if [[ $- != *i* ]] ; then
@@ -70,18 +85,5 @@ for sh in /etc/bash/bashrc.d/* ; do
 done
 
 unset use_color sh
-
-source_if_exists() {
-    [ -f "$1" ] && source "$1"
-}
-
-ensure_directory_and_file() {
-    [ ! -d "$1" ] && mkdir -p "$1"
-    [ ! -f "$2" ] && touch "$2"
-}
-
-# Source personal POSIX functions
-source_if_exists ~/.config/shell/posix-functions/create_POSIX_dotenv.sh
-source_if_exists ~/.config/shell/posix-functions/POSIX_open.sh
 
 export HISTFILE="$XDG_STATE_HOME"/shell/history

@@ -10,7 +10,7 @@ ensure_directory_and_file() {
     [ ! -f "$2" ] && touch "$2"
 }
 
-# Source personal POSIX functions
+# source personal posix functions
 source_if_exists ~/.config/shell/posix-functions/create_POSIX_dotenv.sh
 source_if_exists ~/.config/shell/posix-functions/POSIX_open.sh
 

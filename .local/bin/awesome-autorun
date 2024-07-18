@@ -34,3 +34,4 @@ run wineserver
 run /usr/lib/evolution-addressbook-factory
 run /usr/lib/evolution-calendar-factory
 run /usr/lib/evolution-source-registry
+run thunar --daemon

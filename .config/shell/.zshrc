@@ -1,13 +1,25 @@
-# source zsh extensions (order is important)
-source ~/.config/shell/git-prompt.zsh
-source ~/.config/shell/git-prompts/kj_sh604.zsh
-source ~/.config/shell/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/shell/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ~/.config/shell/zsh-history-substring-search/zsh-history-substring-search.zsh
-# source ~/.config/shell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source_if_exists() {
+    [ -f "$1" ] && source "$1"
+}
 
-[ ! -d ~/.local/state/shell ] && mkdir -p ~/.local/state/shell
-[ ! -f ~/.local/state/shell/zsh_history ] && touch ~/.local/state/shell/zsh_history
+ensure_directory_and_file() {
+    [ ! -d "$1" ] && mkdir -p "$1"
+    [ ! -f "$2" ] && touch "$2"
+}
+
+
+source_if_exists ~/.config/shell/git-prompt.zsh
+source_if_exists ~/.config/shell/git-prompts/kj_sh604.zsh
+source_if_exists ~/.config/shell/zsh-autosuggestions/zsh-autosuggestions.zsh
+source_if_exists ~/.config/shell/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source_if_exists ~/.config/shell/zsh-history-substring-search/zsh-history-substring-search.zsh
+# source_if_exists ~/.config/shell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Source personal POSIX functions
+source_if_exists ~/.config/shell/posix-functions/create_POSIX_dotenv.sh
+source_if_exists ~/.config/shell/posix-functions/POSIX_open.sh
+
+ensure_directory_and_file ~/.local/state/shell ~/.local/state/shell/zsh_history
 
 # configure history settings
 HISTFILE=~/.local/state/shell/zsh_history

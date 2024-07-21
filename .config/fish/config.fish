@@ -8,40 +8,32 @@ if status is-interactive
     # commands to run in interactive sessions can go here
         fish_vi_key_bindings
 
-    # personal aliases and abbreviations
-        # alias echo=(command which echo)
-        # alias printf=(command which printf)
-        abbr --add ks "killall screen"
-        abbr --add s "screen"
-        abbr --add sl "screen -ls"
-        abbr --add sr "screen -r"
-        alias S="cd ~/.local/bin && ls"
-        alias c="cal"
-        alias d="disown"
-        alias dots="cd ~/.local/share/.dotfiles/"
+    # abbreviations
+        abbr -a S "cd ~/.local/bin && ls"
+        abbr -a c "cal"
+        abbr -a d "disown"
+        abbr -a dots "cd ~/.local/share/.dotfiles/"
+        abbr -a ks "killall screen"
+        abbr -a p "paru"
+        abbr -a pu "paru -Syu --noconfirm"
+        abbr -a s "screen"
+        abbr -a sl "screen -ls"
+        abbr -a sr "screen -r"
+        abbr -a t "timedatectl"
+        abbr -a w "curl wttr.in"
+        abbr -a x "startx"
+        abbr -a yt-m4a "youtube-dl -cif 'bestaudio[ext=m4a]'"
+        abbr -a yt-mp4 "youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
+        abbr -a yt-webm "youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"
+    # aliases
         alias egrep='grep -E'
         alias fgrep='grep -F'
         alias grep='grep --colour=auto'
         alias ls="ls --group-directories-first -h -p --color -F"
         alias neofetch="alsi"
-        alias p="paru"
-        alias pu="paru -Syu --noconfirm"
-        alias t="timedatectl"
-        alias w="curl wttr.in"
-        alias x="startx"
-
-        # conditionally alias cat to bat -p if bat is installed
         if which bat >/dev/null 2>&1
             alias cat="bat -p"
         end
-
-    # youtube-dl aliases
-        alias yt-mp4="youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
-        alias yt-webm="youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"
-        alias yt-m4a="youtube-dl -cif 'bestaudio[ext=m4a]'"
-
-    # environment variable declarations
-        export PF_INFO="ascii title os kernel uptime pkgs memory"
 
     # less termcap variables (for colored man pages)
         set -gx LESS_TERMCAP_mb \e'[1;32m'

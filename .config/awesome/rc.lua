@@ -295,7 +295,6 @@ awful.keyboard.append_global_keybindings({
 
     awful.key({ modkey, }, "Menu", function() mymainmenu:show() end,
         { description = "show main menu", group = "awesome" }),
-
     awful.key({ modkey, "Shift" }, "F10", function() mymainmenu:show() end,
         { description = "show main menu", group = "awesome" }),
 
@@ -474,8 +473,8 @@ awful.keyboard.append_global_keybindings({
         { description = "toggle dunst notifications", group = "launcher" }),
 
     -- run boomer (requires boomer-git from AUR)
-    awful.key({ modkey }, "z", function () awful.spawn.easy_async_with_shell("boomer") end,
-      {description = "run boomer (zoomer application for Linux)", group = "launcher"}),
+    awful.key({ modkey }, "z", function() awful.spawn.easy_async_with_shell("boomer") end,
+        { description = "run boomer (zoomer application for Linux)", group = "launcher" }),
 
     -- tiled client resizing
     -- h,j,k,l binds
@@ -593,6 +592,50 @@ awful.keyboard.append_global_keybindings({
         awful.key {
             modifiers   = { modkey, "Shift" },
             keygroup    = "numrow",
+            description = "move focused client to tag",
+            group       = "tag",
+            on_press    = function(index)
+                if client.focus then
+                    local tag = client.focus.screen.tags[index]
+                    if tag then
+                        client.focus:move_to_tag(tag)
+                    end
+                end
+            end,
+        },
+    }),
+
+    -- tags manipulation via keyboard number pad
+    awful.keyboard.append_global_keybindings({
+        awful.key {
+            modifiers   = { "Control", "Mod1" },
+            keygroup    = "numpad",
+            description = "only view tag",
+            group       = "tag",
+            on_press    = function(index)
+                local screen = awful.screen.focused()
+                local tag = screen.tags[index]
+                if tag then
+                    tag:view_only()
+                end
+            end,
+        },
+        awful.key {
+            modifiers   = { modkey },
+            keygroup    = "numpad",
+            description = "toggle tag",
+            group       = "tag",
+            on_press    = function(index)
+                local screen = awful.screen.focused()
+                local tag = screen.tags[index]
+                if tag then
+                    awful.tag.viewtoggle(tag)
+                end
+            end,
+        },
+        awful.key {
+            modifiers   = { modkey, "Shift" },
+            keygroup    = "numpad",
             description = "move focused client to tag",
             group       = "tag",
             on_press    = function(index)
@@ -740,8 +783,8 @@ ruled.client.connect_signal("request::rules", function()
                 "Kruler",
                 "Mate-system-monitor",
                 "mate-system-monitor",
-                "MessageWin",     -- kalarm.
-                "mullvadbrowser", -- needs a fixed window size to avoid fingerprinting by screen size.
+                "MessageWin",      -- kalarm.
+                "mullvadbrowser",  -- needs a fixed window size to avoid fingerprinting by screen size.
                 "Mullvad Browser", -- needs a fixed window size to avoid fingerprinting by screen size.
                 "screengrab",
                 "Sxiv",

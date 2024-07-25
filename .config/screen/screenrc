@@ -1,7 +1,7 @@
 # this config requires Screen v5 (-git master branch release)
 truecolor on
 hardstatus off # puts notifications at the bottom
-hardstatus alwaysfirstline '%{#999999}[ GNU screen ]%{#ffffff} %< %{7}%?%-Lw%?%{1;0}%{#009dff}(== %{#ffffff}%n %h%?(%u)%?%{1;0}%{#009dff} ==)%{7}%?%+Lw%?%?'
+hardstatus alwaysfirstline '%{#999999}[ GNU screen ]%{#ffffff} %< %{7}%?%-Lw%?%{1;0}%{#009dff}(== %{#ffffff}%n %t%?(%u)%?%{1;0}%{#009dff} ==)%{7}%?%+Lw%?%?'
 altscreen on
 bind 0 select 10
 bind c screen 1

@@ -3,7 +3,7 @@ truecolor on
 backtick 0 5 5 "/usr/bin/date" '+%m/%d (%a)'
 backtick 1 5 5 "/usr/bin/date" '+%H%M'
 hardstatus off # puts notifications at the bottom
-hardstatus alwaysfirstline '%{#999999}[ GNU screen ]%{#ffffff} %< %{7}%?%-Lw%?%{1;0}%{#009dff}(== %{#ffffff}%n%f%t%?(%u)%?%{1;0}%{#009dff} ==)%{7}%?%+Lw%?%? %= %{#999999}[ %{#999999}%0` %1` ]'
+hardstatus alwaysfirstline '%{#999999}[ GNU screen ]%{#ffffff} %< %{7}%?%-Lw%?%{1;0}%{#009dff}(== %{#ffffff}%n %t%?(%u)%?%{1;0}%{#009dff} ==)%{7}%?%+Lw%?%? %= %{#999999}[ %{#999999}%0` %1` ]'
 altscreen on
 bind 0 select 10
 bind c screen 1

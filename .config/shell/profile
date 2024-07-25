@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export EDITOR=vi
+export EDITOR=nvim
 export TERM=xterm-256color
 export TMPDIR="/tmp"
 export LANG="en_US.UTF-8"

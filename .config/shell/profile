@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export EDITOR=nvim
+export EDITOR=vi
 export TERM=xterm-256color
 export TMPDIR="/tmp"
 export LANG="en_US.UTF-8"
@@ -16,12 +16,11 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # Some XDG ~/ clean-up
 export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME"/bash-completion/bash_completion
-export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/settings.ini
 export HISTFILE="$XDG_STATE_HOME"/shell/history
 export INPUTRC="$XDG_CONFIG_HOME"/shell/inputrc
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/.password-store
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/.pass
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/config
 export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
 export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc

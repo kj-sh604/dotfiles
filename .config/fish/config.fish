@@ -17,13 +17,14 @@ if status is-interactive
         abbr -a p "paru"
         abbr -a pu "paru -Syu --noconfirm"
         abbr -a s "screen"
-        abbr -a sl "screen -ls"
+        abbr -a sls "screen -ls"
         abbr -a sr "screen -r"
         abbr -a t "timedatectl"
         abbr -a w "curl wttr.in"
         abbr -a x "startx"
         abbr -a yt-m4a "youtube-dl -cif 'bestaudio[ext=m4a]'"
         abbr -a yt-mp4 "youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
+        abbr -a yt-mpv "mpv --ytdl-format="
         abbr -a yt-webm "youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"
     # aliases
         alias egrep='grep -E'

@@ -1,0 +1,42 @@
+#!/bin/sh
+
+if ! command -v reflector > /dev/null 2>&1; then
+    echo "🪖 archmirrorman: HEEEEYYY!! I NEED MY WEAPONS, SOLDIER!!!! GIVE ME MY WEAPONSSS"
+    echo ""
+    echo "error: reflector is not installed."
+    echo "to install: pacman -S reflector"
+    exit 1
+fi
+
+show_usage() {
+    echo ""
+    echo "usage: $0 [number of https mirrors to sort and test]"
+    echo "example: $0 50"
+    echo ""
+}
+
+if [ -z "$1" ]; then
+    echo "🪖 archmirrorman: HEEEEYY!! YOU BETTER TELL ME HOW MANY, SOLDIER!!!"
+    show_usage
+    exit 1
+fi
+
+if ! [ "$1" -eq "$1" ] 2> /dev/null || [ "$1" -le 0 ]; then
+    echo "🪖 archmirrorman: HEEEEYY!! AIN'T NO ZERO, NEGATIVE BULLSHIT AROUND HERE, SOLDIER!!!"
+    echo ""
+    echo "error: argument must be a positive integer."
+    show_usage
+    exit 1
+fi
+
+echo "🪖 archmirrorman: GOOD JOB, SOLDIER! NOW LET ME DO MY JOB! ... UwU 🥰😻"
+
+if [ "$(id -u)" -ne 0 ]; then
+    echo ""
+    echo "---------- reflector start ----------"
+    sudo reflector --protocol https --verbose --latest "$1" --sort rate --save /etc/pacman.d/mirrorlist
+else
+    echo ""
+    echo "---------- reflector start ----------"
+    reflector --protocol https --verbose --latest "$1" --sort rate --save /etc/pacman.d/mirrorlist
+fi

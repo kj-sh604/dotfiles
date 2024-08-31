@@ -749,22 +749,24 @@ awful.rules.rules = {
                 "Blueman-manager",
                 "DateTime.py",
                 "Evolution-alarm-notify",
-                "Gpick",
                 "Gnome-calculator",
-                "gnome-calculator",
                 "Gnome-system-monitor",
-                "gnome-system-monitor",
+                "Gpick",
                 "Kruler",
                 "Mate-system-monitor",
-                "mate-system-monitor",
-                "MessageWin",     -- kalarm.
-                "mullvadbrowser", -- needs a fixed window size to avoid fingerprinting by screen size.
+                "MessageWin",      -- kalarm.
                 "Mullvad Browser", -- needs a fixed window size to avoid fingerprinting by screen size.
-                "screengrab",
-                "Sxiv",
+                "Qalculate-gtk",
                 "Steam",
+                "Sxiv",
                 "Tor Browser", -- same as mullvadbrowser.
                 "Wpa_gui",
+                "gnome-calculator",
+                "gnome-system-monitor",
+                "mate-system-monitor",
+                "mullvadbrowser",  -- needs a fixed window size to avoid fingerprinting by screen size.
+                "qalculate-qt",
+                "screengrab",
                 "veromix",
                 "xtightvncviewer",
                 "zoom",

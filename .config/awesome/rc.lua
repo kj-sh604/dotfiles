@@ -426,8 +426,8 @@ awful.keyboard.append_global_keybindings({
         { description = "launch HTOP", group = "launcher" }),
 
     -- brightness hotkeys
-    awful.key({}, "XF86MonBrightnessDown", function() awful.spawn.easy_async_with_shell("xbacklight -dec 15") end),
-    awful.key({}, "XF86MonBrightnessUp", function() awful.spawn.easy_async_with_shell("xbacklight -inc 15") end),
+    awful.key({}, "XF86MonBrightnessDown", function() awful.spawn.easy_async_with_shell("xbacklight -dec 10") end),
+    awful.key({}, "XF86MonBrightnessUp", function() awful.spawn.easy_async_with_shell("xbacklight -inc 10") end),
 
     -- emoji picker
     awful.key({ modkey }, ".", function() awful.spawn.easy_async_with_shell("~/.local/bin/dmenu-emoji-picker") end,

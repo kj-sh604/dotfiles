@@ -460,7 +460,7 @@ awful.keyboard.append_global_keybindings({
         { description = "increase client gaps", group = "client" }),
     awful.key({ modkey }, ";", function() awful.tag.incgap(-2) end,
         { description = "decrease client gaps", group = "client" }),
-    awful.key({ modkey }, "backslash", function() awful.screen.focused().selected_tag.gap = 5 end,
+    awful.key({ modkey }, "backslash", function() awful.screen.focused().selected_tag.gap = 2 end,
         { description = "reset client gaps", group = "client" }),
 
     -- launch choose-xrandr-gui

@@ -811,7 +811,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- gaps
-beautiful.useless_gap = 5
+beautiful.useless_gap = 2
 
 -- run garbage collector regularly to prevent memory leaks
 gears.timer {

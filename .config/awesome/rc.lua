@@ -820,7 +820,7 @@ client.connect_signal("mouse::enter", function(c)
 end)
 
 -- gaps
-beautiful.useless_gap = 5
+beautiful.useless_gap = 2
 
 -- run garbage collector regularly to prevent memory leaks
 gears.timer {

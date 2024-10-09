@@ -22,6 +22,7 @@ if status is-interactive
         abbr -a t "timedatectl"
         abbr -a w "curl wttr.in"
         abbr -a x "startx"
+        abbr -a yt-best "youtube-dl -cif 'bestvideo+bestaudio/best'"
         abbr -a yt-m4a "youtube-dl -cif 'bestaudio[ext=m4a]'"
         abbr -a yt-mp4 "youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
         abbr -a yt-mpv "mpv --ytdl-format="

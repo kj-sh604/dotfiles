@@ -52,9 +52,10 @@ SAVEHIST=9999999
         command which bat >/dev/null 2>&1 && alias cat="bat -p"
 
     # youtube-dl aliases
+        alias yt-best="youtube-dl -cif 'bestvideo+bestaudio/best'"
+        alias yt-m4a="youtube-dl -cif 'bestaudio[ext=m4a]'"
         alias yt-mp4="youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
         alias yt-webm="youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"
-        alias yt-m4a="youtube-dl -cif 'bestaudio[ext=m4a]'"
 
 # pfetch stuff 
 export PF_INFO="ascii title os kernel uptime pkgs memory"

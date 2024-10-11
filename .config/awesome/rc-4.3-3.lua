@@ -473,7 +473,7 @@ globalkeys = gears.table.join(
         { description = "increase client gaps", group = "client" }),
     awful.key({ modkey }, ";", function() awful.tag.incgap(-2) end,
         { description = "decrease client gaps", group = "client" }),
-    awful.key({ modkey }, "backslash", function() awful.screen.focused().selected_tag.gap = 2 end,
+    awful.key({ modkey }, "backslash", function() awful.screen.focused().selected_tag.gap = 0 end,
         { description = "reset client gaps", group = "client" }),
 
     -- launch choose-xrandr-gui
@@ -809,9 +809,6 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-
--- gaps
-beautiful.useless_gap = 2
 
 -- run garbage collector regularly to prevent memory leaks
 gears.timer {

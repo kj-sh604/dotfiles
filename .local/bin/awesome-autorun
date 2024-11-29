@@ -7,7 +7,6 @@ run () {
   fi
 }
 
-run picom -b
 run volumeicon
 run xfce4-volumed-pulse
 run xfce4-clipman

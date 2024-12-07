@@ -11,13 +11,12 @@ run volumeicon
 run xfce4-volumed-pulse
 run xfce4-clipman
 run /usr/lib/geoclue-2.0/demos/agent
-run /usr/lib/kdeconnectd
+run /usr/bin/kdeconnectd
 run kdeconnect-indicator
 run nm-applet
 run system-config-printer-applet
 run start-pulseaudio-x11
-run /usr/lib/tracker-miner-fs-3
-run /usr/lib/tracker-miner-rss-3
+run /usr/lib/localsearch-3
 run /usr/lib/at-spi-bus-launcher --launch-immediately
 run /usr/bin/gnome-keyring-daemon --start --components=pkcs11
 run /usr/bin/gnome-keyring-daemon --start --components=secrets

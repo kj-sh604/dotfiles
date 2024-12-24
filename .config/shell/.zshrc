@@ -36,8 +36,10 @@ SAVEHIST=9999999
         alias egrep='grep -E'
         alias fgrep='grep -F'
         alias grep='grep --colour=auto'
+        alias guc="git reset --soft HEAD^"
         alias ks="killall screen"
         alias ls="ls --group-directories-first -h -p --color -F"
+        alias lzg="lazygit"
         alias neofetch="alsi"
         alias p="paru"
         alias pu="paru -Syu --noconfirm"

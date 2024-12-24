@@ -13,7 +13,9 @@ if status is-interactive
         abbr -a c "cal"
         abbr -a d "disown"
         abbr -a dots "cd ~/.local/share/.dotfiles/"
+        abbr -a guc 'git reset --soft HEAD^'
         abbr -a ks "killall screen"
+        abbr -a lzg 'lazygit'
         abbr -a p "paru"
         abbr -a pu "paru -Syu --noconfirm"
         abbr -a s "screen"

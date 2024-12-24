@@ -798,10 +798,11 @@ ruled.client.connect_signal("request::rules", function()
                 "zoom",
             },
             name = {
+                "^Clipman History$",
                 "^Event Tester$",            -- xev.
                 "^File Operation Progress$", -- fix for latest version of thunar.
-                "^password manager$",
                 "^Task Manager$",
+                "^password manager$",
             },
             role = {
                 "AlarmWindow",   -- thunderbird's calendar.

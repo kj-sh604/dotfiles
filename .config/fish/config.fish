@@ -13,7 +13,6 @@ if status is-interactive
         abbr -a c "cal"
         abbr -a d "disown"
         abbr -a dots "cd ~/.local/share/.dotfiles/"
-        abbr -a guc 'git reset --soft HEAD^'
         abbr -a ks "killall screen"
         abbr -a lgit 'lazygit'
         abbr -a p "paru"
@@ -22,6 +21,7 @@ if status is-interactive
         abbr -a sls "screen -ls"
         abbr -a sr "screen -r"
         abbr -a t "timedatectl"
+        abbr -a uncommit 'git reset --soft HEAD^'
         abbr -a w "curl wttr.in"
         abbr -a x "startx"
         abbr -a yt-best "youtube-dl -cif 'bestvideo+bestaudio/best'"

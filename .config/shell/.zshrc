@@ -36,7 +36,6 @@ SAVEHIST=9999999
         alias egrep='grep -E'
         alias fgrep='grep -F'
         alias grep='grep --colour=auto'
-        alias guc="git reset --soft HEAD^"
         alias ks="killall screen"
         alias lgit="lazygit"
         alias ls="ls --group-directories-first -h -p --color -F"
@@ -47,6 +46,7 @@ SAVEHIST=9999999
         alias sl="screen -ls"
         alias sr="screen -r"
         alias t="timedatectl"
+        alias uncommit="git reset --soft HEAD^"
         alias w="curl wttr.in"
         alias x="startx"
 

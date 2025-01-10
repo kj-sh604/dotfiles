@@ -1,4 +1,4 @@
 compile:
 	cython3 --embed -o dateTime.c -X language_level=3 dateTime.py
-	PYTHON_VERSION=`ls /usr/include | grep -o 'python[3-9]\+\.[0-9]\+' | tail -1` ; \
+	PYTHON_VERSION=`ls --sort version /usr/include | grep -o 'python[3-9]\+\.[0-9]\+' | tail -1` ; \
 	gcc -march=native -O2 -pipe -fno-plt -I /usr/include/$$PYTHON_VERSION -o dateTime dateTime.c -l$$PYTHON_VERSION -lpthread -lm -lutil -ldl

@@ -5,7 +5,7 @@ hardstatus alwaysfirstline '%{#999999}[ GNU screen ]%{#ffffff} %< %{7}%?%-Lw%?%{
 altscreen on
 bind 0 select 10
 bind c screen 1
-defscrollback 32768
+defscrollback 16384
 escape ^@a
 maptimeout 0
 screen 1

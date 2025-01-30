@@ -26,6 +26,10 @@ HISTSIZE=9999999
 SAVEHIST=9999999
 
 # aliases
+    # conditionally alias alternative applications if installed
+    command which bat >/dev/null 2>&1 && alias cat="bat -p"
+    command which eza >/dev/null 2>&1 && alias ls="eza"
+
     # personal aliases
         # alias echo=(command which echo)
         # alias printf=(command which printf)
@@ -35,10 +39,9 @@ SAVEHIST=9999999
         alias dots="cd ~/.local/share/.dotfiles/"
         alias egrep='grep -E'
         alias fgrep='grep -F'
-        alias grep='grep --colour=auto'
+        alias grep='grep --color=auto'
         alias ks="killall screen"
         alias lgit="lazygit"
-        alias ls="ls --group-directories-first -h -p --color -F"
         alias neofetch="alsi"
         alias p="paru"
         alias pu="paru -Syu --noconfirm"
@@ -49,9 +52,6 @@ SAVEHIST=9999999
         alias uncommit="git reset --soft HEAD^"
         alias w="curl wttr.in"
         alias x="startx"
-
-        # conditionally alias cat to bat -p if bat is installed
-        command which bat >/dev/null 2>&1 && alias cat="bat -p"
 
     # youtube-dl aliases
         alias yt-best="youtube-dl -cif 'bestvideo+bestaudio/best'"

@@ -8,11 +8,22 @@ if status is-interactive
     # commands to run in interactive sessions can go here
         fish_vi_key_bindings
 
+    # aliases
+        alias grep='grep --color=auto'
+        alias neofetch="alsi"
+        if which bat >/dev/null 2>&1
+            alias cat="bat -p"
+        end
+        if which eza >/dev/null 2>&1
+            alias ls="eza"
+        end
     # abbreviations
         abbr -a S "cd ~/.local/bin && ls"
         abbr -a c "cal"
         abbr -a d "disown"
         abbr -a dots "cd ~/.local/share/.dotfiles/"
+        abbr -a egrep "grep -E"
+        abbr -a fgrep "grep -F"
         abbr -a ks "killall screen"
         abbr -a lgit 'lazygit'
         abbr -a p "paru"
@@ -29,15 +40,6 @@ if status is-interactive
         abbr -a yt-mp4 "youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
         abbr -a yt-mpv "mpv --ytdl-format="
         abbr -a yt-webm "youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"
-    # aliases
-        alias egrep='grep -E'
-        alias fgrep='grep -F'
-        alias grep='grep --colour=auto'
-        alias ls="ls --group-directories-first -h -p --color -F"
-        alias neofetch="alsi"
-        if which bat >/dev/null 2>&1
-            alias cat="bat -p"
-        end
 
     # less termcap variables (for colored man pages)
         set -gx LESS_TERMCAP_mb \e'[1;32m'

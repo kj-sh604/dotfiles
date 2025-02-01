@@ -54,7 +54,7 @@ autocmd BufWritePre *.for :%s/\s\+$//e
 
 if has('gui_running')
   set t_Co=256
-  set guifont=JetBrains\ Mono\ 11
+  set guifont=Roboto\ Mono\ 11
   set guioptions-=m
   set guioptions-=T
   set guioptions-=r

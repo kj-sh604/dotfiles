@@ -8,7 +8,7 @@ vim.cmd("highlight CocErrorFloat ctermfg=15")
 -- gui appearance declarations
 if vim.fn.has('gui_running') == 1 then
   vim.opt.t_Co = 256
-  vim.opt.guifont = "JetBrains Mono 11"
+  vim.opt.guifont = "Roboto Mono 11"
   vim.opt.guioptions:remove("m")
   vim.opt.guioptions:remove("T")
   vim.opt.guioptions:remove("r")

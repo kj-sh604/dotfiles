@@ -1,7 +1,7 @@
 /* uncomment the following to use a monospace font with xfce4-panel */
 /* --- */
 /* .xfce4-panel {
-  font-family: "JetBrains Mono", monospace;
+  font-family: monospace;
   font-size: 10px;
 } */
 
@@ -9,7 +9,7 @@
 /* --- */
 /* #XfceNotifyWindow label,
 #XfceNotifyWindow image {
-  font-family: "JetBrains Mono", monospace;
+  font-family: monospace;
   font-size: 10px;
 } */
 

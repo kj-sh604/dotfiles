@@ -12,7 +12,7 @@ local themes_path = "~/.config/awesome/themes/"
 
 local theme = {}
 
-theme.font          = "JetBrains Mono 10"
+theme.font          = "Roboto Mono 10"
 
 theme.bg_normal     = "#000000"
 theme.bg_focus      = "#303030"

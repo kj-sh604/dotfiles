@@ -225,7 +225,7 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = "elementary-xfce-dark, elementary-xfce, elementary, Moka, Faba, Papirus-Dark, kora-pgrey, breeze-dark, Humanity-Dark, Papirus, kora, Adwaita, AdwaitaLegacy, Humanity, gnome, Tango, hicolor, breeze"
+    icon_theme = "elementary-xfce-dark, elementary-xfce, elementary, Mint-Y, Moka, Faba, Papirus-Dark, kora-pgrey, breeze-dark, Humanity-Dark, Papirus, kora, Adwaita, AdwaitaLegacy, Humanity, gnome, Tango, hicolor, breeze"
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 

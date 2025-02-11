@@ -28,6 +28,7 @@ SAVEHIST=9999999
 # aliases
     # conditionally alias alternative applications if installed
     command which eza >/dev/null 2>&1 && alias ls="eza"
+    command which alsi >/dev/null 2>&1 && alias neofetch="alsi"
 
     # personal aliases
         # alias echo=(command which echo)
@@ -41,7 +42,6 @@ SAVEHIST=9999999
         alias grep='grep --color=auto'
         alias ks="killall screen"
         alias lgit="lazygit"
-        alias neofetch="alsi"
         alias p="paru"
         alias pu="paru -Syu --noconfirm"
         alias s="screen"

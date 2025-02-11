@@ -10,9 +10,11 @@ if status is-interactive
 
     # aliases
         alias grep='grep --color=auto'
-        alias neofetch="alsi"
         if which eza >/dev/null 2>&1
             alias ls="eza"
+        end
+        if which alsi >/dev/null 2>&1
+            alias neofetch="alsi"
         end
     # abbreviations
         abbr -a S "cd ~/.local/bin && ls"

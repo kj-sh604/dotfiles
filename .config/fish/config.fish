@@ -11,9 +11,6 @@ if status is-interactive
     # aliases
         alias grep='grep --color=auto'
         alias neofetch="alsi"
-        if which bat >/dev/null 2>&1
-            alias cat="bat -p"
-        end
         if which eza >/dev/null 2>&1
             alias ls="eza"
         end

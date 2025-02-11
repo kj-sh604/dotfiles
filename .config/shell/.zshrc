@@ -27,7 +27,6 @@ SAVEHIST=9999999
 
 # aliases
     # conditionally alias alternative applications if installed
-    command which bat >/dev/null 2>&1 && alias cat="bat -p"
     command which eza >/dev/null 2>&1 && alias ls="eza"
 
     # personal aliases

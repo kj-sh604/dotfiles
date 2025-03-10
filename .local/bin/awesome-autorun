@@ -15,7 +15,6 @@ run /usr/bin/kdeconnectd
 run kdeconnect-indicator
 run nm-applet
 run system-config-printer-applet
-run start-pulseaudio-x11
 run /usr/lib/localsearch-3
 run /usr/lib/at-spi-bus-launcher --launch-immediately
 run /usr/bin/gnome-keyring-daemon --start --components=pkcs11

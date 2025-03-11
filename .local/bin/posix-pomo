@@ -17,7 +17,7 @@ icon_file=$HOME/.cache/pomo/pomo-tomato.png
 
 [ -f "$sound_file" ] || echo "warning: please provide a sound file at $sound_file"
 [ -f "$icon_file" ] || echo "warning: please provide an icon file at $icon_file"
-([ ! -f "$sound_file" ] || [ ! -f "$icon_file" ]) && echo
+{ [ ! -f "$sound_file" ] || [ ! -f "$icon_file" ]; } && echo
 
 # show user, usage
 [ "$#" -eq 2 ] || { echo "usage: $0 {work|break} <duration(h/m/s)>"; exit 1; }
@@ -31,22 +31,24 @@ timer() {
     numeric_duration=$(echo "$duration" | sed -e 's/[a-zA-Z]//g')
 
     case $unit in
-        h) total_seconds=$(($numeric_duration * 3600)) ;;
-        m) total_seconds=$(($numeric_duration * 60)) ;;
+        h) total_seconds=$((numeric_duration * 3600)) ;;
+        m) total_seconds=$((numeric_duration * 60)) ;;
         s) total_seconds=$numeric_duration ;;
         *) echo "invalid duration format: $duration"; exit 3 ;;
     esac
 
     start_time=$(date +%s)
-    end_time=$(($start_time + $total_seconds))
+    end_time=$((start_time + total_seconds))
 
-    while [ $(date +%s) -lt $end_time ]; do
+    while [ "$(date +%s)" -le "$end_time" ]; do
         current_time=$(date +%s)
-        remaining_seconds=$(($end_time - $current_time))
-        hours=$(($remaining_seconds / 3600))
-        minutes=$(($remaining_seconds % 3600 / 60))
-        seconds=$(($remaining_seconds % 60))
+        remaining_seconds=$((end_time - current_time))
+        [ $remaining_seconds -lt 0 ] && remaining_seconds=0
+        hours=$((remaining_seconds / 3600))
+        minutes=$((remaining_seconds % 3600 / 60))
+        seconds=$((remaining_seconds % 60))
         bar=$(printf "%-$((40 * (current_time - start_time) / total_seconds))s" "=" | tr ' ' '=')
+        [ $remaining_seconds -eq 0 ] && bar=$(printf "%-40s" "=" | tr ' ' '=')
         printf "\rpomo timer: [%-40s] %02d:%02d:%02d remaining" "$bar" "$hours" "$minutes" "$seconds"
         sleep 1
     done

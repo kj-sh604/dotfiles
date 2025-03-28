@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "dumping swap back into memory...";
+sudo swapoff -a || { echo "failed to turn off swap"; exit 1; }
+echo "swap has been cleared and dumped back into memory"
+
+sudo swapon -a || { echo "failed to re-enable swap"; exit 1; }
+echo "fresh swap storage has been re-enabled"

@@ -8,23 +8,17 @@ export LC_ALL="en_US.UTF-8"
 export PATH="$PATH:$HOME/.local/bin"
 export MANPAGER="less --use-color"
 export MANROFFOPT="-P -c"
-
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-# Some XDG ~/ clean-up
 export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME"/bash-completion/bash_completion
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/settings.ini
 export HISTFILE="$XDG_STATE_HOME"/shell/history
 export INPUTRC="$XDG_CONFIG_HOME"/shell/inputrc
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/.pass
-export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/config
 export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
-export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc
-export WINEPREFIX="$XDG_DATA_HOME"/wine
 export ZDOTDIR="$XDG_CONFIG_HOME"/shell
 
 # X11-dependent env variables

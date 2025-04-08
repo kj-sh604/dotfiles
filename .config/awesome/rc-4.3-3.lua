@@ -435,7 +435,7 @@ globalkeys = gears.table.join(
         { description = "take a screenshot of an area of the screen", group = "launcher" }),
     awful.key({ modkey }, "x", function() awful.spawn.easy_async_with_shell("xkill") end,
         { description = "kill a client by brute force", group = "launcher" }),
-    awful.key({ "Control", "Mod1" }, "Delete", function() awful.spawn("xfce4-terminal -T 'Task Manager' -x 'htop'") end,
+    awful.key({ "Control", "Mod1" }, "Delete", function() awful.spawn("xfce4-terminal -T 'Task Manager' --role=pop-up -x 'htop'") end,
         { description = "launch HTOP", group = "launcher" }),
 
     -- brightness hotkeys
@@ -775,8 +775,6 @@ awful.rules.rules = {
                 "^Clipman History$",
                 "^Event Tester$",            -- xev.
                 "^File Operation Progress$", -- fix for latest version of thunar.
-                "^Task Manager$",
-                "^password manager$",
             },
             role = {
                 "AlarmWindow",   -- thunderbird's calendar.

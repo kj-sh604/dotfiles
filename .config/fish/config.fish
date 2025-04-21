@@ -1,6 +1,7 @@
 if status is-login
     exec bash -c "test -e /etc/profile && source /etc/profile;\
     test -e ~/.zprofile && source ~/.zprofile;\
+    test -e ~/.profile && source ~/.profile;\
     exec fish"
 end
 

@@ -20,14 +20,13 @@ run /usr/lib/at-spi-bus-launcher --launch-immediately
 run /usr/bin/gnome-keyring-daemon --start --components=pkcs11
 run /usr/bin/gnome-keyring-daemon --start --components=secrets
 run /usr/bin/gnome-keyring-daemon --start --components=ssh
-run xss-lock slock
 run dunst
 run ~/.local/bin/awesome-xinputD
 run ~/.local/bin/awesome-keymapper
 run ~/.local/bin/awesome-dpms
 run ibus-daemon -drxR
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-run wineserver
+run xss-lock slock
 run /usr/lib/evolution-addressbook-factory
 run /usr/lib/evolution-calendar-factory
 run /usr/lib/evolution-source-registry

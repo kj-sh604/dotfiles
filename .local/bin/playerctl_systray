@@ -1,7 +1,7 @@
 #!/bin/sh
 
-BIN_PATH=~/.local/src/python-playerctl_systray/playerctl_systray
-SCRIPT_PATH=~/.local/src/python-playerctl_systray/playerctl_systray.py
+BIN_PATH=~/.local/src/playerctl_systray/playerctl_systray
+SCRIPT_PATH=~/.local/src/playerctl_systray/playerctl_systray.py
 
 if ! command -v playerctl >/dev/null 2>&1; then
     echo "playerctl is not installed but is required."

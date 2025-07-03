@@ -29,7 +29,7 @@ if ! [ "$1" -eq "$1" ] 2> /dev/null || [ "$1" -le 0 ]; then
     exit 1
 fi
 
-echo "🪖 archmirrorman: GOOD JOB, SOLDIER! NOW LET ME DO MY JOB! ... UwU 🥰😻"
+echo "🪖 archmirrorman: 👍"
 
 if [ "$(id -u)" -ne 0 ]; then
     echo ""

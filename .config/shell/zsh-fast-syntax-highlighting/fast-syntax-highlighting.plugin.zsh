@@ -33,25 +33,30 @@
 # regardless of functionargzero and posixargzero,
 # and with an option for a plugin manager to alter
 # the plugin directory (i.e. set ZERO parameter)
-# http://zdharma.org/Zsh-100-Commits-Club/Zsh-Plugin-Standard.html
+# https://zdharma-continuum.github.io/Zsh-100-Commits-Club/Zsh-Plugin-Standard.html
 0="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
 0="${${(M)0:#/*}:-$PWD/$0}"
 
+typeset -g FAST_HIGHLIGHT_VERSION=1.55
 typeset -g FAST_BASE_DIR="${0:h}"
 typeset -ga _FAST_MAIN_CACHE
 # Holds list of indices pointing at brackets that
 # are complex, i.e. e.g. part of "[[" in [[ ... ]]
 typeset -ga _FAST_COMPLEX_BRACKETS
 
-typeset -g FAST_WORK_DIR
-: ${FAST_WORK_DIR:=$FAST_BASE_DIR}
+typeset -g FAST_WORK_DIR=${FAST_WORK_DIR:-${XDG_CACHE_HOME:-~/.cache}/fast-syntax-highlighting}
+: ${FAST_WORK_DIR:=${FAST_BASE_DIR-}}
+# Expand any tilde in the (supposed) path.
 FAST_WORK_DIR=${~FAST_WORK_DIR}
 
-if [[ -z "$ZPLG_CUR_PLUGIN" && "${fpath[(r)$FAST_BASE_DIR]}" != $FAST_BASE_DIR ]]; then
-    fpath+=( "$FAST_BASE_DIR" )
+# Last (currently, possibly) loaded plugin isn't "fast-syntax-highlighting"?
+# And FPATH isn't containing plugin dir?
+if [[ ${zsh_loaded_plugins[-1]-} != */fast-syntax-highlighting && -z ${fpath[(r)${0:h}]-} ]]
+then
+    fpath+=( "${0:h}" )
 fi
 
-if [[ "$FAST_WORK_DIR" = /usr/* || ( "$FAST_WORK_DIR" = /opt/* && ! -w "$FAST_WORK_DIR" ) ]]; then
+if [[ ! -w $FAST_WORK_DIR ]]; then
     FAST_WORK_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/fsh"
     command mkdir -p "$FAST_WORK_DIR"
 fi
@@ -70,7 +75,9 @@ _zsh_highlight()
     return $ret
   fi
 
-  setopt localoptions warncreateglobal noksharrays noshwordsplit extendedglob typesetsilent nokshglob
+  emulate -LR zsh
+  setopt extendedglob warncreateglobal typesetsilent noshortloops
+
   local REPLY # don't leak $REPLY into global scope
   local -a reply
 
@@ -232,7 +239,7 @@ _zsh_highlight_bind_widgets()
 
   # Override ZLE widgets to make them invoke _zsh_highlight.
   local -U widgets_to_bind
-  widgets_to_bind=(${${(k)widgets}:#(.*|run-help|which-command|beep|set-local-history|yank)})
+  widgets_to_bind=(${${(k)widgets}:#(.*|run-help|which-command|beep|set-local-history|yank|zle-line-pre-redraw|zle-keymap-select)})
 
   # Always wrap special zle-line-finish widget. This is needed to decide if the
   # current line ends and special highlighting logic needs to be applied.
@@ -245,7 +252,7 @@ _zsh_highlight_bind_widgets()
 
   local cur_widget
   for cur_widget in $widgets_to_bind; do
-    case $widgets[$cur_widget] in
+    case ${widgets[$cur_widget]-} in
 
       # Already rebound event: do nothing.
       user:_zsh_highlight_widget_*);;
@@ -272,7 +279,7 @@ _zsh_highlight_bind_widgets()
 
       # Incomplete or nonexistent widget: Bind to z-sy-h directly.
       *) 
-         if [[ $cur_widget == zle-* ]] && [[ -z $widgets[$cur_widget] ]]; then
+         if [[ $cur_widget == zle-* ]] && [[ -z ${widgets[$cur_widget]-} ]]; then
            _zsh_highlight_widget_${cur_widget}() { :; _zsh_highlight }
            zle -N -- $cur_widget _zsh_highlight_widget_$cur_widget
          else
@@ -311,23 +318,23 @@ add-zsh-hook preexec _zsh_highlight_preexec_hook 2>/dev/null || {
     print -r -- "$@" >>! /tmp/reply
 }
 
-ZSH_HIGHLIGHT_MAXLENGTH=10000
+typeset -g ZSH_HIGHLIGHT_MAXLENGTH=10000
 
 # Load zsh/parameter module if available
 zmodload zsh/parameter 2>/dev/null
 zmodload zsh/system 2>/dev/null
 
-autoload -Uz -- is-at-least fast-theme fast-read-ini-file -fast-run-git-command -fast-make-targets \
-                -fast-run-command -fast-zts-read-all
-autoload -Uz -- :chroma/-git.ch :chroma/-hub.ch :chroma/-lab.ch :chroma/-example.ch \
-                :chroma/-grep.ch :chroma/-perl.ch :chroma/-make.ch :chroma/-awk.ch \
-                :chroma/-vim.ch :chroma/-source.ch :chroma/-sh.ch :chroma/-docker.ch \
-                :chroma/-autoload.ch :chroma/-ssh.ch :chroma/-scp.ch :chroma/-which.ch \
-                :chroma/-printf.ch :chroma/-ruby.ch :chroma/-whatis.ch :chroma/-alias.ch \
-                :chroma/-subcommand.ch :chroma/-autorandr.ch :chroma/-nmcli.ch \
-                :chroma/-fast-theme.ch :chroma/-node.ch :chroma/-fpath_peq.ch \
-                :chroma/-precommand.ch :chroma/-subversion.ch :chroma/-ionice.ch \
-                :chroma/-nice.ch :chroma/main-chroma.ch :chroma/-ogit.ch :chroma/-zplugin.ch
+autoload -Uz -- is-at-least fast-theme .fast-read-ini-file .fast-run-git-command \
+                .fast-make-targets .fast-run-command .fast-zts-read-all
+autoload -Uz -- →chroma/-git.ch →chroma/-hub.ch →chroma/-lab.ch →chroma/-example.ch \
+                →chroma/-grep.ch →chroma/-perl.ch →chroma/-make.ch →chroma/-awk.ch \
+                →chroma/-vim.ch →chroma/-source.ch →chroma/-sh.ch →chroma/-docker.ch →chroma/-podman.ch \
+                →chroma/-autoload.ch →chroma/-ssh.ch →chroma/-scp.ch →chroma/-which.ch \
+                →chroma/-printf.ch →chroma/-ruby.ch →chroma/-whatis.ch →chroma/-alias.ch \
+                →chroma/-subcommand.ch →chroma/-autorandr.ch →chroma/-nmcli.ch \
+                →chroma/-fast-theme.ch →chroma/-node.ch →chroma/-fpath_peq.ch \
+                →chroma/-precommand.ch →chroma/-subversion.ch →chroma/-ionice.ch \
+                →chroma/-nice.ch →chroma/main-chroma.ch →chroma/-ogit.ch →chroma/-zinit.ch
 
 source "${0:h}/fast-highlight"
 source "${0:h}/fast-string-highlight"
@@ -355,3 +362,23 @@ unset __fsyh_theme
 alias fsh-alias=fast-theme
 
 -fast-highlight-fill-option-variables
+
+if [[ ! -e $FAST_WORK_DIR/secondary_theme.zsh ]] {
+    if { type curl &>/dev/null } {
+        curl -fsSL -o "$FAST_WORK_DIR/secondary_theme.zsh" \
+            https://raw.githubusercontent.com/zdharma-continuum/fast-syntax-highlighting/master/share/free_theme.zsh \
+            &>/dev/null
+    } elif { type wget &>/dev/null } {
+        wget -O "$FAST_WORK_DIR/secondary_theme.zsh" \
+            https://raw.githubusercontent.com/zdharma-continuum/fast-syntax-highlighting/master/share/free_theme.zsh \
+            &>/dev/null
+    }
+    touch "$FAST_WORK_DIR/secondary_theme.zsh"
+}
+
+if [[ $(uname -a) = (#i)*darwin* ]] {
+    typeset -gA FAST_HIGHLIGHT
+    FAST_HIGHLIGHT[chroma-man]=
+}
+
+[[ ${COLORTERM-} == (24bit|truecolor) || ${terminfo[colors]} -eq 16777216 ]] || zmodload zsh/nearcolor &>/dev/null || true

@@ -3,6 +3,18 @@
 
 (( next_word = 2 | 8192 ))
 local THEFD check __first_call="$1" __wrd="$2" __start_pos="$3" __end_pos="$4"
+local __style __term __section __section_flag
+
+# extact manual subsection
+# NOTE: __term should be separated from __wrd to prevent incorrect cache hits
+if command -v mandb > /dev/null; then
+    __term="${__wrd%.[0-8n](|p|type|const|head|perl)}"
+    __section="${${2#$__term}#.}"
+else
+    __term=$__wrd
+fi
+
+[[ -n $__section ]] && __section_flag="-s $__section"
 
 (( ! ${+FAST_HIGHLIGHT[whatis_chroma_callback_was_ran]} )) && \
         FAST_HIGHLIGHT[whatis_chroma_callback_was_ran]=0
@@ -18,7 +30,7 @@ local THEFD check __first_call="$1" __wrd="$2" __start_pos="$3" __end_pos="$4"
 
     local THEFD="$1" input check=2 nl=$'\n' __wrd __style
 
-    -fast-zts-read-all "$THEFD" input
+    .fast-zts-read-all "$THEFD" input
 
     zle -F "$THEFD"
     exec {THEFD}<&-
@@ -96,7 +108,7 @@ else
                 print "$__wrd"
                 (( __start=__start_pos-${#PREBUFFER}, __end=__end_pos-${#PREBUFFER} ))
                 print "$__start/$__end"
-                LANG=C whatis "$__wrd" 2>/dev/null
+                LANG=C whatis "${(z)__section_flag}" "$__term" 2>/dev/null
             )
             command true # see above
             zle -F ${${FAST_HIGHLIGHT[whatis_chroma_zle_-F_have_-w_opt]:#0}:+-w} "$THEFD" -fast-whatis-chroma-callback
@@ -106,12 +118,15 @@ else
                 print "$__wrd"
                 (( __start=__start_pos-${#PREBUFFER}, __end=__end_pos-${#PREBUFFER} ))
                 print "$__start/$__end"
-                LANG=C whatis "$__wrd" &> /dev/null
+                LANG=C whatis "${(z)__section_flag}" "$__term" &> /dev/null
                 print "$?"
             )
             command true
             zle -F ${${FAST_HIGHLIGHT[whatis_chroma_zle_-F_have_-w_opt]:#0}:+-w} "$THEFD" -fast-whatis-chroma-callback
         fi
+        __style=${FAST_HIGHLIGHT_STYLES[${FAST_THEME_NAME}incorrect-subtle]}
+        (( __start=__start_pos-${#PREBUFFER}, __end=__end_pos-${#PREBUFFER}, __start >= 0 )) && \
+            reply+=("$__start $__end $__style")
     else
         check=${FAST_HIGHLIGHT[whatis-cache-$__wrd]}
         if (( check )) then

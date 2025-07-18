@@ -41,6 +41,7 @@ SAVEHIST=9999999
         alias fgrep='grep -F'
         alias grep='grep --color=auto'
         alias ks="killall screen"
+        alias la='ls -lah'
         alias lgit="lazygit"
         alias p="paru"
         alias pu="paru -Syu --noconfirm"

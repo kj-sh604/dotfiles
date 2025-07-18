@@ -13,10 +13,14 @@ ensure_directory_and_file() {
 # source personal posix functions
 source_if_exists ~/.config/shell/posix-functions/create_POSIX_dotenv.sh
 source_if_exists ~/.config/shell/posix-functions/POSIX_open.sh
+source_if_exists ~/.zprofile
 
 # git prompt
 source_if_exists ~/.config/shell/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM=1
 
 if [[ $- != *i* ]] ; then
 	return
@@ -87,3 +91,35 @@ done
 unset use_color sh
 
 export HISTFILE="$XDG_STATE_HOME"/shell/history
+
+set -o vi
+
+bind -m vi-command '"\C-e": edit-and-execute-command'
+bind -m vi-insert  '"\C-e": edit-and-execute-command'
+
+# aliases
+command which eza >/dev/null 2>&1 && alias ls="eza"
+command which alsi >/dev/null 2>&1 && alias neofetch="alsi"
+alias S="cd ~/.local/bin && ls"
+alias c="cal"
+alias d="disown"
+alias dots="cd ~/.local/share/.dotfiles/"
+alias egrep='grep -E'
+alias fgrep='grep -F'
+alias grep='grep --color=auto'
+alias ks="killall screen"
+alias la='ls -lah'
+alias lgit="lazygit"
+alias p="paru"
+alias pu="paru -Syu --noconfirm"
+alias s="screen"
+alias sls="screen -ls"
+alias sr="screen -r"
+alias t="timedatectl"
+alias uncommit="git reset --soft HEAD^"
+alias w="curl wttr.in"
+alias x="startx"
+alias yt-best="youtube-dl -cif 'bestvideo+bestaudio/best'"
+alias yt-m4a="youtube-dl -cif 'bestaudio[ext=m4a]'"
+alias yt-mp4="youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
+alias yt-webm="youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"

@@ -3,16 +3,19 @@
 # POSIX-compliant xrandr screen scaling shell script
 # Requires: xrandr, fzf, awk, sed, printf, cut, grep
 
-err() { printf "%s\n" "$*" >&2; exit 1; }
+err() {
+    printf "%s\n" "$*" >&2
+    exit 1
+}
 
 for cmd in xrandr fzf awk sed grep cut printf; do
-  command -v "$cmd" >/dev/null 2>&1 || err "required command not found: $cmd"
+    command -v "$cmd" >/dev/null 2>&1 || err "required command not found: $cmd"
 done
 
 TMPDIR=${TMPDIR:-/tmp}
 tmp_out="$TMPDIR/xrandr_outputs_$"
 tmp_scales="$TMPDIR/xrandr_scales_$"
-xrandr --query > "$tmp_out" || err "xrandr failed"
+xrandr --query >"$tmp_out" || err "xrandr failed"
 
 awk '
 / connected/ {
@@ -39,15 +42,21 @@ awk '
     if (!found) print out "\tunknown"
   }
 }
-' "$tmp_out" > "${tmp_out}.list"
+' "$tmp_out" >"${tmp_out}.list"
 
-[ -s "${tmp_out}.list" ] || { rm -f "$tmp_out" "${tmp_out}.list"; err "no connected outputs found."; }
+[ -s "${tmp_out}.list" ] || {
+    rm -f "$tmp_out" "${tmp_out}.list"
+    err "no connected outputs found."
+}
 
-chosen_line=$(awk -F'\t' '{printf "%s\t%s\n",$1,$2}' "${tmp_out}.list" | fzf --prompt="select output: " --with-nth=1,2 --tiebreak=index --exact) || { rm -f "$tmp_out" "${tmp_out}.list"; exit 1; }
+chosen_line=$(awk -F'\t' '{printf "%s\t%s\n",$1,$2}' "${tmp_out}.list" | fzf --prompt="select output: " --with-nth=1,2 --tiebreak=index --exact) || {
+    rm -f "$tmp_out" "${tmp_out}.list"
+    exit 1
+}
 out=$(printf '%s' "$chosen_line" | cut -f1)
 cur_res=$(printf '%s' "$chosen_line" | cut -f2)
 
-cat > "$tmp_scales" <<'EOF'
+cat >"$tmp_scales" <<'EOF'
 4k to 1080p	3840x2160	1920x1080
 4k to 1440p	3840x2160	2560x1440
 4k to 1600p	3840x2160	2560x1600
@@ -56,10 +65,10 @@ cat > "$tmp_scales" <<'EOF'
 1440p to 1080p	2560x1440	1920x1080
 1440p to 720p	2560x1440	1280x720
 2560x1600 to 1080p	2560x1600	1920x1080
-1080p to 768p	1920x1080	1366x768
 1080p to 720p	1920x1080	1280x720
+1080p to 768p	1920x1080	1366x768
+1080p to 900p	1920x1080	1600x900
 1080p to 4k	1920x1080	3840x2160
-1080p to 1366x768	1920x1080	1366x768
 1600x900 to 1080p	1600x900	1920x1080
 1600x900 to 720p	1600x900	1280x720
 720p to 1080p	1280x720	1920x1080
@@ -115,26 +124,27 @@ cat > "$tmp_scales" <<'EOF'
 reset scaling	-	-
 EOF
 
-# present options (strip comment lines). Use fzf with --exact to make matching
-# stricter (slightly less fuzzy).
-chosen_scale=$(grep -v '^#' "$tmp_scales" | awk -F'\t' '{printf "%s\t%s\t%s\n",$1,$2,$3}' \
-  | fzf --prompt="select scaling option: " --with-nth=1,2,3 --exact --tiebreak=index --preview='echo {}') || { rm -f "$tmp_out" "${tmp_out}.list" "$tmp_scales"; exit 1; }
+chosen_scale=$(grep -v '^#' "$tmp_scales" | awk -F'\t' '{printf "%s\t%s\t%s\n",$1,$2,$3}' |
+    fzf --prompt="select scaling option: " --with-nth=1,2,3 --tiebreak=index --preview='echo {}') || {
+    rm -f "$tmp_out" "${tmp_out}.list" "$tmp_scales"
+    exit 1
+}
 
 label=$(printf '%s' "$chosen_scale" | cut -f1)
 src=$(printf '%s' "$chosen_scale" | cut -f2)
 tgt=$(printf '%s' "$chosen_scale" | cut -f3)
 
 if [ "$label" = "reset scaling" ]; then
-  scale_for_xrandr="1x1"
+    scale_for_xrandr="1x1"
 else
-  scale=$(awk -F'[x\t ]' -v s="$src" -v t="$tgt" '
+    scale=$(awk -F'[x\t ]' -v s="$src" -v t="$tgt" '
     BEGIN{
       split(s,ss,"x"); split(t,tt,"x");
       if (ss[1]==0 || ss[2]==0) { print "1.000000,1.000000"; exit }
       sx = tt[1]/ss[1]; sy = tt[2]/ss[2];
       printf("%.6f,%.6f", sx, sy);
     }')
-  scale_for_xrandr=$(printf '%s' "$scale" | sed 's/,/x/')
+    scale_for_xrandr=$(printf '%s' "$scale" | sed 's/,/x/')
 fi
 
 printf 'applying: output=%s  current=%s  option=%s  scale=%s\n' "$out" "$cur_res" "$label" "$scale_for_xrandr"

@@ -489,6 +489,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "z", function () awful.spawn.easy_async_with_shell("boomer") end,
       {description = "run boomer (zoomer application for Linux)", group = "launcher"}),
 
+    -- toggle lock screen, if available
+    awful.key({ modkey, "Shift" }, "l",
+        function() awful.spawn.easy_async_with_shell(
+            "command -v slock >/dev/null 2>&1 && slock || notify-send 'lock screen error:' 'slock not installed'") end,
+        { description = "lock the screen with slock", group = "awesome" }),
+
     -- tiled client resizing
     -- h,j,k,l binds
     awful.key({ modkey }, "l", function() awful.tag.incmwfact(0.05) end,

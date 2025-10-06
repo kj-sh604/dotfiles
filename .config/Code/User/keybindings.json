@@ -5,7 +5,7 @@
         "when": "!notebookEditorFocused && editorLangId == 'markdown'"
     },
     {
-        "key": "alt+f12",
+        "key": "alt+f11",
         "command": "toggleVim"
     }
 ]

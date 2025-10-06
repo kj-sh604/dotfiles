@@ -76,4 +76,5 @@
     "[markdown]": {
         "editor.fontWeight": "normal"
     },
+    "chat.agent.maxRequests": 50,
 }

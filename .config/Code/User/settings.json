@@ -1,0 +1,79 @@
+{
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.replace": "underline",
+    "vim.cursorStylePerMode.visual": "line",
+    "vim.cursorStylePerMode.visualblock": "line-thin",
+    "vim.cursorStylePerMode.visualline": "line",
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-x>": true,
+        "<C-c>": true,
+        "<C-z>": true,
+        "<C-s>": true,
+        "<C-p>": true,
+        "<C-i>": false,
+        "<C-n>": false,
+        "<C-k>": false,
+        "<C-w>": false
+    },
+    "vim.history": 1000,
+    "vim.statusBarColorControl": false,
+    "vim.shell": "/bin/sh",
+    "vim.textwidth": 120,
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "$HOME/.code-vimrc",
+    "workbench.colorTheme": "Adwaita Dark",
+    "editor.fontFamily": "'Roboto Mono' ,'Droid Sans Mono', 'monospace', monospace",
+    "editor.wordWrap": "on",
+    "editor.smoothScrolling": false,
+    "workbench.reduceMotion": "on",
+    "editor.cursorBlinking": "solid",
+    "editor.minimap.enabled": false,
+    "editor.codeLens": false,
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    "keyboard.dispatch": "keyCode",
+    "editor.lineNumbers": "relative",
+    "editor.fontWeight": "normal",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "markup.bold",
+                    "strong",
+                    "punctuation.definition.bold"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "markup.italic",
+                    "emphasis",
+                    "punctuation.definition.italic"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            }
+        ]
+    },
+    "editor.semanticTokenColorCustomizations": {
+        "rules": {
+            "*.bold": {
+                "fontStyle": ""
+            },
+            "*.italic": {
+                "fontStyle": ""
+            }
+        }
+    },
+    "[markdown]": {
+        "editor.fontWeight": "normal"
+    },
+}

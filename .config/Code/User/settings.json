@@ -1,4 +1,5 @@
 {
+    "keyboard.dispatch": "keyCode",
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.normal": "block",
     "vim.cursorStylePerMode.replace": "underline",
@@ -36,7 +37,6 @@
         "comments": false,
         "strings": false
     },
-    "keyboard.dispatch": "keyCode",
     "editor.lineNumbers": "relative",
     "editor.fontWeight": "normal",
     "editor.tokenColorCustomizations": {

@@ -70,11 +70,74 @@
             },
             "*.italic": {
                 "fontStyle": ""
+            },
+            "*.underline": {
+                "fontStyle": ""
+            },
+            "*.strikethrough": {
+                "fontStyle": ""
+            },
+            "comment.bold": {
+                "fontStyle": ""
+            },
+            "comment.italic": {
+                "fontStyle": ""
+            },
+            "keyword.bold": {
+                "fontStyle": ""
+            },
+            "keyword.italic": {
+                "fontStyle": ""
+            },
+            "string.bold": {
+                "fontStyle": ""
+            },
+            "string.italic": {
+                "fontStyle": ""
+            },
+            "variable.bold": {
+                "fontStyle": ""
+            },
+            "variable.italic": {
+                "fontStyle": ""
+            },
+            "function.bold": {
+                "fontStyle": ""
+            },
+            "function.italic": {
+                "fontStyle": ""
+            },
+            "class.bold": {
+                "fontStyle": ""
+            },
+            "class.italic": {
+                "fontStyle": ""
+            },
+            "type.bold": {
+                "fontStyle": ""
+            },
+            "type.italic": {
+                "fontStyle": ""
             }
         }
     },
     "[markdown]": {
         "editor.fontWeight": "normal"
     },
+    "editor.fontLigatures": false,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
+    "editor.bracketPairColorization.enabled": false,
+    "editor.guides.bracketPairs": false,
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.guides.highlightActiveBracketPair": false,
+    "editor.guides.indentation": false,
+    "editor.inlayHints.enabled": "off",
+    "editor.colorDecorators": false,
+    "editor.lightbulb.enabled": "off",
+    "editor.glyphMargin": false,
+    "editor.folding": false,
+    "workbench.editor.decorations.colors": false,
+    "workbench.editor.decorations.badges": false,
     "chat.agent.maxRequests": 50,
 }

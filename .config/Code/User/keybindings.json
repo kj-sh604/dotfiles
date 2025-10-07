@@ -5,7 +5,17 @@
         "when": "!notebookEditorFocused && editorLangId == 'markdown'"
     },
     {
-        "key": "alt+f11",
+        "key": "alt+f11 v",
         "command": "toggleVim"
+    },
+    {
+        "key": "alt+f11 l",
+        "command": "toggle-relative-line-numbers.toggle",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "-toggle-relative-line-numbers.toggle",
+        "when": "editorTextFocus"
     }
 ]

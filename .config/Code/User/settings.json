@@ -117,6 +117,7 @@
     "editor.showDeprecated": false,
     "editor.showUnused": false,
     "editor.smoothScrolling": false,
+    "editor.stickyScroll.enabled": false,
     "editor.suggest.filterGraceful": true,
     "editor.suggest.insertMode": "replace",
     "editor.suggestOnTriggerCharacters": true,

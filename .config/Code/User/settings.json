@@ -1,68 +1,60 @@
 {
-    "vim.cursorStylePerMode.insert": "line",
-    "vim.cursorStylePerMode.normal": "block",
-    "vim.cursorStylePerMode.replace": "underline",
-    "vim.cursorStylePerMode.visual": "line",
-    "vim.cursorStylePerMode.visualblock": "line-thin",
-    "vim.cursorStylePerMode.visualline": "line",
-    "vim.handleKeys": {
-        "<C-d>": true,
-        "<C-x>": true,
-        "<C-c>": true,
-        "<C-z>": true,
-        "<C-s>": true,
-        "<C-p>": true,
-        "<C-i>": false,
-        "<C-n>": false,
-        "<C-k>": false,
-        "<C-w>": false
+    "[markdown]": {
+        "editor.fontWeight": "normal"
     },
-    "vim.history": 1000,
-    "vim.statusBarColorControl": false,
-    "vim.shell": "/bin/sh",
-    "vim.textwidth": 120,
-    "vim.vimrc.enable": true,
-    "vim.vimrc.path": "$HOME/.code-vimrc",
-    "workbench.colorTheme": "Adwaita Dark",
-    "editor.fontFamily": "'Roboto Mono' ,'Droid Sans Mono', 'monospace', monospace",
-    "editor.wordWrap": "on",
-    "editor.smoothScrolling": false,
-    "workbench.reduceMotion": "on",
-    "editor.cursorBlinking": "solid",
-    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
+    "chat.agent.maxRequests": 50,
+    "editor.acceptSuggestionOnCommitCharacter": true,
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.bracketPairColorization.enabled": false,
+    "editor.codeActionsOnSave": {},
     "editor.codeLens": false,
+    "editor.colorDecorators": false,
+    "editor.cursorBlinking": "solid",
+    "editor.detectIndentation": false,
+    "editor.dragAndDrop": false,
+    "editor.find.addExtraSpaceOnTop": false,
+    "editor.find.autoFindInSelection": "never",
+    "editor.folding": false,
+    "editor.fontFamily": "'Roboto Mono' ,'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontLigatures": false,
+    "editor.fontWeight": "normal",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    "editor.glyphMargin": false,
+    "editor.guides.bracketPairs": false,
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.guides.highlightActiveBracketPair": false,
+    "editor.guides.indentation": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.hover.enabled": false,
+    "editor.inlayHints.enabled": "off",
+    "editor.inlineSuggest.enabled": true,
+    "editor.insertSpaces": true,
+    "editor.lightbulb.enabled": "off",
+    "editor.lineNumbers": "relative",
+    "editor.linkedEditing": false,
+    "editor.links": false,
+    "editor.matchBrackets": "never",
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": "off",
+    "editor.overviewRulerBorder": false,
+    "editor.parameterHints.enabled": false,
     "editor.quickSuggestions": {
-        "other": false,
+        "other": "inline",
         "comments": false,
         "strings": false
     },
-    "keyboard.dispatch": "keyCode",
-    "editor.lineNumbers": "relative",
-    "editor.fontWeight": "normal",
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": [
-                    "markup.bold",
-                    "strong",
-                    "punctuation.definition.bold"
-                ],
-                "settings": {
-                    "fontStyle": ""
-                }
-            },
-            {
-                "scope": [
-                    "markup.italic",
-                    "emphasis",
-                    "punctuation.definition.italic"
-                ],
-                "settings": {
-                    "fontStyle": ""
-                }
-            }
-        ]
-    },
+    "editor.renderControlCharacters": false,
+    "editor.renderLineHighlight": "none",
+    "editor.renderLineHighlightOnlyWhenFocus": false,
+    "editor.renderWhitespace": "none",
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.horizontalScrollbarSize": 0,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.selectionHighlight": false,
     "editor.semanticTokenColorCustomizations": {
         "rules": {
             "*.bold": {
@@ -121,23 +113,128 @@
             }
         }
     },
-    "[markdown]": {
-        "editor.fontWeight": "normal"
+    "editor.showDeprecated": false,
+    "editor.showUnused": false,
+    "editor.smoothScrolling": false,
+    "editor.suggest.filterGraceful": true,
+    "editor.suggest.insertMode": "replace",
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.tabSize": 4,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "markup.bold",
+                    "strong",
+                    "punctuation.definition.bold"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "markup.italic",
+                    "emphasis",
+                    "punctuation.definition.italic"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            }
+        ]
     },
-    "editor.fontLigatures": false,
-    "editor.renderWhitespace": "none",
-    "editor.renderControlCharacters": false,
-    "editor.bracketPairColorization.enabled": false,
-    "editor.guides.bracketPairs": false,
-    "editor.guides.bracketPairsHorizontal": false,
-    "editor.guides.highlightActiveBracketPair": false,
-    "editor.guides.indentation": false,
-    "editor.inlayHints.enabled": "off",
-    "editor.colorDecorators": false,
-    "editor.lightbulb.enabled": "off",
-    "editor.glyphMargin": false,
-    "editor.folding": false,
-    "workbench.editor.decorations.colors": false,
+    "editor.unusedVariables": "off",
+    "editor.wordBasedSuggestions": "off",
+    "editor.wordBasedSuggestionsMode": "currentDocument",
+    "editor.wordWrap": "on",
+    "explorer.compactFolders": true,
+    "explorer.decorations.badges": true,
+    "explorer.decorations.colors": false,
+    "explorer.fileNesting.enabled": false,
+    "extensions.autoCheckUpdates": false,
+    "extensions.autoUpdate": false,
+    "extensions.ignoreRecommendations": true,
+    "files.autoSave": "off",
+    "files.exclude": {
+        "**/.DS_Store": false,
+        "**/.git": false,
+        "**/.hg": false,
+        "**/.svn": false,
+        "**/Thumbs.db": false
+    },
+    "files.hotExit": "onExitAndWindowClose",
+    "files.insertFinalNewline": false,
+    "files.trimFinalNewlines": false,
+    "files.trimTrailingWhitespace": false,
+    "git.autoStash": false,
+    "git.autofetch": false,
+    "git.decorations.enabled": true,
+    "git.enabled": true,
+    "git.showPushSuccessNotification": false,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": true,
+        "plaintext": true,
+        "markdown": true
+    },
+    "keyboard.dispatch": "keyCode",
+    "problems.decorations.enabled": false,
+    "scm.decorations.enabled": true,
+    "search.collapseResults": "auto",
+    "search.globalFindClipboard": false,
+    "search.showLineNumbers": false,
+    "search.smartCase": true,
+    "telemetry.telemetryLevel": "off",
+    "terminal.integrated.cursorBlinking": false,
+    "terminal.integrated.drawBoldTextInBrightColors": false,
+    "terminal.integrated.fastScrollSensitivity": 5,
+    "terminal.integrated.rendererType": "dom",
+    "terminal.integrated.smoothScrolling": false,
+    "update.enableWindowsBackgroundUpdates": false,
+    "update.showReleaseNotes": false,
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.replace": "underline",
+    "vim.cursorStylePerMode.visual": "line",
+    "vim.cursorStylePerMode.visualblock": "line-thin",
+    "vim.cursorStylePerMode.visualline": "line",
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-x>": true,
+        "<C-c>": true,
+        "<C-z>": true,
+        "<C-s>": true,
+        "<C-p>": true,
+        "<C-i>": false,
+        "<C-n>": false,
+        "<C-k>": false,
+        "<C-w>": false
+    },
+    "vim.history": 1000,
+    "vim.shell": "/bin/sh",
+    "vim.statusBarColorControl": false,
+    "vim.textwidth": 120,
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "$HOME/.code-vimrc",
+    "window.menuBarVisibility": "toggle",
+    "window.newWindowDimensions": "inherit",
+    "window.restoreWindows": "none",
+    "workbench.activityBar.location": "default",
+    "workbench.colorTheme": "Adwaita Dark",
     "workbench.editor.decorations.badges": false,
-    "chat.agent.maxRequests": 50,
+    "workbench.editor.decorations.colors": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.pinnedTabSizing": "compact",
+    "workbench.editor.showIcons": true,
+    "workbench.editor.tabSizing": "fit",
+    "workbench.hover.delay": 1500,
+    "workbench.reduceMotion": "on",
+    "workbench.startupEditor": "none",
+    "workbench.statusBar.visible": true,
+    "workbench.tips.enabled": false,
+    "workbench.tree.indent": 8,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.welcomePage.walkthroughs.openOnInstall": false,
 }

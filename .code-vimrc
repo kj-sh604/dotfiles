@@ -1,25 +1,3 @@
-filetype plugin on
-syntax on
-filetype indent on
-set autochdir
-set autoindent
-set cursorline
-set expandtab
-set hlsearch
-set ignorecase
-set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
-set mouse=a
-set number
-set relativenumber
-set shiftwidth=4
-set showmatch
-set smartcase
-set softtabstop=4
-set tabstop=4
-set termguicolors
-set ttimeout
-set ttimeoutlen=0
-set ttyfast
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv

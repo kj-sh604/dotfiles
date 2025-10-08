@@ -16,7 +16,7 @@
     "editor.find.addExtraSpaceOnTop": false,
     "editor.find.autoFindInSelection": "never",
     "editor.folding": false,
-    "editor.fontFamily": "'Roboto Mono' ,'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontFamily": "'Roboto Mono', 'monospace', monospace",
     "editor.fontLigatures": false,
     "editor.fontWeight": "normal",
     "editor.formatOnPaste": false,
@@ -42,9 +42,9 @@
     "editor.overviewRulerBorder": false,
     "editor.parameterHints.enabled": true,
     "editor.quickSuggestions": {
-        "other": "inline",
-        "comments": false,
-        "strings": false
+        "other": "on",
+        "comments": "off",
+        "strings": "off"
     },
     "editor.renderControlCharacters": false,
     "editor.renderLineHighlight": "none",
@@ -145,9 +145,7 @@
             }
         ]
     },
-    "editor.unusedVariables": "off",
-    "editor.wordBasedSuggestions": "off",
-    "editor.wordBasedSuggestionsMode": "currentDocument",
+    "editor.wordBasedSuggestions": "matchingDocuments",
     "editor.wordWrap": "on",
     "explorer.compactFolders": true,
     "explorer.decorations.badges": true,
@@ -202,7 +200,6 @@
     "json.maxItemsComputed": 5000,
     "keyboard.dispatch": "keyCode",
     "problems.decorations.enabled": true,
-    "scm.decorations.enabled": true,
     "search.collapseResults": "auto",
     "search.exclude": {
         "**/node_modules": true,
@@ -220,14 +217,13 @@
         "**/.cache": true,
         "**/target": true
     },
-    "search.globalFindClipboard": false,
     "search.showLineNumbers": false,
     "search.smartCase": true,
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.cursorBlinking": false,
     "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.fastScrollSensitivity": 5,
-    "terminal.integrated.rendererType": "dom",
+    "terminal.integrated.gpuAcceleration": "off",
     "terminal.integrated.smoothScrolling": false,
     "typescript.disableAutomaticTypeAcquisition": true,
     "typescript.preferences.includePackageJsonAutoImports": "off",
@@ -235,7 +231,7 @@
     "typescript.suggest.includeCompletionsForModuleExports": false,
     "typescript.surveys.enabled": false,
     "typescript.workspaceSymbols.enabled": false,
-    "update.enableWindowsBackgroundUpdates": false,
+    "update.mode": "none",
     "update.showReleaseNotes": false,
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.normal": "block",

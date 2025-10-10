@@ -269,7 +269,7 @@
         "statusBar.debuggingBackground": "#7d4c10",
         "statusBar.debuggingForeground": "#ffffff",
         "statusBar.foreground": "#ffffff",
-        "statusBar.noFolderBackground": "#11427E",
+        "statusBar.noFolderBackground": "#303030",
         "statusBar.noFolderForeground": "#ffffff",
     },
     "workbench.colorTheme": "Dark Pastel Theme",

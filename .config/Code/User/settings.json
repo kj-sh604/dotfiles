@@ -261,7 +261,7 @@
     "window.newWindowDimensions": "inherit",
     "window.restoreWindows": "none",
     "workbench.activityBar.location": "default",
-    "workbench.colorTheme": "Adwaita Dark",
+    "workbench.colorTheme": "Gnome Dark (Atom One)",
     "workbench.editor.decorations.badges": false,
     "workbench.editor.decorations.colors": false,
     "workbench.editor.enablePreview": false,

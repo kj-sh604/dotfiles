@@ -153,6 +153,9 @@
     "explorer.fileNesting.enabled": false,
     "extensions.autoCheckUpdates": false,
     "extensions.autoUpdate": false,
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
     "extensions.ignoreRecommendations": true,
     "files.autoSave": "off",
     "files.exclude": {
@@ -256,6 +259,7 @@
     "vim.incsearch": true,
     "vim.shell": "/bin/sh",
     "vim.statusBarColorControl": false,
+    "vim.surround": true,
     "vim.textwidth": 120,
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "$HOME/.code-vimrc",

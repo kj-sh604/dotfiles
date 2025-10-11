@@ -17,5 +17,101 @@
         "key": "ctrl+alt+l",
         "command": "-toggle-relative-line-numbers.toggle",
         "when": "editorTextFocus"
+    },
+    // sidebar (equivalent to my nerdtree nvim config)
+    {
+        "key": "alt+shift+n",
+        "command": "workbench.explorer.fileView.focus",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+n",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    // splits operation
+    {
+        "key": "alt+s",
+        "command": "workbench.action.splitEditorRight",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+d",
+        "command": "workbench.action.splitEditorDown",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    // splits navigation
+    {
+        "key": "alt+h",
+        "command": "workbench.action.focusLeftGroup",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.focusBelowGroup",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.focusAboveGroup",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.focusRightGroup",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    // alternate close
+    {
+        "key": "alt+q",
+        "command": "workbench.action.closeActiveEditor",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    // tab operations
+    {
+        "key": "alt+t",
+        "command": "workbench.action.files.newUntitledFile",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+[",
+        "command": "workbench.action.previousEditor",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+]",
+        "command": "workbench.action.nextEditor",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+;",
+        "command": "workbench.action.moveEditorLeftInGroup",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+'",
+        "command": "workbench.action.moveEditorRightInGroup",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    // splits resizing
+    {
+        "key": "alt+,",
+        "command": "workbench.action.decreaseViewWidth",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+.",
+        "command": "workbench.action.increaseViewWidth",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+-",
+        "command": "workbench.action.decreaseViewHeight",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+=",
+        "command": "workbench.action.increaseViewHeight",
+        "when": "vim.active && vim.mode == 'Normal'"
     }
 ]

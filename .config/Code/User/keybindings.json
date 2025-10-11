@@ -113,5 +113,9 @@
         "key": "alt+=",
         "command": "workbench.action.increaseViewHeight",
         "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+f11 s",
+        "command": "cSpell.toggleEnableSpellChecker"
     }
 ]

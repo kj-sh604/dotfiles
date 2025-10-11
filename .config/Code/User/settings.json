@@ -252,6 +252,8 @@
         "<C-w>": false
     },
     "vim.history": 1000,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
     "vim.shell": "/bin/sh",
     "vim.statusBarColorControl": false,
     "vim.textwidth": 120,
@@ -292,4 +294,5 @@
     "workbench.tree.indent": 8,
     "workbench.tree.renderIndentGuides": "none",
     "workbench.welcomePage.walkthroughs.openOnInstall": false,
+    "cSpell.enabled": false,
 }

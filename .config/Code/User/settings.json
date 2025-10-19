@@ -147,7 +147,7 @@
     },
     "editor.wordBasedSuggestions": "matchingDocuments",
     "editor.wordWrap": "on",
-    "explorer.compactFolders": true,
+    "explorer.compactFolders": false,
     "explorer.decorations.badges": true,
     "explorer.decorations.colors": false,
     "explorer.fileNesting.enabled": false,

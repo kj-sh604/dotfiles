@@ -166,8 +166,8 @@ dynamic_title = true
 title = "Terminal"
 
 [window.dimensions]
-columns = 160
-lines = 48
+columns = 95
+lines = 28
 
 [general]
 live_config_reload = true

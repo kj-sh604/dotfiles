@@ -1,0 +1,26 @@
+#!/bin/sh
+
+CONFIG_FILE="/etc/systemd/logind.conf"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "Error: $CONFIG_FILE not found"
+    exit 1
+fi
+
+CURRENT_VALUE=$(grep "^HandleLidSwitch=" "$CONFIG_FILE" | cut -d "=" -f 2-)
+
+if [ -z "$CURRENT_VALUE" ]; then
+    sudo sed -i "s/#HandleLidSwitch=suspend/HandleLidSwitch=suspend/" "$CONFIG_FILE"
+    echo "HandleLidSwitch set to suspend"
+    exit 0
+fi
+
+if [ "$CURRENT_VALUE" = "suspend" ]; then
+    NEW_VALUE="ignore"
+else
+    NEW_VALUE="suspend"
+fi
+
+sudo sed -i "s/^HandleLidSwitch=.*/HandleLidSwitch=$NEW_VALUE/" "$CONFIG_FILE"
+
+sudo systemctl restart systemd-logind && echo "HandleLidSwitch toggled to $NEW_VALUE"

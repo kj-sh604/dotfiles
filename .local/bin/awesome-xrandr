@@ -1,0 +1,8 @@
+#!/bin/sh
+
+DEFAULT_SCREEN="eDP1"
+for SCREEN in $(xrandr | grep "connected" | awk '{ print$1 }' | grep -v "$DEFAULT_SCREEN"); do
+    xrandr --output "$SCREEN" --off
+done
+xrandr --output "$DEFAULT_SCREEN" --primary --auto --pos 0x0 --rotate normal
+xrandr --output "$DEFAULT_SCREEN" --panning 0x0

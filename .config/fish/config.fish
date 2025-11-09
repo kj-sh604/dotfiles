@@ -19,7 +19,6 @@ if status is-interactive
         abbr -a c "cal"
         abbr -a d "disown"
         abbr -a dots "cd ~/.local/share/.dotfiles/"
-        abbr -a dotx "cd ~/.local/share/.dotextras/"
         abbr -a egrep "grep -E"
         abbr -a fgrep "grep -F"
         abbr -a ks "killall screen"

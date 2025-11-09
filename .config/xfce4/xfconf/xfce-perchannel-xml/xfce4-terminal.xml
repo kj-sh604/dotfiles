@@ -46,5 +46,5 @@
   <property name="shortcuts-no-mnemonics" type="bool" value="true"/>
   <property name="kinetic-scrolling" type="bool" value="false"/>
   <property name="command-login-shell" type="bool" value="true"/>
-  <property name="misc-maximize-default" type="bool" value="false"/>
+  <property name="misc-maximize-default" type="bool" value="true"/>
 </channel>

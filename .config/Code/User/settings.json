@@ -267,7 +267,6 @@
     "window.menuBarVisibility": "toggle",
     "window.newWindowDimensions": "inherit",
     "window.restoreWindows": "none",
-    "window.titleBarStyle": "native",
     "workbench.activityBar.location": "default",
     "workbench.colorCustomizations": {
         "editorCursor.background": "#303030",

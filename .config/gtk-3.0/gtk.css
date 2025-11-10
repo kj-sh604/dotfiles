@@ -1,0 +1,32 @@
+/* uncomment the following to use a monospace font with xfce4-panel */
+/* --- */
+/* .xfce4-panel {
+  font-family: monospace;
+  font-size: 10px;
+} */
+
+/* uncomment the following to use a monospace font with xfce4-notifyd */
+/* --- */
+/* #XfceNotifyWindow label,
+#XfceNotifyWindow image {
+  font-family: monospace;
+  font-size: 10px;
+} */
+
+/* uncomment the following for high-contrast workspace panel pager */
+/* change "#pager-" to the correct internal name in your panel config */
+/* --- */
+/* .xfce4-panel #pager- button {
+  background-color: transparent;
+  border-radius: 3px;
+}
+.xfce4-panel #pager- button:checked {
+  background-image: none;
+  background-color: #15539E;
+  border-color: #15539E;
+  border-radius: 3px;
+}
+.xfce4-panel #pager- button:hover {
+  background-color: #15539E;
+  border-radius: 3px;
+} */

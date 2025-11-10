@@ -37,7 +37,6 @@ SAVEHIST=9999999
         alias c="cal"
         alias d="disown"
         alias dots="cd ~/.local/share/.dotfiles/"
-        alias dotx="cd ~/.local/share/.dotextras/"
         alias egrep='grep -E'
         alias fgrep='grep -F'
         alias grep='grep --color=auto'

@@ -1,9 +1,0 @@
-#!/bin/sh
-
-current_state=$(dunstctl is-paused)
-
-if [ "$current_state" = "false" ]; then
-  dunstctl set-paused true
-else
-  dunstctl set-paused false
-fi

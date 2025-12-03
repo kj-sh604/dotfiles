@@ -250,6 +250,7 @@
         "<C-z>": true,
         "<C-s>": true,
         "<C-p>": true,
+        "<C-j>": false,
         "<C-i>": false,
         "<C-n>": false,
         "<C-k>": false,

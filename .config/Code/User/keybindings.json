@@ -117,5 +117,21 @@
     {
         "key": "alt+f11 s",
         "command": "cSpell.toggleEnableSpellChecker"
-    }
+    },
+    {
+        "key": "ctrl+w ctrl+j",
+        "command": "workbench.action.focusNextPart"
+    },
+    {
+        "key": "ctrl+w k",
+        "command": "workbench.action.focusPreviousPart"
+    },
+    {
+        "key": "ctrl+w ctrl+k",
+        "command": "workbench.action.focusPreviousPart"
+    },
+    {
+        "key": "ctrl+w j",
+        "command": "workbench.action.focusNextPart"
+    },
 ]

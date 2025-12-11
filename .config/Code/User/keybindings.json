@@ -119,25 +119,13 @@
         "command": "cSpell.toggleEnableSpellChecker"
     },
     {
-        "key": "alt+a j",
-        "command": "workbench.action.focusNextPart"
-    },
-    {
-        "key": "alt+a alt+j",
-        "command": "workbench.action.focusNextPart"
-    },
-    {
-        "key": "alt+a k",
-        "command": "workbench.action.focusPreviousPart"
-    },
-    {
-        "key": "alt+a alt+k",
-        "command": "workbench.action.focusPreviousPart"
-    },
-    {
         "key": "shift+alt+t",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
+    },
+    {
+        "key": "shift+alt+p",
+        "command": "workbench.action.togglePanel"
     },
     {
         "key": "ctrl+`",
@@ -145,7 +133,11 @@
         "when": "terminal.active"
     },
     {
-        "key": "shift+alt+p",
-        "command": "workbench.action.togglePanel"
+        "key": "shift+alt+j",
+        "command": "workbench.action.focusNextPart"
+    },
+    {
+        "key": "shift+alt+k",
+        "command": "workbench.action.focusPreviousPart"
     },
 ]

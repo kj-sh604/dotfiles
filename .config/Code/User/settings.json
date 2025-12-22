@@ -302,4 +302,6 @@
     "workbench.tree.renderIndentGuides": "none",
     "workbench.welcomePage.walkthroughs.openOnInstall": false,
     "cSpell.enabled": false,
+    "terminal.external.linuxExec": "xfce4-terminal",
+    "terminal.integrated.defaultProfile.linux": "zsh",
 }

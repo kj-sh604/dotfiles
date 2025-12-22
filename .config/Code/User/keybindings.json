@@ -140,4 +140,14 @@
         "key": "shift+alt+k",
         "command": "workbench.action.focusPreviousPart"
     },
+    {
+        "key": "alt+f11 t",
+        "command": "workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "-workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
+    },
 ]

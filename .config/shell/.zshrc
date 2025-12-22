@@ -8,6 +8,7 @@ ensure_directory_and_file() {
     [ ! -f "$2" ] && touch "$2"
 }
 
+setopt prompt_subst
 source_if_exists ~/.config/shell/git-prompt.zsh
 source_if_exists ~/.config/shell/git-prompts/kj_sh604-with-attempt-at-fish-style-pwd.zsh
 source_if_exists ~/.config/shell/zsh-autosuggestions/zsh-autosuggestions.zsh

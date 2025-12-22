@@ -7,5 +7,5 @@ if [ "$current" = "true" ]; then
     notify-send "Xfce Window Manager" "Compositor Disabled" -t 3072 || echo "xfwm4 compositor disabled"
 else
     xfconf-query -c xfwm4 -p /general/use_compositing -s true
-    notify-send "Xfce Window Manager" "Compositor Enabled" -t 3072 || echo "xfwm4 compositor Enabled"
+    notify-send "Xfce Window Manager" "Compositor Enabled" -t 3072 || echo "xfwm4 compositor enabled"
 fi

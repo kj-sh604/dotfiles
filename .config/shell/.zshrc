@@ -14,6 +14,7 @@ source_if_exists ~/.config/shell/git-prompts/kj_sh604-with-attempt-at-fish-style
 source_if_exists ~/.config/shell/zsh-autosuggestions/zsh-autosuggestions.zsh
 source_if_exists ~/.config/shell/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source_if_exists ~/.config/shell/zsh-history-substring-search/zsh-history-substring-search.zsh
+source_if_exists ~/.config/shell/zsh-abbr/zsh-job-queue/zsh-job-queue.zsh
 source_if_exists ~/.config/shell/zsh-abbr/zsh-abbr.zsh
 
 # source personal posix functions

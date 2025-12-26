@@ -7,7 +7,9 @@ if status is-interactive
         fish_vi_key_bindings
 
     # aliases
-        alias grep='grep --color=auto'
+        if command grep --color=auto --version >/dev/null 2>&1
+            alias grep='grep --color=auto'
+        end
         if which eza >/dev/null 2>&1
             alias ls="eza"
         end
@@ -19,8 +21,6 @@ if status is-interactive
         abbr -a c "cal"
         abbr -a d "disown"
         abbr -a dots "cd ~/.local/share/.dotfiles/"
-        abbr -a egrep "grep -E"
-        abbr -a fgrep "grep -F"
         abbr -a ks "killall screen"
         abbr -a lgit 'lazygit'
         abbr -a p "paru"
@@ -30,7 +30,6 @@ if status is-interactive
         abbr -a sr "screen -r"
         abbr -a t "timedatectl"
         abbr -a uncommit 'git reset --soft HEAD^'
-        abbr -a w "curl wttr.in"
         abbr -a x "startx"
         abbr -a yt-best "youtube-dl -cif 'bestvideo+bestaudio/best'"
         abbr -a yt-m4a "youtube-dl -cif 'bestaudio[ext=m4a]'"

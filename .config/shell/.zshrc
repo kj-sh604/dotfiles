@@ -50,11 +50,10 @@ SAVEHIST=9999999
         abbr -S --quiet t="timedatectl"
         abbr -S --quiet uncommit="git reset --soft HEAD^"
         abbr -S --quiet x="startx"
-
-    # youtube-dl abbreviations
         abbr -S --quiet yt-best="youtube-dl -cif 'bestvideo+bestaudio/best'"
         abbr -S --quiet yt-m4a="youtube-dl -cif 'bestaudio[ext=m4a]'"
         abbr -S --quiet yt-mp4="youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
+        abbr -S --quiet yt-mpv="mpv --ytdl-format="
         abbr -S --quiet yt-webm="youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"
 
 # pfetch stuff 

@@ -29,38 +29,33 @@ HISTSIZE=9999999
 SAVEHIST=9999999
 
 # aliases
-    # conditionally alias alternative applications if installed
+    # conditionally alias alternative applications/flags if available
     command which eza >/dev/null 2>&1 && alias ls="eza"
     command which alsi >/dev/null 2>&1 && alias neofetch="alsi"
+    command grep --color=auto --version >/dev/null 2>&1 && alias grep='grep --color=auto'
 
-    # personal aliases
-        # alias echo=(command which echo)
-        # alias printf=(command which printf)
-        alias S="cd ~/.local/bin && ls"
-        alias c="cal"
-        alias d="disown"
-        alias dots="cd ~/.local/share/.dotfiles/"
-        alias egrep='grep -E'
-        alias fgrep='grep -F'
-        alias grep='grep --color=auto'
-        alias ks="killall screen"
-        alias la='ls -lah'
-        alias lgit="lazygit"
-        alias p="paru"
-        alias pu="paru -Syu --noconfirm"
-        alias s="screen"
-        alias sls="screen -ls"
-        alias sr="screen -r"
-        alias t="timedatectl"
-        alias uncommit="git reset --soft HEAD^"
-        alias w="curl wttr.in"
-        alias x="startx"
+    # personal abbreviations
+        abbr -S --quiet S="cd ~/.local/bin && ls"
+        abbr -S --quiet c="cal"
+        abbr -S --quiet d="disown"
+        abbr -S --quiet dots="cd ~/.local/share/.dotfiles/"
+        abbr -S --quiet ks="killall screen"
+        abbr -S --quiet la='ls -lah'
+        abbr -S --quiet lgit="lazygit"
+        abbr -S --quiet p="paru"
+        abbr -S --quiet pu="paru -Syu --noconfirm"
+        abbr -S --quiet s="screen"
+        abbr -S --quiet sls="screen -ls"
+        abbr -S --quiet sr="screen -r"
+        abbr -S --quiet t="timedatectl"
+        abbr -S --quiet uncommit="git reset --soft HEAD^"
+        abbr -S --quiet x="startx"
 
-    # youtube-dl aliases
-        alias yt-best="youtube-dl -cif 'bestvideo+bestaudio/best'"
-        alias yt-m4a="youtube-dl -cif 'bestaudio[ext=m4a]'"
-        alias yt-mp4="youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
-        alias yt-webm="youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"
+    # youtube-dl abbreviations
+        abbr -S --quiet yt-best="youtube-dl -cif 'bestvideo+bestaudio/best'"
+        abbr -S --quiet yt-m4a="youtube-dl -cif 'bestaudio[ext=m4a]'"
+        abbr -S --quiet yt-mp4="youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
+        abbr -S --quiet yt-webm="youtube-dl -cif 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]/best'"
 
 # pfetch stuff 
 export PF_INFO="ascii title os kernel uptime pkgs memory"
@@ -88,11 +83,13 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# edit line in vim with ctrl-e
+# edit line in vim with ctrl-x ctrl-e or ctrl-x e
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+bindkey '^x^e' edit-command-line
+bindkey '^xe' edit-command-line
 bindkey -M vicmd '^[[P' vi-delete-char
-bindkey -M vicmd '^e' edit-command-line
+bindkey -M vicmd '^x^e' edit-command-line
+bindkey -M vicmd '^xe' edit-command-line
 bindkey -M visual '^[[P' vi-delete
 
 # cursor shape settings for vi modes

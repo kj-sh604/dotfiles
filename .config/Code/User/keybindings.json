@@ -150,4 +150,12 @@
         "command": "-workbench.action.terminal.openNativeConsole",
         "when": "!terminalFocus"
     },
+    {
+        "key": "ctrl+shift+alt+[",
+        "command": "workbench.action.previousPanelView"
+    },
+    {
+        "key": "ctrl+shift+alt+]",
+        "command": "workbench.action.nextPanelView"
+    },
 ]

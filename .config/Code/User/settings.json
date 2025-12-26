@@ -304,4 +304,5 @@
     "cSpell.enabled": false,
     "terminal.external.linuxExec": "xfce4-terminal",
     "terminal.integrated.defaultProfile.linux": "zsh",
+    "github.copilot.nextEditSuggestions.enabled": true,
 }

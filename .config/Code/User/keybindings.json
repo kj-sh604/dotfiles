@@ -158,5 +158,13 @@
         "key": "shift+alt+]",
         "command": "workbench.action.nextPanelView"
     },
+    {
+        "key": "shift+alt+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
 
 ]

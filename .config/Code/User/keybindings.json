@@ -151,11 +151,12 @@
         "when": "!terminalFocus"
     },
     {
-        "key": "ctrl+shift+alt+[",
+        "key": "shift+alt+[",
         "command": "workbench.action.previousPanelView"
     },
     {
-        "key": "ctrl+shift+alt+]",
+        "key": "shift+alt+]",
         "command": "workbench.action.nextPanelView"
     },
+
 ]

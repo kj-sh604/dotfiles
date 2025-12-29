@@ -118,10 +118,10 @@
     </property>
     <property name="plugin-1" type="string" value="whiskermenu">
       <property name="recent" type="array">
+        <value type="string" value="firefox.desktop"/>
         <value type="string" value="thunar.desktop"/>
         <value type="string" value="xfce-ui-settings.desktop"/>
         <value type="string" value="protonmailimssgimssgkj.desktop"/>
-        <value type="string" value="firefox.desktop"/>
         <value type="string" value="org.gnome.Calendar.desktop"/>
         <value type="string" value="org.gnome.Epiphany.desktop"/>
         <value type="string" value="org.gnome.Calculator.desktop"/>

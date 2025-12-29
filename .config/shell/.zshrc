@@ -10,7 +10,7 @@ ensure_directory_and_file() {
 
 setopt prompt_subst
 source_if_exists ~/.config/shell/git-prompt.zsh
-source_if_exists ~/.config/shell/git-prompts/kj_sh604-with-attempt-at-fish-style-pwd.zsh
+source_if_exists ~/.config/shell/git-prompts/kj_sh604.zsh
 source_if_exists ~/.config/shell/zsh-autosuggestions/zsh-autosuggestions.zsh
 source_if_exists ~/.config/shell/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source_if_exists ~/.config/shell/zsh-history-substring-search/zsh-history-substring-search.zsh

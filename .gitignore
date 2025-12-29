@@ -14,8 +14,9 @@
 .config/xfce4/xfconf/xfce-perchannel-xml/ristretto.xml
 .config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
 .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-*
+!.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 !.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
-.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
+!.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
 .config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 .config/zed/.tmp*
 .local/bin/avp

@@ -18,4 +18,47 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[blue]%}U"
 ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}☐"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✓"
 
-PROMPT=$'%F{cyan}${${${:-$(printf "/%.1s" ${(s./.)PWD:h})/${PWD:t}}/\\/\\///}//\\%/%%}%f %F{242}$(gitprompt)%f%(12V.%F{242}%12v%f .)%(?.%F{white}.%F{white})%%%f '
+__fish_pwd() {
+  local pwd="${PWD/#$HOME/~}"
+
+  if [[ "$pwd" == "~" ]]; then
+    echo "~"
+    return
+  fi
+
+  local -a parts
+
+  parts=("${(@s:/:)pwd}")
+
+  if [[ -z "${parts[1]}" ]]; then
+    parts=("${parts[@]:1}")
+    local prefix="/"
+  else
+    local prefix=""
+  fi
+
+  if (( ${#parts[@]} <= 1 )); then
+    echo "${prefix}${parts[1]}"
+    return
+  fi
+
+  local result=""
+  local i
+
+  for (( i=1; i < ${#parts[@]}; i++ )); do
+    local part="${parts[$i]}"
+    if [[ "$part" == "~" ]]; then
+      result+="~/"
+    elif [[ "$part" == .* ]]; then
+      result+="${part:0:2}/"
+    else
+      result+="${part:0:1}/"
+    fi
+  done
+
+  result+="${parts[-1]}"
+
+  echo "${prefix}${result}"
+}
+
+PROMPT=$'%F{cyan}$(__fish_pwd)%f %F{242}$(gitprompt)%f%(12V.%F{242}%12v%f .)%(?.%F{white}.%F{white})%%%f '

@@ -1,0 +1,302 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="plugins" type="empty">
+    <property name="clipman" type="empty">
+      <property name="settings" type="empty">
+        <property name="max-texts-in-history" type="uint" value="995"/>
+      </property>
+      <property name="tweaks" type="empty">
+        <property name="never-confirm-history-clear" type="bool" value="false"/>
+        <property name="inhibit" type="bool" value="false"/>
+      </property>
+    </property>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="rednotebook"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (68%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “single-user-byod__abnb” active: single-user-byod__abnb (78%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (87%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (69%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (95%)"/>
+        <value type="string" value="wi-fi network connection “single-user-byod__abnb” active: single-user-byod__abnb (82%)"/>
+        <value type="string" value="anydesk"/>
+        <value type="string" value="nxrunner.bin"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (89%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (81%)"/>
+        <value type="string" value="wi-fi network connection “single-user-byod__abnb” active: single-user-byod__abnb (67%)"/>
+        <value type="string" value="configuring wi-fi network connection “single-user-byod__abnb”…"/>
+        <value type="string" value="notes"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (63%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (66%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (67%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (70%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “single-user-byod__abnb” active: single-user-byod__abnb (62%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “@hyatt_wifi” active: @hyatt_wifi (81%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “@hyatt_wifi” active: @hyatt_wifi (80%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “@hyatt_wifi” active: @hyatt_wifi (63%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “@hyatt_wifi” active: @hyatt_wifi (66%)&#xA;vpn connection active"/>
+        <value type="string" value="solaar"/>
+        <value type="string" value="wi-fi network connection “@hyatt_wifi” active: @hyatt_wifi (65%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “@hyatt_wifi” active: @hyatt_wifi (68%)"/>
+        <value type="string" value="wi-fi network connection “@hyatt_wifi” active: @hyatt_wifi (74%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (61%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (62%)"/>
+        <value type="string" value="no network connection"/>
+        <value type="string" value="system-config-printer"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (68%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (66%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (67%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (70%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (85%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (82%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (75%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (65%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (63%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (69%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (92%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (76%)"/>
+        <value type="string" value="wi-fi network connection “single-user-byod__abnb” active: single-user-byod__abnb (83%)"/>
+        <value type="string" value="wi-fi network connection “single-user-byod__abnb” active: single-user-byod__abnb (84%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (99%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (80%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (77%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (79%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (73%)"/>
+        <value type="string" value="reminders"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (74%)"/>
+        <value type="string" value="evolution-alarm-notify"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (78%)"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="panahone"/>
+        <value type="string" value="clipman"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (71%)"/>
+        <value type="string" value="wi-fi network connection “2bg795bd” active: 2bg795bd (72%)"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="easyeffects"/>
+        <value type="string" value="SimpleScreenRecorder"/>
+        <value type="string" value="zoom"/>
+        <value type="string" value="indicator-solaar"/>
+        <value type="string" value="mic-icon"/>
+        <value type="string" value="media-control-app"/>
+        <value type="string" value="vlc"/>
+        <value type="string" value="qBittorrent"/>
+        <value type="string" value="chrome_status_icon_1"/>
+        <value type="string" value="Insync"/>
+        <value type="string" value="blueman"/>
+      </property>
+    </property>
+    <property name="plugin-7" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-8" type="string" value="clock">
+      <property name="digital-layout" type="uint" value="3"/>
+      <property name="digital-time-font" type="string" value="Roboto Mono 9"/>
+      <property name="digital-time-format" type="string" value="%m/%d (%a) %H%M"/>
+    </property>
+    <property name="plugin-9" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-10" type="string" value="actions">
+      <property name="items" type="array">
+        <value type="string" value="-lock-screen"/>
+        <value type="string" value="-switch-user"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="-suspend"/>
+        <value type="string" value="-hibernate"/>
+        <value type="string" value="-hybrid-sleep"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="-shutdown"/>
+        <value type="string" value="-restart"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="+logout"/>
+        <value type="string" value="-logout-dialog"/>
+      </property>
+      <property name="appearance" type="uint" value="0"/>
+    </property>
+    <property name="plugin-1" type="string" value="whiskermenu">
+      <property name="recent" type="array">
+        <value type="string" value="thunar.desktop"/>
+        <value type="string" value="xfce-ui-settings.desktop"/>
+        <value type="string" value="protonmailimssgimssgkj.desktop"/>
+        <value type="string" value="firefox.desktop"/>
+        <value type="string" value="org.gnome.Calendar.desktop"/>
+        <value type="string" value="org.gnome.Epiphany.desktop"/>
+        <value type="string" value="org.gnome.Calculator.desktop"/>
+        <value type="string" value="org.gnome.Evolution.desktop"/>
+        <value type="string" value="pss.desktop"/>
+        <value type="string" value="windows notepad--Wine Notepad--1765604007.788646.desktop"/>
+      </property>
+      <property name="category-show-name" type="bool" value="true"/>
+      <property name="launcher-show-tooltip" type="bool" value="false"/>
+      <property name="launcher-show-description" type="bool" value="false"/>
+      <property name="launcher-icon-size" type="int" value="-1"/>
+      <property name="category-icon-size" type="int" value="-1"/>
+      <property name="menu-width" type="int" value="640"/>
+      <property name="menu-height" type="int" value="480"/>
+      <property name="profile-shape" type="int" value="2"/>
+      <property name="position-profile-alternate" type="bool" value="true"/>
+      <property name="show-button-title" type="bool" value="true"/>
+      <property name="button-icon" type="string" value="xfce-wm-menu"/>
+      <property name="default-category" type="int" value="1"/>
+      <property name="show-command-menueditor" type="bool" value="false"/>
+      <property name="show-command-profile" type="bool" value="false"/>
+      <property name="menu-opacity" type="int" value="100"/>
+      <property name="favorites" type="array">
+      </property>
+      <property name="button-title" type="string" value=" Applications"/>
+    </property>
+    <property name="plugin-2" type="string" value="places">
+      <property name="show-button-type" type="int" value="1"/>
+      <property name="button-label" type="string" value="  Places  "/>
+    </property>
+    <property name="plugin-3" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-4" type="string" value="showdesktop"/>
+    <property name="plugin-5" type="string" value="tasklist">
+      <property name="flat-buttons" type="bool" value="false"/>
+      <property name="grouping" type="bool" value="false"/>
+      <property name="show-wireframes" type="bool" value="false"/>
+    </property>
+    <property name="plugin-11" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-12" type="string" value="pager">
+      <property name="rows" type="uint" value="1"/>
+      <property name="miniature-view" type="bool" value="false"/>
+    </property>
+    <property name="plugin-13" type="string" value="separator">
+      <property name="style" type="uint" value="2"/>
+    </property>
+    <property name="plugin-14" type="string" value="thunar-tpa"/>
+    <property name="plugin-15" type="string" value="power-manager-plugin"/>
+    <property name="plugin-16" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="false"/>
+      <property name="show-notifications" type="uint" value="0"/>
+      <property name="known-players" type="string" value="Chromium;falkon;Helium;icecat-default;io.github.celluloid_player.Celluloid;librewolf;LosslessCut;mpv;mullvad browser;Mullvad Browser;vlc;waterfox;waterfox-default"/>
+      <property name="enable-wnck" type="bool" value="false"/>
+      <property name="enable-multimedia-keys" type="bool" value="false"/>
+      <property name="enable-mpris" type="bool" value="false"/>
+      <property name="rec-indicator-persistent" type="bool" value="false"/>
+    </property>
+    <property name="plugin-17" type="string" value="notification-plugin"/>
+    <property name="plugin-18" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17586837035.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-19" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17586837136.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-20" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17586838187.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-22" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17586848379.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-25" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17591773312.desktop"/>
+      </property>
+      <property name="show-label" type="bool" value="true"/>
+      <property name="disable-tooltips" type="bool" value="true"/>
+    </property>
+    <property name="plugin-26" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-23" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17608897311.desktop"/>
+      </property>
+    </property>
+    <property name="notes" type="empty">
+      <property name="global" type="empty">
+        <property name="version" type="string" value="1.12.0"/>
+      </property>
+    </property>
+    <property name="plugin-21" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17637581031.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-24" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17669743811.desktop"/>
+      </property>
+    </property>
+  </property>
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <value type="int" value="2"/>
+    <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=6;x=0;y=0"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="16"/>
+      <property name="size" type="uint" value="20"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="1"/>
+        <value type="int" value="2"/>
+        <value type="int" value="25"/>
+        <value type="int" value="26"/>
+        <value type="int" value="18"/>
+        <value type="int" value="19"/>
+        <value type="int" value="24"/>
+        <value type="int" value="20"/>
+        <value type="int" value="23"/>
+        <value type="int" value="21"/>
+        <value type="int" value="22"/>
+        <value type="int" value="3"/>
+        <value type="int" value="16"/>
+        <value type="int" value="15"/>
+        <value type="int" value="6"/>
+        <value type="int" value="17"/>
+        <value type="int" value="7"/>
+        <value type="int" value="8"/>
+        <value type="int" value="9"/>
+        <value type="int" value="10"/>
+      </property>
+      <property name="background-style" type="uint" value="1"/>
+      <property name="background-rgba" type="array">
+        <value type="double" value="0.18823529411764706"/>
+        <value type="double" value="0.18823529411764706"/>
+        <value type="double" value="0.18823529411764706"/>
+        <value type="double" value="1"/>
+      </property>
+    </property>
+    <property name="panel-2" type="empty">
+      <property name="position" type="string" value="p=8;x=96;y=1055"/>
+      <property name="size" type="uint" value="20"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="length" type="double" value="100"/>
+      <property name="background-style" type="uint" value="1"/>
+      <property name="background-rgba" type="array">
+        <value type="double" value="0.18823529411764706"/>
+        <value type="double" value="0.18823529411764706"/>
+        <value type="double" value="0.18823529411764706"/>
+        <value type="double" value="1"/>
+      </property>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="4"/>
+        <value type="int" value="5"/>
+        <value type="int" value="11"/>
+        <value type="int" value="12"/>
+        <value type="int" value="13"/>
+        <value type="int" value="14"/>
+      </property>
+    </property>
+  </property>
+</channel>

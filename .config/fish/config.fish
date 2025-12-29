@@ -3,9 +3,6 @@ if status is-login
 end
 
 if status is-interactive
-    # commands to run in interactive sessions can go here
-        fish_vi_key_bindings
-
     # aliases
         if command grep --color=auto --version >/dev/null 2>&1
             alias grep='grep --color=auto'

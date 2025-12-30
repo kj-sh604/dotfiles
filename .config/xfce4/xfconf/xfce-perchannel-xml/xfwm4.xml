@@ -90,7 +90,12 @@
       <value type="string" value="7"/>
       <value type="string" value="8"/>
       <value type="string" value="9"/>
-      <value type="string" value="0"/>
+      <value type="string" value="A"/>
+      <value type="string" value="B"/>
+      <value type="string" value="C"/>
+      <value type="string" value="D"/>
+      <value type="string" value="E"/>
+      <value type="string" value="F"/>
     </property>
     <property name="vblank_mode" type="string" value="auto"/>
   </property>

@@ -227,6 +227,7 @@ URxvt.visualBell: false
 
 !Xcursor.size: 32
 
+XTerm.VT100.cursorBlink: never
 XTerm.vt100.faceName: Roboto Mono:size=10:antialias=true
 XTerm.vt100.font: -misc-roboto mono-medium-r-normal--10-100-75-75-m-60-iso8859-1
 

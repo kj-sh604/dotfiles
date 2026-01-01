@@ -62,7 +62,7 @@
       <property name="Print" type="string" value="xfce4-screenshooter -f --mouse"/>
       <property name="&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter -r --mouse"/>
       <property name="&lt;Super&gt;Print" type="string" value="xfce4-screenshooter -w --mouse"/>
-      <property name="&lt;Super&gt;c" type="string" value="/home/kylert/.local/bin/toggle-xfwm4-compositor"/>
+      <property name="&lt;Super&gt;c" type="string" value="toggle-xfwm4-compositor"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

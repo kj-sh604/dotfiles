@@ -52,6 +52,7 @@ URxvt.visualBell: false
 #define base0E_magenta #dc8cc3
 #define base0F_brown #d27b53
 #define base_black #3f3f3f
+#define base_cursor #69baa7
 #define base08_red_bright #dca3a3
 #define base0A_yellow_bright #f0dfaf
 #define base0B_green_bright #72d5a3
@@ -61,8 +62,8 @@ URxvt.visualBell: false
 
 *.foreground:   base05_foreground
 *.background:   base00_background
-*.cursorColor:  base05_foreground
-*.cursorColor2:  base05_foreground
+*.cursorColor:  base_cursor
+*.cursorColor2:  base_cursor
 *.cursorBlink: never
 *.color0:       base_black
 *.color1:       base08_red

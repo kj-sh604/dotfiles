@@ -8,7 +8,7 @@
   <property name="color-cursor" type="string" value="#6968babaa7a7"/>
   <property name="color-cursor-use-default" type="bool" value="false"/>
   <property name="color-palette" type="string" value="rgb(63,63,63);rgb(214,121,121);rgb(96,180,138);rgb(223,175,143);rgb(154,184,215);rgb(220,140,195);rgb(140,208,211);rgb(220,220,220);rgb(112,144,128);rgb(220,163,163);rgb(114,213,163);rgb(240,223,175);rgb(148,191,243);rgb(236,147,211);rgb(147,224,227);rgb(255,255,255)"/>
-  <property name="color-bold-is-bright" type="bool" value="false"/>
+  <property name="color-bold-is-bright" type="bool" value="true"/>
   <property name="font-name" type="string" value="Roboto Mono 9"/>
   <property name="misc-always-show-tabs" type="bool" value="false"/>
   <property name="misc-bell" type="bool" value="false"/>

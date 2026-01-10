@@ -60,33 +60,33 @@ URxvt.visualBell: false
 #define base0D_blue_bright #94bff3
 #define base0E_magenta_bright #ec93d3
 
-*.foreground:   base05_foreground
-*.background:   base00_background
-*.cursorColor:  base_cursor
-*.cursorColor2:  base_cursor
 *.cursorBlink: never
-*.color0:       base_black
-*.color1:       base08_red
-*.color2:       base0B_green
-*.color3:       base0A_yellow
-*.color4:       base0D_blue
-*.color5:       base0E_magenta
-*.color6:       base0C_cyan
-*.color7:       base05_foreground
-*.color8:       base03_gray3
-*.color9:       base08_red_bright
-*.color10:      base0B_green_bright
-*.color11:      base0A_yellow_bright
-*.color12:      base0D_blue_bright
-*.color13:      base0E_magenta_bright
-*.color14:      base0C_cyan_bright
-*.color15:      base07_white
-*.color16:      base09_orange
-*.color17:      base0F_brown
-*.color18:      base01_gray1
-*.color19:      base02_gray2
-*.color20:      base04_gray4
-*.color21:      base06_gray5
+*.foreground:    base05_foreground
+*.background:    base00_background
+*.cursorColor:   base_cursor
+*.cursorColor2:  base_cursor
+*.color0:        base_black
+*.color1:        base08_red
+*.color2:        base0B_green
+*.color3:        base0A_yellow
+*.color4:        base0D_blue
+*.color5:        base0E_magenta
+*.color6:        base0C_cyan
+*.color7:        base05_foreground
+*.color8:        base03_gray3
+*.color9:        base08_red_bright
+*.color10:       base0B_green_bright
+*.color11:       base0A_yellow_bright
+*.color12:       base0D_blue_bright
+*.color13:       base0E_magenta_bright
+*.color14:       base0C_cyan_bright
+*.color15:       base07_white
+*.color16:       base09_orange
+*.color17:       base0F_brown
+*.color18:       base01_gray1
+*.color19:       base02_gray2
+*.color20:       base04_gray4
+*.color21:       base06_gray5
 
 XTerm.vt100.faceName: Roboto Mono:size=10:antialias=true
 XTerm.vt100.font: -misc-roboto mono-medium-r-normal--10-100-75-75-m-60-iso8859-1

@@ -15,7 +15,6 @@ if status is-interactive
         end
     # abbreviations
         abbr -a S "cd ~/.local/bin && ls"
-        abbr -a c "cal"
         abbr -a d "disown"
         abbr -a dots "cd ~/.local/share/.dotfiles/"
         abbr -a ks "killall screen"

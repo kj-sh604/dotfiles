@@ -36,7 +36,6 @@ SAVEHIST=9999999
 
     # personal abbreviations
         abbr -S --quiet S="cd ~/.local/bin && ls"
-        abbr -S --quiet c="cal"
         abbr -S --quiet d="disown"
         abbr -S --quiet dots="cd ~/.local/share/.dotfiles/"
         abbr -S --quiet ks="killall screen"

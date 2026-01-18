@@ -1,0 +1,119 @@
+#!/bin/sh
+
+script_name=$(basename "$0")
+
+show_help() {
+    cat <<EOF
+usage: $script_name [OPTIONS]
+
+clean up pacman and paru cache.
+
+OPTIONS:
+  --only-pacman    clean only pacman cache
+  --only-aur       clean only paru cache
+  -h, --help       display this help message and exit
+
+EXAMPLES:
+  $script_name                    # clean both pacman and paru cache
+  $script_name --only-pacman      # clean only pacman cache
+  $script_name --only-aur         # clean only paru cache
+
+EOF
+}
+
+handle_interrupt() {
+    printf "\n%s: operation canceled by user\n" "$script_name" >&2
+    exit 130
+}
+
+trap handle_interrupt INT
+
+error_exit() {
+    printf "%s: error: %s\n" "$script_name" "$1" >&2
+    exit 1
+}
+
+check_privilege() {
+    if [ "$(id -u)" -eq 0 ]; then
+        return 0
+    fi
+    if ! command -v sudo >/dev/null 2>&1; then
+        error_exit "sudo is required but not found"
+    fi
+}
+
+# run command with elevated privileges only if needed
+run_privileged() {
+    if [ "$(id -u)" -eq 0 ]; then
+        "$@"
+    else
+        sudo "$@"
+    fi
+}
+
+# clean pacman cache
+clean_pacman_cache() {
+    printf "cleaning pacman cache...\n"
+    run_privileged paccache --remove --keep 0 || error_exit "failed to clean pacman cache"
+}
+
+# clean paru cache
+clean_aur_cache() {
+    cache_dir="$HOME/.cache/paru/clone"
+    
+    printf "cleaning paru cache...\n"
+    if [ -d "$cache_dir" ]; then
+        rm -rf "$cache_dir" || error_exit "failed to clean paru cache"
+    else
+        printf "warning: paru cache directory not found: %s\n" "$cache_dir"
+    fi
+    
+    printf "regenerating paru database...\n"
+    paru --gendb || error_exit "failed to regenerate paru database"
+}
+
+# default values
+clean_pacman=1
+clean_aur=1
+
+# parse args
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        --only-pacman)
+            clean_aur=0
+            ;;
+        --only-aur)
+            clean_pacman=0
+            ;;
+        *)
+            printf "%s: error: unknown option: %s\n" "$script_name" "$1" >&2
+            printf "try '%s --help' for more information\n" "$script_name" >&2
+            exit 1
+            ;;
+    esac
+    shift
+done
+
+# checks
+if [ "$clean_pacman" -eq 0 ] && [ "$clean_aur" -eq 0 ]; then
+    error_exit "cannot use --only-pacman and --only-aur together"
+fi
+
+if [ "$clean_pacman" -eq 1 ]; then
+    command -v paccache >/dev/null 2>&1 || error_exit "paccache is required but not found (install pacman-contrib)"
+    check_privilege
+fi
+
+if [ "$clean_aur" -eq 1 ]; then
+    command -v paru >/dev/null 2>&1 || error_exit "paru is required but not found"
+fi
+
+# clean relevant caches 
+[ "$clean_pacman" -eq 1 ] && clean_pacman_cache
+[ "$clean_aur" -eq 1 ] && clean_aur_cache
+
+printf "cleanup complete!\n"

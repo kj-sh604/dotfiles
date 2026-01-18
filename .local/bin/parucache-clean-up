@@ -67,9 +67,12 @@ clean_aur_cache() {
     else
         printf "warning: paru cache directory not found: %s\n" "$cache_dir"
     fi
-    
-    printf "regenerating paru database...\n"
-    paru --gendb || error_exit "failed to regenerate paru database"
+
+    # not regenerating paru database anymore since the aur has bot-detection now
+    ## printf "regenerating paru database...\n"
+    ## paru --gendb || error_exit "failed to regenerate paru database"
+
+    paru -Ps
 }
 
 # default values

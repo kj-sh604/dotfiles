@@ -2,7 +2,7 @@
     {
         "key": "ctrl+shift+v",
         "command": "-markdown.showPreview",
-        "when": "!notebookEditorFocused && editorLangId =~ /^(markdown|prompt|instructions|chatagent)$/"
+        "when": "!notebookEditorFocused && editorLangId =~ /^(markdown|prompt|instructions|chatagent|skill)$/"
     },
     {
         "key": "alt+f11 v",
@@ -168,11 +168,6 @@
     },
     {
         "key": "ctrl+shift+v",
-        "command": "-markdown.showPreview",
-        "when": "!notebookEditorFocused && editorLangId =~ /^(markdown|prompt|instructions|chatagent|skill)$/"
-    },
-    {
-        "key": "ctrl+shift+v",
         "command": "editor.action.clipboardPasteAction"
-    },
+    }
 ]

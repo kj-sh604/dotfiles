@@ -306,4 +306,6 @@
     "terminal.integrated.defaultProfile.linux": "zsh",
     "github.copilot.nextEditSuggestions.enabled": true,
     "files.eol": "\n",
+    "chat.viewSessions.orientation": "stacked",
+    "python.terminal.activateEnvironment": false
 }

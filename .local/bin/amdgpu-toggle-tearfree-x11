@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# requires: xrandr, awk
+
+err() {
+    printf "%s\n" "$*" >&2
+    exit 1
+}
+
+for cmd in xrandr awk; do
+    command -v "$cmd" >/dev/null 2>&1 || err "required command not found: $cmd"
+done
+
+# collect all connected outputs
+outputs=$(xrandr --query | awk '/ connected/ { print $1 }')
+
+[ -n "$outputs" ] || err "no connected outputs found."
+
+# sample TearFree state from the first connected output
+first_output=$(printf '%s\n' "$outputs" | awk 'NR==1')
+current_state=$(xrandr --props | awk -v out="$first_output" '
+    $1 == out { found=1 }
+    found && /TearFree:/ { print $2; exit }
+')
+
+case "$current_state" in
+    on)  new_state="off" ;;
+    *)   new_state="on"  ;;
+esac
+
+# single xrandr invocation, avoids monitor reconfiguration for the most part
+xrandr_args=""
+for output in $outputs; do
+    xrandr_args="$xrandr_args --output $output --set TearFree $new_state"
+done
+
+# shellcheck disable=SC2086
+xrandr $xrandr_args || err "failed to set TearFree $new_state on all outputs"
+
+notify-send "AMDGPU (X11)" "TearFree $new_state" -t 3072 \
+    || printf "TearFree toggled to '%s' on all connected outputs.\n" "$new_state"

@@ -4,8 +4,6 @@ THRESH_START_PATH="/sys/class/power_supply/BAT0/charge_control_start_threshold"
 THRESH_STOP_PATH="/sys/class/power_supply/BAT0/charge_control_end_threshold"
 TLP_DROP_IN="/etc/tlp.d/05-bat-thresh.conf"
 
-TRAVEL_START=85
-TRAVEL_STOP=97
 DOCKED_START=75
 DOCKED_STOP=87
 DEFAULT_START=96
@@ -15,18 +13,15 @@ usage() {
     cat <<EOF
 usage: $(basename "$0") [OPTION]
 
-toggles BAT0 charge thresholds between travel and docked modes,
-writing a persistent TLP drop-in to ${TLP_DROP_IN}.
+toggles BAT0 charge thresholds between docked and default modes,
+writing or removing a persistent TLP drop-in at ${TLP_DROP_IN}.
 
 options:
-  (none)             toggle between travel (${TRAVEL_START}/${TRAVEL_STOP}%) and docked (${DOCKED_START}/${DOCKED_STOP}%)
-  -d                 restore TLP built-in defaults (${DEFAULT_START}/${DEFAULT_STOP}%) and remove drop-in
   -h, --help         show this help message and exit
 
 modes:
-  travel            START_CHARGE_THRESH_BAT0=${TRAVEL_START}    STOP_CHARGE_THRESH_BAT0=${TRAVEL_STOP}
   docked            START_CHARGE_THRESH_BAT0=${DOCKED_START}    STOP_CHARGE_THRESH_BAT0=${DOCKED_STOP}
-  default (-d)      START_CHARGE_THRESH_BAT0=${DEFAULT_START}   STOP_CHARGE_THRESH_BAT0=${DEFAULT_STOP}
+  default           START_CHARGE_THRESH_BAT0=${DEFAULT_START}   STOP_CHARGE_THRESH_BAT0=${DEFAULT_STOP}
 
 EOF
 }
@@ -47,40 +42,25 @@ fi
 [ -f "$THRESH_START_PATH" ] || { echo "error: $THRESH_START_PATH not found — is thinkpad_acpi loaded?"; exit 1; }
 [ -f "$THRESH_STOP_PATH" ]  || { echo "error: $THRESH_STOP_PATH not found — is thinkpad_acpi loaded?"; exit 1; }
 
-# --system-default: remove drop-in and restore TLP built-in defaults (96/100)
-if [ "${1}" = "-d" ]; then
-    printf "%s" "$DEFAULT_STOP"  > "$THRESH_STOP_PATH"  || { echo "error: failed to write stop threshold.";  exit 1; }
-    printf "%s" "$DEFAULT_START" > "$THRESH_START_PATH" || { echo "error: failed to write start threshold."; exit 1; }
-    echo "restored system defaults — start: ${DEFAULT_START}%  stop: ${DEFAULT_STOP}%"
-    if [ -f "$TLP_DROP_IN" ]; then
-        rm "$TLP_DROP_IN" \
-            && echo "${TLP_DROP_IN} removed — TLP will use its built-in defaults after reboot." \
-            || echo "error: failed to remove ${TLP_DROP_IN}."
-    else
-        echo "note: ${TLP_DROP_IN} was not present — nothing to remove."
-    fi
-    exit 0
-fi
-
 current_stop=$(cat "$THRESH_STOP_PATH")
 
 # determine which mode to switch INTO based on the current stop threshold
 case "$current_stop" in
-    "$TRAVEL_STOP")
+    "$DOCKED_STOP")
+        target_mode="default"
+        new_start="$DEFAULT_START"
+        new_stop="$DEFAULT_STOP"
+        ;;
+    *)
         target_mode="docked"
         new_start="$DOCKED_START"
         new_stop="$DOCKED_STOP"
-        ;;
-    *)
-        target_mode="travel"
-        new_start="$TRAVEL_START"
-        new_stop="$TRAVEL_STOP"
         ;;
 esac
 
 # the kernel enforces start < stop at all times, so write order matters
 case "$target_mode" in
-    travel)
+    default)
         printf "%s" "$new_stop"  > "$THRESH_STOP_PATH"  || { echo "error: failed to write stop threshold.";  exit 1; }
         printf "%s" "$new_start" > "$THRESH_START_PATH" || { echo "error: failed to write start threshold."; exit 1; }
         ;;
@@ -92,12 +72,23 @@ esac
 
 echo "switched to $target_mode mode — start: ${new_start}%  stop: ${new_stop}%"
 
-# write a dedicated drop-in so thresholds survive a reboot; no sed fragility
+# write or remove drop-in so thresholds survive a reboot; no sed fragility
 if [ -d "/etc/tlp.d" ]; then
-    printf '# managed by bat-thresh-toggle — do not edit by hand\nSTART_CHARGE_THRESH_BAT0=%s\nSTOP_CHARGE_THRESH_BAT0=%s\n' \
-        "$new_start" "$new_stop" > "$TLP_DROP_IN" \
-        && echo "${TLP_DROP_IN} written" \
-        || echo "error: failed to write ${TLP_DROP_IN}."
+    case "$target_mode" in
+        docked)
+            printf '# managed by bat-thresh-toggle — do not edit by hand\nSTART_CHARGE_THRESH_BAT0=%s\nSTOP_CHARGE_THRESH_BAT0=%s\n' \
+                "$new_start" "$new_stop" > "$TLP_DROP_IN" \
+                && echo "${TLP_DROP_IN} written" \
+                || echo "error: failed to write ${TLP_DROP_IN}."
+            ;;
+        default)
+            if [ -f "$TLP_DROP_IN" ]; then
+                rm "$TLP_DROP_IN" \
+                    && echo "${TLP_DROP_IN} removed — TLP will use its built-in defaults after reboot." \
+                    || echo "error: failed to remove ${TLP_DROP_IN}."
+            fi
+            ;;
+    esac
 else
     echo "note: /etc/tlp.d not found - sysfs write is not persistent across reboots."
 fi

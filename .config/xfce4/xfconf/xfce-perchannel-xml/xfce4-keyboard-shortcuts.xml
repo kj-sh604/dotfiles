@@ -60,10 +60,10 @@
       <property name="Print" type="string" value="xfce4-screenshooter -f --mouse"/>
       <property name="&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter -r --mouse"/>
       <property name="&lt;Super&gt;Print" type="string" value="xfce4-screenshooter -w --mouse"/>
-      <property name="&lt;Super&gt;c" type="string" value="toggle-xfwm4-compositor"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="xterm -geometry 95x28 -e htop"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;Escape" type="string" value="gnome-system-monitor"/>
-      <property name="&lt;Alt&gt;&lt;Super&gt;c" type="string" value="amdgpu-toggle-tearfree-x11"/>
+      <property name="&lt;Super&gt;c" type="string" value="amdgpu-toggle-tearfree-x11"/>
+      <property name="&lt;Alt&gt;&lt;Super&gt;c" type="string" value="toggle-xfwm4-compositor"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

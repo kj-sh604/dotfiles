@@ -20,13 +20,13 @@ writing a persistent TLP drop-in to ${TLP_DROP_IN}.
 
 options:
   (none)             toggle between travel (${TRAVEL_START}/${TRAVEL_STOP}%) and docked (${DOCKED_START}/${DOCKED_STOP}%)
-  --system-default   restore TLP built-in defaults (${DEFAULT_START}/${DEFAULT_STOP}%) and remove drop-in
+  -d                 restore TLP built-in defaults (${DEFAULT_START}/${DEFAULT_STOP}%) and remove drop-in
   -h, --help         show this help message and exit
 
 modes:
-  travel           START_CHARGE_THRESH_BAT0=${TRAVEL_START}   STOP_CHARGE_THRESH_BAT0=${TRAVEL_STOP}
-  docked           START_CHARGE_THRESH_BAT0=${DOCKED_START}   STOP_CHARGE_THRESH_BAT0=${DOCKED_STOP}
-  system-default   START_CHARGE_THRESH_BAT0=${DEFAULT_START}   STOP_CHARGE_THRESH_BAT0=${DEFAULT_STOP}
+  travel            START_CHARGE_THRESH_BAT0=${TRAVEL_START}    STOP_CHARGE_THRESH_BAT0=${TRAVEL_STOP}
+  docked            START_CHARGE_THRESH_BAT0=${DOCKED_START}    STOP_CHARGE_THRESH_BAT0=${DOCKED_STOP}
+  default (-d)      START_CHARGE_THRESH_BAT0=${DEFAULT_START}   STOP_CHARGE_THRESH_BAT0=${DEFAULT_STOP}
 
 EOF
 }
@@ -48,7 +48,7 @@ fi
 [ -f "$THRESH_STOP_PATH" ]  || { echo "error: $THRESH_STOP_PATH not found — is thinkpad_acpi loaded?"; exit 1; }
 
 # --system-default: remove drop-in and restore TLP built-in defaults (96/100)
-if [ "${1}" = "--system-default" ]; then
+if [ "${1}" = "-d" ]; then
     printf "%s" "$DEFAULT_STOP"  > "$THRESH_STOP_PATH"  || { echo "error: failed to write stop threshold.";  exit 1; }
     printf "%s" "$DEFAULT_START" > "$THRESH_START_PATH" || { echo "error: failed to write start threshold."; exit 1; }
     echo "restored system defaults — start: ${DEFAULT_START}%  stop: ${DEFAULT_STOP}%"

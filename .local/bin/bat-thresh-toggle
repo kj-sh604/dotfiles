@@ -4,8 +4,8 @@ THRESH_START_PATH="/sys/class/power_supply/BAT0/charge_control_start_threshold"
 THRESH_STOP_PATH="/sys/class/power_supply/BAT0/charge_control_end_threshold"
 TLP_DROP_IN="/etc/tlp.d/05-bat-thresh.conf"
 
-DOCKED_START=75
-DOCKED_STOP=87
+DOCKED_START=80
+DOCKED_STOP=90
 DEFAULT_START=96
 DEFAULT_STOP=100
 

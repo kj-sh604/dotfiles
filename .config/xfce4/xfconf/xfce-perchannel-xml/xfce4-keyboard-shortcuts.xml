@@ -64,6 +64,7 @@
       <property name="&lt;Primary&gt;&lt;Shift&gt;Escape" type="string" value="gnome-system-monitor"/>
       <property name="&lt;Super&gt;c" type="string" value="amdgpu-toggle-tearfree-x11"/>
       <property name="&lt;Alt&gt;&lt;Super&gt;c" type="string" value="toggle-xfwm4-compositor"/>
+      <property name="&lt;Super&gt;n" type="string" value="xfconf-query -c xfce4-notifyd -p /do-not-disturb -T"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

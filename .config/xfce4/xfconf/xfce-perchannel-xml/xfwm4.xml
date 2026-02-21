@@ -97,6 +97,6 @@
       <value type="string" value="E"/>
       <value type="string" value="F"/>
     </property>
-    <property name="vblank_mode" type="string" value="auto"/>
+    <property name="vblank_mode" type="string" value="off"/>
   </property>
 </channel>

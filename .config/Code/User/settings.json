@@ -307,5 +307,8 @@
     "github.copilot.nextEditSuggestions.enabled": true,
     "files.eol": "\n",
     "chat.viewSessions.orientation": "stacked",
-    "python.terminal.activateEnvironment": false
+    "python.terminal.activateEnvironment": false,
+    "[nim]": {
+        "editor.defaultFormatter": "arnetheduck.vscode-nph"
+    }
 }

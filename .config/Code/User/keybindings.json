@@ -29,6 +29,17 @@
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "vim.active && vim.mode == 'Normal'"
     },
+    // diagnostic navigation (mirrors [g / ]g from coc.nvim)
+    {
+        "key": "[ g",
+        "command": "editor.action.marker.prevInFiles",
+        "when": "vim.active && vim.mode == 'Normal' && editorFocus"
+    },
+    {
+        "key": "] g",
+        "command": "editor.action.marker.nextInFiles",
+        "when": "vim.active && vim.mode == 'Normal' && editorFocus"
+    },
     // splits operation
     {
         "key": "alt+s",
@@ -128,6 +139,14 @@
         "command": "workbench.action.togglePanel"
     },
     {
+        "key": "shift+alt+b j",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "shift+alt+b down",
+        "command": "workbench.action.togglePanel"
+    },
+    {
         "key": "ctrl+`",
         "command": "-workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
@@ -159,7 +178,7 @@
         "command": "workbench.action.nextPanelView"
     },
     {
-        "key": "shift+alt+b",
+        "key": "shift+alt+b h",
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
@@ -169,5 +188,21 @@
     {
         "key": "ctrl+shift+v",
         "command": "editor.action.clipboardPasteAction"
+    },
+    {
+        "key": "shift+alt+b l",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "shift+alt+b left",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "shift+alt+b right",
+        "command": "workbench.action.toggleAuxiliaryBar"
     }
 ]

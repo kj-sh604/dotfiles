@@ -214,4 +214,24 @@
         "key": "shift+alt+c",
         "command": "toggle.window.commandCenter"
     },
+    {
+        "key": "shift+alt+b k",
+        "command": "workbench.action.hideEditorTabs",
+        "when": "editorTabsVisible"
+    },
+    {
+        "key": "shift+alt+b k",
+        "command": "workbench.action.showMultipleEditorTabs",
+        "when": "!editorTabsVisible"
+    },
+    {
+        "key": "shift+alt+b up",
+        "command": "workbench.action.hideEditorTabs",
+        "when": "editorTabsVisible"
+    },
+    {
+        "key": "shift+alt+b up",
+        "command": "workbench.action.showMultipleEditorTabs",
+        "when": "!editorTabsVisible"
+    }
 ]

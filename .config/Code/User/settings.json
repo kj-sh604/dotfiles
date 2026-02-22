@@ -311,7 +311,6 @@
         "editor.defaultFormatter": "arnetheduck.vscode-nph"
     },
     "workbench.activityBar.location": "top",
-    "workbench.editor.showTabs": "none",
     "workbench.layoutControl.enabled": false,
     "window.commandCenter": false
 }

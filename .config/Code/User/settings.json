@@ -312,5 +312,6 @@
     },
     "workbench.activityBar.location": "top",
     "workbench.layoutControl.enabled": false,
-    "window.commandCenter": false
+    "window.commandCenter": false,
+    "workbench.editor.showTabs": "none"
 }

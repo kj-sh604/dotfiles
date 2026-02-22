@@ -268,7 +268,9 @@
     "window.menuBarVisibility": "toggle",
     "window.newWindowDimensions": "inherit",
     "window.restoreWindows": "none",
-    "workbench.activityBar.location": "default",
+    "window.commandCenter": false,
+    "workbench.activityBar.location": "top",
+    "workbench.layoutControl.enabled": false,
     "workbench.colorCustomizations": {
         "editorCursor.background": "#303030",
         "editorCursor.foreground": "#69baa7",
@@ -311,12 +313,4 @@
     "[nim]": {
         "editor.defaultFormatter": "arnetheduck.vscode-nph"
     },
-    "zenMode.centerLayout": false,
-    "zenMode.fullScreen": false,
-    "zenMode.hideActivityBar": true,
-    "zenMode.hideLineNumbers": false,
-    "zenMode.hideStatusBar": false,
-    "zenMode.restore": true,
-    "zenMode.showTabs": "none",
-    "zenMode.silentNotifications": false
 }

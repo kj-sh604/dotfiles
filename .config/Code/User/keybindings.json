@@ -210,45 +210,23 @@
         "key": "shift+alt+b right",
         "command": "workbench.action.toggleAuxiliaryBar"
     },
-    // zen mode (editor + status bar only)
+    // command center toggles
     {
         "key": "shift+alt+b up",
         "command": "runCommands",
         "args": {
             "commands": [
-                "workbench.action.toggleZenMode"
+                "toggle.window.commandCenter"
             ]
-        },
-        "when": "!inZenMode"
-    },
-    {
-        "key": "shift+alt+b up",
-        "command": "runCommands",
-        "args": {
-            "commands": [
-                "workbench.action.toggleZenMode",
-            ]
-        },
-        "when": "inZenMode"
+        }
     },
     {
         "key": "shift+alt+b k",
         "command": "runCommands",
         "args": {
             "commands": [
-                "workbench.action.toggleZenMode",
+                "toggle.window.commandCenter"
             ]
-        },
-        "when": "!inZenMode"
-    },
-    {
-        "key": "shift+alt+b k",
-        "command": "runCommands",
-        "args": {
-            "commands": [
-                "workbench.action.toggleZenMode",
-            ]
-        },
-        "when": "inZenMode"
+        }
     },
 ]

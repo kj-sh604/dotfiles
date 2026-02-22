@@ -152,6 +152,10 @@
         "when": "terminal.active"
     },
     {
+        "key": "ctrl+`",
+        "command": "workbench.action.showAllEditors"
+    },
+    {
         "key": "shift+alt+j",
         "command": "workbench.action.focusNextPart"
     },
@@ -169,6 +173,7 @@
         "command": "-workbench.action.terminal.openNativeConsole",
         "when": "!terminalFocus"
     },
+    // panel navigation-ish
     {
         "key": "shift+alt+[",
         "command": "workbench.action.previousPanelView"
@@ -204,5 +209,46 @@
     {
         "key": "shift+alt+b right",
         "command": "workbench.action.toggleAuxiliaryBar"
-    }
+    },
+    // zen mode (editor + status bar only)
+    {
+        "key": "shift+alt+b up",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.toggleZenMode"
+            ]
+        },
+        "when": "!inZenMode"
+    },
+    {
+        "key": "shift+alt+b up",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.toggleZenMode",
+            ]
+        },
+        "when": "inZenMode"
+    },
+    {
+        "key": "shift+alt+b k",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.toggleZenMode",
+            ]
+        },
+        "when": "!inZenMode"
+    },
+    {
+        "key": "shift+alt+b k",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.toggleZenMode",
+            ]
+        },
+        "when": "inZenMode"
+    },
 ]

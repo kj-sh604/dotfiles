@@ -210,23 +210,8 @@
         "key": "shift+alt+b right",
         "command": "workbench.action.toggleAuxiliaryBar"
     },
-    // command center toggles
     {
-        "key": "shift+alt+b up",
-        "command": "runCommands",
-        "args": {
-            "commands": [
-                "toggle.window.commandCenter"
-            ]
-        }
-    },
-    {
-        "key": "shift+alt+b k",
-        "command": "runCommands",
-        "args": {
-            "commands": [
-                "toggle.window.commandCenter"
-            ]
-        }
+        "key": "shift+alt+c",
+        "command": "toggle.window.commandCenter"
     },
 ]

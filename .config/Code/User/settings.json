@@ -313,5 +313,6 @@
     "workbench.activityBar.location": "top",
     "workbench.layoutControl.enabled": false,
     "window.commandCenter": false,
+    "workbench.editor.editorActionsLocation": "hidden",
     "workbench.editor.showTabs": "none"
 }

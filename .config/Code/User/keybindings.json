@@ -233,5 +233,10 @@
         "key": "shift+alt+b up",
         "command": "workbench.action.showMultipleEditorTabs",
         "when": "!editorTabsVisible"
+    },
+    {
+        "key": "ctrl+alt+.",
+        "command": "workbench.action.chat.openModelPicker",
+        "when": "chatIsEnabled && inChatInput"
     }
 ]

@@ -102,7 +102,7 @@ command which eza >/dev/null 2>&1 && alias ls="eza"
 command which alsi >/dev/null 2>&1 && alias neofetch="alsi"
 alias S="cd ~/.local/bin && ls"
 alias d="disown"
-alias dots="cd ~/.local/share/.dotfiles/"
+alias dots="cd ~/.local/share/.dots/"
 alias egrep='grep -E'
 alias fgrep='grep -F'
 alias grep='grep --color=auto'

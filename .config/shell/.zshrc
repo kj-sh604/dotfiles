@@ -37,7 +37,7 @@ SAVEHIST=9999999
     # personal abbreviations
         abbr -S --quiet S="cd ~/.local/bin && ls"
         abbr -S --quiet d="disown"
-        abbr -S --quiet dots="cd ~/.local/share/.dotfiles/"
+        abbr -S --quiet dots="cd ~/.local/share/.dots/"
         abbr -S --quiet ks="killall screen"
         abbr -S --quiet la='ls -lah'
         abbr -S --quiet lgit="lazygit"

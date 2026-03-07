@@ -16,7 +16,7 @@ if status is-interactive
     # abbreviations
         abbr -a S "cd ~/.local/bin && ls"
         abbr -a d "disown"
-        abbr -a dots "cd ~/.local/share/.dotfiles/"
+        abbr -a dots "cd ~/.local/share/.dots/"
         abbr -a ks "killall screen"
         abbr -a lgit 'lazygit'
         abbr -a p "paru"

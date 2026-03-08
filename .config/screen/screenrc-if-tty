@@ -9,6 +9,7 @@ bind 0 select 10
 bind c screen 1
 defscrollback 16384
 escape ^@a
+bind H hardcopy -h
 maptimeout 0
 screen 1
 shell /usr/bin/fish

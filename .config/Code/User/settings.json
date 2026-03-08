@@ -303,7 +303,6 @@
     "terminal.integrated.defaultProfile.linux": "zsh",
     "github.copilot.nextEditSuggestions.enabled": true,
     "files.eol": "\n",
-    "chat.viewSessions.orientation": "stacked",
     "python.terminal.activateEnvironment": false,
     "[nim]": {
         "editor.defaultFormatter": "arnetheduck.vscode-nph"
@@ -313,5 +312,6 @@
     "window.commandCenter": false,
     "workbench.editor.editorActionsLocation": "hidden",
     "workbench.editor.showTabs": "none",
-    "workbench.colorTheme": "KiJiSH Dark"
+    "workbench.colorTheme": "KiJiSH Dark",
+    "chat.viewSessions.orientation": "stacked"
 }

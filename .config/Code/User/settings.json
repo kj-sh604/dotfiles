@@ -313,5 +313,10 @@
     "workbench.editor.editorActionsLocation": "hidden",
     "workbench.editor.showTabs": "none",
     "workbench.colorTheme": "KiJiSH Dark",
-    "chat.viewSessions.orientation": "stacked"
+    "chat.viewSessions.orientation": "stacked",
+    "zenMode.fullScreen": false,
+    "zenMode.centerLayout": false,
+    "zenMode.showTabs": "none",
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideStatusBar": false
 }

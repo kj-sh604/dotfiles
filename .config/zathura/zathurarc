@@ -1,5 +1,5 @@
 set selection-clipboard clipboard
-set window-height 7680
-set window-width 4320
+set window-width 1920
+set window-height 1200
 set default-bg "#2C2C2C"
 set statusbar-bg "#2C2C2C"

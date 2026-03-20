@@ -139,14 +139,6 @@
         "command": "workbench.action.togglePanel"
     },
     {
-        "key": "shift+alt+b j",
-        "command": "workbench.action.togglePanel"
-    },
-    {
-        "key": "shift+alt+b down",
-        "command": "workbench.action.togglePanel"
-    },
-    {
         "key": "ctrl+`",
         "command": "-workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
@@ -173,19 +165,6 @@
         "command": "-workbench.action.terminal.openNativeConsole",
         "when": "!terminalFocus"
     },
-    // panel navigation-ish
-    {
-        "key": "shift+alt+[",
-        "command": "workbench.action.previousPanelView"
-    },
-    {
-        "key": "shift+alt+]",
-        "command": "workbench.action.nextPanelView"
-    },
-    {
-        "key": "shift+alt+b h",
-        "command": "workbench.action.toggleSidebarVisibility"
-    },
     {
         "key": "ctrl+b",
         "command": "-workbench.action.toggleSidebarVisibility"
@@ -195,44 +174,12 @@
         "command": "editor.action.clipboardPasteAction"
     },
     {
-        "key": "shift+alt+b l",
-        "command": "workbench.action.toggleAuxiliaryBar"
-    },
-    {
         "key": "ctrl+alt+b",
         "command": "-workbench.action.toggleAuxiliaryBar"
     },
     {
-        "key": "shift+alt+b left",
-        "command": "workbench.action.toggleSidebarVisibility"
-    },
-    {
-        "key": "shift+alt+b right",
-        "command": "workbench.action.toggleAuxiliaryBar"
-    },
-    {
         "key": "shift+alt+c",
         "command": "toggle.window.commandCenter"
-    },
-    {
-        "key": "shift+alt+b k",
-        "command": "workbench.action.hideEditorTabs",
-        "when": "editorTabsVisible"
-    },
-    {
-        "key": "shift+alt+b k",
-        "command": "workbench.action.showMultipleEditorTabs",
-        "when": "!editorTabsVisible"
-    },
-    {
-        "key": "shift+alt+b up",
-        "command": "workbench.action.hideEditorTabs",
-        "when": "editorTabsVisible"
-    },
-    {
-        "key": "shift+alt+b up",
-        "command": "workbench.action.showMultipleEditorTabs",
-        "when": "!editorTabsVisible"
     },
     {
         "key": "ctrl+alt+.",
@@ -241,6 +188,114 @@
     },
     {
         "key": "shift+alt+m",
-        "command": "workbench.action.toggleMaximizedAuxiliaryBar"
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "panelFocus"
+    },
+    {
+        "key": "shift+alt+m",
+        "command": "workbench.action.toggleMaximizedAuxiliaryBar",
+        "when": "auxiliaryBarFocus"
+    },
+    {
+        "key": "shift+alt+m",
+        "command": "workbench.action.toggleZenMode",
+        "when": "editorFocus"
+    }
+    // panel navigation-ish
+    {
+        "key": "shift+alt+b j",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "shift+alt+b down",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "shift+alt+b shift+alt+j",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "shift+alt+b shift+alt+down",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "shift+alt+b h",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "shift+alt+b left",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "shift+alt+b shift+alt+h",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "shift+alt+b shift+alt+left",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "shift+alt+b l",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "shift+alt+b right",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "shift+alt+b shift+alt+l",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "shift+alt+b shift+alt+right",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "shift+alt+b k",
+        "command": "workbench.action.hideEditorTabs",
+        "when": "editorTabsVisible"
+    },
+    {
+        "key": "shift+alt+b k",
+        "command": "workbench.action.showMultipleEditorTabs",
+        "when": "!editorTabsVisible"
+    },
+    {
+        "key": "shift+alt+b up",
+        "command": "workbench.action.hideEditorTabs",
+        "when": "editorTabsVisible"
+    },
+    {
+        "key": "shift+alt+b up",
+        "command": "workbench.action.showMultipleEditorTabs",
+        "when": "!editorTabsVisible"
+    },
+    {
+        "key": "shift+alt+b shift+alt+k",
+        "command": "workbench.action.hideEditorTabs",
+        "when": "editorTabsVisible"
+    },
+    {
+        "key": "shift+alt+b shift+alt+k",
+        "command": "workbench.action.showMultipleEditorTabs",
+        "when": "!editorTabsVisible"
+    },
+    {
+        "key": "shift+alt+b shift+alt+up",
+        "command": "workbench.action.hideEditorTabs",
+        "when": "editorTabsVisible"
+    },
+    {
+        "key": "shift+alt+b shift+alt+up",
+        "command": "workbench.action.showMultipleEditorTabs",
+        "when": "!editorTabsVisible"
+    },
+    {
+        "key": "shift+alt+[",
+        "command": "workbench.action.previousPanelView"
+    },
+    {
+        "key": "shift+alt+]",
+        "command": "workbench.action.nextPanelView"
     }
 ]

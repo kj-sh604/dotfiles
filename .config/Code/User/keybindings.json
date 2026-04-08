@@ -29,17 +29,6 @@
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "vim.active && vim.mode == 'Normal'"
     },
-    // diagnostic navigation (mirrors [g / ]g from coc.nvim)
-    {
-        "key": "[ g",
-        "command": "editor.action.marker.prevInFiles",
-        "when": "vim.active && vim.mode == 'Normal' && editorFocus"
-    },
-    {
-        "key": "] g",
-        "command": "editor.action.marker.nextInFiles",
-        "when": "vim.active && vim.mode == 'Normal' && editorFocus"
-    },
     // splits operation
     {
         "key": "alt+s",

@@ -6,5 +6,5 @@ XDG_PICTURES_DIR="$HOME/pics"
 XDG_VIDEOS_DIR="$HOME/vids"
 XDG_TEMPLATES_DIR="$HOME/.local/share/tmplts"
 XDG_PUBLICSHARE_DIR="$HOME/.local/share/pub"
-
 XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
+XDG_PROJECTS_DIR="$HOME/.local/share/proj"

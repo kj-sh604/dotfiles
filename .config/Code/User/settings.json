@@ -318,5 +318,6 @@
     "zenMode.centerLayout": false,
     "zenMode.showTabs": "none",
     "zenMode.hideLineNumbers": false,
-    "zenMode.hideStatusBar": false
+    "zenMode.hideStatusBar": false,
+    "git.addAICoAuthor": "off"
 }

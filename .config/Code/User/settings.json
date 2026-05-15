@@ -319,5 +319,8 @@
     "zenMode.showTabs": "none",
     "zenMode.hideLineNumbers": false,
     "zenMode.hideStatusBar": false,
-    "git.addAICoAuthor": "off"
+    "git.addAICoAuthor": "off",
+    "files.associations": {
+        "cgitrc": "shellcheckrc"
+    }
 }

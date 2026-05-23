@@ -1,0 +1,126 @@
+#!/bin/sh
+
+CHANNEL="xfce4-keyboard-shortcuts"
+PROPERTY="/commands/custom/<Shift>space"
+DEFAULT_COMMAND="xfce4-popup-whiskermenu"
+NOTIFY_TITLE="xfce4-popup-whiskermenu"
+
+STATE_BASE="${XDG_STATE_HOME:-$HOME/.local/state}"
+STATE_DIR="$STATE_BASE/xfce-shortcuts"
+STATE_FILE="$STATE_DIR/shift-space-command"
+
+usage() {
+    printf 'usage: %s [toggle|on|off|status]\n' "$0"
+}
+
+notify() {
+    if command -v notify-send >/dev/null 2>&1; then
+        notify-send "$NOTIFY_TITLE" "$1" -t 2500
+    else
+        printf '%s: %s\n' "$NOTIFY_TITLE" "$1"
+    fi
+}
+
+die() {
+    printf 'error: %s\n' "$1" >&2
+    exit 1
+}
+
+shortcut_exists() {
+    xfconf-query -c "$CHANNEL" -p "$PROPERTY" >/dev/null 2>&1
+}
+
+shortcut_value() {
+    xfconf-query -c "$CHANNEL" -p "$PROPERTY" 2>/dev/null
+}
+
+save_current_shortcut() {
+    current_value=$(shortcut_value)
+    [ -n "$current_value" ] || return 0
+
+    mkdir -p "$STATE_DIR" || die "failed to create state directory: $STATE_DIR"
+    printf '%s\n' "$current_value" > "$STATE_FILE" || die "failed to write state file: $STATE_FILE"
+}
+
+restore_command() {
+    if [ -r "$STATE_FILE" ]; then
+        read_saved=""
+        IFS= read -r read_saved < "$STATE_FILE" || true
+        [ -n "$read_saved" ] && {
+            printf '%s\n' "$read_saved"
+            return 0
+        }
+    fi
+
+    printf '%s\n' "$DEFAULT_COMMAND"
+}
+
+disable_shortcut() {
+    if ! shortcut_exists; then
+        notify "shift+space is already disabled."
+        return 0
+    fi
+
+    save_current_shortcut
+
+    xfconf-query -c "$CHANNEL" -p "$PROPERTY" -r \
+        || die "failed to remove $PROPERTY"
+
+    notify "shift+space disabled"
+}
+
+enable_shortcut() {
+    if shortcut_exists; then
+        current_value=$(shortcut_value)
+        notify "shift+space is already enabled: $current_value"
+        return 0
+    fi
+
+    restore_value=$(restore_command)
+
+    xfconf-query -c "$CHANNEL" -p "$PROPERTY" -n -t string -s "$restore_value" \
+        || die "failed to restore $PROPERTY"
+
+    rm -f "$STATE_FILE"
+    notify "shift+space enabled"
+}
+
+status_shortcut() {
+    if shortcut_exists; then
+        current_value=$(shortcut_value)
+        printf 'enabled: %s -> %s\n' "$PROPERTY" "$current_value"
+    else
+        printf 'disabled: %s\n' "$PROPERTY"
+    fi
+}
+
+command -v xfconf-query >/dev/null 2>&1 \
+    || die "xfconf-query not found"
+
+action=${1:-toggle}
+
+case "$action" in
+    toggle)
+        if shortcut_exists; then
+            disable_shortcut
+        else
+            enable_shortcut
+        fi
+        ;;
+    on)
+        enable_shortcut
+        ;;
+    off)
+        disable_shortcut
+        ;;
+    status)
+        status_shortcut
+        ;;
+    -h|--help|help)
+        usage
+        ;;
+    *)
+        usage >&2
+        exit 2
+        ;;
+esac

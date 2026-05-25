@@ -30,7 +30,7 @@ foreground = "0xdcdcdc"
 TERM = "xterm-256color"
 
 [font]
-size = 9.0
+size = 11.0
 
 [font.normal]
 family = "Roboto Mono"

@@ -88,7 +88,7 @@ URxvt.visualBell: false
 *.color20:       base04_gray4
 *.color21:       base06_gray5
 
-XTerm.vt100.faceName: Roboto Mono:size=11:antialias=true
+XTerm.vt100.faceName: Roboto Mono:size=10:antialias=true
 XTerm.vt100.font: -misc-roboto mono-medium-r-normal--10-100-75-75-m-60-iso8859-1
 
 XTerm.vt100.translations: #override \n\
@@ -97,7 +97,7 @@ XTerm.vt100.translations: #override \n\
     Ctrl <Key> minus: smaller-vt-font() \n\
     Ctrl <Key> plus: larger-vt-font()
 
-URxvt.font: xft: Roboto Mono:size=11:antialias=true
+URxvt.font: xft: Roboto Mono:size=10:antialias=true
 
 ! below requires the resize-font perl extension
 URxvt.keysym.C-minus:     resize-font:smaller

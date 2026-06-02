@@ -23,6 +23,7 @@ vim.cmd [[
 	call plug#end()
 ]]
 
+-- options
 local opts = {
 	autochdir = true,
 	autoindent = true,
@@ -53,7 +54,6 @@ local opts = {
 	writebackup = false,
 }
 
--- options
 for k, v in pairs(opts) do
 	vim.opt[k] = v
 end
@@ -68,7 +68,7 @@ if vim.env.TERM == "alacritty" then
 	vim.opt.ttymouse = "sgr"
 end
 
--- keymaps
+-- custom keymaps
 local keymap = vim.keymap.set
 
 keymap("v", "<C-c>", '"+y', { noremap = true })
@@ -311,6 +311,7 @@ local ok_mason, mason = pcall(require, "mason")
 local ok_mlsp, mason_lspconfig = pcall(require, "mason-lspconfig")
 local ok_tools, mason_tool_installer = pcall(require, "mason-tool-installer")
 
+-- put lsp servers here to ensure they are installed and configured
 local servers = {
 	bashls = {},
 	pylsp = {},

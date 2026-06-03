@@ -1,6 +1,3 @@
--- leader
-vim.g.mapleader = " "
-
 -- plugins
 vim.cmd [[
 	call plug#begin()
@@ -282,6 +279,12 @@ local ok_tools, mason_tool_installer = pcall(require, "mason-tool-installer")
 -- put lsp servers here to ensure they are installed and configured
 local servers = {
 	bashls = {},
+	dockerls = {},
+	docker_compose_language_service = {},
+	html = {},
+	cssls = {},
+	ts_ls = {},
+	intelephense = {},
 	pylsp = {},
 	lua_ls = {
 		settings = {

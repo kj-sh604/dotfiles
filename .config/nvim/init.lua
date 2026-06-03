@@ -13,7 +13,6 @@ vim.cmd [[
 	Plug 'junegunn/fzf'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'Pocco81/true-zen.nvim'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'williamboman/mason.nvim'
@@ -195,37 +194,6 @@ if tele_ok then
 			prompt_prefix = " search:  ",
 		})
 	end, {})
-end
-
--- treesitter
-local tree_ok, configs = pcall(require, "nvim-treesitter.configs")
-if tree_ok then
-	configs.setup({
-		ensure_installed = {
-			"bash",
-			"lua",
-			"vim",
-			"vimdoc",
-		},
-		sync_install = false,
-		auto_install = true,
-		ignore_install = { "" },
-		highlight = {
-			enable = true,
-			disable = {
-				"php",
-				"markdown",
-				"dockerfile",
-			},
-			additional_vim_regex_highlighting = false,
-		},
-		indent = {
-			enable = true,
-			disable = {
-				"yaml",
-			},
-		},
-	})
 end
 
 -- truezen

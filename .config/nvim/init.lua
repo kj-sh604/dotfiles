@@ -10,7 +10,6 @@ vim.cmd [[
 	Plug 'junegunn/fzf'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
-	Plug 'Pocco81/true-zen.nvim'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'williamboman/mason.nvim'
 	Plug 'williamboman/mason-lspconfig.nvim'
@@ -64,6 +63,29 @@ if vim.env.TERM == "alacritty" then
 	vim.opt.ttymouse = "sgr"
 end
 
+-- custom functions for keymaps
+local term_buf = nil
+local toggle_terminal
+toggle_terminal = function()
+    if term_buf and vim.fn.bufexists(term_buf) == 1 then
+        local win = vim.fn.bufwinnr(term_buf)
+        if win ~= -1 then
+            vim.cmd(win .. "close")
+            return
+        end
+        vim.cmd("belowright split")
+        vim.cmd("resize " .. math.floor(vim.o.lines / 3))
+        vim.cmd("buffer " .. term_buf)
+        vim.cmd("startinsert")
+        return
+    end
+    vim.cmd("belowright split")
+    vim.cmd("resize " .. math.floor(vim.o.lines / 3))
+    vim.cmd("terminal")
+    vim.cmd("startinsert")
+    term_buf = vim.api.nvim_get_current_buf()
+end
+
 -- custom keymaps
 local keymap = vim.keymap.set
 
@@ -71,29 +93,20 @@ keymap("v", "<C-c>", '"+y', { noremap = true })
 keymap("v", "<C-x>", '"+x', { noremap = true })
 keymap({ "n", "v" }, "<C-p>", '"+p', { noremap = true })
 keymap({ "n", "v" }, "<leader>p", '"+P', { noremap = true })
-
 keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
 keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 keymap("n", "n", "nzzzv", { noremap = true })
 keymap("n", "N", "Nzzzv", { noremap = true })
 
-keymap("n", "<leader>n", ":NERDTreeFocus<CR>", { noremap = true })
-keymap("n", "<C-n>", ":NERDTree<CR>", { noremap = true })
-keymap("n", "<A-n>", ":NERDTreeToggle<CR>", { noremap = true })
-keymap("n", "<leader>/", ":NERDTreeFind<CR>", { noremap = true })
-
+keymap("n", "<S-A-b>j", ":term<CR>", { noremap = true })
+keymap("n", "<S-A-b>h", ":NERDTreeToggle<CR>", { noremap = true })
+keymap("n", "<S-A-j>", "<C-W>w", { noremap = true })
+keymap("n", "<S-A-k>", "<C-W>W", { noremap = true })
+keymap({"n", "t"}, "<S-A-b>j", function() toggle_terminal() end, { noremap = true })
 keymap("n", "<leader>sc", ":set spell!<CR>", { noremap = true, silent = true })
 
-keymap("n", "<A-s>", "<C-W>v", { noremap = true })
-keymap("n", "<A-d>", "<C-W>s", { noremap = true })
 keymap("n", "<A-q>", "ZQ", { noremap = true })
 keymap("n", "<A-z>", "ZZ", { noremap = true })
-keymap("n", "<A-j>", "<C-W>j", { noremap = true })
-keymap("n", "<A-k>", "<C-W>k", { noremap = true })
-keymap("n", "<A-l>", "<C-W>l", { noremap = true })
-keymap("n", "<A-h>", "<C-W>h", { noremap = true })
-keymap("n", "<A-e>", "<C-W>w", { noremap = true })
-keymap("n", "<A-w>", "<C-W>W", { noremap = true })
 
 keymap("n", "<A-,>", "<C-W>5<", { noremap = true })
 keymap("n", "<A-.>", "<C-W>5>", { noremap = true })
@@ -193,26 +206,6 @@ if tele_ok then
 	end, {})
 end
 
--- truezen
-local zen_ok, truezen = pcall(require, "true-zen")
-if zen_ok then
-	keymap("n", "<leader>zn", function()
-		local first = 0
-		local last = vim.api.nvim_buf_line_count(0)
-		truezen.narrow(first, last)
-	end, { noremap = true })
-
-	keymap("v", "<leader>zn", function()
-		local first = vim.fn.line("v")
-		local last = vim.fn.line(".")
-		truezen.narrow(first, last)
-	end, { noremap = true })
-
-	keymap("n", "<leader>zf", truezen.focus, { noremap = true })
-	keymap("n", "<leader>zm", truezen.minimalist, { noremap = true })
-	keymap("n", "<leader>za", truezen.ataraxis, { noremap = true })
-end
-
 -- lsp
 vim.diagnostic.config({
 	update_in_insert = false,
@@ -222,10 +215,11 @@ vim.diagnostic.config({
 	virtual_text = true,
 })
 
-keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "diagnostic prev" })
-keymap("n", "]d", vim.diagnostic.goto_next, { desc = "diagnostic next" })
+keymap("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, { desc = "diagnostic prev" })
+keymap("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, { desc = "diagnostic next" })
 keymap("n", "<leader>e", vim.diagnostic.open_float, { desc = "diagnostic float" })
 keymap("n", "<leader>q", vim.diagnostic.setloclist, { desc = "diagnostic list" })
+
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("user-lsp-attach", { clear = true }),
@@ -279,6 +273,7 @@ local ok_tools, mason_tool_installer = pcall(require, "mason-tool-installer")
 -- put lsp servers here to ensure they are installed and configured
 local servers = {
 	bashls = {},
+	clangd = {},
 	dockerls = {},
 	docker_compose_language_service = {},
 	html = {},

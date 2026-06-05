@@ -18,6 +18,8 @@ vim.cmd [[
 	call plug#end()
 ]]
 
+vim.g.NERDTreeShowHidden = 1
+
 -- options
 local opts = {
 	autochdir = true,

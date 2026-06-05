@@ -22,6 +22,7 @@ vim.cmd [[
 local opts = {
 	autochdir = true,
 	autoindent = true,
+	autoread = true,
 	backup = false,
 	cursorline = true,
 	expandtab = true,
@@ -142,6 +143,12 @@ end
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = { "*.py", "*.f90", "*.f95", "*.for" },
 	command = [[%s/\s\+$//e]],
+})
+
+local autoread_group = vim.api.nvim_create_augroup("autoread", { clear = true })
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+	group = autoread_group,
+	command = "if mode() !~ '\''[cCeEsS]'\'' | checktime | endif",
 })
 
 vim.cmd("filetype plugin on")

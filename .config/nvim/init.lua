@@ -108,6 +108,9 @@ keymap({"n", "t"}, "<S-A-b>j", function() toggle_terminal() end, { noremap = tru
 keymap({"n", "t"}, "<S-A-b><S-A-j>", function() toggle_terminal() end, { noremap = true })
 keymap("n", "<leader>sc", ":set spell!<CR>", { noremap = true, silent = true })
 
+keymap("n", "<A-j>", ":bnext<CR>", { noremap = true, silent = true })
+keymap("n", "<A-k>", ":bprev<CR>", { noremap = true, silent = true })
+
 keymap("n", "<A-q>", "ZQ", { noremap = true })
 keymap("n", "<A-z>", "ZZ", { noremap = true })
 
@@ -251,6 +254,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("grd", vim.lsp.buf.definition, "definition")
 		map("grt", vim.lsp.buf.type_definition, "type definition")
 		map("K", vim.lsp.buf.hover, "hover")
+		map("<leader>F", function() vim.lsp.buf.format({ async = true }) end, "format", { "n", "x" })
 
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
 		if client and client:supports_method("textDocument/documentHighlight", event.buf) then

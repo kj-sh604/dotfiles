@@ -189,7 +189,7 @@
         "key": "shift+alt+m",
         "command": "workbench.action.toggleZenMode",
         "when": "editorFocus"
-    }
+    },
     // panel navigation-ish
     {
         "key": "shift+alt+b j",

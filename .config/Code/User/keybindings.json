@@ -40,27 +40,6 @@
         "command": "workbench.action.splitEditorDown",
         "when": "vim.active && vim.mode == 'Normal'"
     },
-    // splits navigation
-    {
-        "key": "alt+h",
-        "command": "workbench.action.focusLeftGroup",
-        "when": "vim.active && vim.mode == 'Normal'"
-    },
-    {
-        "key": "alt+j",
-        "command": "workbench.action.focusBelowGroup",
-        "when": "vim.active && vim.mode == 'Normal'"
-    },
-    {
-        "key": "alt+k",
-        "command": "workbench.action.focusAboveGroup",
-        "when": "vim.active && vim.mode == 'Normal'"
-    },
-    {
-        "key": "alt+l",
-        "command": "workbench.action.focusRightGroup",
-        "when": "vim.active && vim.mode == 'Normal'"
-    },
     // alternate close
     {
         "key": "alt+q",
@@ -286,5 +265,13 @@
     {
         "key": "shift+alt+]",
         "command": "workbench.action.nextPanelView"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.previousEditor"
     }
 ]

@@ -98,11 +98,13 @@ keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 keymap("n", "n", "nzzzv", { noremap = true })
 keymap("n", "N", "Nzzzv", { noremap = true })
 
-keymap("n", "<S-A-b>j", ":term<CR>", { noremap = true })
 keymap("n", "<S-A-b>h", ":NERDTreeToggle<CR>", { noremap = true })
+keymap("n", "<S-A-b><S-A-h>", ":NERDTreeToggle<CR>", { noremap = true })
+keymap("n", "<A-n>", ":NERDTreeToggle<CR>", { noremap = true })
 keymap("n", "<S-A-j>", "<C-W>w", { noremap = true })
 keymap("n", "<S-A-k>", "<C-W>W", { noremap = true })
 keymap({"n", "t"}, "<S-A-b>j", function() toggle_terminal() end, { noremap = true })
+keymap({"n", "t"}, "<S-A-b><S-A-j>", function() toggle_terminal() end, { noremap = true })
 keymap("n", "<leader>sc", ":set spell!<CR>", { noremap = true, silent = true })
 
 keymap("n", "<A-q>", "ZQ", { noremap = true })
@@ -112,6 +114,9 @@ keymap("n", "<A-,>", "<C-W>5<", { noremap = true })
 keymap("n", "<A-.>", "<C-W>5>", { noremap = true })
 keymap("n", "<A-->", "<C-W>5-", { noremap = true })
 keymap("n", "<A-=>", "<C-W>5+", { noremap = true })
+
+keymap("n", "<A-s>", ":vsplit<CR>", { noremap = true })
+keymap("n", "<A-d>", ":split<CR>", { noremap = true })
 
 keymap("n", "<A-t>", ":tabnew<CR>", { noremap = true })
 keymap("n", "<A-[>", ":tabprev<CR>", { noremap = true })
@@ -218,7 +223,9 @@ vim.diagnostic.config({
 keymap("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, { desc = "diagnostic prev" })
 keymap("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, { desc = "diagnostic next" })
 keymap("n", "<leader>e", vim.diagnostic.open_float, { desc = "diagnostic float" })
+keymap("n", "<C-k><C-i>", vim.diagnostic.open_float, { desc = "diagnostic float" })
 keymap("n", "<leader>q", vim.diagnostic.setloclist, { desc = "diagnostic list" })
+keymap("n", "<S-A-m>", vim.diagnostic.setloclist, { desc = "diagnostic list" })
 
 
 vim.api.nvim_create_autocmd("LspAttach", {

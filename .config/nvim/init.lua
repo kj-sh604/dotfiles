@@ -19,6 +19,7 @@ vim.cmd [[
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-path'
+	Plug 'github/copilot.vim'
 	call plug#end()
 ]]
 
@@ -136,6 +137,9 @@ keymap("n", "<A-]>", ":tabnext<CR>", { noremap = true })
 keymap("n", "<A-;>", ":tabmove -<CR>", { noremap = true })
 keymap("n", "<A-'>", ":tabmove +<CR>", { noremap = true })
 keymap("n", "<leader>ft", ":set filetype=", { noremap = true })
+
+-- copilot
+keymap("i", "<C-l>", 'copilot#Accept("<CR>")', { expr = true, silent = true, replace_keycodes = false })
 
 -- ui and colors
 vim.cmd("colorscheme tender")

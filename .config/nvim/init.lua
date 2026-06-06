@@ -15,10 +15,15 @@ vim.cmd [[
 	Plug 'williamboman/mason-lspconfig.nvim'
 	Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 	Plug 'j-hui/fidget.nvim'
+	Plug 'hrsh7th/nvim-cmp'
+	Plug 'hrsh7th/cmp-nvim-lsp'
+	Plug 'hrsh7th/cmp-buffer'
+	Plug 'hrsh7th/cmp-path'
 	call plug#end()
 ]]
 
 vim.g.NERDTreeShowHidden = 1
+vim.g.pear_tree_ft_disabled = { "TelescopePrompt", "TelescopeResults" }
 
 -- options
 local opts = {
@@ -104,6 +109,7 @@ keymap("n", "N", "Nzzzv", { noremap = true })
 keymap("n", "<S-A-b>h", ":NERDTreeToggle<CR>", { noremap = true })
 keymap("n", "<S-A-b><S-A-h>", ":NERDTreeToggle<CR>", { noremap = true })
 keymap("n", "<A-n>", ":NERDTreeToggle<CR>", { noremap = true })
+keymap("n", "<S-A-n>", ":NERDTree<CR>", { noremap = true })
 keymap("n", "<S-A-j>", "<C-W>w", { noremap = true })
 keymap("n", "<S-A-k>", "<C-W>W", { noremap = true })
 keymap({"n", "t"}, "<S-A-b>j", function() toggle_terminal() end, { noremap = true })
@@ -334,4 +340,38 @@ end
 for server_name, server_config in pairs(servers) do
 	vim.lsp.config(server_name, server_config)
 	vim.lsp.enable(server_name)
+end
+
+-- completion
+vim.opt.completeopt = { "menu", "menuone", "noinsert" }
+
+local ok_cmp, cmp = pcall(require, "cmp")
+if ok_cmp then
+	cmp.setup({
+		mapping = cmp.mapping.preset.insert({
+			["<Tab>"] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.select_next_item()
+				else
+					fallback()
+				end
+			end, { "i", "s" }),
+			["<S-Tab>"] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.select_prev_item()
+				else
+					fallback()
+				end
+			end, { "i", "s" }),
+			["<C-Space>"] = cmp.mapping.complete(),
+			["<C-e>"] = cmp.mapping.abort(),
+			["<CR>"] = cmp.mapping.confirm({ select = true }),
+		}),
+		sources = cmp.config.sources({
+			{ name = "nvim_lsp" },
+		}, {
+			{ name = "buffer" },
+			{ name = "path" },
+		}),
+	})
 end

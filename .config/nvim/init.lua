@@ -382,10 +382,10 @@ if ok_cmp then
 end
 
 -- minuet (ai completions via openrouter)
-local _enc = vim.fn.expand("~/.config/minuet/key")
+local _mkey = vim.fn.expand("~/.config/minuet/key")
 local _ukey = vim.fn.expand("~/.config/minuet/mojicrypt.ukey")
 
-if vim.fn.filereadable(_enc) == 1 and vim.fn.filereadable(_ukey) == 1 then
+if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
     local ok_minuet, minuet = pcall(require, "minuet")
     if ok_minuet then
         minuet.setup({
@@ -401,7 +401,7 @@ if vim.fn.filereadable(_enc) == 1 and vim.fn.filereadable(_ukey) == 1 then
                     dismiss = "<A-BS>",
                 },
             },
-            request_timeout = 2.5,
+            request_timeout = 3,
             throttle = 1500,
             debounce = 600,
             provider_options = {
@@ -410,7 +410,7 @@ if vim.fn.filereadable(_enc) == 1 and vim.fn.filereadable(_ukey) == 1 then
                         local cached
                         return function()
                             if not cached then
-                                local handle = io.open(_enc, "r")
+                                local handle = io.open(_mkey, "r")
                                 if not handle then return nil end
                                 local content = handle:read("*a")
                                 handle:close()
@@ -430,10 +430,10 @@ if vim.fn.filereadable(_enc) == 1 and vim.fn.filereadable(_ukey) == 1 then
                         end
                     end)(),
                     end_point = "https://openrouter.ai/api/v1/chat/completions",
-                    model = "gpt-oss-120b",
+                    model = "qwen/qwen3-235b-a22b-2507",
                     name = "Openrouter",
                     optional = {
-                        max_tokens = 128,
+                        max_tokens = 256,
                         top_p = 0.9,
                         provider = {
                             sort = "throughput",

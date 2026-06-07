@@ -1,25 +1,25 @@
 -- plugins
 vim.cmd [[
 	call plug#begin()
-	Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' }
-	Plug 'tmsvg/pear-tree'
+	Plug 'github/copilot.vim'
+	Plug 'hrsh7th/cmp-buffer'
+	Plug 'hrsh7th/cmp-nvim-lsp'
+	Plug 'hrsh7th/cmp-path'
+	Plug 'hrsh7th/nvim-cmp'
 	Plug 'https://github.com/adelarsq/vim-matchit'
-	Plug 'tpope/vim-surround'
-	Plug 'sbdchd/neoformat'
-	Plug 'ThePrimeagen/vim-be-good'
+	Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+	Plug 'j-hui/fidget.nvim'
 	Plug 'junegunn/fzf'
+	Plug 'neovim/nvim-lspconfig'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
-	Plug 'neovim/nvim-lspconfig'
-	Plug 'williamboman/mason.nvim'
+	Plug 'sbdchd/neoformat'
+	Plug 'tmsvg/pear-tree'
+	Plug 'tpope/vim-surround'
 	Plug 'williamboman/mason-lspconfig.nvim'
+	Plug 'williamboman/mason.nvim'
+	Plug 'ThePrimeagen/vim-be-good'
 	Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
-	Plug 'j-hui/fidget.nvim'
-	Plug 'hrsh7th/nvim-cmp'
-	Plug 'hrsh7th/cmp-nvim-lsp'
-	Plug 'hrsh7th/cmp-buffer'
-	Plug 'hrsh7th/cmp-path'
-	Plug 'github/copilot.vim'
 	call plug#end()
 ]]
 

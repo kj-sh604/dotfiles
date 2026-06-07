@@ -182,12 +182,12 @@ vim.opt.fillchars = vim.opt.fillchars + {
 }
 
 vim.cmd([[
-	hi VertSplit guifg=#151515
-	hi User1 guifg=#999999 guibg=#151515
-	hi User2 guifg=#eea040 guibg=#151515
-	hi User3 guifg=#0072ff guibg=#151515
-	hi User4 guifg=#ffffff guibg=#151515
-	hi User5 guifg=#777777 guibg=#151515
+	hi VertSplit guifg=#1c1c1c
+	hi User1 guifg=#999999 guibg=#1c1c1c
+	hi User2 guifg=#72d5a3 guibg=#1c1c1c
+	hi User3 guifg=#ec93d3 guibg=#1c1c1c
+	hi User4 guifg=#ffffff guibg=#1c1c1c
+	hi User5 guifg=#777777 guibg=#1c1c1c
 ]])
 
 -- statusline

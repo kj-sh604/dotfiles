@@ -142,7 +142,7 @@ keymap("n", "<leader>ft", ":set filetype=", { noremap = true })
 keymap("i", "<C-l>", 'copilot#Accept("<CR>")', { expr = true, silent = true, replace_keycodes = false })
 
 -- ui and colors
-vim.cmd("colorscheme tender")
+vim.cmd("colorscheme kijish")
 
 if vim.fn.has("gui_running") == 1 then
 	vim.opt.t_Co = 256

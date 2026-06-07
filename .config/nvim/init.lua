@@ -410,14 +410,18 @@ if vim.fn.filereadable(_enc) == 1 and vim.fn.filereadable(_ukey) == 1 then
                         local cached
                         return function()
                             if not cached then
+                                local handle = io.open(_enc, "r")
+                                if not handle then return nil end
+                                local content = handle:read("*a")
+                                handle:close()
                                 local result = vim.fn.system({
-                                    "/home/kylert/.local/bin/mojicrypt", "decrypt",
-                                    "-f", _enc,
+                                    "mojicrypt", "decrypt",
                                     "-k", _ukey,
-                                    "-o", "/dev/stdout",
-                                })
+                                }, content)
                                 if vim.v.shell_error == 0 then
-                                    cached = result:gsub("%s+", "")
+                                    for line in result:gmatch("[^\n]+") do
+                                        cached = line:gsub("%s+", "")
+                                    end
                                 else
                                     cached = ""
                                 end

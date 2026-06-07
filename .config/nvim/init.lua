@@ -1,7 +1,8 @@
 -- plugins
 vim.cmd [[
 	call plug#begin()
-	Plug 'github/copilot.vim'
+	" Plug 'github/copilot.vim'
+	Plug 'milanglacier/minuet-ai.nvim'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-path'
@@ -138,8 +139,8 @@ keymap("n", "<A-;>", ":tabmove -<CR>", { noremap = true })
 keymap("n", "<A-'>", ":tabmove +<CR>", { noremap = true })
 keymap("n", "<leader>ft", ":set filetype=", { noremap = true })
 
--- copilot
-keymap("i", "<A-a>", 'copilot#Accept("<CR>")', { expr = true, silent = true, replace_keycodes = false })
+-- copilot (disabled, using minuet-ai.nvim instead)
+-- keymap("i", "<A-a>", 'copilot#Accept("<CR>")', { expr = true, silent = true, replace_keycodes = false })
 
 -- ui and colors
 vim.cmd("colorscheme kijish")
@@ -378,4 +379,65 @@ if ok_cmp then
             { name = "path" },
         }),
     })
+end
+
+-- minuet (ai completions via openrouter)
+local _enc = vim.fn.expand("~/.config/minuet/key")
+local _ukey = vim.fn.expand("~/.config/minuet/mojicrypt.ukey")
+
+if vim.fn.filereadable(_enc) == 1 and vim.fn.filereadable(_ukey) == 1 then
+    local ok_minuet, minuet = pcall(require, "minuet")
+    if ok_minuet then
+        minuet.setup({
+            provider = "openai_compatible",
+            virtualtext = {
+                auto_trigger_ft = { "*" },
+                keymap = {
+                    accept = "<A-CR>",
+                    accept_line = "<A-a>",
+                    accept_n_lines = "<A-S-CR>",
+                    next = "<A-]>",
+                    prev = "<A-[>",
+                    dismiss = "<A-BS>",
+                },
+            },
+            request_timeout = 2.5,
+            throttle = 1500,
+            debounce = 600,
+            provider_options = {
+                openai_compatible = {
+                    api_key = (function()
+                        local cached
+                        return function()
+                            if not cached then
+                                local result = vim.fn.system({
+                                    "/home/kylert/.local/bin/mojicrypt", "decrypt",
+                                    "-f", _enc,
+                                    "-k", _ukey,
+                                    "-o", "/dev/stdout",
+                                })
+                                if vim.v.shell_error == 0 then
+                                    cached = result:gsub("%s+", "")
+                                else
+                                    cached = ""
+                                end
+                            end
+                            return cached ~= "" and cached or nil
+                        end
+                    end)(),
+                    end_point = "https://openrouter.ai/api/v1/chat/completions",
+                    model = "gpt-oss-120b",
+                    name = "Openrouter",
+                    optional = {
+                        max_tokens = 128,
+                        top_p = 0.9,
+                        provider = {
+                            sort = "throughput",
+                        },
+                        reasoning_effort = "minimal",
+                    },
+                },
+            },
+        })
+    end
 end

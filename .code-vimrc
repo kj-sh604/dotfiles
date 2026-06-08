@@ -2,8 +2,6 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
-nnoremap <Leader>o :jumps<CR>
 vnoremap <C-c> "+y
 vmap <C-x> "+x
 map <C-p> "+p
-map <Leader>p "+P

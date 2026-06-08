@@ -114,8 +114,8 @@ keymap("n", "<S-A-b>h", ":NERDTreeToggle<CR>", { noremap = true })
 keymap("n", "<S-A-b><S-A-h>", ":NERDTreeToggle<CR>", { noremap = true })
 keymap("n", "<A-n>", ":NERDTreeToggle<CR>", { noremap = true })
 keymap("n", "<S-A-n>", ":NERDTree<CR>", { noremap = true })
-keymap("n", "<S-A-j>", "<C-W>w", { noremap = true })
-keymap("n", "<S-A-k>", "<C-W>W", { noremap = true })
+keymap({ "n", "t" }, "<S-A-j>", "<C-\\><C-n><C-W>w", { noremap = true })
+keymap({ "n", "t" }, "<S-A-k>", "<C-\\><C-n><C-W>W", { noremap = true })
 keymap({ "n", "t" }, "<S-A-b>j", function() toggle_terminal() end, { noremap = true })
 keymap({ "n", "t" }, "<S-A-b><S-A-j>", function() toggle_terminal() end, { noremap = true })
 keymap("n", "<leader>sc", ":set spell!<CR>", { noremap = true, silent = true })
@@ -454,7 +454,7 @@ end
 -- opencode integration
 local ok_oc, opencode = pcall(require, "opencode")
 if ok_oc then
-    keymap({ "n", "x" }, "<leader>oa", function() opencode.ask("@this: ") end, { desc = "opencode: ask" })
-    keymap({ "n", "x" }, "<leader>os", function() opencode.select() end, { desc = "opencode: select" })
-    keymap({ "n", "x" }, "<leader>o", function() return opencode.operator("@this ") end, { desc = "opencode: operator", expr = true })
+    keymap({ "n", "x" }, "<leader>i", function() opencode.ask("@this: ") end, { desc = "opencode: ask" })
+    keymap({ "n", "x" }, "<leader>is", function() opencode.select() end, { desc = "opencode: select" })
+    keymap({ "n", "x" }, "<leader>io", function() return opencode.operator("@this ") end, { desc = "opencode: operator", expr = true })
 end

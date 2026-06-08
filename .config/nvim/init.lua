@@ -21,6 +21,7 @@ vim.cmd [[
 	Plug 'williamboman/mason.nvim'
 	Plug 'ThePrimeagen/vim-be-good'
 	Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
+	Plug 'nickjvandyke/opencode.nvim'
 	call plug#end()
 ]]
 
@@ -447,4 +448,12 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             },
         })
     end
+end
+
+-- opencode integration
+local ok_oc, opencode = pcall(require, "opencode")
+if ok_oc then
+    keymap({ "n", "x" }, "<leader>oa", function() opencode.ask("@this: ") end, { desc = "opencode: ask" })
+    keymap({ "n", "x" }, "<leader>os", function() opencode.select() end, { desc = "opencode: select" })
+    keymap({ "n", "x" }, "<leader>o", function() return opencode.operator("@this ") end, { desc = "opencode: operator", expr = true })
 end

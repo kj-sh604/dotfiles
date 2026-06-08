@@ -273,5 +273,83 @@
     {
         "key": "alt+k",
         "command": "workbench.action.previousEditor"
+    },
+    // lsp (mirrors some of my neovim lsp keymaps)
+    {
+        "key": "shift+k",
+        "command": "editor.action.showHover",
+        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+        "key": "g r n",
+        "command": "editor.action.rename",
+        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+        "key": "g r a",
+        "command": "editor.action.quickFix",
+        "when": "vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorTextFocus"
+    },
+    {
+        "key": "g r d",
+        "command": "editor.action.revealDefinition",
+        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+        "key": "g r t",
+        "command": "editor.action.goToTypeDefinition",
+        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+        "key": "g r i",
+        "command": "editor.action.goToImplementation",
+        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+        "key": "g r r",
+        "command": "editor.action.goToReferences",
+        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
+    },
+    // leader actions
+    {
+        "key": "\\ f f",
+        "command": "workbench.action.quickOpen",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "\\ f g",
+        "command": "workbench.view.search.focus",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "\\ f b",
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "\\ e",
+        "command": "workbench.action.problems.focus",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "\\ shift+f",
+        "command": "editor.action.formatDocument",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    // ai inline completion (mirrors my neovim minuet keymaps)
+    {
+        "key": "alt+a",
+        "command": "editor.action.inlineSuggest.commit",
+        "when": "editorTextFocus && vim.active && vim.mode == 'Insert'"
+    },
+    {
+        "key": "alt+enter",
+        "command": "editor.action.inlineSuggest.commit",
+        "when": "editorTextFocus && vim.active && vim.mode == 'Insert'"
+    },
+    {
+        "key": "alt+shift+enter",
+        "command": "editor.action.inlineSuggest.commit",
+        "when": "editorTextFocus && vim.active && vim.mode == 'Insert'"
     }
 ]

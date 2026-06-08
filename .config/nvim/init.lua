@@ -2,7 +2,6 @@
 vim.cmd [[
 	call plug#begin()
 	" Plug 'github/copilot.vim'
-	Plug 'milanglacier/minuet-ai.nvim'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-path'
@@ -11,9 +10,12 @@ vim.cmd [[
 	Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 	Plug 'j-hui/fidget.nvim'
 	Plug 'junegunn/fzf'
+	Plug 'milanglacier/minuet-ai.nvim'
 	Plug 'neovim/nvim-lspconfig'
+	Plug 'nickjvandyke/opencode.nvim'
 	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	Plug 'sbdchd/neoformat'
 	Plug 'tmsvg/pear-tree'
 	Plug 'tpope/vim-surround'
@@ -21,7 +23,6 @@ vim.cmd [[
 	Plug 'williamboman/mason.nvim'
 	Plug 'ThePrimeagen/vim-be-good'
 	Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
-	Plug 'nickjvandyke/opencode.nvim'
 	call plug#end()
 ]]
 

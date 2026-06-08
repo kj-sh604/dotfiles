@@ -282,36 +282,6 @@
         "command": "editor.action.showHover",
         "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
     },
-    {
-        "key": "g r n",
-        "command": "editor.action.rename",
-        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
-    },
-    {
-        "key": "g r a",
-        "command": "editor.action.quickFix",
-        "when": "vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorTextFocus"
-    },
-    {
-        "key": "g r d",
-        "command": "editor.action.revealDefinition",
-        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
-    },
-    {
-        "key": "g r t",
-        "command": "editor.action.goToTypeDefinition",
-        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
-    },
-    {
-        "key": "g r i",
-        "command": "editor.action.goToImplementation",
-        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
-    },
-    {
-        "key": "g r r",
-        "command": "editor.action.goToReferences",
-        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
-    },
     // leader actions
     {
         "key": "\\ f f",

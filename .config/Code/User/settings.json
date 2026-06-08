@@ -251,11 +251,21 @@
         "<C-s>": true,
         "<C-p>": true,
         "<C-j>": false,
-        "<C-i>": false,
         "<C-n>": false,
         "<C-k>": false,
         "<C-w>": false
     },
+    "vim.normalModeKeyBindingsNonRecursive": [
+        { "before": ["g", "r", "n"], "commands": ["editor.action.rename"] },
+        { "before": ["g", "r", "a"], "commands": ["editor.action.quickFix"] },
+        { "before": ["g", "r", "d"], "commands": ["editor.action.revealDefinition"] },
+        { "before": ["g", "r", "t"], "commands": ["editor.action.goToTypeDefinition"] },
+        { "before": ["g", "r", "i"], "commands": ["editor.action.goToImplementation"] },
+        { "before": ["g", "r", "r"], "commands": ["editor.action.goToReferences"] }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        { "before": ["g", "r", "a"], "commands": ["editor.action.quickFix"] }
+    ],
     "vim.history": 1000,
     "vim.hlsearch": true,
     "vim.incsearch": true,

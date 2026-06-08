@@ -144,7 +144,7 @@ keymap("n", "<leader>ft", ":set filetype=", { noremap = true })
 -- keymap("i", "<A-a>", 'copilot#Accept("<CR>")', { expr = true, silent = true, replace_keycodes = false })
 
 -- ui and colors
-vim.cmd("colorscheme kijish")
+pcall(vim.cmd, "colorscheme kijish")
 
 if vim.fn.has("gui_running") == 1 then
     vim.opt.t_Co = 256
@@ -153,7 +153,7 @@ if vim.fn.has("gui_running") == 1 then
     vim.opt.guioptions:remove("T")
     vim.opt.guioptions:remove("r")
     vim.opt.guioptions:remove("L")
-    vim.cmd("colorscheme tender")
+    pcall(vim.cmd, "colorscheme kijish")
 end
 
 -- autocmds

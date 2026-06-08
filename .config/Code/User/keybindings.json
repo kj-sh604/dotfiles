@@ -276,55 +276,6 @@
         "command": "workbench.action.previousEditorInGroup",
         "when": "vim.active && vim.mode == 'Normal'"
     },
-    // lsp (mirrors some of my neovim lsp keymaps)
-    {
-        "key": "shift+k",
-        "command": "editor.action.showHover",
-        "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
-    },
-    // leader actions
-    {
-        "key": "\\ f f",
-        "command": "workbench.action.quickOpen",
-        "when": "vim.active && vim.mode == 'Normal'"
-    },
-    {
-        "key": "\\ f g",
-        "command": "workbench.view.search.focus",
-        "when": "vim.active && vim.mode == 'Normal'"
-    },
-    {
-        "key": "\\ f b",
-        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
-        "when": "vim.active && vim.mode == 'Normal'"
-    },
-    {
-        "key": "\\ e",
-        "command": "workbench.action.problems.focus",
-        "when": "vim.active && vim.mode == 'Normal'"
-    },
-    {
-        "key": "\\ shift+f",
-        "command": "editor.action.formatDocument",
-        "when": "vim.active && vim.mode == 'Normal'"
-    },
-    // .code-vimrc leader replicas
-    {
-        "key": "\\ o",
-        "command": "vim.remap",
-        "args": {
-            "commands": [{"command": ":jumps"}]
-        },
-        "when": "vim.active && vim.mode == 'Normal'"
-    },
-    {
-        "key": "\\ p",
-        "command": "vim.remap",
-        "args": {
-            "after": ["\"", "+", "P"]
-        },
-        "when": "vim.active && vim.mode == 'Normal'"
-    },
     // ai inline completion (mirrors my neovim minuet keymaps)
     {
         "key": "alt+a",
@@ -340,11 +291,5 @@
         "key": "alt+shift+enter",
         "command": "editor.action.inlineSuggest.commit",
         "when": "editorTextFocus && vim.active && vim.mode == 'Insert'"
-    },
-    // copilot inline chat (mirrors my neovim opencode keymaps)
-    {
-        "key": "\\ i",
-        "command": "inlineChat.start",
-        "when": "vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorFocus && inlineChatHasEditsAgent && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput || vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorFocus && inlineChatHasEditsAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat || vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorFocus && inlineChatHasEditsAgent && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat || vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorFocus && inlineChatHasNotebookAgent && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorFocus && inlineChatHasNotebookAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorFocus && inlineChatHasNotebookInline && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorFocus && inlineChatHasNotebookInline && inlineChatPossible && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorFocus && inlineChatHasEditsAgent && inlineChatHasNotebookAgent && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorFocus && inlineChatHasEditsAgent && inlineChatHasNotebookAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorFocus && inlineChatHasEditsAgent && inlineChatHasNotebookInline && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || vim.active && vim.mode =~ /^(Normal|Visual|VisualLine|VisualBlock)$/ && editorFocus && inlineChatHasEditsAgent && inlineChatHasNotebookInline && inlineChatPossible && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook'"
     }
 ]

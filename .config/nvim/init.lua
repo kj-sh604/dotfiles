@@ -456,5 +456,6 @@ local ok_oc, opencode = pcall(require, "opencode")
 if ok_oc then
     keymap({ "n", "x" }, "<leader>i", function() opencode.ask("@this: ") end, { desc = "opencode: ask" })
     keymap({ "n", "x" }, "<leader>is", function() opencode.select() end, { desc = "opencode: select" })
-    keymap({ "n", "x" }, "<leader>io", function() return opencode.operator("@this ") end, { desc = "opencode: operator", expr = true })
+    keymap({ "n", "x" }, "<leader>io", function() return opencode.operator("@this ") end,
+        { desc = "opencode: operator", expr = true })
 end

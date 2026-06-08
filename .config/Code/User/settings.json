@@ -256,6 +256,15 @@
         "<C-w>": false
     },
     "vim.normalModeKeyBindingsNonRecursive": [
+        { "before": ["K"], "commands": ["editor.action.showHover"] },
+        { "before": ["\\", "f", "f"], "commands": ["workbench.action.quickOpen"] },
+        { "before": ["\\", "f", "g"], "commands": ["workbench.view.search.focus"] },
+        { "before": ["\\", "f", "b"], "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditor"] },
+        { "before": ["\\", "e"], "commands": ["workbench.action.problems.focus"] },
+        { "before": ["\\", "F"], "commands": ["editor.action.formatDocument"] },
+        { "before": ["\\", "o"], "commands": [{"command": "vim.remap", "args": {"commands": [{ "command": ":jumps" }]}}] },
+        { "before": ["\\", "p"], "commands": [{"command": "vim.remap", "args": {"after": ["\"", "+", "P"]}}] },
+        { "before": ["\\", "i"], "commands": ["inlineChat.start"] },
         { "before": ["g", "r", "n"], "commands": ["editor.action.rename"] },
         { "before": ["g", "r", "a"], "commands": ["editor.action.quickFix"] },
         { "before": ["g", "r", "d"], "commands": ["editor.action.revealDefinition"] },
@@ -264,7 +273,8 @@
         { "before": ["g", "r", "r"], "commands": ["editor.action.goToReferences"] }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
-        { "before": ["g", "r", "a"], "commands": ["editor.action.quickFix"] }
+        { "before": ["g", "r", "a"], "commands": ["editor.action.quickFix"] },
+        { "before": ["\\", "i"], "commands": ["inlineChat.start"] }
     ],
     "vim.history": 1000,
     "vim.hlsearch": true,
@@ -287,7 +297,7 @@
         "statusBar.debuggingForeground": "#ffffff",
         "statusBar.foreground": "#ffffff",
         "statusBar.noFolderBackground": "#303030",
-        "statusBar.noFolderForeground": "#ffffff",
+        "statusBar.noFolderForeground": "#ffffff"
     },
     "workbench.editor.decorations.badges": false,
     "workbench.editor.decorations.colors": false,

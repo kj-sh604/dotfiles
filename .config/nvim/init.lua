@@ -355,7 +355,10 @@ if ok_cmp then
     cmp.setup({
         mapping = cmp.mapping.preset.insert({
             ["<Tab>"] = cmp.mapping(function(fallback)
-                if cmp.visible() then
+                local minuet_ok, minuet = pcall(require, "minuet.virtualtext")
+                if minuet_ok and minuet.action.is_visible() then
+                    minuet.action.accept()
+                elseif cmp.visible() then
                     cmp.select_next_item()
                 else
                     fallback()

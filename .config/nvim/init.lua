@@ -122,6 +122,7 @@ keymap("n", "<leader>sc", ":set spell!<CR>", { noremap = true, silent = true })
 
 keymap("n", "<A-j>", ":bnext<CR>", { noremap = true, silent = true })
 keymap("n", "<A-k>", ":bprev<CR>", { noremap = true, silent = true })
+keymap("n", "<A-w>", ":close<CR>", { noremap = true })
 
 keymap("n", "<A-q>", "ZQ", { noremap = true })
 keymap("n", "<A-z>", "ZZ", { noremap = true })
@@ -435,7 +436,7 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                         end
                     end)(),
                     end_point = "https://openrouter.ai/api/v1/chat/completions",
-                    model = "qwen/qwen3-235b-a22b-2507",
+                    model = "meta-llama/llama-3.1-8b-instruct",
                     name = "Openrouter",
                     optional = {
                         max_tokens = 256,

@@ -133,6 +133,22 @@
         "command": "-workbench.action.terminal.openNativeConsole",
         "when": "!terminalFocus"
     },
+    // quick open / search in sidebar and copilot chat panel (mirrors vim \\ff \\fg \\fb)
+    {
+        "key": "\\ f f",
+        "command": "workbench.action.quickOpen",
+        "when": "!editorTextFocus && !terminalFocus && !textInputFocus"
+    },
+    {
+        "key": "\\ f g",
+        "command": "workbench.view.search.focus",
+        "when": "!editorTextFocus && !terminalFocus && !textInputFocus"
+    },
+    {
+        "key": "\\ f b",
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
+        "when": "!editorTextFocus && !terminalFocus && !textInputFocus"
+    },
     {
         "key": "ctrl+b",
         "command": "-workbench.action.toggleSidebarVisibility"

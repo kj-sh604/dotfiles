@@ -445,10 +445,10 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                         end
                     end)(),
                     end_point = "https://openrouter.ai/api/v1/chat/completions",
-                    model = "meta-llama/llama-3.1-8b-instruct",
+                    model = "deepseek/deepseek-v4-flash",
                     name = "Openrouter",
                     optional = {
-                        max_tokens = 256,
+                        max_tokens = 384,
                         top_p = 0.9,
                         provider = {
                             sort = "throughput",

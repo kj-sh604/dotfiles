@@ -332,10 +332,14 @@ local servers = {
             },
         },
     },
+    ruby_lsp = {},
+    gopls = {},
+    rust_analyzer = {},
+    zls = {},
 }
 
 if ok_mason then
-    mason.setup()
+    mason.setup({ firewall = { enabled = true } })
 end
 
 if ok_tools then

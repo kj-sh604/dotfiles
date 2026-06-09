@@ -231,6 +231,7 @@ if tele_ok then
     keymap("n", "<leader>fb", function()
         builtin.buffers({
             prompt_prefix = " search:  ",
+            initial_mode  = "normal"
         })
     end, {})
 

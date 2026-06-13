@@ -19,8 +19,8 @@ if status is-interactive
         abbr -a dots "cd ~/.local/share/.dots/"
         abbr -a ks "killall screen"
         abbr -a lgit 'lazygit'
-        abbr -a p "paru"
-        abbr -a pu "paru -Syu --noconfirm"
+        abbr -a p "sudo pacman"
+        abbr -a pu "sudo pacman -Syu --noconfirm"
         abbr -a s "screen"
         abbr -a sls "screen -ls"
         abbr -a sr "screen -r"

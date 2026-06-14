@@ -326,6 +326,7 @@ local servers = {
     docker_compose_language_service = {},
     html = {},
     cssls = {},
+    jsonls = {},
     ts_ls = {},
     intelephense = {},
     pylsp = {},

@@ -35,6 +35,7 @@ local opts = {
     autoindent = true,
     autoread = true,
     backup = false,
+    cmdheight = 1,
     cursorline = true,
     expandtab = true,
     hlsearch = true,
@@ -174,6 +175,8 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
     command = "if mode() !~ '\''[cCeEsS]'\'' | checktime | endif",
 })
 
+
+
 vim.cmd("filetype plugin on")
 vim.cmd("filetype indent on")
 vim.cmd("syntax on")
@@ -232,6 +235,12 @@ if tele_ok then
         builtin.buffers({
             prompt_prefix = " search:  ",
             initial_mode  = "normal"
+        })
+    end, {})
+
+    keymap("n", "<leader>fj", function()
+        builtin.jumplist({
+            prompt_prefix = " search:  ",
         })
     end, {})
 
@@ -465,7 +474,24 @@ end
 local ok_oc, opencode = pcall(require, "opencode")
 if ok_oc then
     keymap({ "n", "x" }, "<leader>i", function() opencode.ask("@this: ") end, { desc = "opencode: ask" })
-    keymap({ "n", "x" }, "<leader>is", function() opencode.select() end, { desc = "opencode: select" })
-    keymap({ "n", "x" }, "<leader>io", function() return opencode.operator("@this ") end,
+    keymap({ "n", "x" }, "<leader>oa", function() opencode.ask("@this: ") end, { desc = "opencode: ask" })
+    keymap({ "n", "x" }, "<leader>os", function() opencode.select() end, { desc = "opencode: select" })
+    keymap({ "n", "x" }, "<leader>oo", function() return opencode.operator("@this ") end,
         { desc = "opencode: operator", expr = true })
+end
+
+-- conditionally override vim.ui.input so that opencode has more cmdheight for prompts
+local _original_ui_input = vim.ui.input
+vim.ui.input = function(opts, on_confirm)
+    local prompt = (opts and opts.prompt) or ""
+    if prompt:lower():find("opencode") then
+        local saved = vim.o.cmdheight
+        vim.o.cmdheight = 4
+        _original_ui_input(opts, function(input)
+            vim.o.cmdheight = saved
+            on_confirm(input)
+        end)
+    else
+        _original_ui_input(opts, on_confirm)
+    end
 end

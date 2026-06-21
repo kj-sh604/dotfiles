@@ -429,7 +429,7 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             request_timeout = 3,
             throttle = 1500,
             debounce = 600,
-            context_window = 16384,
+            context_window = 15360,
             n_completions = 1,
             provider_options = {
                 openai_compatible = {
@@ -461,7 +461,7 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                     name = "Openrouter",
                     optional = {
                         min_tokens = 1,
-                        max_tokens = 384,
+                        max_tokens = 256,
                         top_p = 0.9,
                         provider = {
                             sort = "throughput",

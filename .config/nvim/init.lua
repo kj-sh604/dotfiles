@@ -172,7 +172,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 local autoread_group = vim.api.nvim_create_augroup("autoread", { clear = true })
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
     group = autoread_group,
-    command = "if mode() !~ '\''[cCeEsS]'\'' | checktime | endif",
+    callback = function()
+        local m = vim.fn.mode()
+        if not m:match("[cCeEsS]") and vim.fn.getcmdwintype() == "" then
+            vim.cmd("checktime")
+        end
+    end,
 })
 
 

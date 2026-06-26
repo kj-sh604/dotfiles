@@ -24,9 +24,7 @@ if status is-interactive
         abbr -a s "screen"
         abbr -a sls "screen -ls"
         abbr -a sr "screen -r"
-        abbr -a t "timedatectl"
         abbr -a uncommit 'git reset --soft HEAD^'
-        abbr -a x "startx"
         abbr -a yt-best "youtube-dl -cif 'bestvideo+bestaudio/best'"
         abbr -a yt-m4a "youtube-dl -cif 'bestaudio[ext=m4a]'"
         abbr -a yt-mp4 "youtube-dl -cif 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"

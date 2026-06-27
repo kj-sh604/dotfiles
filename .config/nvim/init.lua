@@ -466,7 +466,7 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                     name = "Openrouter",
                     optional = {
                         min_tokens = 1,
-                        max_tokens = 256,
+                        max_tokens = 128,
                         top_p = 0.9,
                         provider = {
                             sort = "throughput",

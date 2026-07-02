@@ -109,8 +109,6 @@ alias grep='grep --color=auto'
 alias ks="killall screen"
 alias la='ls -lah'
 alias lgit="lazygit"
-alias p="sudo pacman"
-alias pu="sudo pacman -Syu --noconfirm"
 alias s="screen"
 alias sls="screen -ls"
 alias sr="screen -r"

@@ -152,7 +152,7 @@
     "explorer.decorations.colors": false,
     "explorer.fileNesting.enabled": false,
     "extensions.autoCheckUpdates": false,
-    "extensions.autoUpdate": false,
+    "extensions.autoUpdate": "off",
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
     },

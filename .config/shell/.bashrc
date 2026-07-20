@@ -93,6 +93,10 @@ unset use_color sh
 export HISTFILE="$XDG_STATE_HOME"/shell/history
 
 set -o vi
+bind 'set show-mode-in-prompt on'
+bind 'set vi-cmd-mode-string "\1\e[2 q\2"'
+bind 'set vi-ins-mode-string "\1\e[6 q\2"'
+bind 'set keyseq-timeout 0'
 
 bind -m vi-command '"\C-e": edit-and-execute-command'
 bind -m vi-insert  '"\C-e": edit-and-execute-command'

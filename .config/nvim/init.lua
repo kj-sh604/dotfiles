@@ -1,5 +1,5 @@
 -- plugins
-vim.cmd [[
+pcall(vim.cmd, [[
 	call plug#begin()
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-nvim-lsp'
@@ -23,7 +23,7 @@ vim.cmd [[
 	Plug 'ThePrimeagen/vim-be-good'
 	Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 	call plug#end()
-]]
+]])
 
 vim.g.NERDTreeShowHidden = 1
 vim.g.pear_tree_ft_disabled = { "TelescopePrompt", "TelescopeResults" }
@@ -471,6 +471,9 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             },
             duet = {
                 provider = "openai_compatible",
+                non_editable_region = {
+                    context_window = 65536,
+                },
                 provider_options = {
                     openai_compatible = {
                         api_key = _minuet_api_key,
@@ -490,7 +493,7 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             request_timeout = 3,
             throttle = 1500,
             debounce = 600,
-            context_window = 15360,
+            context_window = 65536,
             n_completions = 1,
             provider_options = {
                 openai_compatible = {
@@ -500,7 +503,7 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                     name = "Openrouter",
                     optional = {
                         min_tokens = 1,
-                        max_tokens = 512,
+                        max_tokens = 768,
                         top_p = 0.9,
                         provider = {
                             sort = "throughput",
@@ -510,6 +513,22 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                 },
             },
         })
+
+        -- minuet duet state check for auto triggers (so it doesn't keep attempting when it's unrealistic)
+        local _duet_last_predict = nil
+
+        local function _duet_predict()
+            local ok_duet_fn, duet_fn = pcall(require, "minuet.duet")
+            if not ok_duet_fn then
+                return
+            end
+
+            local bufnr = vim.api.nvim_get_current_buf()
+            local pos = vim.api.nvim_win_get_cursor(0)
+            _duet_last_predict = { buf = bufnr, tick = vim.b.changedtick, row = pos[1], col = pos[2] }
+
+            duet_fn.action.predict()
+        end
 
         -- minuet duet keymaps
         -- duet         = normal mode
@@ -524,10 +543,10 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             keymap("i", "<A-p>", function()
                 vt_action.dismiss()
                 _duet_vt_quiet = true
-                duet_action.predict()
+                _duet_predict()
             end, { noremap = true, silent = true })
 
-            keymap("n", "<A-p>", duet_action.predict, { noremap = true, silent = true })
+            keymap("n", "<A-p>", _duet_predict, { noremap = true, silent = true })
 
             local function duet_only(fn)
                 return function()
@@ -553,16 +572,52 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
 
         -- minuet duet auto trigger (will be implemented some time in the future by upstream)
         local _duet_timer = nil
+        local _duet_idle_timer = nil
         local _duet_group = vim.api.nvim_create_augroup("minuet-duet-auto-trigger", { clear = true })
+
+        local function _duet_cancel_timer(t)
+            if t and not t:is_closing() then
+                t:stop()
+                t:close()
+            end
+        end
+
+        local function _duet_auto_predict()
+            if not vim.fn.mode():match("^n") then
+                return
+            end
+
+            if not vim.bo.modifiable or vim.bo.buftype ~= "" then
+                return
+            end
+
+            local ok_duet_inner, duet = pcall(require, "minuet.duet")
+            if not ok_duet_inner then
+                return
+            end
+
+            -- state: duet preview is already waiting for action
+            if duet.action.is_visible() then
+                return
+            end
+
+            -- a dismissed preview stays dismissed until the cursor moves or the text changes
+            local bufnr = vim.api.nvim_get_current_buf()
+            local pos = vim.api.nvim_win_get_cursor(0)
+            local tick = vim.b.changedtick
+            local last = _duet_last_predict
+            if last and last.buf == bufnr and last.tick == tick and last.row == pos[1] and last.col == pos[2] then
+                return
+            end
+
+            _duet_predict()
+        end
 
         vim.api.nvim_create_autocmd("TextChanged", {
             group = _duet_group,
             callback = function(args)
-                if _duet_timer and not _duet_timer:is_closing() then
-                    _duet_timer:stop()
-                    _duet_timer:close()
-                    _duet_timer = nil
-                end
+                _duet_cancel_timer(_duet_timer)
+                _duet_timer = nil
 
                 _duet_timer = vim.defer_fn(function()
                     _duet_timer = nil
@@ -571,26 +626,24 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                         return
                     end
 
-                    if not vim.fn.mode():match("^n") then
-                        return
-                    end
-
-                    if not vim.bo.modifiable or vim.bo.buftype ~= "" then
-                        return
-                    end
-
-                    local ok_duet_inner, duet = pcall(require, "minuet.duet")
-                    if not ok_duet_inner then
-                        return
-                    end
-
-                    -- state: duet preview is already waiting for action
-                    if duet.action.is_visible() then
-                        return
-                    end
-
-                    duet.action.predict()
+                    _duet_auto_predict()
                 end, 768)
+            end,
+        })
+
+        vim.api.nvim_create_autocmd({
+            "CursorMoved", "CursorMovedI", "TextChanged", "TextChangedI",
+            "InsertEnter", "InsertLeave", "BufEnter",
+        }, {
+            group = _duet_group,
+            callback = function()
+                _duet_cancel_timer(_duet_idle_timer)
+                _duet_idle_timer = nil
+
+                _duet_idle_timer = vim.defer_fn(function()
+                    _duet_idle_timer = nil
+                    _duet_auto_predict()
+                end, 1024)
             end,
         })
 

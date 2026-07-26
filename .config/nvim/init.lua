@@ -66,6 +66,8 @@ for k, v in pairs(opts) do
     vim.opt[k] = v
 end
 
+vim.opt.shortmess:append("I")
+
 -- spell and cursor shape
 vim.opt.spelllang = { "en_us", "tl" }
 vim.g.t_SI = "\27[6 q"
@@ -129,7 +131,6 @@ keymap("n", "<A-n>", ":enew<CR>", { noremap = true, silent = true })
 -- trick to close current buffer with a keymap
 keymap("n", "<S-A-w>", ":bprevious | bdelete #<CR>", { noremap = true, silent = true })
 
-keymap("n", "<A-q>", "ZQ", { noremap = true })
 keymap("n", "<A-z>", "ZZ", { noremap = true })
 
 keymap("n", "<A-,>", "<C-W>5<", { noremap = true })

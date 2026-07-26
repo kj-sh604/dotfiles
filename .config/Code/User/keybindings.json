@@ -42,7 +42,12 @@
     },
     // alternate close
     {
-        "key": "alt+q",
+        "key": "shift+alt+w",
+        "command": "workbench.action.closeActiveEditor",
+        "when": "vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+w",
         "command": "workbench.action.closeActiveEditor",
         "when": "vim.active && vim.mode == 'Normal'"
     },

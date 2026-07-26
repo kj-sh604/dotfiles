@@ -149,7 +149,6 @@
       <property name="Left" type="string" value="left_key"/>
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Alt&gt;grave" type="string" value="switch_window_key"/>
-      <property name="&lt;Super&gt;q" type="string" value="close_window_key"/>
       <property name="&lt;Super&gt;Up" type="string" value="maximize_window_key"/>
       <property name="&lt;Super&gt;Down" type="string" value="hide_window_key"/>
       <property name="&lt;Super&gt;t" type="string" value="above_key"/>
@@ -191,6 +190,7 @@
       <property name="&lt;Super&gt;u" type="string" value="shade_window_key"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;plus" type="string" value="add_workspace_key"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;underscore" type="string" value="del_workspace_key"/>
+      <property name="&lt;Alt&gt;q" type="string" value="close_window_key"/>
     </property>
   </property>
   <property name="providers" type="array">

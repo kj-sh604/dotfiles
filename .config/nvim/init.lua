@@ -384,7 +384,10 @@ if ok_cmp then
         mapping = cmp.mapping.preset.insert({
             ["<Tab>"] = cmp.mapping(function(fallback)
                 local minuet_ok, minuet = pcall(require, "minuet.virtualtext")
-                if minuet_ok and minuet.action.is_visible() then
+                local duet_ok, duet = pcall(require, "minuet.duet")
+                if duet_ok and duet.action.is_visible() then
+                    duet.action.apply()
+                elseif minuet_ok and minuet.action.is_visible() then
                     minuet.action.accept()
                 elseif cmp.visible() then
                     cmp.select_next_item()
@@ -419,6 +422,30 @@ local _ukey = vim.fn.expand("~/.config/minuet/mojicrypt.ukey")
 if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
     local ok_minuet, minuet = pcall(require, "minuet")
     if ok_minuet then
+        local _minuet_api_key = (function()
+            local cached
+            return function()
+                if not cached then
+                    local handle = io.open(_mkey, "r")
+                    if not handle then return nil end
+                    local content = handle:read("*a")
+                    handle:close()
+                    local result = vim.fn.system({
+                        "mojicrypt", "decrypt",
+                        "-k", _ukey,
+                    }, content)
+                    if vim.v.shell_error == 0 then
+                        for line in result:gmatch("[^\n]+") do
+                            cached = line:gsub("%s+", "")
+                        end
+                    else
+                        cached = ""
+                    end
+                end
+                return cached ~= "" and cached or nil
+            end
+        end)()
+
         minuet.setup({
             provider = "openai_compatible",
             virtualtext = {
@@ -432,6 +459,23 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                     dismiss = "<A-BS>",
                 },
             },
+            duet = {
+                provider = "openai_compatible",
+                provider_options = {
+                    openai_compatible = {
+                        api_key = _minuet_api_key,
+                        end_point = "https://openrouter.ai/api/v1/chat/completions",
+                        model = "google/gemini-3.1-flash-lite",
+                        name = "Openrouter",
+                        optional = {
+                            reasoning_effort = "none",
+                            provider = {
+                                sort = "throughput",
+                            },
+                        },
+                    },
+                },
+            },
             request_timeout = 3,
             throttle = 1500,
             debounce = 600,
@@ -439,29 +483,7 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             n_completions = 1,
             provider_options = {
                 openai_compatible = {
-                    api_key = (function()
-                        local cached
-                        return function()
-                            if not cached then
-                                local handle = io.open(_mkey, "r")
-                                if not handle then return nil end
-                                local content = handle:read("*a")
-                                handle:close()
-                                local result = vim.fn.system({
-                                    "mojicrypt", "decrypt",
-                                    "-k", _ukey,
-                                }, content)
-                                if vim.v.shell_error == 0 then
-                                    for line in result:gmatch("[^\n]+") do
-                                        cached = line:gsub("%s+", "")
-                                    end
-                                else
-                                    cached = ""
-                                end
-                            end
-                            return cached ~= "" and cached or nil
-                        end
-                    end)(),
+                    api_key = _minuet_api_key,
                     end_point = "https://openrouter.ai/api/v1/chat/completions",
                     model = "mistralai/codestral-2508",
                     name = "Openrouter",
@@ -476,6 +498,102 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                     },
                 },
             },
+        })
+
+        -- minuet duet keymaps
+        local ok_vt, minuet_vt = pcall(require, "minuet.virtualtext")
+        local ok_duet, minuet_duet = pcall(require, "minuet.duet")
+
+        if ok_vt and ok_duet then
+            local vt_action = minuet_vt.action
+            local duet_action = minuet_duet.action
+
+            local function duet_accept_or(vt_fn)
+                return function()
+                    if duet_action.is_visible() then
+                        duet_action.apply()
+                    else
+                        vt_fn()
+                    end
+                end
+            end
+
+            keymap("i", "<A-CR>", duet_accept_or(vt_action.accept), { noremap = true, silent = true })
+            keymap("i", "<A-a>", duet_accept_or(vt_action.accept_line), { noremap = true, silent = true })
+            keymap("i", "<A-S-CR>", duet_accept_or(vt_action.accept_n_lines), { noremap = true, silent = true })
+            keymap("i", "<A-BS>", function()
+                if duet_action.is_visible() then
+                    duet_action.dismiss()
+                else
+                    vt_action.dismiss()
+                end
+            end, { noremap = true, silent = true })
+
+            -- normal mode twins, previews also appear after non insert edits
+            local function duet_only(fn)
+                return function()
+                    if duet_action.is_visible() then
+                        fn()
+                    end
+                end
+            end
+
+            keymap("n", "<A-CR>", duet_only(duet_action.apply), { noremap = true, silent = true })
+            keymap("n", "<A-a>", duet_only(duet_action.apply), { noremap = true, silent = true })
+            keymap("n", "<A-S-CR>", duet_only(duet_action.apply), { noremap = true, silent = true })
+            keymap("n", "<A-BS>", duet_only(duet_action.dismiss), { noremap = true, silent = true })
+        end
+
+        -- minuet duet auto trigger (will be implemented some time in the future by upstream)
+        local _duet_timer = nil
+
+        vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
+            group = vim.api.nvim_create_augroup("minuet-duet-auto-trigger", { clear = true }),
+            callback = function(args)
+                if _duet_timer and not _duet_timer:is_closing() then
+                    _duet_timer:stop()
+                    _duet_timer:close()
+                    _duet_timer = nil
+                end
+
+                _duet_timer = vim.defer_fn(function()
+                    _duet_timer = nil
+
+                    if vim.api.nvim_get_current_buf() ~= args.buf then
+                        return
+                    end
+
+                    if not vim.bo.modifiable or vim.bo.buftype ~= "" then
+                        return
+                    end
+
+                    if vim.fn.pumvisible() == 1 then
+                        return
+                    end
+
+                    local ok_cmp, cmp_mod = pcall(require, "cmp")
+                    if ok_cmp then
+                        local ok_visible, menu_visible = pcall(function()
+                            return cmp_mod.core.view:visible()
+                        end)
+                        if ok_visible and menu_visible then
+                            return
+                        end
+                    end
+
+                    local ok_duet_inner, duet = pcall(require, "minuet.duet")
+                    if not ok_duet_inner then
+                        return
+                    end
+
+                    -- a preview is already waiting for accept or dismiss
+                    if duet.action.is_visible() then
+                        return
+                    end
+
+                    duet.action.predict()
+                end, 1500)
+            end,
         })
     end
 end

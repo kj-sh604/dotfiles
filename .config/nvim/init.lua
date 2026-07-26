@@ -1,7 +1,6 @@
 -- plugins
 vim.cmd [[
 	call plug#begin()
-	" Plug 'github/copilot.vim'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-path'
@@ -476,9 +475,11 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                     openai_compatible = {
                         api_key = _minuet_api_key,
                         end_point = "https://openrouter.ai/api/v1/chat/completions",
-                        model = "qwen/qwen3-coder",
+                        model = "qwen/qwen3-coder-next",
                         name = "Openrouter",
                         optional = {
+                            min_tokens = 1,
+                            max_tokens = 768,
                             provider = {
                                 sort = "throughput",
                             },
@@ -499,7 +500,7 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                     name = "Openrouter",
                     optional = {
                         min_tokens = 1,
-                        max_tokens = 128,
+                        max_tokens = 512,
                         top_p = 0.9,
                         provider = {
                             sort = "throughput",

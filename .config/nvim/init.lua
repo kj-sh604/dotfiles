@@ -384,10 +384,7 @@ if ok_cmp then
         mapping = cmp.mapping.preset.insert({
             ["<Tab>"] = cmp.mapping(function(fallback)
                 local minuet_ok, minuet = pcall(require, "minuet.virtualtext")
-                local duet_ok, duet = pcall(require, "minuet.duet")
-                if duet_ok and duet.action.is_visible() then
-                    duet.action.apply()
-                elseif minuet_ok and minuet.action.is_visible() then
+                if minuet_ok and minuet.action.is_visible() then
                     minuet.action.accept()
                 elseif cmp.visible() then
                     cmp.select_next_item()
@@ -446,8 +443,22 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             end
         end)()
 
+        local _duet_vt_quiet = false
+
         minuet.setup({
             provider = "openai_compatible",
+            enable_predicates = {
+                function()
+                    if _duet_vt_quiet then
+                        return false
+                    end
+                    local ok_duet_pred, duet_pred = pcall(require, "minuet.duet")
+                    if ok_duet_pred and duet_pred.action.is_visible() then
+                        return false
+                    end
+                    return true
+                end,
+            },
             virtualtext = {
                 auto_trigger_ft = { "*" },
                 keymap = {
@@ -465,10 +476,9 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                     openai_compatible = {
                         api_key = _minuet_api_key,
                         end_point = "https://openrouter.ai/api/v1/chat/completions",
-                        model = "google/gemini-3.1-flash-lite",
+                        model = "qwen/qwen3-coder",
                         name = "Openrouter",
                         optional = {
-                            reasoning_effort = "none",
                             provider = {
                                 sort = "throughput",
                             },
@@ -501,6 +511,8 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
         })
 
         -- minuet duet keymaps
+        -- duet         = normal mode
+        -- virtual text = insert mode with <A-p> manual trigger
         local ok_vt, minuet_vt = pcall(require, "minuet.virtualtext")
         local ok_duet, minuet_duet = pcall(require, "minuet.duet")
 
@@ -508,28 +520,14 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             local vt_action = minuet_vt.action
             local duet_action = minuet_duet.action
 
-            local function duet_accept_or(vt_fn)
-                return function()
-                    if duet_action.is_visible() then
-                        duet_action.apply()
-                    else
-                        vt_fn()
-                    end
-                end
-            end
-
-            keymap("i", "<A-CR>", duet_accept_or(vt_action.accept), { noremap = true, silent = true })
-            keymap("i", "<A-a>", duet_accept_or(vt_action.accept_line), { noremap = true, silent = true })
-            keymap("i", "<A-S-CR>", duet_accept_or(vt_action.accept_n_lines), { noremap = true, silent = true })
-            keymap("i", "<A-BS>", function()
-                if duet_action.is_visible() then
-                    duet_action.dismiss()
-                else
-                    vt_action.dismiss()
-                end
+            keymap("i", "<A-p>", function()
+                vt_action.dismiss()
+                _duet_vt_quiet = true
+                duet_action.predict()
             end, { noremap = true, silent = true })
 
-            -- normal mode twins, previews also appear after non insert edits
+            keymap("n", "<A-p>", duet_action.predict, { noremap = true, silent = true })
+
             local function duet_only(fn)
                 return function()
                     if duet_action.is_visible() then
@@ -542,13 +540,22 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             keymap("n", "<A-a>", duet_only(duet_action.apply), { noremap = true, silent = true })
             keymap("n", "<A-S-CR>", duet_only(duet_action.apply), { noremap = true, silent = true })
             keymap("n", "<A-BS>", duet_only(duet_action.dismiss), { noremap = true, silent = true })
+
+            -- natural <Esc> handling for minuet predictions and suggestions
+            local function esc_dismiss()
+                duet_action.dismiss()
+                return "<Esc>"
+            end
+            keymap("n", "<Esc>", esc_dismiss, { noremap = true, expr = true, silent = true })
+            keymap("v", "<Esc>", esc_dismiss, { noremap = true, expr = true, silent = true })
         end
 
         -- minuet duet auto trigger (will be implemented some time in the future by upstream)
         local _duet_timer = nil
+        local _duet_group = vim.api.nvim_create_augroup("minuet-duet-auto-trigger", { clear = true })
 
-        vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
-            group = vim.api.nvim_create_augroup("minuet-duet-auto-trigger", { clear = true }),
+        vim.api.nvim_create_autocmd("TextChanged", {
+            group = _duet_group,
             callback = function(args)
                 if _duet_timer and not _duet_timer:is_closing() then
                     _duet_timer:stop()
@@ -563,22 +570,12 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                         return
                     end
 
+                    if not vim.fn.mode():match("^n") then
+                        return
+                    end
+
                     if not vim.bo.modifiable or vim.bo.buftype ~= "" then
                         return
-                    end
-
-                    if vim.fn.pumvisible() == 1 then
-                        return
-                    end
-
-                    local ok_cmp, cmp_mod = pcall(require, "cmp")
-                    if ok_cmp then
-                        local ok_visible, menu_visible = pcall(function()
-                            return cmp_mod.core.view:visible()
-                        end)
-                        if ok_visible and menu_visible then
-                            return
-                        end
                     end
 
                     local ok_duet_inner, duet = pcall(require, "minuet.duet")
@@ -586,13 +583,32 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                         return
                     end
 
-                    -- a preview is already waiting for accept or dismiss
+                    -- state: duet preview is already waiting for action
                     if duet.action.is_visible() then
                         return
                     end
 
                     duet.action.predict()
-                end, 1500)
+                end, 768)
+            end,
+        })
+
+        -- virtual text persists until fresh input or mode change
+        vim.api.nvim_create_autocmd({ "TextChangedI", "InsertLeave" }, {
+            group = _duet_group,
+            callback = function()
+                _duet_vt_quiet = false
+            end,
+        })
+
+        -- leaving insert mode cancels any duet prediction or preview
+        vim.api.nvim_create_autocmd("InsertLeave", {
+            group = _duet_group,
+            callback = function()
+                local ok_duet_leave, duet_leave = pcall(require, "minuet.duet")
+                if ok_duet_leave then
+                    duet_leave.action.dismiss()
+                end
             end,
         })
     end

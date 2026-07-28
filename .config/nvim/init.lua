@@ -30,7 +30,7 @@ vim.g.pear_tree_ft_disabled = { "TelescopePrompt", "TelescopeResults" }
 
 -- options
 local opts = {
-    autochdir = true,
+    autochdir = false,
     autoindent = true,
     autoread = true,
     backup = false,

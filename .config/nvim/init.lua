@@ -474,6 +474,9 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                 non_editable_region = {
                     context_window = 65536,
                 },
+                preview = {
+                    cursor = ">>"
+                },
                 provider_options = {
                     openai_compatible = {
                         api_key = _minuet_api_key,

@@ -481,7 +481,7 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                     openai_compatible = {
                         api_key = _minuet_api_key,
                         end_point = "https://openrouter.ai/api/v1/chat/completions",
-                        model = "qwen/qwen3-coder-next",
+                        model = "anthropic/claude-haiku-4.5",
                         name = "Openrouter",
                         optional = {
                             min_tokens = 1,
@@ -502,7 +502,7 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                 openai_compatible = {
                     api_key = _minuet_api_key,
                     end_point = "https://openrouter.ai/api/v1/chat/completions",
-                    model = "mistralai/codestral-2508",
+                    model = "anthropic/claude-haiku-4.5",
                     name = "Openrouter",
                     optional = {
                         min_tokens = 1,

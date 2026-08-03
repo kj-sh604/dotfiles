@@ -128,7 +128,7 @@ keymap("n", "<A-w>", ":close<CR>", { noremap = true, silent = true })
 keymap("n", "<A-n>", ":enew<CR>", { noremap = true, silent = true })
 
 -- trick to close current buffer with a keymap
-keymap("n", "<S-A-w>", ":bprevious | bdelete #<CR>", { noremap = true, silent = true })
+keymap("n", "<S-A-w>", ":bprevious | bdelete! #<CR>", { noremap = true, silent = true })
 
 keymap("n", "<A-z>", "ZZ", { noremap = true })
 

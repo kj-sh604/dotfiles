@@ -706,6 +706,29 @@ if _mkdp and vim.fn.isdirectory(_mkdp.dir) == 1 then
     vim.g.mkdp_refresh_slow = 0
     vim.g.mkdp_command_for_global = 0
     vim.g.mkdp_open_to_the_world = 0
+    vim.g.mkdp_markdown_css = vim.fn.stdpath("config") .. "/markdown-preview.css"
+
+    -- prefer chrome/chromium for the preview, fall back to the system browser
+    vim.cmd([[
+function! OpenMarkdownPreview(url) abort
+  for l:cmd in ['google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser']
+    if executable(l:cmd)
+      call jobstart([l:cmd, a:url], {'detach': v:true})
+      return
+    endif
+  endfor
+  if has('macunix') && isdirectory('/Applications/Google Chrome.app')
+    call jobstart(['open', '-a', 'Google Chrome', a:url], {'detach': v:true})
+  elseif has('macunix')
+    call jobstart(['open', a:url], {'detach': v:true})
+  elseif has('win32') || has('win64')
+    call jobstart(['cmd.exe', '/c', 'start', '""', a:url], {'detach': v:true})
+  else
+    call jobstart(['xdg-open', a:url], {'detach': v:true})
+  endif
+endfunction
+    ]])
+    vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
 
     -- plugin commands only exist in markdown buffers, so keymaps must be set per buffer
     local mkdp_group = vim.api.nvim_create_augroup("user-mkdp-keys", { clear = true })
@@ -720,3 +743,11 @@ if _mkdp and vim.fn.isdirectory(_mkdp.dir) == 1 then
         end,
     })
 end
+
+-- filetype aliases
+vim.filetype.add({
+    extension = {
+        tfvars = "conf",
+        tftpl = "yaml",
+    },
+})

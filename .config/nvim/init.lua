@@ -5,7 +5,7 @@ pcall(vim.cmd, [[
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-path'
 	Plug 'hrsh7th/nvim-cmp'
-	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install', 'for': ['markdown', 'vim-plug'] }
 	Plug 'https://github.com/adelarsq/vim-matchit'
 	Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 	Plug 'j-hui/fidget.nvim'

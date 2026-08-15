@@ -478,4 +478,9 @@
   .markdown-body h5 code {
     font-size: 0.8em;     /* em on purpose: scales with the heading */
   }
+
+  .markdown-body kbd {
+    font-size: 0.9rem;    /* 10.8px, matches the package key size */
+    line-height: 1.6;     /* stock 10px line height would squash it, package inherits body lh */
+  }
 }

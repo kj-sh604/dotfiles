@@ -5,6 +5,7 @@ pcall(vim.cmd, [[
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-path'
 	Plug 'hrsh7th/nvim-cmp'
+	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 	Plug 'https://github.com/adelarsq/vim-matchit'
 	Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 	Plug 'j-hui/fidget.nvim'
@@ -695,4 +696,27 @@ vim.ui.input = function(opts, on_confirm)
     else
         _original_ui_input(opts, on_confirm)
     end
+end
+
+-- markdown preview
+local _mkdp = vim.g.plugs and vim.g.plugs["markdown-preview.nvim"]
+if _mkdp and vim.fn.isdirectory(_mkdp.dir) == 1 then
+    vim.g.mkdp_auto_start = 0
+    vim.g.mkdp_auto_close = 1
+    vim.g.mkdp_refresh_slow = 0
+    vim.g.mkdp_command_for_global = 0
+    vim.g.mkdp_open_to_the_world = 0
+
+    -- plugin commands only exist in markdown buffers, so keymaps must be set per buffer
+    local mkdp_group = vim.api.nvim_create_augroup("user-mkdp-keys", { clear = true })
+    vim.api.nvim_create_autocmd("FileType", {
+        group = mkdp_group,
+        pattern = "markdown",
+        callback = function(event)
+            local buf_opts = { buffer = event.buf, noremap = true, silent = true }
+            keymap("n", "<leader>mdp", ":MarkdownPreview<CR>", buf_opts)
+            keymap("n", "<leader>mdt", ":MarkdownPreviewToggle<CR>", buf_opts)
+            keymap("n", "<leader>mds", ":MarkdownPreviewStop<CR>", buf_opts)
+        end,
+    })
 end

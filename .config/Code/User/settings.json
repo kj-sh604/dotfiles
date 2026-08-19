@@ -259,7 +259,7 @@
         { "before": ["K"], "commands": ["editor.action.showHover"] },
         { "before": ["\\", "f", "f"], "commands": ["workbench.action.quickOpen"] },
         { "before": ["\\", "f", "g"], "commands": ["workbench.view.search.focus"] },
-        { "before": ["\\", "f", "b"], "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditor"] },
+        { "before": ["\\", "f", "b"], "commands": ["workbench.action.showAllEditors"] },
         { "before": ["\\", "f", "j"], "commands": [{"command": "vim.remap", "args": {"commands": [{ "command": ":jumps" }]}}] },
         { "before": ["\\", "e"], "commands": ["workbench.action.problems.focus"] },
         { "before": ["\\", "F"], "commands": ["editor.action.formatDocument"] },

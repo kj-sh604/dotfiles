@@ -27,6 +27,7 @@ pcall(vim.cmd, [[
 ]])
 
 vim.g.NERDTreeShowHidden = 1
+vim.g.NERDTreeCascadeSingleChildDir = 0
 vim.g.pear_tree_ft_disabled = { "TelescopePrompt", "TelescopeResults" }
 
 -- options
@@ -240,7 +241,6 @@ if tele_ok then
     keymap("n", "<leader>fb", function()
         builtin.buffers({
             prompt_prefix = " search:  ",
-            initial_mode  = "normal"
         })
     end, {})
 

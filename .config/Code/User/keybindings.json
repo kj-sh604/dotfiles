@@ -151,7 +151,7 @@
     },
     {
         "key": "\\ f b",
-        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
+        "command": "workbench.action.showAllEditors",
         "when": "!editorTextFocus && !terminalFocus && !textInputFocus"
     },
     {

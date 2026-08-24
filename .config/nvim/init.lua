@@ -443,6 +443,11 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             end
         end)()
 
+        -- no minuet auto triggers in /dev/shm
+        local function _in_shm(bufnr)
+            return vim.api.nvim_buf_get_name(bufnr or 0):match("^/dev/shm/") ~= nil
+        end
+
         local _duet_vt_quiet = false
 
         minuet.setup({
@@ -458,6 +463,9 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
                     end
                     return true
                 end,
+                function()
+                    return not _in_shm()
+                end,
             },
             virtualtext = {
                 auto_trigger_ft = { "*" },
@@ -472,6 +480,25 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             },
             duet = {
                 provider = "openai_compatible",
+                auto_trigger = {
+                    auto_trigger_ft = { "*" },
+                    enable_predicates = {
+                        function()
+                            return not _in_shm()
+                        end,
+                        -- duet auto trigger stays only in normal mode
+                        function()
+                            return vim.fn.mode():match("^n") ~= nil
+                        end,
+                    },
+                },
+                recent_edits = {
+                    enable_predicates = {
+                        function(bufnr)
+                            return not _in_shm(bufnr)
+                        end,
+                    },
+                },
                 non_editable_region = {
                     context_window = 65536,
                 },
@@ -518,18 +545,12 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             },
         })
 
-        -- minuet duet state check for auto triggers (so it doesn't keep attempting when it's unrealistic)
-        local _duet_last_predict = nil
-
+        -- minuet duet manual trigger
         local function _duet_predict()
             local ok_duet_fn, duet_fn = pcall(require, "minuet.duet")
             if not ok_duet_fn then
                 return
             end
-
-            local bufnr = vim.api.nvim_get_current_buf()
-            local pos = vim.api.nvim_win_get_cursor(0)
-            _duet_last_predict = { buf = bufnr, tick = vim.b.changedtick, row = pos[1], col = pos[2] }
 
             duet_fn.action.predict()
         end
@@ -574,82 +595,8 @@ if vim.fn.filereadable(_mkey) == 1 and vim.fn.filereadable(_ukey) == 1 then
             keymap("v", "<Esc>", esc_dismiss, { noremap = true, expr = true, silent = true })
         end
 
-        -- minuet duet auto trigger (will be implemented some time in the future by upstream)
-        local _duet_timer = nil
-        local _duet_idle_timer = nil
+        -- minuet duet auto-trigger
         local _duet_group = vim.api.nvim_create_augroup("minuet-duet-auto-trigger", { clear = true })
-
-        local function _duet_cancel_timer(t)
-            if t and not t:is_closing() then
-                t:stop()
-                t:close()
-            end
-        end
-
-        local function _duet_auto_predict()
-            if not vim.fn.mode():match("^n") then
-                return
-            end
-
-            if not vim.bo.modifiable or vim.bo.buftype ~= "" then
-                return
-            end
-
-            local ok_duet_inner, duet = pcall(require, "minuet.duet")
-            if not ok_duet_inner then
-                return
-            end
-
-            -- state: duet preview is already waiting for action
-            if duet.action.is_visible() then
-                return
-            end
-
-            -- a dismissed preview stays dismissed until the cursor moves or the text changes
-            local bufnr = vim.api.nvim_get_current_buf()
-            local pos = vim.api.nvim_win_get_cursor(0)
-            local tick = vim.b.changedtick
-            local last = _duet_last_predict
-            if last and last.buf == bufnr and last.tick == tick and last.row == pos[1] and last.col == pos[2] then
-                return
-            end
-
-            _duet_predict()
-        end
-
-        vim.api.nvim_create_autocmd("TextChanged", {
-            group = _duet_group,
-            callback = function(args)
-                _duet_cancel_timer(_duet_timer)
-                _duet_timer = nil
-
-                _duet_timer = vim.defer_fn(function()
-                    _duet_timer = nil
-
-                    if vim.api.nvim_get_current_buf() ~= args.buf then
-                        return
-                    end
-
-                    _duet_auto_predict()
-                end, 768)
-            end,
-        })
-
-        vim.api.nvim_create_autocmd({
-            "CursorMoved", "CursorMovedI", "TextChanged", "TextChangedI",
-            "InsertEnter", "InsertLeave", "BufEnter",
-        }, {
-            group = _duet_group,
-            callback = function()
-                _duet_cancel_timer(_duet_idle_timer)
-                _duet_idle_timer = nil
-
-                _duet_idle_timer = vim.defer_fn(function()
-                    _duet_idle_timer = nil
-                    _duet_auto_predict()
-                end, 1024)
-            end,
-        })
 
         -- virtual text persists until fresh input or mode change
         vim.api.nvim_create_autocmd({ "TextChangedI", "InsertLeave" }, {

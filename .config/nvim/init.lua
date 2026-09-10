@@ -7,7 +7,6 @@ pcall(vim.cmd, [[
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install', 'for': ['markdown', 'vim-plug'] }
 	Plug 'https://github.com/adelarsq/vim-matchit'
-	Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 	Plug 'j-hui/fidget.nvim'
 	Plug 'junegunn/fzf'
 	Plug 'milanglacier/minuet-ai.nvim'
@@ -26,8 +25,16 @@ pcall(vim.cmd, [[
 	call plug#end()
 ]])
 
-vim.g.NERDTreeShowHidden = 1
-vim.g.NERDTreeCascadeSingleChildDir = 0
+-- netrw init (a little unorganized, but this needs to stay up here)
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 0 -- it seems like 3 is the most nerdtree like, but it's clunky af, will stick with the intended default (0)
+vim.g.netrw_browse_split = 0
+vim.g.netrw_altv = 1
+vim.g.netrw_alto = 1
+vim.g.netrw_winsize = -32
+vim.g.netrw_keepdir = 1
+vim.g.netrw_hide = 0
+vim.g.netrw_preview = 1
 vim.g.pear_tree_ft_disabled = { "TelescopePrompt", "TelescopeResults" }
 
 -- options
@@ -102,6 +109,37 @@ toggle_terminal = function()
     term_buf = vim.api.nvim_get_current_buf()
 end
 
+-- netrw drawer
+local function lex_toggle()
+    vim.cmd("Lexplore")
+end
+
+local function lex_reveal()
+    if vim.fn.expand("%:p") == "" then
+        vim.cmd("Lexplore")
+        return
+    end
+    vim.cmd("Lexplore " .. vim.fn.fnameescape(vim.fn.expand("%:p:h")))
+    vim.fn.search("\\<" .. vim.fn.escape(vim.fn.expand("%:t"), "\\") .. "\\>")
+end
+
+local function lex_focus()
+    local found = nil
+    for _, w in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+        if vim.bo[vim.api.nvim_win_get_buf(w)].filetype == "netrw" then
+            found = w
+            break
+        end
+    end
+    if vim.bo.filetype == "netrw" then
+        vim.cmd("wincmd p")
+    elseif found then
+        vim.api.nvim_set_current_win(found)
+    else
+        vim.cmd("Lexplore")
+    end
+end
+
 -- custom keymaps
 local keymap = vim.keymap.set
 
@@ -114,10 +152,45 @@ keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 keymap("n", "n", "nzzzv", { noremap = true })
 keymap("n", "N", "Nzzzv", { noremap = true })
 
-keymap("n", "<S-A-b>h", ":NERDTreeToggle<CR>", { noremap = true })
-keymap("n", "<S-A-b><S-A-h>", ":NERDTreeToggle<CR>", { noremap = true })
-keymap("n", "<S-A-b>H", ":NERDTree<CR>", { noremap = true })
-keymap("n", "<S-A-n>", ":NERDTree<CR>", { noremap = true })
+keymap("n", "<S-A-b>h", function() lex_toggle() end, { noremap = true })
+keymap("n", "<S-A-b><S-A-h>", function() lex_focus() end, { noremap = true })
+keymap("n", "<S-A-b>H", function() lex_reveal() end, { noremap = true })
+keymap("n", "<S-A-n>", function() lex_reveal() end, { noremap = true })
+
+-- netrw keymaps init
+local netrw_group = vim.api.nvim_create_augroup("user-netrw-keys", { clear = true })
+
+-- pwd label for netrw
+function _G.netrw_winbar_dir()
+    local win = vim.g.statusline_winid or 0
+    local buf = (win ~= 0 and vim.api.nvim_win_is_valid(win)) and vim.api.nvim_win_get_buf(win) or 0
+    local ok, cur = pcall(vim.api.nvim_buf_get_var, buf, "netrw_curdir")
+    local d = vim.fn.fnamemodify(ok and cur or vim.fn.getcwd(), ":p"):gsub("/+$", "")
+    return d:match("[^/]+$") or "/"
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = netrw_group,
+    pattern = "netrw",
+    callback = function(event)
+        local bopts = { buffer = event.buf, noremap = true, silent = true }
+        vim.wo.winbar = "%#Directory# %{v:lua.netrw_winbar_dir()}"
+        keymap("n", "q", ":Lexplore<CR>", bopts)
+        keymap("n", "?", ":help netrw-quickhelp<CR>", bopts)
+        keymap("n", "<S-A-b>h", ":Lexplore<CR>", bopts)
+        keymap("n", "<S-A-b><S-A-h>", ":Lexplore<CR>", bopts)
+    end,
+})
+
+-- close vi when netrw is only window
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = netrw_group,
+    callback = function()
+        if vim.fn.tabpagenr("$") == 1 and vim.fn.winnr("$") == 1 and vim.bo.filetype == "netrw" then
+            vim.cmd("quit")
+        end
+    end,
+})
 keymap({ "n", "t" }, "<S-A-j>", "<C-\\><C-n><C-W>w", { noremap = true })
 keymap({ "n", "t" }, "<S-A-k>", "<C-\\><C-n><C-W>W", { noremap = true })
 keymap({ "n", "t" }, "<S-A-b>j", function() toggle_terminal() end, { noremap = true })
@@ -222,38 +295,64 @@ vim.o.statusline = table.concat({
 })
 
 -- telescope
+local ok_tele, telescope = pcall(require, "telescope")
+if ok_tele then
+    telescope.setup({
+        defaults = {
+            layout_strategy = "bottom_pane",
+            layout_config = { height = 15, prompt_position = "bottom", bottom_pane = { preview_cutoff = 1 } },
+            border = false,
+            results_title = false,
+            prompt_title = false,
+            preview = {
+                hide_on_startup = true,
+                treesitter = false,
+                filesize_limit = 1,
+                highlight_limit = 1,
+                timeout = 250,
+                msg_bg_fillchar = " ",
+            },
+            color_devicons = false,
+            mappings = {
+                i = { ["<A-v>"] = require("telescope.actions.layout").toggle_preview },
+                n = { ["<A-v>"] = require("telescope.actions.layout").toggle_preview },
+            },
+        },
+        pickers = {
+            find_files = { preview_title = false, disable_devicons = true },
+            live_grep = { preview_title = false, disable_devicons = true },
+            buffers = { preview_title = false, disable_devicons = true, sort_lastused = true },
+            jumplist = { preview_title = false },
+            help_tags = { preview_title = false },
+        },
+    })
+    pcall(telescope.load_extension, "fzf")
+end
+
 local tele_ok, builtin = pcall(require, "telescope.builtin")
 if tele_ok then
     keymap("n", "<leader>fg", function()
         builtin.live_grep({
             find_command = { "rg", "--ignore", "--hidden", "--files" },
-            prompt_prefix = " search:  ",
         })
     end, {})
 
     keymap("n", "<leader>ff", function()
         builtin.find_files({
             find_command = { "rg", "--ignore", "--hidden", "--files" },
-            prompt_prefix = " search:  ",
         })
     end, {})
 
     keymap("n", "<leader>fb", function()
-        builtin.buffers({
-            prompt_prefix = " search:  ",
-        })
+        builtin.buffers()
     end, {})
 
     keymap("n", "<leader>fj", function()
-        builtin.jumplist({
-            prompt_prefix = " search:  ",
-        })
+        builtin.jumplist()
     end, {})
 
     keymap("n", "<leader>fh", function()
-        builtin.help_tags({
-            prompt_prefix = " search:  ",
-        })
+        builtin.help_tags()
     end, {})
 end
 

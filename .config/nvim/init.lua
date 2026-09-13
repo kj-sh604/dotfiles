@@ -321,7 +321,7 @@ if ok_tele then
         pickers = {
             find_files = { preview_title = false, disable_devicons = true },
             live_grep = { preview_title = false, disable_devicons = true },
-            buffers = { preview_title = false, disable_devicons = true, sort_lastused = true, ignore_current_buffer = true },
+            buffers = { preview_title = false, disable_devicons = true, sort_lastused = true },
             jumplist = { preview_title = false },
             help_tags = { preview_title = false },
         },

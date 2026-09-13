@@ -182,15 +182,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
--- close vi when netrw is only window
-vim.api.nvim_create_autocmd("BufEnter", {
-    group = netrw_group,
-    callback = function()
-        if vim.fn.tabpagenr("$") == 1 and vim.fn.winnr("$") == 1 and vim.bo.filetype == "netrw" then
-            vim.cmd("quit")
-        end
-    end,
-})
 keymap({ "n", "t" }, "<S-A-j>", "<C-\\><C-n><C-W>w", { noremap = true })
 keymap({ "n", "t" }, "<S-A-k>", "<C-\\><C-n><C-W>W", { noremap = true })
 keymap({ "n", "t" }, "<S-A-b>j", function() toggle_terminal() end, { noremap = true })

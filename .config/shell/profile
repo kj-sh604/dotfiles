@@ -27,7 +27,6 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/shell
 
 # X11-dependent env variables
 if [ -n "$DISPLAY" ] && xhost >/dev/null; then
-    setxkbmap -option compose:ralt
     xset r rate 300 50
     export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
     export XPROFILE_X11_SPECIFICS=loaded

@@ -4,22 +4,4 @@
 
 dotfiles are updated when I need to.
 
-
----
-
-personal post-stow symlink thingies that I like:
-
-- ~/.config/shell/profile
-    - ~/.xprofile
-    - ~/.zprofile
-    - ~/.xsessionrc
-
-- ~/.config/chromium-flags.conf
-    - ~/.config/[electron-app-name]-flags.conf
-
-- ~/.local/src/dmenu-adwaita/dmenu
-    - ~/.local/bin/dmenu-adwaita
-
-
-- ~/.local/src/dmenu-dunst/dmenu
-    - ~/.local/bin/dmenu-dunst
+https://kj-clipboard.com/1790567829fb9e408c026becbc9f8739b475cabac30ba3826c

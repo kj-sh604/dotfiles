@@ -15,10 +15,7 @@ personal post-stow symlink thingies that I like:
     - ~/.xsessionrc
 
 - ~/.config/chromium-flags.conf
-    - ~/.config/brave-flags.conf
-    - ~/.config/chrome-flags.conf
-    - ~/.config/electron-flags.conf
-    - ~/.config/helium-browser-flags.conf
+    - ~/.config/[electron-app-name]-flags.conf
 
 - ~/.local/src/dmenu-adwaita/dmenu
     - ~/.local/bin/dmenu-adwaita

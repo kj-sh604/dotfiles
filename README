@@ -3,3 +3,26 @@
 ---
 
 dotfiles are updated when I need to.
+
+
+---
+
+personal post-stow symlink thingies that I like:
+
+- ~/.config/shell/profile
+    - ~/.xprofile
+    - ~/.zprofile
+    - ~/.xsessionrc
+
+- ~/.config/chromium-flags.conf
+    - ~/.config/brave-flags.conf
+    - ~/.config/chrome-flags.conf
+    - ~/.config/electron-flags.conf
+    - ~/.config/helium-browser-flags.conf
+
+- ~/.local/src/dmenu-adwaita/dmenu
+    - ~/.local/bin/dmenu-adwaita
+
+
+- ~/.local/src/dmenu-dunst/dmenu
+    - ~/.local/bin/dmenu-dunst
